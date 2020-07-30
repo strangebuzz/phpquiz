@@ -2,7 +2,8 @@
 EXEC_PHP    = php
 SYMFONY     = $(EXEC_PHP) bin/console
 SYMFONY_BIN = symfony
-DOCKER      = docker-compose
+DOCKER      = docker
+DOCKER_COMP = docker-compose
 YARN        = yarn
 .DEFAULT_GOAL := help
 
@@ -12,15 +13,15 @@ help: ## Outputs this help screen
 
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
 up: docker-compose.yaml ## Start the docker hub (Postgres,adminer)
-	$(DOCKER) -f docker-compose.yaml up -d
+	$(DOCKER_COMP) -f docker-compose.yaml up -d
 
 down: docker-compose.yaml ## Stop the docker hub
-	$(DOCKER) down --remove-orphans
+	$(DOCKER_COMP) down --remove-orphans
 
 dpsn: ## List Docker containers for the project
-	$(DOCKER) images
+	$(DOCKER_COMP) images
 	@echo "--------------------------------------------------------------------------------------------------------------"
-	docker ps -a | grep "phpquiz-"
+	$(DOCKER) ps -a | grep "phpquiz-"
 	@echo "--------------------------------------------------------------------------------------------------------------"
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
@@ -46,7 +47,7 @@ load-fixtures: ## Build the db, control the schema validity, load fixtures and c
 	$(SYMFONY) doctrine:schema:drop --force
 	$(SYMFONY) doctrine:schema:create
 	$(SYMFONY) doctrine:schema:validate
-	#$(SYMFONY) doctrine:fixtures:load -n
+	$(SYMFONY) doctrine:fixtures:load -n
 
 run: up load-fixtures serve ## Start docker, load fixtures and start the web server
 
