@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  # https://hub.docker.com/_/postgres
+  postgres:
+    container_name: phpquiz-postgres
+    image: postgres:11-alpine
+    ports:
+      - "5436:5432" # out/in
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d/
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: phpquiz
+
+  # https://hub.docker.com/_/adminer
+  adminer:
+    image: adminer:4.7
+    container_name: phpquiz-adminer
+    depends_on:
+      - postgres
+    ports:
+      - "8986:8080"
