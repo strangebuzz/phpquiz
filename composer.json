@@ -40,6 +40,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
         "roave/security-advisories": "dev-master",
         "symfony/browser-kit": "^5.1",
         "symfony/css-selector": "^5.1",
