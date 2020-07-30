@@ -46,7 +46,7 @@ load-fixtures: ## Build the db, control the schema validity, load fixtures and c
 	$(SYMFONY) doctrine:schema:drop --force
 	$(SYMFONY) doctrine:schema:create
 	$(SYMFONY) doctrine:schema:validate
-	$(SYMFONY) doctrine:fixtures:load -n
+	#$(SYMFONY) doctrine:fixtures:load -n
 
 run: up load-fixtures serve ## Start docker, load fixtures and start the web server
 
