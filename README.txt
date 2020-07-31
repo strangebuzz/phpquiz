@@ -7,8 +7,7 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Generate a basic question model
-* Generate sample code image with carbon
+* Add basic fixtures
 * Add 10 questions
 * Put the carbon image as the social image
 
@@ -45,6 +44,7 @@ References
 @Ressources
 ————————————————————————————————————————————————————————————————————————————————
 
+* https://carbon.now.sh/
 * About the .xyz TLD: https://en.wikipedia.org/wiki/.xyz
 
 

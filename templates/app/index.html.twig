@@ -8,6 +8,7 @@
     </div>
 
     <div class="content">
+        {# https://twitter.com/FredBouchery/status/1286207296767438848 #}
         <h3>What will be displayed?</h3>
 
         <!--iframe
@@ -51,7 +52,7 @@
         <hr/>
 
         <h3>The answer</h3>
-        <!-- https://twitter.com/FredBouchery/status/1287693735950782465 -->
+        <!-- https://twitter.com/FredBouchery/status/1286207302018699264 -->
 
         <details>
             <summary>Click here to see the answer</summary>
@@ -64,13 +65,19 @@
         <span class="size-60">▶&nbsp;</span> <a target="_blank" href="https://3v4l.org/pQOMe"> Click here to run this code on 3v4l.org</a>
 
         <details>
-            <summary>Click here to see the twitter poll</summary>
-            <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/PHP?src=hash&amp;ref_src=twsrc%5Etfw">#PHP</a> namespaces can contain space characters, but they can&#39;t begin with a backslash. The right answer was &quot;A&quot; (13% of voters) <a href="https://t.co/n8PkSUdghp">https://t.co/n8PkSUdghp</a></p>&mdash; Frédéric Bouchery (@FredBouchery) <a href="https://twitter.com/FredBouchery/status/1287693735950782465?ref_src=twsrc%5Etfw">July 27, 2020</a></blockquote>
+            <summary>Click here to see the Twitter poll</summary>
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Answer to previous tweet:<br><br>A/ Fatal error: Uncaught Error: Undefined constant &#39;Foo\Bar&#39;<br><br>B/ Parse error: syntax error, unexpected &#39;\&#39; (T_NS_SEPARATOR)<br><br>C/ Foo\Bar\A<br><br>D/ Foo\Bar\B</p>&mdash; Frédéric Bouchery (@FredBouchery) <a href="https://twitter.com/FredBouchery/status/1286207302018699264?ref_src=twsrc%5Etfw">July 23, 2020</a></blockquote>
         </details>
 
         <details>
-            <summary>Click here to see differences between PHP versions</summary>
-            <p>As I am writing this quiz, there a slight difference between PHP 8 </p>
+            <summary>Click here to see output differences between PHP versions</summary>
+            <p>
+                As I am writing this quiz (2020-07-31), there a slight difference
+                between all versions and PHP 8.0.0alpha3:<br/>
+                With this last version, the exception message "Foo\Bar" is wrapped
+                by double quotes instead of single quotes for other versions
+                ('Foo\Bar'). 🤔
+            </p>
         </details>
 
         <br/>
@@ -79,7 +86,7 @@
         <h3>Going further...</h3>
 
         <ul>
-            <li><a target="_blank" href="https://www.php.net/manual/en/language.namespaces.definition.php"> Read the namespace documentation</a></li>
+            <li><a target="_blank" href="https://www.php.net/manual/en/language.namespaces.definition.php">&raquo; Read the namespace documentation</a></li>
         </ul>
     </div>
 {% endblock %}
