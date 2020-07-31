@@ -20,25 +20,12 @@
             <fieldset>
                 <legend>Select your answer</legend>
 
-                <label class="pure-radio" for="answer_a">
-                    <input name="answer" id="answer_a" type="radio" value="a" />
-                    <b>A</b>: Fatal error: Uncaught Error: Undefined constant 'Foo\Bar'
-                </label>
-
-                <label class="pure-radio" for="answer_b">
-                    <input name="answer" id="answer_b" type="radio" value="b" />
-                    <b>B</b>: Parse error: syntax error, unexpected '\' (T_NS_SEPARATOR)
-                </label>
-
-                <label class="pure-radio" for="answer_c">
-                    <input name="answer" id="answer_c" type="radio" value="c"/>
-                    <b>C</b>: Foo\Bar\A
-                </label>
-
-                <label class="pure-radio" for="answer_d">
-                    <input name="answer" id="answer_d" type="radio" value="d" />
-                    <b>D</b>: Foo\Bar\B
-                </label>
+                {% for answer in question.answers %}
+                    <label class="pure-radio" for="answer_{{ answer.code|lower }}">
+                        <input name="answer" id="answer_a" type="radio" value="{{ answer.code|lower }}" />
+                        <b>{{ answer.code|upper }}</b>: {{ answer.label|raw }}
+                    </label>
+                {% endfor %}
 
                 <p class="center">
                     <button type="submit" class="pure-button button-success button-xlarge">Validate</button>
