@@ -53,6 +53,15 @@ class Question
      */
     private $liveSnippetUrl;
 
+    /**
+     * The poll results on Twitter.
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @example https://twitter.com/FredBouchery/status/1286207302018699264
+     */
+    private $twitterPollUrl;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +111,18 @@ class Question
     public function setLiveSnippetUrl(string $liveSnippetUrl): self
     {
         $this->liveSnippetUrl = $liveSnippetUrl;
+
+        return $this;
+    }
+
+    public function getTwitterPollUrl(): ?string
+    {
+        return $this->twitterPollUrl;
+    }
+
+    public function setTwitterPollUrl(?string $twitterPollUrl): self
+    {
+        $this->twitterPollUrl = $twitterPollUrl;
 
         return $this;
     }
