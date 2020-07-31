@@ -5,6 +5,7 @@ SYMFONY_BIN = symfony
 DOCKER      = docker
 DOCKER_COMP = docker-compose
 YARN        = yarn
+STAN        = ./vendor/bin/phpstan
 .DEFAULT_GOAL := help
 
 ## —— 🐘 PhpQuiz Make file 🐘 ——————————————————————————————————————————————————
@@ -63,3 +64,7 @@ watch: ## Watch files and build assets when needed for the dev env
 
 build: ## Build assets for production
 	$(YARN) run encore production
+
+## —— Coding standards ✨ ——————————————————————————————————————————————————————
+cs: ## Run PHPStan
+	$(STAN) analyse -l max -c phpstan.neon src/
