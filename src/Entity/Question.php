@@ -15,7 +15,7 @@ class Question
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected ?int $id;
 
     /**
      * Just a sentence to introduce the code.
@@ -24,7 +24,7 @@ class Question
      *
      * @ORM\Column(type="string", length=255)
      */
-    private $label;
+    protected ?string $label;
 
     /**
      * The carbon image URL that was generated for Twitter.
@@ -33,16 +33,17 @@ class Question
      *
      * @ORM\Column(type="string", length=255)
      */
-    private $codeImage;
+    protected ?string $codeImage;
 
     /**
      * Some explanations about the correct answer.
      *
      * @ORM\Column(type="string", length=255)
      *
-     * @example PHP namespaces can contain space characters, but they can't begin with a backslash. The right answer was "A"
+     * @example PHP namespaces can contain space characters, but they can't begin
+     *          with a backslash. The right answer was "A"
      */
-    private $answerExplanation;
+    protected ?string $answerExplanation;
 
     /**
      * The testable snippet on the 3v4l.org website.
@@ -51,7 +52,7 @@ class Question
      *
      * @example https://3v4l.org/pQOMe
      */
-    private $liveSnippetUrl;
+    protected ?string $liveSnippetUrl;
 
     /**
      * The poll results on Twitter.
@@ -60,7 +61,18 @@ class Question
      *
      * @example https://twitter.com/FredBouchery/status/1286207302018699264
      */
-    private $twitterPollUrl;
+    protected ?string $twitterPollUrl;
+
+    /**
+     * Additional notes if there is something to notice about the output between
+     * version in the cases there would be differences.
+     *
+     * @ORM\Column(type="text", nullable=true)
+     *
+     * @example With this last version, the exception message "Foo\Bar" is wrapped
+     *          by double quotes instead of single quotes for other versions.
+     */
+    protected ?string $differencesOutputNotes;
 
     public function getId(): ?int
     {
@@ -123,6 +135,18 @@ class Question
     public function setTwitterPollUrl(?string $twitterPollUrl): self
     {
         $this->twitterPollUrl = $twitterPollUrl;
+
+        return $this;
+    }
+
+    public function getDifferencesOutputNotes(): ?string
+    {
+        return $this->differencesOutputNotes;
+    }
+
+    public function setDifferencesOutputNotes(?string $differencesOutputNotes): self
+    {
+        $this->differencesOutputNotes = $differencesOutputNotes;
 
         return $this;
     }
