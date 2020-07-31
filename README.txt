@@ -10,6 +10,7 @@
 * Generate a basic question model
 * Generate sample code image with carbon
 * Add 10 questions
+* Put the carbon image as the social image
 
 
 @Bugs
@@ -18,8 +19,11 @@
 * The carbon iFrame code is not displayed on mobile
 
 
-@Ideas
+@Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
+
+* OK to use the carbon Twitter image or host it?
+* Create a timed quiz
 
 
 @Infra

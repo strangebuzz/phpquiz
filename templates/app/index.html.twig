@@ -1,23 +1,22 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello AppController!{% endblock %}
+{% block title %}Quiz n°1: Answer the following question | PHPQuiz{% endblock %}
 
 {% block body %}
     <div class="header">
-        <h1>PHP Quiz</h1>
-        <h2>Quiz n°1: Answer the following question</h2>
+        <h1>Quiz n°1: Answer the following question</h1>
     </div>
 
     <div class="content">
         <h3>What will be displayed?</h3>
 
-        <iframe
+        <!--iframe
           src="https://carbon.now.sh/embed?bg=rgba(171%2C%20184%2C%20195%2C%201)&t=seti&wt=none&l=text%2Fx-php&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=namespace%2520Foo%2520%255CBar%253B%250A%250Aclass%2520A%2520%257B%250A%2520%2520%2520%2520static%2520public%2520function%2520show()%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520echo%2520static%253A%253Aclass%253B%250A%2520%2520%2520%2520%257D%250A%257D%250A%250Aclass%2520B%2520extends%2520A%2520%257B%257D%250A%250AB%253A%253Ashow()%253B%250A"
           style="width: 1024px; height: 473px; border:0; transform: scale(1); overflow:hidden;"
           sandbox="allow-scripts allow-same-origin">
-        </iframe>
+        </iframe-->
 
-        <hr/>
+        <img class="pure-img" src="https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small" alt="PHP Quiz n°1"/>
 
         <h3>Select your answer:</h3>
 
@@ -25,25 +24,27 @@
             <fieldset>
                 <label class="pure-radio" for="answer_a">
                     <input name="answer" id="answer_a" type="radio" value="a" />
-                    Fatal error: Uncaught Error: Undefined constant 'Foo\Bar'
+                    <b>A</b>: Fatal error: Uncaught Error: Undefined constant 'Foo\Bar'
                 </label>
 
                 <label class="pure-radio" for="answer_b">
                     <input name="answer" id="answer_b" type="radio" value="b" />
-                    Parse error: syntax error, unexpected '\' (T_NS_SEPARATOR)
+                    <b>B</b>: Parse error: syntax error, unexpected '\' (T_NS_SEPARATOR)
                 </label>
 
                 <label class="pure-radio" for="answer_c">
                     <input name="answer" id="answer_c" type="radio" value="c"/>
-                    Foo\Bar\A
+                    <b>C</b>: Foo\Bar\A
                 </label>
 
                 <label class="pure-radio" for="answer_d">
                     <input name="answer" id="answer_d" type="radio" value="d" />
-                    Foo\Bar\B
+                    <b>D</b>: Foo\Bar\B
                 </label>
 
-                <button type="submit" class="pure-button pure-button-primary">Validate</button>
+                <p class="center">
+                    <button type="submit" class="pure-button button-success button-xlarge">Validate</button>
+                </p>
             </fieldset>
         </form>
 
@@ -60,12 +61,26 @@
             </p>
         </details>
 
-        <a target="_blank" href="https://3v4l.org/pQOMe">&raquo; Click here to run this code on 3v4l.org</a>
+        <span class="size-60">▶&nbsp;</span> <a target="_blank" href="https://3v4l.org/pQOMe"> Click here to run this code on 3v4l.org</a>
 
         <details>
             <summary>Click here to see the twitter poll</summary>
             <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/PHP?src=hash&amp;ref_src=twsrc%5Etfw">#PHP</a> namespaces can contain space characters, but they can&#39;t begin with a backslash. The right answer was &quot;A&quot; (13% of voters) <a href="https://t.co/n8PkSUdghp">https://t.co/n8PkSUdghp</a></p>&mdash; Frédéric Bouchery (@FredBouchery) <a href="https://twitter.com/FredBouchery/status/1287693735950782465?ref_src=twsrc%5Etfw">July 27, 2020</a></blockquote>
         </details>
+
+        <details>
+            <summary>Click here to see differences between PHP versions</summary>
+            <p>As I am writing this quiz, there a slight difference between PHP 8 </p>
+        </details>
+
+        <br/>
+        <hr/>
+
+        <h3>Going further...</h3>
+
+        <ul>
+            <li><a target="_blank" href="https://www.php.net/manual/en/language.namespaces.definition.php"> Read the namespace documentation</a></li>
+        </ul>
     </div>
 {% endblock %}
 
