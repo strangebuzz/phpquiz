@@ -16,7 +16,7 @@ class QuestionFixtures extends Fixture
             /*'answer_explanations'      =>*/ 'PHP namespaces can contain space characters, but they can\'t begin with a backslash. The right answer was "A".',
             /*'live_snippet_url'         =>*/ 'https://3v4l.org/pQOMe',
             /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1286207302018699264',
-            /*'differences_output_notes' =>*/ 'As I am writing this quiz (2020-07-31), there a slight difference between all versions and PHP 8.0.0alpha3:<br/>With this last version, the exception message "Foo\Bar" is wrapped by double quotes instead of single quotes for other versions (\'Foo\Bar\'). 🤔',
+            /*'differences_output_notes' =>*/ 'As I am writing this quiz (2020-07-31), there is a slight difference between all versions and PHP 8.0.0alpha3:<br/>With this last version, the exception message "Foo\Bar" is wrapped by double quotes instead of single quotes for other versions (\'Foo\Bar\'). 🤔',
             /*'created_at'               =>*/ '2020-07-23',
             /*'updated_at'               =>*/ '2020-07-23',
         ]

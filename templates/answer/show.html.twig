@@ -1,28 +1,24 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Quiz n°1: Answer the following question | PHPQuiz{% endblock %}
+{% block title %}Quiz n{{ question.id }}: Answer the following question | PHPQuiz{% endblock %}
 
 {% block body %}
     <div class="header">
-        <h1>Quiz n°1: Answer the following question</h1>
+        <h1>Quiz n°{{ question.id }}: Answer the following question</h1>
     </div>
 
     <div class="content">
-        {# https://twitter.com/FredBouchery/status/1286207296767438848 #}
-        <h3>What will be displayed?</h3>
+        <p>Published on {{ question.createdAt|date('Y-m-d') }} • Modified on {{ question.updatedAt|date('Y-m-d') }}.</p>
 
-        <!--iframe
-          src="https://carbon.now.sh/embed?bg=rgba(171%2C%20184%2C%20195%2C%201)&t=seti&wt=none&l=text%2Fx-php&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=namespace%2520Foo%2520%255CBar%253B%250A%250Aclass%2520A%2520%257B%250A%2520%2520%2520%2520static%2520public%2520function%2520show()%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520echo%2520static%253A%253Aclass%253B%250A%2520%2520%2520%2520%257D%250A%257D%250A%250Aclass%2520B%2520extends%2520A%2520%257B%257D%250A%250AB%253A%253Ashow()%253B%250A"
-          style="width: 1024px; height: 473px; border:0; transform: scale(1); overflow:hidden;"
-          sandbox="allow-scripts allow-same-origin">
-        </iframe-->
+        <h3>{{ question.label }}</h3>
 
-        <img class="pure-img" src="https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small" alt="PHP Quiz n°1"/>
+        <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.id }}"/>
 
-        <h3>Select your answer:</h3>
+        <h3>Answers:</h3>
 
         <form class="pure-form pure-form-stacked" method="post">
             <fieldset>
+                <legend>Select your answer</legend>
                 <label class="pure-radio" for="answer_a">
                     <input name="answer" id="answer_a" type="radio" value="a" />
                     <b>A</b>: Fatal error: Uncaught Error: Undefined constant 'Foo\Bar'
@@ -52,33 +48,25 @@
         <hr/>
 
         <h3>The answer</h3>
-        <!-- https://twitter.com/FredBouchery/status/1286207302018699264 -->
 
         <details>
             <summary>Click here to see the answer</summary>
-            <p>
-                PHP namespaces can contain space characters, but they can't begin with a backslash.
-                The right answer was "A".
-            </p>
+            <p>{{ question.answerExplanations }}</p>
         </details>
 
-        <span class="size-60">▶&nbsp;</span> <a target="_blank" href="https://3v4l.org/pQOMe"> Click here to run this code on 3v4l.org</a>
+        <span class="size-60">▶&nbsp;</span> <a target="_blank" href="{{ question.liveSnippetUrl }}"> Click here to run this code on 3v4l.org</a>
 
         <details>
             <summary>Click here to see the Twitter poll</summary>
             <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Answer to previous tweet:<br><br>A/ Fatal error: Uncaught Error: Undefined constant &#39;Foo\Bar&#39;<br><br>B/ Parse error: syntax error, unexpected &#39;\&#39; (T_NS_SEPARATOR)<br><br>C/ Foo\Bar\A<br><br>D/ Foo\Bar\B</p>&mdash; Frédéric Bouchery (@FredBouchery) <a href="https://twitter.com/FredBouchery/status/1286207302018699264?ref_src=twsrc%5Etfw">July 23, 2020</a></blockquote>
         </details>
 
-        <details>
-            <summary>Click here to see output differences between PHP versions</summary>
-            <p>
-                As I am writing this quiz (2020-07-31), there a slight difference
-                between all versions and PHP 8.0.0alpha3:<br/>
-                With this last version, the exception message "Foo\Bar" is wrapped
-                by double quotes instead of single quotes for other versions
-                ('Foo\Bar'). 🤔
-            </p>
-        </details>
+        {% if question.differencesOutputNotes %}
+            <details>
+                <summary>Click here to see output differences between PHP versions</summary>
+                <p>{{ question.differencesOutputNotes|raw }}</p>
+            </details>
+        {% endif %}
 
         <br/>
         <hr/>
@@ -86,7 +74,7 @@
         <h3>Going further...</h3>
 
         <ul>
-            <li><a target="_blank" href="https://www.php.net/manual/en/language.namespaces.definition.php">&raquo; Read the namespace documentation</a></li>
+            <li><a target="_blank" href="https://www.php.net/manual/en/language.namespaces.definition.php">Read the namespace documentation</a></li>
         </ul>
     </div>
 {% endblock %}
