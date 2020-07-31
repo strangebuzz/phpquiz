@@ -1,6 +1,6 @@
 {
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "require": {
         "php": ">=7.4.0",
         "ext-ctype": "*",
@@ -43,6 +43,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "easycorp/easy-deploy-bundle": "^1.0",
         "phpstan/phpstan-symfony": "^0.12",
         "roave/security-advisories": "dev-master",
         "symfony/browser-kit": "^5.1",
