@@ -52,3 +52,14 @@ load-fixtures: ## Build the db, control the schema validity, load fixtures and c
 run: up load-fixtures serve ## Start docker, load fixtures and start the web server
 
 abort: down unserve ## Stop docker and the Symfony binary server
+
+## —— Yarn 🐱 / JavaScript —————————————————————————————————————————————————————
+dev: ## Rebuild assets for the dev env
+	$(YARN) install
+	$(YARN) run encore dev
+
+watch: ## Watch files and build assets when needed for the dev env
+	$(YARN) run encore dev --watch
+
+build: ## Build assets for production
+	$(YARN) run encore production
