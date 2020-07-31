@@ -4,15 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}PhPQuiz: test your PHP knowledge with quiz.{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        {{ encore_entry_link_tags('app') }}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
         <div id="layout">
-            <!-- Menu toggle -->
             <a href="#menu" id="menuLink" class="menu-link">
-                <!-- Hamburger icon -->
-                <span></span>
+                <span></span> <!-- Hamburger icon -->
             </a>
 
             <div id="menu">
@@ -22,8 +21,7 @@
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item"><a href="{{ path('home') }}" class="pure-menu-link">&raquo; Home</a></li>
                         <li class="pure-menu-item"><a href="{{ path('about') }}" class="pure-menu-link">&raquo;  About</a></li>
-                        {#
-                        <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                        {#<li class="pure-menu-item menu-item-divided pure-menu-selected">
                             <a href="#" class="pure-menu-link">Services</a>
                         </li>#}
                     </ul>
@@ -38,7 +36,7 @@
         {% block javascripts %}
             <script src="{{ preload(asset('js/ui.js'), {as: 'script'}) }}"></script>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
-        {{ encore_entry_script_tags('app') }}
     </body>
 </html>
