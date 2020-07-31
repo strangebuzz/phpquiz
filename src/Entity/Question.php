@@ -48,7 +48,7 @@ class Question
      * @example PHP namespaces can contain space characters, but they can't begin
      *          with a backslash. The right answer was "A"
      */
-    protected ?string $answerExplanation;
+    protected ?string $answerExplanations;
 
     /**
      * The testable snippet on the 3v4l.org website.
@@ -108,14 +108,14 @@ class Question
         return $this;
     }
 
-    public function getAnswerExplanation(): ?string
+    public function getAnswerExplanations(): ?string
     {
-        return $this->answerExplanation;
+        return $this->answerExplanations;
     }
 
-    public function setAnswerExplanation(string $answerExplanation): self
+    public function setAnswerExplanations(string $answerExplanations): self
     {
-        $this->answerExplanation = $answerExplanation;
+        $this->answerExplanations = $answerExplanations;
 
         return $this;
     }
