@@ -6,10 +6,15 @@ use App\Repository\QuestionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Represents a quiz question. A question is standalone and can be used without being
+ * part of a multiple questions quiz. A question has several answers.
+ *
  * @ORM\Entity(repositoryClass=QuestionRepository::class)
  */
 class Question
 {
+    use TimestampableEntityTrait;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

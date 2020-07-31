@@ -5,6 +5,7 @@
         "php": "^7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "antishov/doctrine-extensions-bundle": "^1.4",
         "composer/package-versions-deprecated": "^1.10",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.1",
