@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65922c20c836ef69631eb5ad060fc6de",
+    "content-hash": "fc7428bb1f36c0ab3d866cee89ab7718",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -1392,64 +1392,6 @@
                 "sql"
             ],
             "time": "2020-07-30T16:57:33+00:00"
-        },
-        {
-            "name": "easycorp/easy-deploy-bundle",
-            "version": "v1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/EasyCorp/easy-deploy-bundle.git",
-                "reference": "8357c081c2b9245f432fc7c998f224d13d40132a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/easy-deploy-bundle/zipball/8357c081c2b9245f432fc7c998f224d13d40132a",
-                "reference": "8357c081c2b9245f432fc7c998f224d13d40132a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.0",
-                "symfony/console": "~2.3|~3.0|~4.0|~5.0",
-                "symfony/dependency-injection": "~2.3|~3.0|~4.0|~5.0",
-                "symfony/expression-language": "~2.4|~3.0|~4.0|~5.0",
-                "symfony/filesystem": "~2.3|~3.0|~4.0|~5.0",
-                "symfony/http-foundation": "~2.3|~3.0|~4.0|~5.0",
-                "symfony/http-kernel": "~2.3|~3.0|~4.0|~5.0",
-                "symfony/polyfill-mbstring": "^1.3",
-                "symfony/process": "~2.3|~3.0|~4.0|~5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.1"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "EasyCorp\\Bundle\\EasyDeployBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Javier Eguiluz",
-                    "email": "javiereguiluz@gmail.com"
-                }
-            ],
-            "description": "The easiest way to deploy Symfony applications",
-            "homepage": "https://github.com/EasyCorp/easy-deploy-bundle",
-            "keywords": [
-                "deploy",
-                "deployer",
-                "deployment"
-            ],
-            "time": "2020-01-30T07:31:55+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -6787,6 +6729,64 @@
             "time": "2020-04-02T16:40:37+00:00"
         },
         {
+            "name": "easycorp/easy-deploy-bundle",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EasyCorp/easy-deploy-bundle.git",
+                "reference": "8357c081c2b9245f432fc7c998f224d13d40132a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EasyCorp/easy-deploy-bundle/zipball/8357c081c2b9245f432fc7c998f224d13d40132a",
+                "reference": "8357c081c2b9245f432fc7c998f224d13d40132a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0",
+                "symfony/console": "~2.3|~3.0|~4.0|~5.0",
+                "symfony/dependency-injection": "~2.3|~3.0|~4.0|~5.0",
+                "symfony/expression-language": "~2.4|~3.0|~4.0|~5.0",
+                "symfony/filesystem": "~2.3|~3.0|~4.0|~5.0",
+                "symfony/http-foundation": "~2.3|~3.0|~4.0|~5.0",
+                "symfony/http-kernel": "~2.3|~3.0|~4.0|~5.0",
+                "symfony/polyfill-mbstring": "^1.3",
+                "symfony/process": "~2.3|~3.0|~4.0|~5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "EasyCorp\\Bundle\\EasyDeployBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Javier Eguiluz",
+                    "email": "javiereguiluz@gmail.com"
+                }
+            ],
+            "description": "The easiest way to deploy Symfony applications",
+            "homepage": "https://github.com/EasyCorp/easy-deploy-bundle",
+            "keywords": [
+                "deploy",
+                "deployer",
+                "deployment"
+            ],
+            "time": "2020-01-30T07:31:55+00:00"
+        },
+        {
             "name": "nikic/php-parser",
             "version": "v4.7.0",
             "source": {
@@ -6956,12 +6956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "f693c37873d31bff5adb1279cb05a2f4ce5efb43"
+                "reference": "38ea77863c1b13199948363e9cf7f7dd35a06e37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/f693c37873d31bff5adb1279cb05a2f4ce5efb43",
-                "reference": "f693c37873d31bff5adb1279cb05a2f4ce5efb43",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/38ea77863c1b13199948363e9cf7f7dd35a06e37",
+                "reference": "38ea77863c1b13199948363e9cf7f7dd35a06e37",
                 "shasum": ""
             },
             "conflict": {
@@ -7045,6 +7045,7 @@
                 "joomla/session": "<1.3.1",
                 "jsmitty12/phpwhois": "<5.1",
                 "kazist/phpwhois": "<=4.2.6",
+                "kitodo/presentation": "<3.1.2",
                 "kreait/firebase-php": ">=3.2,<3.8.1",
                 "la-haute-societe/tcpdf": "<6.2.22",
                 "laravel/framework": ">=4,<4.0.99|>=4.1,<=4.1.31|>=4.2,<=4.2.22|>=5,<=5.0.35|>=5.1,<=5.1.46|>=5.2,<=5.2.45|>=5.3,<=5.3.31|>=5.4,<=5.4.36|>=5.5,<5.5.42|>=5.6,<5.6.30|>=7,<7.1.2",
@@ -7230,7 +7231,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2020-07-29T19:02:51+00:00"
+            "time": "2020-07-31T18:02:22+00:00"
         },
         {
             "name": "symfony/browser-kit",
