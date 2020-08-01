@@ -68,3 +68,10 @@ build: ## Build assets for production
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
 cs: ## Run PHPStan
 	$(STAN) analyse -l max -c phpstan.neon src/
+
+## —— Deploy & Prod 🚀 —————————————————————————————————————————————————————————
+deploy: ## Full no-downtime deployment with EasyDeploy
+	$(SYMFONY) deploy -v
+
+le-renew: ## Renew Let's Encrypt HTTPS certificates
+	certbot --apache -d phpquiz.xyz -d www.phpquiz.xyz
