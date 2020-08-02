@@ -9,7 +9,9 @@
 
 * Add readme.md
 * Add 10 questions
-* Put the carbon image as the social image
+* Handle the submitted answer
++ Create a Symfony form for the answers
+* Put the carbon image as the social image in the show page
 
 
 @Bugs
