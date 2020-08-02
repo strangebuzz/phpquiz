@@ -62,7 +62,9 @@
         <h3>Going further...</h3>
 
         <ul>
-            <li><a target="_blank" href="https://www.php.net/manual/en/language.namespaces.definition.php">Read the namespace documentation</a></li>
+            {% for link in question.links %}
+                <li><a target="_blank" href="{{ link.url }}">{{ link.label }}</a></li>
+            {% endfor %}
         </ul>
     </div>
 {% endblock %}

@@ -3,18 +3,13 @@
 namespace App\DataFixtures;
 
 use App\Entity\Answer;
-use App\Entity\Question;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
 
 class AnswerFixtures extends Fixture implements DependentFixtureInterface
 {
-    /**
-     * @var array<int,Question>
-     */
-    private array $questions = [];
+    use AppFixturesTrait;
 
     private const DATA = [
         [
@@ -56,22 +51,6 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($answer);
         }
         $manager->flush();
-    }
-
-    private function getQuestion(int $id): Question
-    {
-        if (isset($this->questions[$id])) {
-            return $this->questions[$id];
-        }
-
-        $question = $this->getReference(QuestionFixtures::class.$id);
-        if (!$question instanceof Question) {
-            throw new InvalidTypeException(sprintf('Question "%d" not found.', $id));
-        }
-
-        $this->questions[$id] = $question;
-
-        return $question;
     }
 
     public function getDependencies(): array

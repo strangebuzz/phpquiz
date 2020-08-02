@@ -40,8 +40,7 @@ class QuestionFixtures extends Fixture
                 ->setTwitterPollUrl($twitterPollUrl)
                 ->setDifferencesOutputNotes($differencesOutputNotes)
                 ->setCreatedAt($createdAtDateTime)
-                ->setUpdatedAt($updatedAtDateTime)
-                ;
+                ->setUpdatedAt($updatedAtDateTime);
 
             $manager->persist($question);
             $this->addReference(self::class.$id, $question);

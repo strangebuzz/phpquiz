@@ -210,7 +210,7 @@ class Question
     }
 
     /**
-     * @return Collection<int,Answer>
+     * @return Collection<int,Link>
      */
     public function getLinks(): Collection
     {

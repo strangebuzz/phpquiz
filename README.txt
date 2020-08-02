@@ -15,6 +15,8 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
+* Clicking on an answer label doesn't change the selected value
+
 
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
@@ -25,6 +27,12 @@
 
 @Infra
 ————————————————————————————————————————————————————————————————————————————————
+
+
+@Refactoring/cleanup
+————————————————————————————————————————————————————————————————————————————————
+
+* In the AnswerFixtures, put the question_id as the key on a question list.
 
 
 References
