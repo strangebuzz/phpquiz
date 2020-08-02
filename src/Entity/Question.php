@@ -88,9 +88,17 @@ class Question
      */
     private Collection $answers;
 
+    /**
+     * @var Collection<int,Link>
+     *
+     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="question", orphanRemoval=true)
+     */
+    private Collection $links;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
+        $this->links = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -195,6 +203,37 @@ class Question
             // set the owning side to null (unless already changed)
             if ($answer->getQuestion() === $this) {
                 $answer->setQuestion(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int,Answer>
+     */
+    public function getLinks(): Collection
+    {
+        return $this->links;
+    }
+
+    public function addLink(Link $link): self
+    {
+        if (!$this->links->contains($link)) {
+            $this->links[] = $link;
+            $link->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLink(Link $link): self
+    {
+        if ($this->links->contains($link)) {
+            $this->links->removeElement($link);
+            // set the owning side to null (unless already changed)
+            if ($link->getQuestion() === $this) {
+                $link->setQuestion(null);
             }
         }
 

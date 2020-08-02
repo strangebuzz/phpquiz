@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\AnswerRepository;
+use App\Repository\LinkRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=AnswerRepository::class)
+ * @ORM\Entity(repositoryClass=LinkRepository::class)
  */
-class Answer
+class Link
 {
     use TimestampableEntityTrait;
 
@@ -20,22 +20,17 @@ class Answer
     private ?int $id;
 
     /**
-     * @ORM\Column(type="string", length=1)
-     */
-    private ?string $code;
-
-    /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
     private ?string $label;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string", length=255)
      */
-    private ?bool $correct;
+    private ?string $url;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="answers")
+     * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="links")
      * @ORM\JoinColumn(nullable=false)
      */
     private ?Question $question;
@@ -43,18 +38,6 @@ class Answer
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCode(): ?string
-    {
-        return $this->code;
-    }
-
-    public function setCode(string $code): self
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     public function getLabel(): ?string
@@ -69,14 +52,14 @@ class Answer
         return $this;
     }
 
-    public function getCorrect(): ?bool
+    public function getUrl(): ?string
     {
-        return $this->correct;
+        return $this->url;
     }
 
-    public function setCorrect(bool $correct): self
+    public function setUrl(string $url): self
     {
-        $this->correct = $correct;
+        $this->url = $url;
 
         return $this;
     }

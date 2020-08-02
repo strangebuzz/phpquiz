@@ -7,7 +7,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add link model
 * Add readme.md
 * Add 10 questions
 * Put the carbon image as the social image
