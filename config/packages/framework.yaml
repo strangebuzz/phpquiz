@@ -1,8 +1,8 @@
 # see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
     secret: '%env(APP_SECRET)%'
-    #csrf_protection: true
-    #http_method_override: true
+    router:
+        utf8: true
 
     # Enables session support. Note that the session will ONLY be started if you read or write from it.
     # Remove or comment this section to explicitly disable session support.
@@ -15,3 +15,8 @@ framework:
     #fragments: true
     php_errors:
         log: true
+
+    trusted_hosts:
+        - localhost # PHPUnit tests
+        - 127.0.0.1 # Symfony binary web server
+        - ^phpquiz.xyz # Prod
