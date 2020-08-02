@@ -7,6 +7,7 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Installer Sensio insight
 * Add readme.md
 * Add 10 questions
 * Handle the submitted answer

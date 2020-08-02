@@ -1,0 +1,14 @@
+# https://insight.symfony.com/docs/reference/configuration-options.html
+php_version: 7.4
+
+#exclude_patterns:
+#  - 'public/dysieiBGbB6MzUnIgU8A.php'
+#  - 'public/index_dev.php'
+#
+#global_exclude_dirs:
+#  - vendor
+#  - tests
+#  - spec
+#  - DataFixtures
+#  - var
+#  - github
