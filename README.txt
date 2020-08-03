@@ -7,18 +7,16 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Installer Sensio insight
+* Add a "suggestedBy" field (person?)
 * Add readme.md
-* Add 10 questions
+* Add a seconde questions
 * Handle the submitted answer
-+ Create a Symfony form for the answers
+* Create a Symfony form for the answers
 * Put the carbon image as the social image in the show page
 
 
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
-
-* Clicking on an answer label doesn't change the selected value
 
 
 @Ideas/To decide

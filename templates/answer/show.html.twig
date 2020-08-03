@@ -14,16 +14,17 @@
 
         <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.id }}"/>
 
-        <h3>Answers:</h3>
+        <h3>Answers</h3>
 
         <form class="pure-form pure-form-stacked" method="post">
             <fieldset>
-                <legend>Select your answer</legend>
+                <legend>Select your answer:</legend>
 
                 {% for answer in question.answers %}
-                    <label class="pure-radio" for="answer_{{ answer.code|lower }}">
-                        <input name="answer" id="answer_a" type="radio" value="{{ answer.code|lower }}" />
-                        <b>{{ answer.code|upper }}</b>: {{ answer.label|raw }}
+                    {% set code = answer.code|lower %}
+                    <label class="pure-radio" for="answer_{{ code }}">
+                        <input name="answer" id="answer_{{ code }}" type="radio" value="{{ code }}" />
+                        <b>{{ code|upper }}</b>: {{ answer.label|raw }}
                     </label>
                 {% endfor %}
 
