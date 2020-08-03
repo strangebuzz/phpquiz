@@ -6,6 +6,7 @@ use App\Repository\QuestionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Represents a quiz question. A question is standalone and can be used without being
@@ -21,6 +22,8 @@ class Question
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
+     * @Groups({"show"})
      */
     protected ?int $id;
 
@@ -88,7 +91,14 @@ class Question
      *
      * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="question", orphanRemoval=true)
      */
-    private Collection $answers;
+    protected Collection $answers;
+
+    /**
+     * Code (letter) of the correct answer of this question.
+     *
+     * @Groups({"show"})
+     */
+    protected ?string $correctAnswerCode;
 
     /**
      * List of additional links for question, documentation, blog post, stackoverflow...
@@ -97,7 +107,7 @@ class Question
      *
      * @ORM\OneToMany(targetEntity=Link::class, mappedBy="question", orphanRemoval=true)
      */
-    private Collection $links;
+    protected Collection $links;
 
     /**
      * The person how has suggested the question.
@@ -105,7 +115,7 @@ class Question
      * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="questions")
      * @ORM\JoinColumn(nullable=false)
      */
-    private ?Person $suggestedBy;
+    protected ?Person $suggestedBy;
 
     public function __construct()
     {
@@ -191,7 +201,7 @@ class Question
     }
 
     /**
-     * @return Collection<int,Answer>
+     * @return Collection<int,Answer>|Answer[]
      */
     public function getAnswers(): Collection
     {
@@ -262,5 +272,23 @@ class Question
         $this->suggestedBy = $suggestedBy;
 
         return $this;
+    }
+
+    /* End basic 'etters ———————————————————————————————————————————————————— */
+
+    /**
+     * Virtual property getter.
+     *
+     * @see $correctAnswerCode
+     */
+    public function getCorrectAnswerCode(): string
+    {
+        foreach ($this->getAnswers() as $answer) {
+            if ($answer->isCorrect()) {
+                return $answer->getCode();
+            }
+        }
+
+        throw new \LogicException("Question doesn't have a correct answer.");
     }
 }

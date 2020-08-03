@@ -1,4 +1,4 @@
-/* global require, isProd */
+/* global question */
 /* eslint-disable no-new */
 
 // Js vendors ——————————————————————————————————————————————————————————————————
@@ -18,14 +18,15 @@ new Vue({
   el: '#layout',
   delimiters: ['{', '}'], // because of Twig we don't take standard {{ }}
   data: {
-    isProd: isProd,
+    question: question, // question object
+    hasAnswered: false, // has the user answered the current question?
+    answer: null, // user answer
   },
   methods: {
-    selectAnswer (code) {
-      // console.log(document.getElementById('answer_'+code))
+    validate () {
+      console.log(this.answer)
     },
   },
   mounted () {
-    console.log('monted OK, isProd:'+isProd)
   }
 })

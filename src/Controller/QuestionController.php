@@ -22,11 +22,13 @@ class QuestionController extends AbstractController
      */
     public function show(): Response
     {
-        $question = $this->questionRepository->find(2);
+        $question = $this->questionRepository->find(1);
         if (!$question instanceof Question) {
             throw $this->createNotFoundException('Question not found');
         }
 
-        return $this->render('answer/show.html.twig', compact('question'));
+        return $this->render('answer/show.html.twig', [
+            'question' => $question,
+        ]);
     }
 }

@@ -35,9 +35,6 @@
         </div>
 
         {% block javascripts %}
-            <script>
-                const isProd = {{ true ? 'true' : 'false' }};
-            </script>
             <script src="{{ preload(asset('js/ui.js'), {as: 'script'}) }}"></script>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             {{ encore_entry_script_tags('app') }}

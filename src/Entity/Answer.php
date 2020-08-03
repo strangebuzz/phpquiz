@@ -74,6 +74,14 @@ class Answer
         return $this->correct;
     }
 
+    /**
+     * Alias.
+     */
+    public function isCorrect(): ?bool
+    {
+        return $this->getCorrect();
+    }
+
     public function setCorrect(bool $correct): self
     {
         $this->correct = $correct;
