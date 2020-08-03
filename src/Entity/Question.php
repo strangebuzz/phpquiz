@@ -278,7 +278,7 @@ class Question
     {
         foreach ($this->getAnswers() as $answer) {
             if ($answer->isCorrect()) {
-                return $answer->getCode();
+                return (string) $answer->getCode();
             }
         }
 
