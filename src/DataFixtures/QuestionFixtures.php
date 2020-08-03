@@ -4,9 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Question;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class QuestionFixtures extends Fixture
+class QuestionFixtures extends Fixture implements DependentFixtureInterface
 {
     private const DATA = [
         [
@@ -46,5 +47,12 @@ class QuestionFixtures extends Fixture
             $this->addReference(self::class.$id, $question);
         }
         $manager->flush();
+    }
+
+    public function getDependencies(): array
+    {
+        return [
+            PersonFixtures::class,
+        ];
     }
 }
