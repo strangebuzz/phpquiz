@@ -8,7 +8,10 @@
     </div>
 
     <div class="content">
-        <p>Published on {{ question.createdAt|date('Y-m-d') }} • Modified on {{ question.updatedAt|date('Y-m-d') }}.</p>
+        <p>
+            Suggested by <a target="_blank" href="https://twitter.com/{{ question.suggestedBy.twitter }}">{{ question.suggestedBy.twitter }}</a> on {{ question.createdAt|date('Y-m-d') }}{% if question.updatedAt != question.createdAt %}
+                • Modified on {{ question.updatedAt|date('Y-m-d') }}{% endif %}.
+        </p>
 
         <h3>{{ question.label }}</h3>
 

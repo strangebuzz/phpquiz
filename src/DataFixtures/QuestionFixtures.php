@@ -9,9 +9,12 @@ use Doctrine\Persistence\ObjectManager;
 
 class QuestionFixtures extends Fixture implements DependentFixtureInterface
 {
+    use AppFixturesTrait;
+
     private const DATA = [
         [
             /*'id'                       =>*/ 1,
+            /*'person_id'                =>*/ 1,
             /*'label'                    =>*/ 'What will be displayed?',
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small',
             /*'answer_explanations'      =>*/ 'PHP namespaces can contain space characters, but they can\'t begin with a backslash. The right answer was "A".',
@@ -25,7 +28,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        foreach (self::DATA as [$id, $label, $codeImage, $answerExplanations, $liveSnippetUrl,
+        foreach (self::DATA as [$id, $personId, $label, $codeImage, $answerExplanations, $liveSnippetUrl,
             $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt]) {
             $createdAtDateTime = date_create($createdAt);
             $updatedAtDateTime = date_create($updatedAt);
@@ -33,7 +36,9 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
                 throw new \InvalidArgumentException(sprintf('Invalide create (%s) or update date (%s).', $createdAt, $updatedAt));
             }
 
+            $person = $this->getPerson($personId);
             $question = (new Question())
+                ->setSuggestedBy($person)
                 ->setLabel($label)
                 ->setCodeImage($codeImage)
                 ->setAnswerExplanations($answerExplanations)

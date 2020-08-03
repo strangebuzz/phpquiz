@@ -72,7 +72,7 @@ class Question
 
     /**
      * Additional notes if there is something to notice about the output between
-     * version in the cases there would be differences.
+     * PHP versions in cases there would be differences.
      *
      * @ORM\Column(type="text", nullable=true)
      *
@@ -82,6 +82,8 @@ class Question
     protected ?string $differencesOutputNotes;
 
     /**
+     * List of possible answers for the question.
+     *
      * @var Collection<int,Answer> $answers
      *
      * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="question", orphanRemoval=true)
@@ -89,11 +91,21 @@ class Question
     private Collection $answers;
 
     /**
+     * List of additional links for question, documentation, blog post, stackoverflow...
+     *
      * @var Collection<int,Link>
      *
      * @ORM\OneToMany(targetEntity=Link::class, mappedBy="question", orphanRemoval=true)
      */
     private Collection $links;
+
+    /**
+     * The person how has suggested the question.
+     *
+     * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="questions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private ?Person $suggestedBy;
 
     public function __construct()
     {
@@ -236,6 +248,18 @@ class Question
                 $link->setQuestion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSuggestedBy(): ?Person
+    {
+        return $this->suggestedBy;
+    }
+
+    public function setSuggestedBy(?Person $suggestedBy): self
+    {
+        $this->suggestedBy = $suggestedBy;
 
         return $this;
     }
