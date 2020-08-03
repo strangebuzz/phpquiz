@@ -7,7 +7,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add a "suggestedBy" field (person?)
 * Add a second question
 * Add the next and prev quiz fields
 * Add readme.md
@@ -34,8 +33,6 @@
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
 
-* In the AnswerFixtures, put the question_id as the key on a question list.
-
 
 References
 ————————————————————————————————————————————————————————————————————————————————
@@ -48,7 +45,8 @@ References
 @Ressources
 ————————————————————————————————————————————————————————————————————————————————
 
-* https://carbon.now.sh/
+* https://schema.org
+* https://carbon.now.sh
 * About the .xyz TLD: https://en.wikipedia.org/wiki/.xyz
 
 
@@ -66,7 +64,7 @@ References
 * []
 
 
-@CSS
+@Design/CSS
 ————————————————————————————————————————————————————————————————————————————————
 
 * https://favicon.io/emoji-favicons/elephant/
