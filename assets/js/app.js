@@ -19,14 +19,15 @@ new Vue({
   delimiters: ['{', '}'], // because of Twig we don't take standard {{ }}
   data: {
     question: question, // question object
-    hasAnswered: false, // has the user answered the current question?
     answer: null, // user answer
   },
   methods: {
     validate () {
-      console.log(this.answer)
+      if (this.answer === question.correctAnswerCode) {
+        console.log('Correct answer, congratulations !')
+      } else {
+        console.log('Wrong answer sorry.')
+      }
     },
   },
-  mounted () {
-  }
 })

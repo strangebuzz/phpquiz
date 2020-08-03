@@ -7,7 +7,7 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Handle the answer
+* Handle the validate button
 * Add the next and prev quiz fields
 * Add readme.md
 * Handle the submitted answer
@@ -22,8 +22,8 @@
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* Added the Twitter poll results?
-* Add a poll uuid?
+* Added the Twitter poll results for each answzer?
+* Add a question uuid?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
 
@@ -38,7 +38,8 @@
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
 
-* Join on answers in the show method
+* DB Join on answers in the show method
+* Rename app.js to show.js (add a bacic app.js + create a sf slot for this)
 
 
 References
@@ -79,3 +80,11 @@ References
 
 @Webperfs
 ————————————————————————————————————————————————————————————————————————————————
+
+
+@Debug
+————————————————————————————————————————————————————————————————————————————————
+
+* SerializerInterface  $serializer
+  dump($serializer->serialize($question, 'json', ['groups' => 'show']));
+  die();

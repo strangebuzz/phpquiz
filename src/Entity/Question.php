@@ -94,13 +94,6 @@ class Question
     protected Collection $answers;
 
     /**
-     * Code (letter) of the correct answer of this question.
-     *
-     * @Groups({"show"})
-     */
-    protected ?string $correctAnswerCode;
-
-    /**
      * List of additional links for question, documentation, blog post, stackoverflow...
      *
      * @var Collection<int,Link>
@@ -279,7 +272,7 @@ class Question
     /**
      * Virtual property getter.
      *
-     * @see $correctAnswerCode
+     * @Groups({"show"})
      */
     public function getCorrectAnswerCode(): string
     {
