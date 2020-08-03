@@ -8,8 +8,9 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Add a "suggestedBy" field (person?)
+* Add a second question
+* Add the next and prev quiz fields
 * Add readme.md
-* Add a seconde questions
 * Handle the submitted answer
 * Create a Symfony form for the answers
 * Put the carbon image as the social image in the show page
