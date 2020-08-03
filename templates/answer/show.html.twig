@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="header">
-        <h1>Quiz n°{{ question.id }}: Answer the following question</h1>
+        <h1>Quiz {{ question.id }}: Answer the following question</h1>
     </div>
 
     <div class="content">
@@ -46,12 +46,9 @@
             <p>{{ question.answerExplanations }}</p>
         </details>
 
-        <span class="size-60">▶&nbsp;</span> <a target="_blank" href="{{ question.liveSnippetUrl }}"> Click here to run this code on 3v4l.org</a>
+        <span class="size-60">▶&nbsp;</span> <a target="_blank" href="{{ question.liveSnippetUrl }}"> Click here to run this code on 3v4l.org</a><br/>
 
-        <details>
-            <summary>Click here to see the Twitter poll</summary>
-            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Answer to previous tweet:<br><br>A/ Fatal error: Uncaught Error: Undefined constant &#39;Foo\Bar&#39;<br><br>B/ Parse error: syntax error, unexpected &#39;\&#39; (T_NS_SEPARATOR)<br><br>C/ Foo\Bar\A<br><br>D/ Foo\Bar\B</p>&mdash; Frédéric Bouchery (@FredBouchery) <a href="https://twitter.com/FredBouchery/status/1286207302018699264?ref_src=twsrc%5Etfw">July 23, 2020</a></blockquote>
-        </details>
+        <span class="size-60">▶&nbsp;</span> <a target="_blank" href="{{ question.twitterPollUrl }}"> Click here to see the Twitter poll</a><br/>
 
         {% if question.differencesOutputNotes %}
             <details>

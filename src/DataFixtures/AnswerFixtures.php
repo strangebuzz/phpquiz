@@ -33,6 +33,28 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'label'       =>*/ "Foo\Bar\B",
                 /*'correct'     =>*/ false,
             ],
+        ],
+        /*'question_id'*/ 2 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ '42',
+                /*'correct'     =>*/ true,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ '24',
+                /*'correct'     =>*/ false,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ "Parse error: syntax error, unexpected '...' (T_ELLIPSIS)",
+                /*'correct'     =>*/ false,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'Fatal error: Uncaught Error: Cannot unpack Traversable with string keys',
+                /*'correct'     =>*/ false,
+            ],
         ]
     ];
 

@@ -7,7 +7,7 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add a second question
+* Handle the answer
 * Add the next and prev quiz fields
 * Add readme.md
 * Handle the submitted answer
@@ -22,12 +22,17 @@
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
+* Added the Twitter poll results?
+* Add a poll uuid?
 * OK to use the carbon Twitter image or host it?
-* Create a timed quiz
+* Create a timed quiz?
 
 
 @Infra
 ————————————————————————————————————————————————————————————————————————————————
+
+* Deploy on SensioCloud, ask for a free account if possible? As it is an open-source
+  project.
 
 
 @Refactoring/cleanup
