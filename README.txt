@@ -8,7 +8,6 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Add a third question
-* Handle the selected menu item
 * Add a clean readme.md for contributors
 
 
