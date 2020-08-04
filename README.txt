@@ -10,8 +10,6 @@
 * Handle the validate button
 * Add the next and prev quiz fields
 * Add readme.md
-* Handle the submitted answer
-* Create a Symfony form for the answers
 * Put the carbon image as the social image in the show page
 
 
@@ -26,6 +24,7 @@
 * Add a question uuid?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
+* Create a Symfony form for the answers?
 
 
 @Infra

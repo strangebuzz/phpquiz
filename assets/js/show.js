@@ -13,20 +13,27 @@ require('../css/buttons.css')
 require('../css/app.css')
 
 new Vue({
-  el: '#layout',
+  el: '#layout', // main id of global layout (layout.html)
   delimiters: ['{', '}'], // because of Twig we don't take standard {{ }}
   data: {
-    question: question, // question object
-    hasValided: false, // user has validated its answer?
+    question: question, // question json object, comes from Sf
+    hasValidated: false, // user has validated its answer?
     answer: null, // user answer (vue model)
   },
+  computed: {
+    /**
+     * Is the user answer correct? Must be used only if hasValidated is true.
+     */
+    isCorrect: function () {
+      return this.question.correctAnswerCode === this.answer
+    }
+  },
   methods: {
-    validate () {
-      if (this.answer === question.correctAnswerCode) {
-        console.log('Correct answer, congratulations !')
-      } else {
-        console.log('Wrong answer sorry.')
-      }
+    /**
+     * The user has click on the validate button.
+     */
+    validateAnswer() {
+      this.hasValidated = true
     },
   },
 })

@@ -1,6 +1,16 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Quiz n°1: Answer the following question | PHPQuiz{% endblock %}
+{% block title %}About the PHPQuiz website, more about us, support us, contribute.{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="preconnect" href="{{ preconnect('https://platform.twitter.com') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endblock %}
 
 {% block body %}
     <div class="header">
@@ -15,7 +25,7 @@
 
         <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/PHP?src=hash&amp;ref_src=twsrc%5Etfw">#PHP</a> quiz: What will be displayed ?<br>Poll in thread ⏬ <a href="https://t.co/TxMH7nw7fa">pic.twitter.com/TxMH7nw7fa</a></p>&mdash; Frédéric Bouchery (@FredBouchery) <a href="https://twitter.com/FredBouchery/status/1286207296767438848?ref_src=twsrc%5Etfw">July 23, 2020</a></blockquote>
 
-        <p>I am always wondering:</p>
+        <p>I am always wondering myself:</p>
 
         <blockquote class="content-quote">
             That would be so cool to have a dedicated website for these quiz! 😃
@@ -26,7 +36,7 @@
             polls as a quiz system. That's why we decided to build this website.
             You can contribute and add quiz by submitting a PR on the <a href="https://github.com/strangebuzz/phpquiz">
             public GitHub repository</a> of this project. If it meets the requirments
-            (all "obvious" quiz will be rejected) we will consider adding it to
+            (all "obvious" quiz may be rejected) we will consider adding it to
             the database.
         </p>
 
