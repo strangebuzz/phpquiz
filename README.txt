@@ -20,11 +20,11 @@
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* Added the Twitter poll results for each answzer?
+* Added the Twitter poll results for each answer?
 * Add a question uuid?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
-* Create a Symfony form for the answers?
+* Remove correct answer from source?
 
 
 @Infra
@@ -38,7 +38,6 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * DB Join on answers in the show method
-* Rename app.js to show.js (add a bacic app.js + create a sf slot for this)
 
 
 References
