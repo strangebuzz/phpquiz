@@ -6,6 +6,9 @@ use App\Repository\PersonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * The Twitter or pseudo should be filled.
@@ -21,21 +24,21 @@ class Person
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private ?int $id = null;
 
     /**
      * The Twitter account name without the "@".
      *
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true, unique=true)
      */
-    private ?string $twitter;
+    private ?string $twitter = null;
 
     /**
      * The pseudo of the person if they don't have a Twitter account.
      *
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true, unique=true)
      */
-    private ?string $pseudo;
+    private ?string $pseudo = null;
 
     /**
      * @var Collection<int,Question>
@@ -107,5 +110,24 @@ class Person
         }
 
         return $this;
+    }
+
+    /* End basic 'etters ———————————————————————————————————————————————————— */
+
+    /**
+     * @Assert\Callback
+     */
+    public function validate(ExecutionContextInterface $context): void
+    {
+        $person = $context->getValue();
+        if (!$person instanceof self) {
+            throw new InvalidTypeException('Invalid type, a Person is expected.');
+        }
+
+        if ($person->getTwitter() && $person->getPseudo()) {
+            $context->buildViolation('You should fill the Twitter or the pseudo, but not both.')
+                ->atPath('twitter')
+                ->addViolation();
+        }
     }
 }

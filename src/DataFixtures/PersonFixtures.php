@@ -21,6 +21,11 @@ class PersonFixtures extends Fixture
         ]
     ];
 
+    /**
+     * The following annotation is to prevent PHPSorm from reporting a false positive.
+     *
+     * @noinspection PhpStrictTypeCheckingInspection
+     */
     public function load(ObjectManager $manager): void
     {
         foreach (self::DATA as [$id, $twitter, $pseudo]) {
@@ -30,7 +35,7 @@ class PersonFixtures extends Fixture
 
             $person = (new Person())
                 ->setTwitter($twitter)
-                ->setPseudo((string) $pseudo);
+                ->setPseudo($pseudo);
 
             $manager->persist($person);
             $this->addReference(self::class.$id, $person);
