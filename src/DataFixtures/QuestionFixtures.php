@@ -13,7 +13,9 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 
     private const DATA = [
         [
+            /*'previous_question'        =>*/ null,
             /*'id'                       =>*/ 1,
+            /*'next_question'            =>*/ 2,
             /*'person_id'                =>*/ 1,
             /*'label'                    =>*/ 'What will be displayed?',
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small',
@@ -25,7 +27,9 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'updated_at'               =>*/ '2020-07-23',
         ],
         [
+            /*'previous_question'        =>*/ 1,
             /*'id'                       =>*/ 2,
+            /*'next_question'            =>*/ null,
             /*'person_id'                =>*/ 1,
             /*'label'                    =>*/ 'What will be displayed (PHP version >= 7.4)?',
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EdW2xTnXYAIDjBP?format=png&name=medium',
@@ -40,7 +44,8 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        foreach (self::DATA as [$id, $personId, $label, $codeImage, $answerExplanations, $liveSnippetUrl,
+        foreach (self::DATA as [$previousQuestionId, $id, $nextUqestionId, $personId,
+            $label, $codeImage, $answerExplanations, $liveSnippetUrl,
             $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt]) {
             $createdAtDateTime = date_create($createdAt);
             $updatedAtDateTime = date_create($updatedAt);
@@ -62,6 +67,18 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist($question);
             $this->addReference(self::class.$id, $question);
+        }
+
+        // prev and next questions
+        foreach (self::DATA as [$previousQuestionId, $id, $nextUqestionId, $personId,
+            $label, $codeImage, $answerExplanations, $liveSnippetUrl,
+            $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt]) {
+            $previousQuestion = is_int($previousQuestionId) ? $this->getQuestion($previousQuestionId) : null;
+            $nextQuestion = is_int($nextUqestionId) ? $this->getQuestion($nextUqestionId) : null;
+            $question = $this->getQuestion($id)
+                ->setPreviousQuestion($previousQuestion)
+                ->setNextQuestion($nextQuestion);
+            $manager->persist($question);
         }
         $manager->flush();
     }

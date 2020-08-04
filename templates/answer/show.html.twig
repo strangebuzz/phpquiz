@@ -77,11 +77,28 @@
                 {% endfor %}
             </ul>
 
-            <h3>Want More? 🤔</h3>
+            {% if question.nextQuestion %}
+                <h3>Want More? 🤔</h3>
 
-            <p class="center">
-                <a href="{{ path('show', {id: 2}) }}" class="pure-button pure-button-primary button-xlarge">Next question</a>
-            </p>
+                <p class="center">
+                    <a href="{{ path('show', {id: question.nextQuestion.id}) }}" class="pure-button pure-button-primary button-xlarge">Next question</a>
+                </p>
+            {% else %}
+                <h3>The end. 😭</h3>
+
+                <p>Congratulations! You have reach the end of the quiz. We hope
+                you enjoyed it and that you learned interesting things.</p>
+
+                <p>
+                    As you see this website heavily rely on 3v4l.org to test the
+                    PHP snippets. If you like it, consider making a <a target="_blank" href="https://3v4l.org/sponsor">
+                    donation</a>. See you soon! 😊
+                </p>
+
+                <p class="center">
+                    <a href="{{ path('home') }}" class="pure-button pure-button-primary button-xlarge">Home</a>
+                </p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

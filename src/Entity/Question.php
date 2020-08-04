@@ -110,6 +110,16 @@ class Question
      */
     protected ?Person $suggestedBy;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"})
+     */
+    private ?Question $previousQuestion;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"})
+     */
+    private ?Question $nextQuestion;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -263,6 +273,30 @@ class Question
     public function setSuggestedBy(?Person $suggestedBy): self
     {
         $this->suggestedBy = $suggestedBy;
+
+        return $this;
+    }
+
+    public function getPreviousQuestion(): ?self
+    {
+        return $this->previousQuestion;
+    }
+
+    public function setPreviousQuestion(?self $previousQuestion): self
+    {
+        $this->previousQuestion = $previousQuestion;
+
+        return $this;
+    }
+
+    public function getNextQuestion(): ?self
+    {
+        return $this->nextQuestion;
+    }
+
+    public function setNextQuestion(?self $nextQuestion): self
+    {
+        $this->nextQuestion = $nextQuestion;
 
         return $this;
     }

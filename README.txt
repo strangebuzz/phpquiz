@@ -8,6 +8,8 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Add the next and prev quiz fields
+* Add a third question
+* Handle the last question case
 * Add readme.md
 * Put the carbon image as the social image in the show page
 
