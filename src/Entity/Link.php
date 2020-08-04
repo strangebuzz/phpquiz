@@ -45,6 +45,11 @@ class Link
      */
     private ?Question $question;
 
+    public function __toString() : string
+    {
+        return (string) $this->label;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

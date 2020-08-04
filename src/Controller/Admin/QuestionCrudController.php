@@ -4,6 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Question;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class QuestionCrudController extends AbstractCrudController
 {
@@ -12,14 +15,18 @@ class QuestionCrudController extends AbstractCrudController
         return Question::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            AssociationField::new('suggestedBy'),
+            AssociationField::new('previousQuestion'),
+            AssociationField::new('nextQuestion'),
+            TextField::new('label'),
+            TextField::new('codeImage'),
+            TextareaField::new('answerExplanations'),
+            TextField::new('liveSnippetUrl'),
+            TextField::new('twitterPollUrl'),
+            TextareaField::new('differencesOutputNotes'),
         ];
     }
-    */
 }

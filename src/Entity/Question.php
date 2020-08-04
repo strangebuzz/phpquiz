@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Represents a quiz question. A question is standalone and can be used without being
@@ -33,6 +34,9 @@ class Question
      * @example "What will be displayed?"
      *
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      */
     protected ?string $label;
 
@@ -42,6 +46,10 @@ class Question
      * @example https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small
      *
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
+     * @Assert\Url()
      */
     protected ?string $codeImage;
 
@@ -52,6 +60,9 @@ class Question
      *
      * @example PHP namespaces can contain space characters, but they can't begin
      *          with a backslash. The right answer was "A"
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      */
     protected ?string $answerExplanations;
 
@@ -61,6 +72,10 @@ class Question
      * @ORM\Column(type="string", length=255)
      *
      * @example https://3v4l.org/pQOMe
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
+     * @Assert\Url()
      */
     protected ?string $liveSnippetUrl;
 
@@ -70,6 +85,10 @@ class Question
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @example https://twitter.com/FredBouchery/status/1286207302018699264
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
+     * @Assert\Url()
      */
     protected ?string $twitterPollUrl;
 
@@ -107,6 +126,8 @@ class Question
      *
      * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="questions")
      * @ORM\JoinColumn(nullable=false)
+     *
+     * @Assert\NotBlank()
      */
     protected ?Person $suggestedBy;
 

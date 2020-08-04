@@ -52,6 +52,11 @@ class Person
         $this->questions = new ArrayCollection();
     }
 
+    public function __toString() : string
+    {
+        return (string) ($this->twitter ?: $this->pseudo);
+    }
+
     public function getId(): ?int
     {
         return $this->id;

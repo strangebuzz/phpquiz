@@ -40,6 +40,11 @@ class Answer
      */
     private ?Question $question;
 
+    public function __toString() : string
+    {
+        return (string) $this->code;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
