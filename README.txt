@@ -7,6 +7,8 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Add a private question description to identify the quiz more easily (in the admin for example)
+* Add the answers poll percents and display them after the user answer
 * Add a third question
 * Add a clean readme.md for contributors
 

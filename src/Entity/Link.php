@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\LinkRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=LinkRepository::class)
@@ -17,21 +18,30 @@ class Link
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      */
     private ?string $label;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
+     * @Assert\Url()
      */
     private ?string $url;
 
     /**
      * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="links")
      * @ORM\JoinColumn(nullable=false)
+     *
+     * @Assert\NotBlank
      */
     private ?Question $question;
 
