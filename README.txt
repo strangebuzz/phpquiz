@@ -7,7 +7,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Handle the validate button
 * Add the next and prev quiz fields
 * Add readme.md
 * Put the carbon image as the social image in the show page
@@ -66,15 +65,10 @@ References
 ————————————————————————————————————————————————————————————————————————————————
 
 
-@Training
-————————————————————————————————————————————————————————————————————————————————
-
-* []
-
-
 @Design/CSS
 ————————————————————————————————————————————————————————————————————————————————
 
+* https://purecss.io/
 * https://favicon.io/emoji-favicons/elephant/
 
 
