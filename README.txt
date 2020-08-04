@@ -18,6 +18,8 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
+* Integrity error when inserting two person with the same Twitter or pseudo (add constraint)
+
 
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
