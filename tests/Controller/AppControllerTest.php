@@ -10,6 +10,16 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class AppControllerTest extends WebTestCase
 {
     /**
+     * @covers AppController::home
+     */
+    public function testHome(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/');
+        self::assertResponseIsSuccessful();
+    }
+
+    /**
      * @covers AppController::about
      */
     public function testAbout(): void

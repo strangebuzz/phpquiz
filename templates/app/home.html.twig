@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}About the PHPQuiz website, more about us, support us, contribute.{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="preconnect" href="{{ preconnect('https://platform.twitter.com') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h1>PHPQuiz 🐘</h1>
+    </div>
+
+    <div class="content">
+        <p>
+            There is currently {{ count }} question in the quiz. Click on the button
+            below to start.
+        </p>
+
+        <p class="center">
+            <a href="{{ path('show', {id: 1}) }}" class="pure-button pure-button-primary button-xlarge">Start</a>
+        </p>
+    </div>
+{% endblock %}

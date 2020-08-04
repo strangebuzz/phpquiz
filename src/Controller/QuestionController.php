@@ -18,11 +18,11 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/", name="home")
+     * @Route("/question/{id}", name="show")
      */
-    public function show(): Response
+    public function show(int $id): Response
     {
-        $question = $this->questionRepository->find(1);
+        $question = $this->questionRepository->find($id);
         if (!$question instanceof Question) {
             throw $this->createNotFoundException('Question not found');
         }

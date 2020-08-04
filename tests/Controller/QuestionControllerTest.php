@@ -15,7 +15,7 @@ class QuestionControllerTest extends WebTestCase
     public function testShow(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/');
+        $client->request('GET', '/question/1');
         self::assertResponseIsSuccessful();
     }
 }
