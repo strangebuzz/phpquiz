@@ -13,12 +13,12 @@ require('../css/buttons.css')
 require('../css/app.css')
 
 new Vue({
-  el: '#layout', // main id of global layout (layout.html)
+  el: '#layout', // main id of global div (layout.html)
   delimiters: ['{', '}'], // because of Twig we don't take standard {{ }}
   data: {
-    question: question, // question json object, comes from Sf
+    question: question, // question json object, comes from the Sf javascripts block
     hasValidated: false, // user has validated its answer?
-    answer: null, // user answer (vue model)
+    answer: null, // user answer (vue form model)
   },
   computed: {
     /**
@@ -30,7 +30,7 @@ new Vue({
   },
   methods: {
     /**
-     * The user has click on the validate button. Force HTML5 validation.
+     * The user has clicked on the validate button. Force HTML5 validation.
      */
     validateAnswer() {
       if (!this.$refs.form.checkValidity()) {

@@ -75,10 +75,9 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt]) {
             $previousQuestion = is_int($previousQuestionId) ? $this->getQuestion($previousQuestionId) : null;
             $nextQuestion = is_int($nextUqestionId) ? $this->getQuestion($nextUqestionId) : null;
-            $question = $this->getQuestion($id)
+            $this->getQuestion($id)
                 ->setPreviousQuestion($previousQuestion)
                 ->setNextQuestion($nextQuestion);
-            $manager->persist($question);
         }
         $manager->flush();
     }

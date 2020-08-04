@@ -7,11 +7,10 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add the next and prev quiz fields
 * Add a third question
-* Handle the last question case
-* Add readme.md
+* Add a clean readme.md for contributors
 * Put the carbon image as the social image in the show page
+* Handle the selected menu item
 
 
 @Bugs
