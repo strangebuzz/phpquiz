@@ -22,6 +22,7 @@ class ApiExtensionTest extends KernelTestCase
      */
     public function testSerialize(): void
     {
+        // nominal case
         $question = new Question();
         $answer = (new Answer())
             ->setCode('B')
@@ -30,5 +31,10 @@ class ApiExtensionTest extends KernelTestCase
         $json = $this->apiExtension->serialize($question, 'show');
         self::assertJson($json);
         self::assertJsonStringEqualsJsonString('{"id":null,"correctAnswerCode":"B"}', $json);
+
+        // unkown context
+        $jsonEmpty = $this->apiExtension->serialize($question, 'unkown_context');
+        self::assertJson($jsonEmpty);
+        self::assertJsonStringEqualsJsonString('[]', $jsonEmpty); // to check
     }
 }

@@ -33,7 +33,7 @@ class ApiExtension extends AbstractExtension
      */
     public function serialize($value, string $group = null): string
     {
-        $context = $group !== null ? ['groups' => $group] : null;
+        $context = $group !== null ? ['groups' => $group] : [];
 
         return $this->serializer->serialize($value, 'json', $context);
     }
