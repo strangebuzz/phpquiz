@@ -25,12 +25,13 @@ class PersonFixtures extends Fixture
      * The following annotation is to prevent PHPSorm from reporting a false positive.
      *
      * @noinspection PhpStrictTypeCheckingInspection
+     * @noinspection PhpParamsInspection
      */
     public function load(ObjectManager $manager): void
     {
         foreach (self::DATA as [$id, $twitter, $pseudo]) {
             if (empty($twitter) && empty($pseudo)) {
-                throw new \InvalidArgumentException('The twitter or the pseudo should be filled.');
+                throw new \InvalidArgumentException('The Twitter or the pseudo should be filled.');
             }
 
             $person = (new Person())

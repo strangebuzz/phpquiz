@@ -12,6 +12,7 @@
 * Added the ability to copy/paste the code
 * Add a third question
 * Add a clean readme.md for contributors
+  https://github.com/javiereguiluz/easy-admin-demo
 
 
 @Bugs
