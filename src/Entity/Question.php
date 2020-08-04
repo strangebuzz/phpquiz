@@ -25,7 +25,7 @@ class Question
      *
      * @Groups({"show"})
      */
-    protected ?int $id;
+    protected ?int $id = null; // for the unit tests
 
     /**
      * Just a sentence to introduce the code.
