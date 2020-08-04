@@ -32,6 +32,7 @@ class QuestionController extends AbstractController
 
         return $this->render('answer/show.html.twig', [
             'question' => $question,
+            'count' => $this->questionRepository->count([])
         ]);
     }
 }

@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Quiz n{{ question.id }}: Answer the following question | PHPQuiz{% endblock %}
+{% block title %}Quiz n{{ question.id }}/{{ count }}: Answer the following question | PHPQuiz{% endblock %}
 
 {% block jsapp %}show{% endblock %}
 
@@ -13,7 +13,7 @@
 
 {% block body %}
     <div class="header">
-        <h1>Quiz {{ question.id }}: Answer the following question</h1>
+        <h1>Quiz {{ question.id }}/{{ count }}: Answer the following question</h1>
     </div>
 
     <div class="content">
