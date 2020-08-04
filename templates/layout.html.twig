@@ -4,7 +4,23 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}PHPQuiz: test your PHP knowledge with really hard quiz.{% endblock %}</title>
+        <link rel="canonical" href="{% block canonical %}{{ app.request.uri }}{% endblock %}" title="canonical" />
         <meta name="jsapp" content="{% block jsapp %}app{% endblock %}">
+        <meta name="description" content="{% block description %}{{ block('title') }} Learn new things about PHP and improve yourself to be a better developper.{% endblock %}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ block('canonical') }}" />
+        <meta property="og:title" content="{{ block('title') }}" />
+        <meta property="og:description" content="{{ block('description') }}" />
+        <meta property="og:site_name" content="{{ app_name }}" />
+        <meta property="og:locale" content="{{ app.request.locale }}" />
+        <meta property="og:image" content="{% block og_image %}{{ absolute_url('/android-chrome-512x512.png') }}{% endblock %}" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@{{ twitter }}" />
+        <meta name="twitter:creator" content="@{{ twitter }}" />
+        <meta name="twitter:url" content="{{ block('canonical') }}" />
+        <meta name="twitter:title" content="{{ block('title') }}" />
+        <meta name="twitter:description" content="{{ block('description') }}" />
+        <meta name="twitter:image" content="{{ block('og_image') }}" />
         {% block stylesheets %}
             {{ encore_entry_link_tags(block('jsapp')) }}
         {% endblock %}

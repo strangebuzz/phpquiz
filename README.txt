@@ -8,9 +8,8 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Add a third question
-* Add a clean readme.md for contributors
-* Put the carbon image as the social image in the show page
 * Handle the selected menu item
+* Add a clean readme.md for contributors
 
 
 @Bugs

@@ -1,6 +1,8 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Quiz n{{ question.id }}/{{ count }}: Answer the following question | PHPQuiz{% endblock %}
+{% block title %}Quiz n°{{ question.id }}/{{ count }}: Answer the following question{% endblock %}
+
+{% block og_image %}{{ question.codeImage }}{% endblock %}
 
 {% block jsapp %}show{% endblock %}
 

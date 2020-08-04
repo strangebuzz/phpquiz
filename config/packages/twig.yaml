@@ -1,2 +1,5 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    globals:
+        twitter: FredBouchery
+        app_name: PHPQuiz
