@@ -3,9 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}PhPQuiz: test your PHP knowledge with quiz.{% endblock %}</title>
+        <title>{% block title %}PHPQuiz: test your PHP knowledge with really hard quiz.{% endblock %}</title>
+        <meta name="jsapp" content="{% block jsapp %}app{% endblock %}">
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags(block('jsapp')) }}
         {% endblock %}
         <link rel="preconnect" href="{{ preconnect('https://platform.twitter.com') }}" />
     </head>
@@ -37,7 +38,7 @@
         {% block javascripts %}
             <script src="{{ preload(asset('js/ui.js'), {as: 'script'}) }}"></script>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags(block('jsapp')) }}
         {% endblock %}
     </body>
 </html>

@@ -2,6 +2,8 @@
 
 {% block title %}Quiz n{{ question.id }}: Answer the following question | PHPQuiz{% endblock %}
 
+{% block jsapp %}show{% endblock %}
+
 {% block body %}
     <div class="header">
         <h1>Quiz {{ question.id }}: Answer the following question</h1>
@@ -71,7 +73,7 @@
 
 {% block javascripts %}
     <script>
-      const question = {{ question|serialize('show')|raw }};
+      const question = {{ question|serialize(block('jsapp') )|raw }};
     </script>
     {{ parent() }}
 {% endblock %}
