@@ -30,10 +30,14 @@ new Vue({
   },
   methods: {
     /**
-     * The user has click on the validate button.
+     * The user has click on the validate button. Force HTML5 validation.
      */
     validateAnswer() {
-      this.hasValidated = true
+      if (!this.$refs.form.checkValidity()) {
+        this.$refs.form.click()
+      } else {
+        this.hasValidated = true
+      }
     },
   },
 })

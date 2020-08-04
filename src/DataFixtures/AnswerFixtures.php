@@ -38,7 +38,7 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             [
                 /*'code'        =>*/ 'A',
                 /*'label'       =>*/ '42',
-                /*'correct'     =>*/ true,
+                /*'correct'     =>*/ false,
             ],
             [
                 /*'code'        =>*/ 'B',
@@ -53,7 +53,7 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             [
                 /*'code'        =>*/ 'D',
                 /*'label'       =>*/ 'Fatal error: Uncaught Error: Cannot unpack Traversable with string keys',
-                /*'correct'     =>*/ false,
+                /*'correct'     =>*/ true,
             ],
         ]
     ];

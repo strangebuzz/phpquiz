@@ -33,7 +33,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'person_id'                =>*/ 1,
             /*'label'                    =>*/ 'What will be displayed (PHP version >= 7.4)?',
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EdW2xTnXYAIDjBP?format=png&name=medium',
-            /*'answer_explanations'      =>*/ '7.4 unpack a Traversable by keeping the iteration order, but it fails when the keys are strings, even if those strings are numeric. The right answer was "D"',
+            /*'answer_explanations'      =>*/ '7.4 unpack a Traversable by keeping the iteration order, but it fails when the keys are strings, even if those strings are numeric. The right answer was "D".',
             /*'live_snippet_url'         =>*/ 'https://3v4l.org/qKGPt',
             /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1285134865176956929',
             /*'differences_output_notes' =>*/ '',

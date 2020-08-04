@@ -29,20 +29,23 @@
         <div v-if="!hasValidated">
             <h3>Answers</h3>
 
-            <form class="pure-form pure-form-stacked" method="post">
+            <form class="pure-form pure-form-stacked" method="post" ref="form">
                 <fieldset>
                     <legend>Select your answer: 🧐</legend>
 
                     {% for answer in question.answers %}
                         <label class="pure-radio" for="answer_{{ answer.code }}">
-                            <input v-model="answer" name="answer" id="answer_{{ answer.code }}" type="radio" value="{{ answer.code }}" />
+                            <input required="required" v-model="answer" name="answer" id="answer_{{ answer.code }}" type="radio" value="{{ answer.code }}" />
                             <b>{{ answer.code }}</b>: {{ answer.label|raw }}
                         </label>
                     {% endfor %}
 
                     <p class="center">
-                        <button v-on:click.prevent="validateAnswer" class="pure-button button-success button-xlarge">Validate</button>
+                        <button type="submit" v-on:click="validateAnswer" class="pure-button pure-button-primary button-xlarge">Validate</button>
                     </p>
+                    <div style="display: none">
+                        <button type="submit"></button>
+                    </div>
                 </fieldset>
             </form>
         </div>
