@@ -7,6 +7,7 @@ DOCKER_COMP = docker-compose
 YARN        = yarn
 STAN        = ./vendor/bin/phpstan
 PHPUNIT     = ./vendor/bin/simple-phpunit
+LE_EXEC     = certbot
 .DEFAULT_GOAL := help
 
 ## —— 🐘 PhpQuiz Make file 🐘 ——————————————————————————————————————————————————
@@ -42,6 +43,9 @@ fix-perms: ## Fix permissions of all var files
 
 purge: ## Purge cache and logs
 	rm -rf var/cache/* var/logs/*
+
+assets: ## Install assets
+	$(SYMFONY) assets:install public --symlink --relative
 
 load-fixtures: ## Build the db, control the schema validity, load fixtures and check the migration status
 	$(SYMFONY) doctrine:cache:clear-metadata
@@ -79,4 +83,4 @@ deploy: ## Full no-downtime deployment with EasyDeploy
 	$(SYMFONY) deploy -v
 
 le-renew: ## Renew Let's Encrypt HTTPS certificates
-	certbot --apache -d phpquiz.xyz -d www.phpquiz.xyz
+	$(LE_EXEC) --apache -d phpquiz.xyz -d www.phpquiz.xyz
