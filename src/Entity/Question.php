@@ -333,6 +333,8 @@ class Question
      * Virtual property getter.
      *
      * @Groups({"show"})
+     *
+     * @throws \LogicException
      */
     public function getCorrectAnswerCode(): string
     {

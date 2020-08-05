@@ -9,8 +9,8 @@
 
 * Add a private question description to identify the quiz more easily (in the admin for example)
 * Add the answers poll percents and display them after the user answer
-* Added the ability to copy/paste the code
-* Add a third question
+* Add the ability to copy/paste the code
+* Add a third question to test
 * Add a clean readme.md for contributors
   https://github.com/javiereguiluz/easy-admin-demo
 
@@ -18,7 +18,7 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
-* Integrity error when inserting two person with the same Twitter or pseudo (add constraint)
+* Integrity error when inserting two persons with the same Twitter or pseudo (add constraint)
 
 
 @Ideas/To decide
@@ -29,6 +29,7 @@
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
 * Remove correct answer from source?
+* Hide correct answet in response?
 
 
 @Infra
@@ -41,7 +42,7 @@
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
 
-* DB Join on answers in the show method
+* DB Join on answers in the show methods
 
 
 References
