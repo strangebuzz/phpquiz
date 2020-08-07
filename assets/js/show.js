@@ -1,4 +1,4 @@
-/* global question */
+/* global questionId */
 /* eslint-disable no-new */
 
 // Js vendors ——————————————————————————————————————————————————————————————————
@@ -16,7 +16,9 @@ new Vue({
   el: '#layout', // main id of global div (layout.html)
   delimiters: ['{', '}'], // because of Twig we don't take standard {{ }}
   data: {
-    question: question, // question json object, comes from the Sf javascripts block
+    questionId: questionId, // Id of the current question
+    question: null, // question json object (see mounted).
+    ready: false, // can the user answer the question? (question object must be available)
     hasValidated: false, // user has validated its answer?
     answer: null, // user answer (vue form model)
   },
@@ -25,6 +27,7 @@ new Vue({
      * Is the user answer correct? Must be used only if hasValidated is true.
      */
     isCorrect: function () {
+      console.log(this.question.correctAnswerCode)
       return this.question.correctAnswerCode === this.answer
     }
   },
@@ -40,4 +43,19 @@ new Vue({
       }
     },
   },
+  mounted() {
+      self = this;
+      fetch('/question/'+this.questionId+'.json', {
+        method: 'GET'
+      })
+      .then(function(response) { return response.json(); })
+      .then(function(json) {
+        self.question = json;
+        self.ready = true
+      })
+      .catch(function(reason) {
+        alert('An error occured: '+reason)
+        self.ready = false
+      })
+  }
 })

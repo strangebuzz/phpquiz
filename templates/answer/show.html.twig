@@ -8,7 +8,7 @@
 
 {% block javascripts %}
     <script>
-      const question = {{ question|serialize(block('jsapp') )|raw }};
+      const questionId = {{ question.id }}
     </script>
     {{ parent() }}
 {% endblock %}
@@ -42,7 +42,7 @@
                         </label>
                     {% endfor %}
 
-                    <p class="center">
+                    <p v-if="ready" class="center">
                         <button type="submit" v-on:click="validateAnswer" class="pure-button pure-button-primary button-xlarge">Validate</button>
                     </p>
                 </fieldset>

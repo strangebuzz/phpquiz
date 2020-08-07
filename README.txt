@@ -28,8 +28,6 @@
 * Add a question uuid?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
-* Remove correct answer from source?
-* Hide correct answet in response?
 
 
 @Infra
@@ -84,6 +82,7 @@ References
 @Debug
 ————————————————————————————————————————————————————————————————————————————————
 
+* const question = {{ question|serialize(block('jsapp') )|raw }};
 * SerializerInterface  $serializer
   dump($serializer->serialize($question, 'json', ['groups' => 'show']));
   die();
