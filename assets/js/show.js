@@ -16,7 +16,7 @@ new Vue({
   el: '#layout', // main id of global div (layout.html)
   delimiters: ['{', '}'], // because of Twig we don't take standard {{ }}
   data: {
-    questionId: questionId, // Id of the current question
+    questionId: questionId, // Id of the current question (comes from the Sf javascript block)
     question: null, // question json object (see mounted).
     ready: false, // can the user answer the question? (question object must be available)
     hasValidated: false, // user has validated its answer?
@@ -27,7 +27,6 @@ new Vue({
      * Is the user answer correct? Must be used only if hasValidated is true.
      */
     isCorrect: function () {
-      console.log(this.question.correctAnswerCode)
       return this.question.correctAnswerCode === this.answer
     }
   },
@@ -48,7 +47,9 @@ new Vue({
       fetch('/question/'+this.questionId+'.json', {
         method: 'GET'
       })
-      .then(function(response) { return response.json(); })
+      .then(function(response) {
+        return response.json();
+      })
       .then(function(json) {
         self.question = json;
         self.ready = true

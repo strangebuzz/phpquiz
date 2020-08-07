@@ -4,9 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Question;
 use App\Repository\QuestionRepository;
-use App\Twig\ApiExtension;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,12 +14,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuestionController extends AbstractController
 {
     private QuestionRepository $questionRepository;
-    private ApiExtension $apiExtension;
 
-    public function __construct(QuestionRepository $questionRepository, ApiExtension $apiExtension)
+    public function __construct(QuestionRepository $questionRepository)
     {
         $this->questionRepository = $questionRepository;
-        $this->apiExtension = $apiExtension;
     }
 
     /**
@@ -36,7 +32,7 @@ class QuestionController extends AbstractController
         }
 
         if ($_route === 'show_json') {
-            return new JsonResponse($this->apiExtension->serialize($question, 'show'), Response::HTTP_OK, [], true);
+            return $this->json($question, Response::HTTP_OK, [], ['groups' => 'show']);
         }
 
         return $this->render('answer/show.html.twig', [

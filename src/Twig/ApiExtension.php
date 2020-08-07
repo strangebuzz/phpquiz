@@ -6,6 +6,9 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
+/**
+ * If we get json by fetch we shouldn't need this.
+ */
 class ApiExtension extends AbstractExtension
 {
     private SerializerInterface $serializer;

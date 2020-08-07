@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 class QuestionControllerTest extends WebTestCase
 {
     /**
+     * Route "show".
+     *
      * @covers QuestionController::show
      */
     public function testShow(): void
@@ -18,6 +20,22 @@ class QuestionControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/question/1');
         self::assertResponseIsSuccessful();
+        self::assertContains("What will be displayed?", $client->getResponse()->getContent());
+    }
+
+    /**
+     * Route "show_json".
+     *
+     * @covers QuestionController::show
+     */
+    public function testShowJson(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/question/1.json');
+        $json = $client->getResponse()->getContent();
+        self::assertResponseIsSuccessful();
+        self::assertJson($json);
+        self::assertJsonStringEqualsJsonString('{"id":1,"correctAnswerCode":"A"}', $json);
     }
 
     /**
