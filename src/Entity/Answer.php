@@ -35,6 +35,11 @@ class Answer
     private ?bool $correct;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private ?int $pollResult;
+
+    /**
      * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="answers")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -90,6 +95,18 @@ class Answer
     public function setCorrect(bool $correct): self
     {
         $this->correct = $correct;
+
+        return $this;
+    }
+
+    public function getPollResult(): ?int
+    {
+        return $this->pollResult;
+    }
+
+    public function setPollResult(?int $pollResult): self
+    {
+        $this->pollResult = $pollResult;
 
         return $this;
     }

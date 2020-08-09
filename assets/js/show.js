@@ -56,7 +56,6 @@ new Vue({
       })
       .catch(function(reason) {
         alert('An error occured: '+reason)
-        self.ready = false
       })
   }
 })

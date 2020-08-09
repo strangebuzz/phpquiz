@@ -8,8 +8,8 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Add a private question description to identify the quiz more easily (in the admin for example)
-* Add the answers poll percents and display them after the user answer
-* Add the ability to copy/paste the code
+* Add the ability to copy/paste the code (/code)
+* Add a quiz number/order that doesn't rely on the database ID.
 * Add a third question to test
 * Add a clean readme.md for contributors
   https://github.com/javiereguiluz/easy-admin-demo
@@ -24,7 +24,7 @@
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* Added the Twitter poll results for each answer?
+* Poll results as integer?
 * Add a question uuid?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?

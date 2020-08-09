@@ -59,6 +59,13 @@
 
             <span class="size-60">▶&nbsp;</span> <a target="_blank" href="{{ question.liveSnippetUrl }}"> Click here to run this code on 3v4l.org</a><br/>
 
+            <h3>Poll</h3>
+            <ul>
+                {% for answer in question.answers %}
+                    <li><b>{{ answer.code }}</b>: {{ answer.label|raw }} - {{ answer.pollResult/100 }}%</li>
+                {% endfor %}
+            </ul>
+
             <span class="size-60">▶&nbsp;</span> <a target="_blank" href="{{ question.twitterPollUrl }}"> Click here to see the Twitter poll</a><br/>
 
             {% if question.differencesOutputNotes %}
@@ -89,7 +96,7 @@
                 <h3>The end. 😭</h3>
 
                 <p>Congratulations! You have reach the end of the quiz. We hope
-                you enjoyed it and that you learned interesting things.</p>
+                you enjoyed it and that you learned new things.</p>
 
                 <p>
                     As you can see, this website relies on 3v4l.org to test the

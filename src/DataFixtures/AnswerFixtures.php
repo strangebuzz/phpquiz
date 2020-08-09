@@ -17,21 +17,25 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'code'        =>*/ 'A',
                 /*'label'       =>*/ "Fatal error: Uncaught Error: Undefined constant 'Foo\Bar'",
                 /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 1250,
             ],
             [
                 /*'code'        =>*/ 'B',
                 /*'label'       =>*/ "Parse error: syntax error, unexpected '\' (T_NS_SEPARATOR)'",
                 /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 3750,
             ],
             [
                 /*'code'        =>*/ 'C',
                 /*'label'       =>*/ "Foo\Bar\A",
                 /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1750,
             ],
             [
                 /*'code'        =>*/ 'D',
                 /*'label'       =>*/ "Foo\Bar\B",
-                /*'correct'     =>*/ false,
+                /*'correct'     =>*/  false,
+                /*'poll_result' =>*/ 3250,
             ],
         ],
         /*'question_id'*/ 2 => [
@@ -39,21 +43,25 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'code'        =>*/ 'A',
                 /*'label'       =>*/ '42',
                 /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 4260,
             ],
             [
                 /*'code'        =>*/ 'B',
                 /*'label'       =>*/ '24',
                 /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1300,
             ],
             [
                 /*'code'        =>*/ 'C',
                 /*'label'       =>*/ "Parse error: syntax error, unexpected '...' (T_ELLIPSIS)",
                 /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1480,
             ],
             [
                 /*'code'        =>*/ 'D',
                 /*'label'       =>*/ 'Fatal error: Uncaught Error: Cannot unpack Traversable with string keys',
                 /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 2960,
             ],
         ]
     ];
@@ -62,12 +70,13 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
     {
         foreach (self::DATA as $questionId => $questions) {
             $question = $this->getQuestion($questionId);
-            foreach ($questions as [$code, $label, $correct]) {
+            foreach ($questions as [$code, $label, $correct, $pollResult]) {
                 $answer = (new Answer())
                     ->setCode($code)
                     ->setLabel($label)
                     ->setQuestion($question)
-                    ->setCorrect((bool) $correct);
+                    ->setCorrect($correct)
+                    ->setPollResult((int) $pollResult);
 
                 $manager->persist($answer);
             }
