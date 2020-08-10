@@ -7,6 +7,10 @@ label:hover {
     background: #cccccc;
 }
 
+.copy {
+    cursor: pointer;
+}
+
 .content-quote {
     color:#666;
     font-style:italic;
@@ -25,4 +29,8 @@ label:hover {
 
 .size-60 {
     font-size: 0.6rem
+}
+
+.hidden {
+    display: none;
 }

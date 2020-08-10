@@ -9,6 +9,7 @@
 {% block javascripts %}
     <script>
       const questionId = {{ question.id }}
+      const code = `{{ code }}`
     </script>
     {{ parent() }}
 {% endblock %}
@@ -27,6 +28,10 @@
         <h3>{{ question.label }} 🤔</h3>
 
         <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.id }}"/>
+
+        <button class="copy pure-button pure-button-primary" data-clipboard-target="#code">Copy the code above in your clipboard 📋</button>
+
+        <textarea v-html="code" id="code"></textarea>
 
         <div v-if="!hasValidated">
             <h3>Answers</h3>

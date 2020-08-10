@@ -1,8 +1,9 @@
-/* global questionId */
+/* global questionId, code */
 /* eslint-disable no-new */
 
 // Js vendors ——————————————————————————————————————————————————————————————————
 import Vue from 'vue'
+import Clipboard from 'clipboard';
 
 // CSS vendors —————————————————————————————————————————————————————————————————
 require('purecss/build/pure-min.css')
@@ -18,6 +19,7 @@ new Vue({
   data: {
     questionId: questionId, // Id of the current question (comes from the Sf javascript block)
     question: null, // question json object (see mounted).
+    code: code, // raw PHP code of the question
     ready: false, // can the user answer the question? (question object must be available)
     hasValidated: false, // user has validated its answer?
     answer: null, // user answer (vue form model)
@@ -41,21 +43,28 @@ new Vue({
         this.hasValidated = true
       }
     },
-  },
-  mounted() {
+    initClipboard() {
+      new Clipboard('.copy');
+    },
+    loadQuestion() {
       self = this;
       fetch('/question/'+this.questionId+'.json', {
         method: 'GET'
       })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(json) {
-        self.question = json;
-        self.ready = true
-      })
-      .catch(function(reason) {
-        alert('An error occured: '+reason)
-      })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(json) {
+          self.question = json;
+          self.ready = true
+        })
+        .catch(function(reason) {
+          alert('An error occured: '+reason)
+        })
+    }
+  },
+  mounted() {
+    this.initClipboard()
+    this.loadQuestion()
   }
 })

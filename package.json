@@ -17,6 +17,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "clipboard": "^2.0.6",
         "purecss": "^2.0.3"
     }
 }

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Question;
 use App\Repository\QuestionRepository;
+use App\Twig\SourceExtension;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,10 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuestionController extends AbstractController
 {
     private QuestionRepository $questionRepository;
+    private SourceExtension $sourceExtension;
 
-    public function __construct(QuestionRepository $questionRepository)
+    public function __construct(QuestionRepository $questionRepository, SourceExtension $sourceExtension)
     {
         $this->questionRepository = $questionRepository;
+        $this->sourceExtension = $sourceExtension;
     }
 
     /**
@@ -37,6 +40,7 @@ class QuestionController extends AbstractController
 
         return $this->render('answer/show.html.twig', [
             'question' => $question,
+            'code' => $this->sourceExtension->getSource($question),
             'count' => $this->questionRepository->count([])
         ]);
     }
