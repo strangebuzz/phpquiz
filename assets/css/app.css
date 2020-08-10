@@ -7,10 +7,6 @@ label:hover {
     background: #cccccc;
 }
 
-.copy {
-    cursor: pointer;
-}
-
 .content-quote {
     color:#666;
     font-style:italic;

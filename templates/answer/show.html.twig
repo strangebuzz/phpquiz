@@ -29,9 +29,9 @@
 
         <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.id }}"/>
 
-        <button class="copy pure-button pure-button-primary" data-clipboard-target="#code">Copy the code above in your clipboard 📋</button>
+        <button class="copy pure-button pure-button-primary">Copy the code above in your clipboard 📋</button>
 
-        <textarea v-html="code" id="code"></textarea>
+        <textarea class="hidden" v-html="code" id="code"></textarea>
 
         <div v-if="!hasValidated">
             <h3>Answers</h3>

@@ -7,7 +7,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add the ability to copy/paste the code (/code)
 * Add a quiz number/order that doesn't rely on the database ID.
 * Add a third question to test
 * Add a clean readme.md for contributors
@@ -27,6 +26,12 @@
 * Add a question uuid?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
+
+
+@Nice to have
+————————————————————————————————————————————————————————————————————————————————
+
+* Add feedback on "copy code to clipboard"
 
 
 @Infra

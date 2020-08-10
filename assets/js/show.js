@@ -43,8 +43,15 @@ new Vue({
         this.hasValidated = true
       }
     },
+    /**
+     * Custom "text" function to copy the code without to display the textarea
+     */
     initClipboard() {
-      new Clipboard('.copy');
+      new Clipboard('.copy', {
+        text: function() {
+          return document.getElementById('code').value
+        }
+      });
     },
     loadQuestion() {
       self = this;
