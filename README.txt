@@ -59,6 +59,7 @@ References
 @Ressources
 ————————————————————————————————————————————————————————————————————————————————
 
+* https://clipboardjs.com/
 * https://twig.symfony.com/doc/2.x/functions/block.html
 * https://schema.org
 * https://carbon.now.sh
