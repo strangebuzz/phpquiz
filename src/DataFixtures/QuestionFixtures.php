@@ -18,6 +18,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'next_question'            =>*/ 2,
             /*'person_id'                =>*/ 1,
             /*'label'                    =>*/ 'What will be displayed?',
+            /*'reminder'                 =>*/ "Namespaces can't begin with a backslash.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small',
             /*'answer_explanations'      =>*/ 'PHP namespaces can contain space characters, but they can\'t begin with a backslash. The right answer was "A".',
             /*'live_snippet_url'         =>*/ 'https://3v4l.org/pQOMe',
@@ -32,6 +33,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'next_question'            =>*/ null,
             /*'person_id'                =>*/ 1,
             /*'label'                    =>*/ 'What will be displayed (PHP version >= 7.4)?',
+            /*'reminder'                 =>*/ "Can't unpack a traversable if keys are string.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EdW2xTnXYAIDjBP?format=png&name=medium',
             /*'answer_explanations'      =>*/ '7.4 unpack a Traversable by keeping the iteration order, but it fails when the keys are strings, even if those strings are numeric. The right answer was "D".',
             /*'live_snippet_url'         =>*/ 'https://3v4l.org/qKGPt',
@@ -45,7 +47,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         foreach (self::DATA as [$previousQuestionId, $id, $nextUqestionId, $personId,
-            $label, $codeImage, $answerExplanations, $liveSnippetUrl,
+            $label, $reminder, $codeImage, $answerExplanations, $liveSnippetUrl,
             $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt]) {
             $createdAtDateTime = date_create($createdAt);
             $updatedAtDateTime = date_create($updatedAt);
@@ -57,6 +59,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             $question = (new Question())
                 ->setSuggestedBy($person)
                 ->setLabel($label)
+                ->setReminder($reminder)
                 ->setCodeImage($codeImage)
                 ->setAnswerExplanations($answerExplanations)
                 ->setLiveSnippetUrl($liveSnippetUrl)

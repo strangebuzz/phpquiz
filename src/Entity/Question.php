@@ -29,6 +29,19 @@ class Question
     protected ?int $id = null; // for the unit tests
 
     /**
+     * Reminder to identify the quiz, it is thus a shorter version of the "$answerExplanations"
+     * field.
+     *
+     * @ORM\Column(type="string", length=255)
+     *
+     * @example "Namespaces name can't start with an antslash "
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
+     */
+    protected ?string $reminder;
+
+    /**
      * Just a sentence to introduce the code.
      *
      * @example "What will be displayed?"
@@ -134,12 +147,12 @@ class Question
     /**
      * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"})
      */
-    private ?Question $previousQuestion;
+    protected ?Question $previousQuestion;
 
     /**
      * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"})
      */
-    private ?Question $nextQuestion;
+    protected ?Question $nextQuestion;
 
     public function __construct()
     {
@@ -149,7 +162,7 @@ class Question
 
     public function __toString(): string
     {
-        return (string) $this->id;
+        return $this->reminder. '('.$this->id.')';
     }
 
     public function getId(): ?int
@@ -345,5 +358,17 @@ class Question
         }
 
         throw new \LogicException("Question doesn't have a correct answer.");
+    }
+
+    public function getReminder(): ?string
+    {
+        return $this->reminder;
+    }
+
+    public function setReminder(string $reminder): self
+    {
+        $this->reminder = $reminder;
+
+        return $this;
     }
 }

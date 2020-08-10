@@ -22,6 +22,7 @@ class QuestionCrudController extends AbstractCrudController
             AssociationField::new('previousQuestion'),
             AssociationField::new('nextQuestion'),
             TextField::new('label'),
+            TextField::new('reminder'),
             TextField::new('codeImage'),
             TextareaField::new('answerExplanations'),
             TextField::new('liveSnippetUrl'),

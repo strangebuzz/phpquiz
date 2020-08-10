@@ -14,7 +14,7 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
     private const DATA = [
         [
             /*'question_id' =>*/ 1,
-            /*'label'       =>*/ 'Read the namespace documentation on php.net',
+            /*'label'       =>*/ 'Read the namespaces documentation on php.net',
             /*'url'         =>*/ 'https://www.php.net/manual/en/language.namespaces.definition.php',
         ],
         [

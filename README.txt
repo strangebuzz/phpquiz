@@ -7,7 +7,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add a private question description to identify the quiz more easily (in the admin for example)
 * Add the ability to copy/paste the code (/code)
 * Add a quiz number/order that doesn't rely on the database ID.
 * Add a third question to test
@@ -18,13 +17,13 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
+* Can't set the admin password!
 * Integrity error when inserting two persons with the same Twitter or pseudo (add constraint)
 
 
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* Poll results as integer?
 * Add a question uuid?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
@@ -40,7 +39,8 @@
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
 
-* DB Join on answers in the show methods
+* DB Join on answers in the show methods to avoid join at the view level when getting
+  the previous and next quiz.
 
 
 References
