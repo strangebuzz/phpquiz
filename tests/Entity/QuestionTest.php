@@ -32,7 +32,7 @@ class QuestionTest extends KernelTestCase
         try {
             $question = new Question();
             $question->getCorrectAnswerCode();
-            self::fail('Calling getCorrectAnswerCode() on a question without answers raised an excpetion.');
+            self::fail('Calling getCorrectAnswerCode() on a question without answers raises an excpetion.');
         } catch (\Exception $e) {
             self::assertInstanceOf(\LogicException::class, $e);
         }
