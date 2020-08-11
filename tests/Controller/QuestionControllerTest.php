@@ -10,17 +10,27 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class QuestionControllerTest extends WebTestCase
 {
+    public function getAnswers(): array
+    {
+        return [
+            [1],
+            [2],
+            [3],
+        ];
+    }
+
     /**
      * Route "show".
      *
      * @covers QuestionController::show
+     *
+     * @dataProvider getAnswers
      */
-    public function testShow(): void
+    public function testShow(int $questionId): void
     {
         $client = static::createClient();
-        $client->request('GET', '/question/1');
+        $client->request('GET', '/question/'.$questionId);
         self::assertResponseIsSuccessful();
-        self::assertContains("What will be displayed?", $client->getResponse()->getContent());
     }
 
     /**

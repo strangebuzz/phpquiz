@@ -22,6 +22,11 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
             /*'label'       =>*/ 'Read the generators documentation on php.net',
             /*'url'         =>*/ 'https://www.php.net/manual/en/language.generators.syntax.php',
         ],
+        [
+            /*'question_id' =>*/ 3,
+            /*'label'       =>*/ 'Read the property_exists function documentation on php.net',
+            /*'url'         =>*/ 'https://www.php.net/manual/en/function.property-exists.php',
+        ],
     ];
 
     public function load(ObjectManager $manager): void

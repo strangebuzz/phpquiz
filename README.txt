@@ -7,16 +7,15 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add a quiz number/order that doesn't rely on the database ID.
-* Add a third question to test
 * Add a clean readme.md for contributors
   https://github.com/javiereguiluz/easy-admin-demo
+* Compute the final score of the user
 
 
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
-* Can't set the admin password!
+* Can't set the admin password! Symfony binary bug?
 * Integrity error when inserting two persons with the same Twitter or pseudo (add constraint)
 
 

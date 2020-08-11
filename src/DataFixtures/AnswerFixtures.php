@@ -63,6 +63,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'correct'     =>*/ true,
                 /*'poll_result' =>*/ 2960,
             ],
+        ],
+        /*'question_id'*/ 3 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'int(42)',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 6250,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'NULL',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1880,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ "Fatal error: Uncaught Error: Cannot access private property B::\$foo",
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 1560,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ "Parse error: syntax error, unexpected '{'",
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 310,
+            ],
         ]
     ];
 
