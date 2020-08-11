@@ -29,9 +29,10 @@
 
         <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.id }}"/>
 
-        <button class="copy pure-button pure-button-primary">Copy the code above in your clipboard 📋</button>
-
-        <textarea class="hidden" v-html="code" id="code"></textarea>
+        <p class="center">
+            <button class="copy pure-button pure-button-primary button-small">Copy the code in your clipboard 📋</button>
+            <textarea class="hidden" v-html="code" id="code"></textarea>
+        </p>
 
         <div v-if="!hasValidated">
             <h3>Answers</h3>
@@ -67,7 +68,11 @@
             <h3>Poll</h3>
             <ul>
                 {% for answer in question.answers %}
-                    <li><b>{{ answer.code }}</b>: {{ answer.label|raw }} - {{ answer.pollResult/100 }}%</li>
+                    {% set percent = answer.pollResult/100 %}
+                    <li>
+                        <b>{{ answer.code }}</b>: {{ answer.label|raw }} - <b>{{ percent }}</b>%<br/>
+                        <progress value="{{ percent }}" max="100"> percent% </progress>
+                    </li>
                 {% endfor %}
             </ul>
 
