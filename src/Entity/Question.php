@@ -170,6 +170,18 @@ class Question
         return $this->id;
     }
 
+    public function getReminder(): ?string
+    {
+        return $this->reminder;
+    }
+
+    public function setReminder(string $reminder): self
+    {
+        $this->reminder = $reminder;
+
+        return $this;
+    }
+
     public function getLabel(): ?string
     {
         return $this->label;
@@ -360,15 +372,5 @@ class Question
         throw new \LogicException("Question doesn't have a correct answer.");
     }
 
-    public function getReminder(): ?string
-    {
-        return $this->reminder;
-    }
 
-    public function setReminder(string $reminder): self
-    {
-        $this->reminder = $reminder;
-
-        return $this;
-    }
 }
