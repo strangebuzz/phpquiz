@@ -7,7 +7,7 @@ This is the public repository of the [https://phpquiz.xyz][1] website.
 Requirements ⚙
 --------------
 
-  * [The Symfony binary][4] using at least 7.4
+  * [The Symfony binary][4] using at least PHP 7.4
   * [Docker][5] and [Docker compose][6]
   * [Yarn][7]
   * and the [usual Symfony application requirements][2].
@@ -17,7 +17,7 @@ How to install this project 📚
 ------------------------------
 
 As you can see, there no "full-docker-setup" yet. But feel free to contribute if
-you want one, that would be nice.
+you want one, it would be nice.
 
 To install and run the project, run the following commands:
 
@@ -42,7 +42,9 @@ You can find the dev notes in the [README.txt][8] file.
 To see the changes you do the assets (Js, CSS), you must run yarn watch with the
 following command:
 
-  * `make watch`
+```bash
+$ make watch
+```
 
 
 Coding standards ✨
@@ -58,10 +60,20 @@ $ make cs
 Tests ✅
 --------
 
-Execute this command to run the tests:
+Execute this command to run the [PHPUnit][11] tests:
 
 ```bash
 $ make test
+```
+
+Deploy 🚀
+--------
+
+There is a [deploy file][10] sample. To be able to deploy, copy it to `config/prod/deploy.php`
+and modify the settings it contains. Then you can deploy in production with:
+
+```bash
+$ make deploy
 ```
 
 
@@ -79,3 +91,5 @@ Create [an issue][3] so we can talk about it.
 [7]: https://yarnpkg.com/
 [8]: README.txt
 [9]: https://github.com/phpstan/phpstan
+[10]: config/prod/deploy_sample.php
+[11]: https://phpunit.de/

@@ -38,6 +38,7 @@
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item{{ app.request.get('_route') == 'home' ? ' pure-menu-selected' : '' }}"><a href="{{ path('home') }}" class="pure-menu-link">&raquo; Home</a></li>
                         <li class="pure-menu-item{{ app.request.get('_route') == 'show' ? ' pure-menu-selected' : '' }}"><a href="{{ path('show', {id: 1}) }}" class="pure-menu-link">&raquo; Quiz</a></li>
+                        <li class="pure-menu-item"><a target="_blank" href="https://github.com/strangebuzz/phpquiz" class="pure-menu-link">&raquo; GitHub</a></li>
                         <li class="pure-menu-item{{ app.request.get('_route') == 'about' ? ' pure-menu-selected' : '' }}"><a href="{{ path('about') }}" class="pure-menu-link">&raquo;  About</a></li>
                     </ul>
                 </div>
