@@ -8,12 +8,16 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * The Twitter or pseudo should be filled.
  *
  * @ORM\Entity(repositoryClass=PersonRepository::class)
+ *
+ * @UniqueEntity("twitter")
+ * @UniqueEntity("pseudo")
  */
 class Person
 {
@@ -30,6 +34,8 @@ class Person
      * The Twitter account name without the "@".
      *
      * @ORM\Column(type="string", length=255, nullable=true, unique=true)
+     *
+     * @Assert\Length(max=255)
      */
     private ?string $twitter = null;
 
@@ -37,6 +43,8 @@ class Person
      * The pseudo of the person if they don't have a Twitter account.
      *
      * @ORM\Column(type="string", length=255, nullable=true, unique=true)
+     *
+     * @Assert\Length(max=255)
      */
     private ?string $pseudo = null;
 
@@ -117,16 +125,18 @@ class Person
         return $this;
     }
 
-    /* End basic 'etters ———————————————————————————————————————————————————— */
+    /* End basic 'etters and Doctrine generated code ———————————————————————— */
 
     /**
+     * Custom constraint: "The Twitter or the pseudo should be illed , but not both"
+     *
      * @Assert\Callback
      */
     public function validate(ExecutionContextInterface $context): void
     {
         $person = $context->getValue();
         if (!$person instanceof self) {
-            throw new InvalidTypeException('Invalid type, a Person is expected.');
+            throw new InvalidTypeException('Invalid type, a Person object is expected.');
         }
 
         if ($person->getTwitter() && $person->getPseudo()) {

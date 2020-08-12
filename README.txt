@@ -7,21 +7,21 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Add UI feedback when clicking on "copy code to clipboard"
 * Add a clean readme.md for contributors
   https://github.com/javiereguiluz/easy-admin-demo
-* Compute the final score of the user
 
 
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
 * Can't set the admin password! Symfony binary bug?
-* Integrity error when inserting two persons with the same Twitter or pseudo (add constraint)
 
 
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
+* Create a base entity?
 * Add a question uuid?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
@@ -30,12 +30,15 @@
 @Nice to have
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add feedback on "copy code to clipboard"
+* Create a command to initialize a new question in the fixtures, it will ask for
+  all the information and will generate all the related code.
+* Allow to choose the number of questions to pass
 
 
 @Infra
 ————————————————————————————————————————————————————————————————————————————————
 
+* Deploy on bref.sh?
 * Deploy on SensioCloud, ask for a free account if possible? As it is an open-source
   project.
 
@@ -43,6 +46,7 @@
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
 
+* Use constants max length in entities
 * DB Join on answers in the show methods to avoid join at the view level when getting
   the previous and next quiz.
 

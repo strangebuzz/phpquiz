@@ -43,7 +43,7 @@
 
                     {% for answer in question.answers %}
                         <label class="pure-radio" for="answer_{{ answer.code }}">
-                            <input required="required" v-model="answer" name="answer" id="answer_{{ answer.code }}" type="radio" value="{{ answer.code }}" />
+                            <input required="required" v-model="answer" name="answer" id="answer_{{ answer.code }}" type="radio" value="{{ answer.code }}" />&nbsp;
                             <b>{{ answer.code }}</b>: {{ answer.label|raw }}
                         </label>
                     {% endfor %}
