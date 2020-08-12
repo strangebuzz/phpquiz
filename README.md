@@ -39,11 +39,16 @@ Dev
 
 You can find the dev notes in the [README.txt][8] file.
 
+To see the changes you do the assets (Js, CSS), you must run yarn watch with the
+following command:
+
+  * `make watch`
+
 
 Coding standards
 ----------------
 
-Execute this command to run PHPStan:
+Execute this command to run [PHPStan][9]:
 
 ```bash
 $ make cs
@@ -73,3 +78,4 @@ Create [an issue][3] so we can talk about it.
 [6]: https://docs.docker.com/compose/
 [7]: https://yarnpkg.com/
 [8]: README.txt
+[9]: https://github.com/phpstan/phpstan
