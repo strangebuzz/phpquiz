@@ -4,8 +4,8 @@ PHP Quiz 🐘
 This is the public repository of the [https://phpquiz.xyz][1] website.
 
 
-Requirements
-------------
+Requirements ⚙
+--------------
 
   * [The Symfony binary][4] using at least 7.4
   * [Docker][5] and [Docker compose][6]
@@ -13,8 +13,8 @@ Requirements
   * and the [usual Symfony application requirements][2].
 
 
-How to install this project
----------------------------
+How to install this project 📚
+------------------------------
 
 As you can see, there no "full-docker-setup" yet. But feel free to contribute if
 you want one, that would be nice.
@@ -34,8 +34,8 @@ time so PostgreSQL is finally available.
 That's it, you should be ready to develop.
 
 
-Dev
----
+Dev 📔
+------
 
 You can find the dev notes in the [README.txt][8] file.
 
@@ -45,8 +45,8 @@ following command:
   * `make watch`
 
 
-Coding standards
-----------------
+Coding standards ✨
+-------------------
 
 Execute this command to run [PHPStan][9]:
 
@@ -55,8 +55,8 @@ $ make cs
 ```
 
 
-Tests
------
+Tests ✅
+--------
 
 Execute this command to run the tests:
 
@@ -65,8 +65,8 @@ $ make test
 ```
 
 
-Contribute
-----------
+Contribute 🤝
+-------------
 
 Create [an issue][3] so we can talk about it.
 
