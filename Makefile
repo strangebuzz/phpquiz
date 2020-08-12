@@ -23,9 +23,9 @@ down: docker-compose.yaml ## Stop the docker hub
 
 dpsn: ## List Docker containers for the project
 	$(DOCKER_COMP) images
-	@echo "--------------------------------------------------------------------------------------------------------------"
+	@echo "-------------------------------------------------------------------"
 	$(DOCKER) ps -a | grep "phpquiz-"
-	@echo "--------------------------------------------------------------------------------------------------------------"
+	@echo "-------------------------------------------------------------------"
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
 serve: ## Serve the application with HTTPS support
@@ -33,6 +33,10 @@ serve: ## Serve the application with HTTPS support
 
 unserve: ## Stop the web server
 	$(SYMFONY_BIN) server:stop
+
+## —— Composer 🧙‍♂️ ————————————————————————————————————————————————————————————
+composer-install: composer.lock ## Install vendors according to the current composer.lock file
+	$(SYMFONY_BIN) composer install
 
 ## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
 cc: ## Clear cache
@@ -54,6 +58,8 @@ load-fixtures: ## Build the db, control the schema validity, load fixtures and c
 	$(SYMFONY) doctrine:schema:create
 	$(SYMFONY) doctrine:schema:validate
 	$(SYMFONY) doctrine:fixtures:load -n
+
+install: composer-install assets dev ## Install all the project dependencies
 
 run: up load-fixtures serve ## Start docker, load fixtures and start the web server
 
