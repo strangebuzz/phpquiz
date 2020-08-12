@@ -8,10 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=AnswerRepository::class)
  */
-class Answer
+class Answer extends BaseEntity
 {
-    use TimestampableEntityTrait;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

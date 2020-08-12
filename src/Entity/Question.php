@@ -15,10 +15,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass=QuestionRepository::class)
  */
-class Question
+class Question extends BaseEntity
 {
-    use TimestampableEntityTrait;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -32,12 +30,12 @@ class Question
      * Reminder to identify the quiz, it is thus a shorter version of the "$answerExplanations"
      * field.
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
      *
      * @example "Namespaces name can't start with an antslash "
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      */
     protected ?string $reminder;
 
@@ -46,10 +44,10 @@ class Question
      *
      * @example "What will be displayed?"
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      */
     protected ?string $label;
 
@@ -58,10 +56,10 @@ class Question
      *
      * @example https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      * @Assert\Url()
      */
     protected ?string $codeImage;
@@ -69,25 +67,25 @@ class Question
     /**
      * Some explanations about the correct answer.
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
      *
      * @example PHP namespaces can contain space characters, but they can't begin
      *          with a backslash. The right answer was "A"
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      */
     protected ?string $answerExplanations;
 
     /**
      * The testable snippet on the 3v4l.org website.
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
      *
      * @example https://3v4l.org/pQOMe
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      * @Assert\Url()
      */
     protected ?string $liveSnippetUrl;
@@ -95,12 +93,12 @@ class Question
     /**
      * The poll results on Twitter.
      *
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH, nullable=true)
      *
      * @example https://twitter.com/FredBouchery/status/1286207302018699264
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      * @Assert\Url()
      */
     protected ?string $twitterPollUrl;

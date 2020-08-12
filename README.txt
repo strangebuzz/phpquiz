@@ -12,7 +12,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Use constants max length in entities
 * DB Join on answers in the show methods to avoid join at the view level when getting
   the previous and next quiz.
 
@@ -20,10 +19,11 @@
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* Create a base entity?
 * Add a question uuid?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
+* Mailing list to notify when a new quiz is out ?
+* Rss ?
 
 
 @Nice to have

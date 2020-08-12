@@ -6,7 +6,6 @@ use App\Repository\PersonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
@@ -17,10 +16,8 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
  * @UniqueEntity("twitter")
  * @UniqueEntity("pseudo")
  */
-class Person
+class Person extends BaseEntity
 {
-    use TimestampableEntityTrait;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -31,18 +28,18 @@ class Person
     /**
      * The Twitter account name without the "@".
      *
-     * @ORM\Column(type="string", length=255, nullable=true, unique=true)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH, nullable=true, unique=true)
      *
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      */
     private ?string $twitter = null;
 
     /**
      * The pseudo of the person if they don't have a Twitter account.
      *
-     * @ORM\Column(type="string", length=255, nullable=true, unique=true)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH, nullable=true, unique=true)
      *
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      */
     private ?string $pseudo = null;
 

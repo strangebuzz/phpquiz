@@ -9,10 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=LinkRepository::class)
  */
-class Link
+class Link extends BaseEntity
 {
-    use TimestampableEntityTrait;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -21,18 +19,18 @@ class Link
     private ?int $id = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      */
     private ?string $label;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=255)
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      * @Assert\Url()
      */
     private ?string $url;
