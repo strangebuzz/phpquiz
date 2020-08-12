@@ -7,7 +7,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add UI feedback when clicking on "copy code to clipboard"
 * Add a clean readme.md for contributors
   https://github.com/javiereguiluz/easy-admin-demo
 
@@ -62,6 +61,7 @@ References
 @Ressources
 ————————————————————————————————————————————————————————————————————————————————
 
+* https://codeseven.github.io/toastr/
 * https://clipboardjs.com/
 * https://twig.symfony.com/doc/2.x/functions/block.html
 * https://schema.org

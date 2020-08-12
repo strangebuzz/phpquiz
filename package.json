@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "clipboard": "^2.0.6",
-        "purecss": "^2.0.3"
+        "purecss": "^2.0.3",
+        "toastr": "^2.1.4"
     }
 }

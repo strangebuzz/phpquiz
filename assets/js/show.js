@@ -3,10 +3,12 @@
 
 // Js vendors ——————————————————————————————————————————————————————————————————
 import Vue from 'vue'
-import Clipboard from 'clipboard';
+import Clipboard from 'clipboard'
+import Toastr from 'toastr'
 
 // CSS vendors —————————————————————————————————————————————————————————————————
 require('purecss/build/pure-min.css')
+require('toastr/build/toastr.min.css')
 
 // CSS custom ——————————————————————————————————————————————————————————————————
 require('../css/side-menu.css')
@@ -49,9 +51,14 @@ new Vue({
     initClipboard() {
       new Clipboard('.copy', {
         text: function() {
-          return document.getElementById('code').value
+          const code = document.getElementById('code').value
+          if (code !== '') {
+            Toastr.info('Done!')
+          }
+
+          return code
         }
-      });
+      })
     },
     loadQuestion() {
       self = this;

@@ -135,7 +135,7 @@ class Question
     protected Collection $links;
 
     /**
-     * The person how has suggested the question.
+     * The person who has suggested the question.
      *
      * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="questions")
      * @ORM\JoinColumn(nullable=false)
@@ -371,6 +371,4 @@ class Question
 
         throw new \LogicException("Question doesn't have a correct answer.");
     }
-
-
 }
