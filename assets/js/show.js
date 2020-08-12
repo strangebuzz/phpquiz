@@ -41,6 +41,7 @@ new Vue({
     validateAnswer() {
       if (!this.$refs.form.checkValidity()) {
         this.$refs.form.click()
+        Toastr.warning('Select an answer please. 🤔')
       } else {
         this.hasValidated = true
       }
@@ -53,7 +54,7 @@ new Vue({
         text: function() {
           const code = document.getElementById('code').value
           if (code !== '') {
-            Toastr.info('Done!')
+            Toastr.info('Done! ✅')
           }
 
           return code
