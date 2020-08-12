@@ -134,7 +134,7 @@ class Person
     {
         $person = $context->getValue();
         if (!$person instanceof self) {
-            throw new InvalidTypeException('Invalid type, a Person object is expected.');
+            throw new \UnexpectedValueException('Invalid type, a Person object is expected.');
         }
 
         if ($person->getTwitter() && $person->getPseudo()) {
