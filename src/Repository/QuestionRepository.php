@@ -24,6 +24,8 @@ class QuestionRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('q')
             ->andWhere('q.id = :id')
             ->setParameter('id', $id)
+            ->join('q.answers', 'answers')
+            ->join('q.suggestedBy', 'suggestedBy')
             ->leftJoin('q.previousQuestion', 'previousQuestion')
             ->leftJoin('q.nextQuestion', 'nextQuestion')
             ->getQuery()

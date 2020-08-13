@@ -6,6 +6,7 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
+* Joins OK in the show action? To verify.
 * Can't set the admin password! Symfony binary bug?
 
 
@@ -85,4 +86,5 @@ References
 @Debug
 ————————————————————————————————————————————————————————————————————————————————
 
+* //dump($question, $question->getSuggestedBy(), $question->getPreviousQuestion(), $question->getNextQuestion(), $question->getAnswers());
 * const question = {{ question|serialize(block('jsapp') )|raw }};

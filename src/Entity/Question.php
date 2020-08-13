@@ -119,7 +119,7 @@ class Question extends BaseEntity
      *
      * @var Collection<int,Answer> $answers
      *
-     * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="question", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="question", orphanRemoval=true, fetch="EAGER")
      */
     protected Collection $answers;
 
@@ -128,14 +128,14 @@ class Question extends BaseEntity
      *
      * @var Collection<int,Link>
      *
-     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="question", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="question", orphanRemoval=true, fetch="EAGER")
      */
     protected Collection $links;
 
     /**
      * The person who has suggested the question.
      *
-     * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="questions")
+     * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="questions", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      *
      * @Assert\NotBlank()
@@ -143,12 +143,12 @@ class Question extends BaseEntity
     protected ?Person $suggestedBy;
 
     /**
-     * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"}, fetch="EAGER")
      */
     protected ?Question $previousQuestion;
 
     /**
-     * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"}, fetch="EAGER")
      */
     protected ?Question $nextQuestion;
 
