@@ -6,7 +6,7 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
-* Joins OK in the show action? To verify.
+* Joins OK in the show action, query count seems weird? To verify.
 * Can't set the admin password! Symfony binary bug?
 
 
@@ -15,6 +15,7 @@
 
 * Create a command to initialize a new question in the fixtures or in production,
   it will ask for all the information and will generate all the related code.
+* Add GitHub actions for unit and functional tests
 
 
 @Ideas/To decide
