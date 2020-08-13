@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Twig\Tests;
+namespace App\Tests\Entity;
 
 use App\Entity\Answer;
 use App\Entity\Question;
