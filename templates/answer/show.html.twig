@@ -58,8 +58,8 @@
         <div v-if="hasValidated">
             <hr/>
 
-            <h1 v-if="isCorrect">✅ Correct!</h1>
-            <h1 v-else>❌ Wrong answer!</h1>
+            <h1 v-if="isCorrect">✅ { answer }: correct!</h1>
+            <h1 v-else>❌ { answer }: Wrong answer!</h1>
 
             <blockquote class="content-quote">{{ question.answerExplanations }}</blockquote>
 
