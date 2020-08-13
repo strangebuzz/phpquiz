@@ -8,7 +8,7 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Source helpers for snippets.
+ * Source helpers for code snippets.
  */
 final class SourceExtension extends AbstractExtension
 {
@@ -27,7 +27,7 @@ final class SourceExtension extends AbstractExtension
     }
 
     /**
-     * Can show a exact part of a file.
+     * Get all content of a snippet.
      */
     public function getSource(Question $question): string
     {

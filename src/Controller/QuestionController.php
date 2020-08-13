@@ -29,7 +29,7 @@ class QuestionController extends AbstractController
      */
     public function show(int $id, string $_route): Response
     {
-        $question = $this->questionRepository->find($id);
+        $question = $this->questionRepository->findOneWithNav($id);
         if (!$question instanceof Question) {
             throw $this->createNotFoundException('Question not found!');
         }

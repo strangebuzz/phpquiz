@@ -12,25 +12,23 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* DB Join on answers in the show methods to avoid join at the view level when getting
-  the previous and next quiz.
+* Create a command to initialize a new question in the fixtures or in production,
+  it will ask for all the information and will generate all the related code.
 
 
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add a question uuid?
+* Add a question uuid for nav?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
 * Mailing list to notify when a new quiz is out ?
-* Rss ?
+* Or create a simple RSS ?
 
 
 @Nice to have
 ————————————————————————————————————————————————————————————————————————————————
 
-* Create a command to initialize a new question in the fixtures, it will ask for
-  all the information and will generate all the related code.
 * Allow to choose the number of questions to pass
 
 
@@ -88,6 +86,3 @@ References
 ————————————————————————————————————————————————————————————————————————————————
 
 * const question = {{ question|serialize(block('jsapp') )|raw }};
-* SerializerInterface  $serializer
-  dump($serializer->serialize($question, 'json', ['groups' => 'show']));
-  die();
