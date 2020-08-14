@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% set h2 = 'Error ' ~status_code~': '~status_text %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h1>Error {{ status_code }} 🤔</h1>
+    </div>
+
+    <div class="content">
+        <h2>{{ h2 }}</h2>
+
+        <img class="pure-img" src="{{ asset('img/error.jpeg') }}" alt="{{ h2 }}"/>
+    </div>
+{% endblock %}

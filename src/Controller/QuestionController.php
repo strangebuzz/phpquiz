@@ -38,7 +38,7 @@ class QuestionController extends AbstractController
             return $this->json($question, Response::HTTP_OK, [], ['groups' => 'show']);
         }
 
-        return $this->render('answer/show.html.twig', [
+        return $this->render('question/show.html.twig', [
             'question' => $question,
             'code' => $this->sourceExtension->getSource($question),
             'count' => $this->questionRepository->count([])
