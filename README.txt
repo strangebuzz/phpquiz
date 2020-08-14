@@ -13,10 +13,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Create a command to initialize a new question in the fixtures or in production,
-  it will ask for all the information and will generate all the related code.
-* Add GitHub actions for unit and functional tests
-
 
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
