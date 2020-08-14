@@ -74,7 +74,7 @@ new Vue({
           self.ready = true
         })
         .catch(function(reason) {
-          alert('An error occured: '+reason)
+          alert('An error occured sorry: '+reason)
         })
     }
   },
