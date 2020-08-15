@@ -17,7 +17,6 @@
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* Generate show.json url with Symfony (remove harcoded URL in js)
 * Add a question uuid for nav?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?

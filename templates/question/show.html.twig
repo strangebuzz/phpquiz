@@ -10,6 +10,7 @@
     <script>
       const questionId = {{ question.id }}
       const code = `{{ code }}`
+      const questionUrl = '{{ path('show_json', {id: question.id }) }}'
     </script>
     {{ parent() }}
 {% endblock %}

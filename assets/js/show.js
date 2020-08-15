@@ -21,6 +21,7 @@ new Vue({
   data: {
     questionId: questionId, // Id of the current question (comes from the Sf javascript block)
     question: null, // question json object (see mounted).
+    questionUrl: questionUrl, // URL to get the question object
     code: code, // raw PHP code of the question
     ready: false, // can the user answer the question? (question object must be available)
     hasValidated: false, // user has validated its answer?
@@ -63,7 +64,7 @@ new Vue({
     },
     loadQuestion() {
       self = this;
-      fetch('/question/'+this.questionId+'.json', {
+      fetch(this.questionUrl, {
         method: 'GET'
       })
         .then(function(response) {
