@@ -35,6 +35,6 @@ class ApiExtensionTest extends KernelTestCase
         // unkown context
         $jsonEmpty = $this->apiExtension->serialize($question, 'unkown_context');
         self::assertJson($jsonEmpty);
-        self::assertJsonStringEqualsJsonString('[]', $jsonEmpty); // to check
+        self::assertJsonStringEqualsJsonString('[]', $jsonEmpty);
     }
 }
