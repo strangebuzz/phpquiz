@@ -2,7 +2,7 @@
 
 {% block title %}Quiz n°{{ question.id }}/{{ count }}: Answer the following question{% endblock %}
 
-{% block og_image %}{{ question.codeImage }}{% endblock %}
+{% block og_image %}{{ question.codeImage|raw }}{% endblock %}
 
 {% block jsapp %}show{% endblock %}
 
