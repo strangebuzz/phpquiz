@@ -13,9 +13,16 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Ajouter mention béta
 * Readme:
   * Add versions of my current prerequisites
   * Add troubleshooting section
+
+
+@Quiz ideas
+————————————————————————————————————————————————————————————————————————————————
+
+* https://twitter.com/dkarlovi/status/1295312397780037632
 
 
 @Ideas/To decide
