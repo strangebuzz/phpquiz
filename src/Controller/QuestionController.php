@@ -29,11 +29,7 @@ class QuestionController extends AbstractController
      */
     public function show(int $id, string $_route): Response
     {
-        $question = $this->questionRepository->findOneWithNav($id);
-        if (!$question instanceof Question) {
-            throw $this->createNotFoundException('Question not found!');
-        }
-
+        $question = $this->getQuestion($id);
         if ($_route === 'show_json') {
             return $this->json($question, Response::HTTP_OK, [], ['groups' => 'show']);
         }
@@ -43,5 +39,15 @@ class QuestionController extends AbstractController
             'code' => $this->sourceExtension->getSource($question),
             'count' => $this->questionRepository->count([])
         ]);
+    }
+
+    private function getQuestion(int $id): Question
+    {
+        $question = $this->questionRepository->findOneWithNav($id);
+        if (!$question instanceof Question) {
+            throw $this->createNotFoundException('Question not found!');
+        }
+
+        return $question;
     }
 }
