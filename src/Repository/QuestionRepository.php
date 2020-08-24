@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NoResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,14 +22,17 @@ class QuestionRepository extends ServiceEntityRepository
 
     public function findOneWithNav(int $id): ?Question
     {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.id = :id')
-            ->setParameter('id', $id)
-            ->join('q.answers', 'answers')
-            ->join('q.suggestedBy', 'suggestedBy')
-            ->leftJoin('q.previousQuestion', 'previousQuestion')
-            ->leftJoin('q.nextQuestion', 'nextQuestion')
-            ->getQuery()
-            ->getSingleResult();
+        try {
+            return $this->createQueryBuilder('q')
+                ->andWhere('q.id = :id')
+                ->setParameter('id', $id)
+                ->join('q.answers', 'answers')
+                ->join('q.suggestedBy', 'suggestedBy')
+                ->leftJoin('q.previousQuestion', 'previousQuestion')
+                ->leftJoin('q.nextQuestion', 'nextQuestion')
+                ->getQuery()->getSingleResult();
+        } catch (NoResultException $exception) {
+            return null;
+        }
     }
 }
