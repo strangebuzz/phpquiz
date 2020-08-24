@@ -10,12 +10,16 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class QuestionControllerTest extends WebTestCase
 {
+    /**
+     * @todo Make it dynamic with a simple count on the question table.
+     */
     public function getAnswers(): array
     {
         return [
             [1],
             [2],
             [3],
+            [4],
         ];
     }
 

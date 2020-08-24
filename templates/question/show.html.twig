@@ -62,7 +62,7 @@
             <h1 v-if="isCorrect">✅ { answer }: correct!</h1>
             <h1 v-else>❌ { answer }: Wrong answer!</h1>
 
-            <blockquote class="content-quote">{{ question.answerExplanations }}</blockquote>
+            <blockquote class="content-quote">{{ question.answerExplanations|raw }}</blockquote>
 
             <span class="size-60">▶&nbsp;</span> <a target="_blank" href="{{ question.liveSnippetUrl }}"> Click here to run this code on 3v4l.org</a><br/>
 
@@ -93,7 +93,7 @@
 
             <ul>
                 {% for link in question.links %}
-                    <li><a target="_blank" href="{{ link.url }}">{{ link.label }}</a></li>
+                    <li><a target="_blank" href="{{ link.url }}">{{ link.label|raw }}</a></li>
                 {% endfor %}
             </ul>
 
