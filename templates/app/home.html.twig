@@ -1,10 +1,5 @@
 {% extends 'layout.html.twig' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="preconnect" href="{{ preconnect('https://platform.twitter.com') }}" />
-{% endblock %}
-
 {% block body %}
     <div class="header">
         <h1>PHPQuiz 🐘</h1>
@@ -17,10 +12,8 @@
         </p>
 
         <ul>
-            <li><a href="{{ path('question_show', {id: 1}) }}">Pass all quiz sequentially</a></li>
-            <li><a href="{{ path('question_random') }}">Show a random quiz</a></li>
+            <li><a href="{{ path('question_show', {id: 1}) }}">Pass all questions sequentially</a></li>
+            <li><a href="{{ path('question_random') }}">Show a random question</a></li>
         </ul>
-
-        <p>For now, there arent' a lot of quiz, so you can </p>
     </div>
 {% endblock %}

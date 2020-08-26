@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Data\QuestionData;
-use App\Twig\SourceExtension;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,12 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuestionController extends AbstractController
 {
     private QuestionData $questionData;
-    private SourceExtension $sourceExtension;
 
-    public function __construct(QuestionData $questionData, SourceExtension $sourceExtension)
+    public function __construct(QuestionData $questionData)
     {
         $this->questionData = $questionData;
-        $this->sourceExtension = $sourceExtension;
     }
 
     /**
@@ -35,11 +32,7 @@ class QuestionController extends AbstractController
             return $this->json($question, Response::HTTP_OK, [], ['groups' => 'show']);
         }
 
-        return $this->render('question/show.html.twig', [
-            'question' => $question,
-            'code' => $this->sourceExtension->getSource($question),
-            'count' => $this->questionData->count()
-        ]);
+        return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
     }
 
     /**
@@ -49,10 +42,6 @@ class QuestionController extends AbstractController
     {
         $question = $this->questionData->getRandomQuestion();
 
-        return $this->render('question/show.html.twig', [
-            'question' => $question,
-            'code' => $this->sourceExtension->getSource($question),
-            'count' => $this->questionData->count()
-        ]);
+        return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
     }
 }

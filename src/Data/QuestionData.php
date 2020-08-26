@@ -4,6 +4,7 @@ namespace App\Data;
 
 use App\Entity\Question;
 use App\Repository\QuestionRepository;
+use App\Twig\SourceExtension;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -11,11 +12,13 @@ class QuestionData
 {
     private QuestionRepository $questionRepository;
     private Connection $connection;
+    private SourceExtension $sourceExtension;
 
-    public function __construct(QuestionRepository $questionRepository, Connection $connection)
+    public function __construct(QuestionRepository $questionRepository, Connection $connection, SourceExtension $sourceExtension)
     {
         $this->questionRepository = $questionRepository;
         $this->connection = $connection;
+        $this->sourceExtension = $sourceExtension;
     }
 
     public function getQuestion(int $id): Question
@@ -35,10 +38,12 @@ class QuestionData
 
     public function getRandomId(): int
     {
-        $sql = 'SELECT id FROM question ORDER BY RANDOM() LIMIT 1';
-        $id = $this->connection->fetchAll($sql)[0]['id'] ?? null;
+        $result = $this->connection->fetchAll('SELECT id FROM question ORDER BY RANDOM() LIMIT 1');
+        if (!$result[0]['id']) {
+            throw new \UnexpectedValueException('No question found.');
+        }
 
-        return (int) $id;
+        return (int) $result[0]['id'];
     }
 
     public function getRandomQuestion(): Question
@@ -46,5 +51,17 @@ class QuestionData
         $id = $this->getRandomId();
 
         return $this->getQuestion($id);
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function getViewParameters(Question $question): array
+    {
+        return [
+            'question' => $question,
+            'code' => $this->sourceExtension->getSource($question),
+            'count' => $this->count()
+        ];
     }
 }

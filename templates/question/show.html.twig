@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% set isRandom = app.request.get('_route') == '' %}
+{% set isRandom = app.request.get('_route') == 'question_random' %}
 
 {% block title %}Quiz n°{{ question.id }}/{{ count }}: Answer the following question{% endblock %}
 
