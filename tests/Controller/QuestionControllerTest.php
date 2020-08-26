@@ -60,5 +60,8 @@ class QuestionControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/question/notfound');
         self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
+
+        $client->request('GET', '/question/4465465');
+        self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
     }
 }
