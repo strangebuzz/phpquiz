@@ -1,5 +1,7 @@
 {% extends 'layout.html.twig' %}
 
+{% set isRandom = app.request.get('_route') == '' %}
+
 {% block title %}Quiz n°{{ question.id }}/{{ count }}: Answer the following question{% endblock %}
 
 {% block og_image %}{{ question.codeImage|raw }}{% endblock %}
@@ -10,7 +12,7 @@
     <script>
       const questionId = {{ question.id }}
       const code = `{{ code }}`
-      const questionUrl = '{{ path('show_json', {id: question.id }) }}'
+      const questionUrl = '{{ path('question_show_json', {id: question.id }) }}'
     </script>
     {{ parent() }}
 {% endblock %}
@@ -101,7 +103,7 @@
                 <h3>Want More? 🤔</h3>
 
                 <p class="center">
-                    <a href="{{ path('show', {id: question.nextQuestion.id}) }}" class="pure-button pure-button-primary button-xlarge">Next question</a>
+                    <a href="{{ path('question_show', {id: question.nextQuestion.id}) }}" class="pure-button pure-button-primary button-xlarge">Next question</a>
                 </p>
             {% else %}
                 <h3>The end. 😭</h3>

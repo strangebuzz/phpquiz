@@ -5,11 +5,6 @@
     <link rel="preconnect" href="{{ preconnect('https://platform.twitter.com') }}" />
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-{% endblock %}
-
 {% block body %}
     <div class="header">
         <h1>PHPQuiz 🐘</h1>
@@ -17,12 +12,15 @@
 
     <div class="content">
         <p>
-            There is currently {{ count }} questions in the quiz. Click on the button
+            There is currently {{ count }} questions in the quiz. Click on the links
             below to start. Go go go! 😀
         </p>
 
-        <p class="center">
-            <a href="{{ path('show', {id: 1}) }}" class="pure-button pure-button-primary button-xlarge">Start</a>
-        </p>
+        <ul>
+            <li><a href="{{ path('question_show', {id: 1}) }}">Pass all quiz sequentially</a></li>
+            <li><a href="{{ path('question_random') }}">Show a random quiz</a></li>
+        </ul>
+
+        <p>For now, there arent' a lot of quiz, so you can </p>
     </div>
 {% endblock %}
