@@ -99,11 +99,17 @@
                 {% endfor %}
             </ul>
 
-            {% if question.nextQuestion %}
+            {% if isRandom %}
                 <h3>Want More? 🤔</h3>
 
                 <p class="center">
-                    <a href="{{ path('question_show', {id: question.nextQuestion.id}) }}" class="pure-button pure-button-primary button-xlarge">Next question</a>
+                    <a href="{{ path('question_random') }}" class="pure-button pure-button-primary button-xlarge">New random question ⏩</a>
+                </p>
+            {% elseif question.nextQuestion %}
+                <h3>Want More? 🤔</h3>
+
+                <p class="center">
+                    <a href="{{ path('question_show', {id: question.nextQuestion.id}) }}" class="pure-button pure-button-primary button-xlarge">Next question ⏩</a>
                 </p>
             {% else %}
                 <h3>The end. 😭</h3>
