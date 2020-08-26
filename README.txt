@@ -13,9 +13,7 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Readme:
-  * Add versions of my current prerequisites
-  * Add troubleshooting section
+* Add troubleshooting section
 
 
 @Quiz ideas
