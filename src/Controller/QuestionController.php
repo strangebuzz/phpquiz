@@ -2,8 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Question;
-use App\Repository\QuestionRepository;
+use App\Data\QuestionData;
 use App\Twig\SourceExtension;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,12 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class QuestionController extends AbstractController
 {
-    private QuestionRepository $questionRepository;
+    private QuestionData $questionData;
     private SourceExtension $sourceExtension;
 
-    public function __construct(QuestionRepository $questionRepository, SourceExtension $sourceExtension)
+    public function __construct(QuestionData $questionData, SourceExtension $sourceExtension)
     {
-        $this->questionRepository = $questionRepository;
+        $this->questionData = $questionData;
         $this->sourceExtension = $sourceExtension;
     }
 
@@ -29,7 +28,7 @@ class QuestionController extends AbstractController
      */
     public function show(int $id, string $_route): Response
     {
-        $question = $this->getQuestion($id);
+        $question = $this->questionData->getQuestion($id);
         if ($_route === 'show_json') {
             return $this->json($question, Response::HTTP_OK, [], ['groups' => 'show']);
         }
@@ -37,17 +36,7 @@ class QuestionController extends AbstractController
         return $this->render('question/show.html.twig', [
             'question' => $question,
             'code' => $this->sourceExtension->getSource($question),
-            'count' => $this->questionRepository->count([])
+            'count' => $this->questionData->count()
         ]);
-    }
-
-    private function getQuestion(int $id): Question
-    {
-        $question = $this->questionRepository->findOneWithNav($id);
-        if (!$question instanceof Question) {
-            throw $this->createNotFoundException('Question not found!');
-        }
-
-        return $question;
     }
 }
