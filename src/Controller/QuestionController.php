@@ -2,52 +2,46 @@
 
 namespace App\Controller;
 
-use App\Entity\Question;
-use App\Repository\QuestionRepository;
-use App\Twig\SourceExtension;
+use App\Data\QuestionData;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * @Route("/question", name="question_")
+ *
  * @see QuestionControllerTest
  */
 class QuestionController extends AbstractController
 {
-    private QuestionRepository $questionRepository;
-    private SourceExtension $sourceExtension;
+    private QuestionData $questionData;
 
-    public function __construct(QuestionRepository $questionRepository, SourceExtension $sourceExtension)
+    public function __construct(QuestionData $questionData)
     {
-        $this->questionRepository = $questionRepository;
-        $this->sourceExtension = $sourceExtension;
+        $this->questionData = $questionData;
     }
 
     /**
-     * @Route("/question/{id}", name="show", requirements={"id"="\d+"})
-     * @Route("/question/{id}.json", name="show_json", defaults={"_format": "json"})
+     * @Route("/{id}", name="show", requirements={"id"="\d+"})
+     * @Route("/{id}.json", name="show_json", defaults={"_format": "json"})
      */
     public function show(int $id, string $_route): Response
     {
-        $question = $this->getQuestion($id);
-        if ($_route === 'show_json') {
+        $question = $this->questionData->getQuestion($id);
+        if ($_route === 'question_show_json') {
             return $this->json($question, Response::HTTP_OK, [], ['groups' => 'show']);
         }
 
-        return $this->render('question/show.html.twig', [
-            'question' => $question,
-            'code' => $this->sourceExtension->getSource($question),
-            'count' => $this->questionRepository->count([])
-        ]);
+        return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
     }
 
-    private function getQuestion(int $id): Question
+    /**
+     * @Route("/random", name="random")
+     */
+    public function random(): Response
     {
-        $question = $this->questionRepository->findOneWithNav($id);
-        if (!$question instanceof Question) {
-            throw $this->createNotFoundException('Question not found!');
-        }
+        $question = $this->questionData->getRandomQuestion();
 
-        return $question;
+        return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
     }
 }

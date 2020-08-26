@@ -64,4 +64,14 @@ class QuestionControllerTest extends WebTestCase
         $client->request('GET', '/question/4465465');
         self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
     }
+
+    /**
+     * @covers QuestionController::random
+     */
+    public function testRandom(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/question/random');
+        self::assertResponseIsSuccessful();
+    }
 }

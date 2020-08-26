@@ -1,28 +1,19 @@
 {% extends 'layout.html.twig' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="preconnect" href="{{ preconnect('https://platform.twitter.com') }}" />
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-{% endblock %}
-
 {% block body %}
     <div class="header">
-        <h1>PHPQuiz 🐘</h1>
+        <h1>PHPQuiz 🐘 <i>béta</i></h1>
     </div>
 
     <div class="content">
         <p>
-            There is currently {{ count }} questions in the quiz. Click on the button
+            There is currently {{ count }} questions in the quiz. Click on the links
             below to start. Go go go! 😀
         </p>
 
-        <p class="center">
-            <a href="{{ path('show', {id: 1}) }}" class="pure-button pure-button-primary button-xlarge">Start</a>
-        </p>
+        <ul>
+            <li><a href="{{ path('question_show', {id: 1}) }}">Pass all questions sequentially</a></li>
+            <li><a href="{{ path('question_random') }}">Show a random question</a></li>
+        </ul>
     </div>
 {% endblock %}

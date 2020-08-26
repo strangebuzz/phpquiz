@@ -13,10 +13,7 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Ajouter mention béta
-* Readme:
-  * Add versions of my current prerequisites
-  * Add troubleshooting section
+* Add troubleshooting section
 
 
 @Quiz ideas

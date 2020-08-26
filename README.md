@@ -12,6 +12,12 @@ Requirements ⚙
   * [Yarn][7]
   * And the [usual Symfony application requirements][2].
 
+Here are the versions I currently use:
+
+  * Symfony CLI version **v4.18.4**
+  * Docker version **19.03.12**
+  * Dcker-compose version **1.26.2**
+  * Yarn **1.22.4**
 
 How to install this project 📚
 ------------------------------
