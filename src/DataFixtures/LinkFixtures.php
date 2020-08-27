@@ -24,12 +24,17 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             /*'question_id' =>*/ 3,
-            /*'label'       =>*/ 'Read the <code>property_exists</code> function documentation on php.net',
+            /*'label'       =>*/ 'Read the property_exists function documentation on php.net',
             /*'url'         =>*/ 'https://www.php.net/manual/en/function.property-exists.php',
         ],
         [
             /*'question_id' =>*/ 4,
-            /*'label'       =>*/ 'Read the <code>array_merge</code> function documentation on php.net',
+            /*'label'       =>*/ 'Read the array functions documentation on php.net',
+            /*'url'         =>*/ 'https://www.php.net/manual/en/ref.array.php',
+        ],
+        [
+            /*'question_id' =>*/ 5,
+            /*'label'       =>*/ 'Read the array_merge function documentation on php.net',
             /*'url'         =>*/ 'https://www.php.net/manual/en/function.array-merge.php',
         ],
     ];

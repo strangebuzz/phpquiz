@@ -20,6 +20,7 @@ class QuestionControllerTest extends WebTestCase
             [2],
             [3],
             [4],
+            [5],
         ];
     }
 

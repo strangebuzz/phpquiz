@@ -93,27 +93,53 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
         /*'question_id'*/ 4 => [
             [
                 /*'code'        =>*/ 'A',
+                /*'label'       =>*/ '[nothing]',
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 1960,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'int(42)',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1740,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ "string(2) 42",
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 870,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ "Fatal Error (type error)",
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 5430,
+            ],
+        ],
+        /*'question_id'*/ 5 => [
+            [
+                /*'code'        =>*/ 'A',
                 /*'label'       =>*/ 'null',
                 /*'correct'     =>*/ false,
-                /*'poll_result' =>*/ 5170,
+                /*'poll_result' =>*/ 5200,
             ],
             [
                 /*'code'        =>*/ 'B',
                 /*'label'       =>*/ 'a',
                 /*'correct'     =>*/ false,
-                /*'poll_result' =>*/ 2760,
+                /*'poll_result' =>*/ 3070,
             ],
             [
                 /*'code'        =>*/ 'C',
                 /*'label'       =>*/ "42",
                 /*'correct'     =>*/ true,
-                /*'poll_result' =>*/ 1380,
+                /*'poll_result' =>*/ 1070,
             ],
             [
                 /*'code'        =>*/ 'D',
                 /*'label'       =>*/ "[nothing]",
                 /*'correct'     =>*/ false,
-                /*'poll_result' =>*/ 690,
+                /*'poll_result' =>*/ 670,
             ],
         ]
     ];

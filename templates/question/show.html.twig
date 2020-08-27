@@ -73,7 +73,7 @@
                 {% for answer in question.answers %}
                     {% set percent = answer.pollResult/100 %}
                     <li>
-                        <b>{{ answer.code }}</b>: {{ answer.label|raw }} - <b>{{ percent }}</b>%<br/>
+                        <b>{{ answer.correct ? '✅ ' : ''}}{{ answer.code }}</b>: {{ answer.label|raw }} - <b>{{ percent }}</b>%<br/>
                         <progress value="{{ percent }}" max="100"> percent% </progress>
                     </li>
                 {% endfor %}

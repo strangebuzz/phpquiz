@@ -67,7 +67,7 @@ class Question extends BaseEntity
     /**
      * Some explanations about the correct answer.
      *
-     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
+     * @ORM\Column(type="text")
      *
      * @example PHP namespaces can contain space characters, but they can't begin
      *          with a backslash. The right answer was "A"
