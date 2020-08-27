@@ -65,7 +65,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'label'                    =>*/ 'What will be displayed?',
             /*'reminder'                 =>*/ "array_merge reorders numeric keys.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EgKx3TdXsAEauEX?format=jpg&name=small',
-            /*'answer_explanations'      =>*/ 'The PHP function <code>array_merge</code> reorders numeric keys, thus the 42 key is renamed to 0. The right answer was "C".',
+            /*'answer_explanations'      =>*/ 'When you use the #PHP function <code>array_merge</code>, all values in the input arrays with numeric keys will be renumbered with incrementing keys starting from zero. The right answer was "42" (C).',
             /*'live_snippet_url'         =>*/ 'https://3v4l.org/lb1YD',
             /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1297796014338973697',
             /*'differences_output_notes' =>*/ null,
