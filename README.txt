@@ -19,6 +19,7 @@
 @Quiz ideas
 ————————————————————————————————————————————————————————————————————————————————
 
+* https://twitter.com/FredBouchery/status/1298887883244396544
 * https://twitter.com/dkarlovi/status/1295312397780037632
 
 
