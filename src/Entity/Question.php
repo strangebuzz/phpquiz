@@ -152,6 +152,12 @@ class Question extends BaseEntity
      */
     protected ?Question $nextQuestion;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Difficulty::class, inversedBy="questions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected ?Difficulty $difficulty;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -346,6 +352,18 @@ class Question extends BaseEntity
     public function setNextQuestion(?self $nextQuestion): self
     {
         $this->nextQuestion = $nextQuestion;
+
+        return $this;
+    }
+
+    public function getDifficulty(): ?Difficulty
+    {
+        return $this->difficulty;
+    }
+
+    public function setDifficulty(?Difficulty $difficulty): self
+    {
+        $this->difficulty = $difficulty;
 
         return $this;
     }

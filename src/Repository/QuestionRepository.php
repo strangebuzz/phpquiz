@@ -28,6 +28,7 @@ class QuestionRepository extends ServiceEntityRepository
                 ->setParameter('id', $id)
                 ->join('q.answers', 'answers')
                 ->join('q.suggestedBy', 'suggestedBy')
+                ->join('q.difficulty', 'difficulty')
                 ->leftJoin('q.previousQuestion', 'previousQuestion')
                 ->leftJoin('q.nextQuestion', 'nextQuestion')
                 ->getQuery()->getSingleResult();

@@ -17,6 +17,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'id'                       =>*/ 1,
             /*'next_question'            =>*/ 2,
             /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed?',
             /*'reminder'                 =>*/ "Namespaces can't begin with a backslash.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small',
@@ -32,6 +33,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'id'                       =>*/ 2,
             /*'next_question'            =>*/ 3,
             /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed (PHP version >= 7.4)?',
             /*'reminder'                 =>*/ "Can't unpack a traversable if keys are string.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EdW2xTnXYAIDjBP?format=png&name=small',
@@ -47,6 +49,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'id'                       =>*/ 3,
             /*'next_question'            =>*/ 4,
             /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed?',
             /*'reminder'                 =>*/ "property_exists finds private properties but we can't access it.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/Ec8_XgPXsAEypnr?format=png&name=small',
@@ -62,6 +65,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'id'                       =>*/ 4,
             /*'next_question'            =>*/ 5,
             /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed?',
             /*'reminder'                 =>*/ "PHP functions prefixed by array_ expect an array",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EfsQiZQX0AA39FK?format=jpg&name=small',
@@ -77,6 +81,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'id'                       =>*/ 5,
             /*'next_question'            =>*/ null,
             /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed?',
             /*'reminder'                 =>*/ "array_merge reorders numeric keys.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EgKx3TdXsAEauEX?format=jpg&name=small',
@@ -92,7 +97,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         foreach (self::DATA as [$previousQuestionId, $id, $nextUqestionId, $personId,
-            $label, $reminder, $codeImage, $answerExplanations, $liveSnippetUrl,
+            $difficultyId, $label, $reminder, $codeImage, $answerExplanations, $liveSnippetUrl,
             $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt]) {
             $createdAtDateTime = date_create($createdAt);
             $updatedAtDateTime = date_create($updatedAt);
@@ -100,9 +105,9 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
                 throw new \InvalidArgumentException(sprintf('Invalide create (%s) or update date (%s).', $createdAt, $updatedAt));
             }
 
-            $person = $this->getPerson($personId);
             $question = (new Question())
-                ->setSuggestedBy($person)
+                ->setSuggestedBy($this->getPerson($personId))
+                ->setDifficulty($this->getDifficulty($difficultyId))
                 ->setLabel($label)
                 ->setReminder($reminder)
                 ->setCodeImage($codeImage)
@@ -134,6 +139,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             PersonFixtures::class,
+            DifficultyFixtures::class,
         ];
     }
 }
