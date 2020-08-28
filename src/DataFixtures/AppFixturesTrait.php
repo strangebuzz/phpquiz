@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Difficulty;
 use App\Entity\Person;
 use App\Entity\Question;
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
@@ -17,6 +18,11 @@ trait AppFixturesTrait
      * @var array<int,Person>
      */
     private array $persons = [];
+
+    /**
+     * @var array<int,Difficulty>
+     */
+    private array $difficulties = [];
 
     private function getQuestion(int $id): Question
     {
@@ -48,5 +54,21 @@ trait AppFixturesTrait
         $this->persons[$id] = $person;
 
         return $person;
+    }
+
+    private function getDifficulty(int $id): Difficulty
+    {
+        if (isset($this->difficulties[$id])) {
+            return $this->difficulties[$id];
+        }
+
+        $difficulty = $this->getReference(DifficultyFixtures::class.$id);
+        if (!$difficulty instanceof Difficulty) {
+            throw new InvalidTypeException(sprintf('Difficulty "%d" not found.', $id));
+        }
+
+        $this->difficulties[$id] = $difficulty;
+
+        return $difficulty;
     }
 }
