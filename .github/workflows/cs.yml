@@ -7,7 +7,7 @@ on:
 jobs:
   cs:
     name: Coding Standards ✨
-    # https://hub.docker.com/_/ubuntu/
+    # https://github.com/shivammathur/setup-php#cloud-osplatform-support
     runs-on: ubuntu-20.04
     steps:
       # —— Setup Github actions 🐙 —————————————————————————————————————————————
@@ -21,8 +21,6 @@ jobs:
         with:
           php-version: '7.4'
           extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, gd, iconv, json, mbstring, pdo
-        #env:
-          #update: true # enable to test against last minor version
 
       # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
       - name: Validate composer.json and composer.lock
@@ -40,7 +38,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install Composer dependencies
-        run: make install
+        run: composer install
 
       # —— Symfony 🎵 ——————————————————————————————————————————————————————————
       - name: Check Symfony requirements
