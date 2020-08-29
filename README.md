@@ -34,9 +34,6 @@ To install and run the project, run the following commands:
   1. `make run`
   1. Browse `http://127.0.0.1:8006`
 
-If you have an error regarding the database connection, run `make run` a second
-time, so PostgreSQL is finally available.
-
 That's it; you should be ready to develop.
 
 
@@ -87,6 +84,16 @@ Contribute 🤝
 -------------
 
 Please create an [an issue][3] so we can talk about it.
+
+
+Troubleshooting 🐛
+-----------------
+
+  * Verify that you have at least PHP *7.4* (`php -v`).
+  * If you have an error regarding the database connection, run `make run` a second
+    time, so PostgreSQL is finally available.
+  * In other cases, very your versions and submit a [bug report][3].
+
 
 [1]: https://phpquiz.xyz
 [2]: https://symfony.com/doc/current/setup.html#technical-requirements
