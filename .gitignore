@@ -24,3 +24,7 @@ yarn-error.log
 ###> easycorp/easy-deploy-bundle ###
 /config/prod/deploy.php
 ###< easycorp/easy-deploy-bundle ###
+
+###> symfony/requirements-checker ###
+public/check.php
+###< symfony/requirements-checker ###
