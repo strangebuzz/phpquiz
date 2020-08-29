@@ -22,6 +22,8 @@ class QuestionController extends AbstractController
     }
 
     /**
+     * @todo make 1 as the default id.
+     *
      * @Route("/{id}", name="show", requirements={"id"="\d+"})
      * @Route("/{id}.json", name="show_json", defaults={"_format": "json"})
      */
@@ -41,6 +43,16 @@ class QuestionController extends AbstractController
     public function random(): Response
     {
         $question = $this->questionData->getRandomQuestion();
+
+        return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
+    }
+
+    /**
+     * @Route("/last", name="last")
+     */
+    public function last(): Response
+    {
+        $question = $this->questionData->getLastQuestion();
 
         return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
     }

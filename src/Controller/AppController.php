@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\QuestionRepository;
+use App\Data\QuestionData;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,11 +12,11 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AppController extends AbstractController
 {
-    private QuestionRepository $questionRepository;
+    private QuestionData $questionData;
 
-    public function __construct(QuestionRepository $questionRepository)
+    public function __construct(QuestionData $questionData)
     {
-        $this->questionRepository = $questionRepository;
+        $this->questionData = $questionData;
     }
 
     /**
@@ -24,7 +24,10 @@ class AppController extends AbstractController
      */
     public function home(): Response
     {
-        return $this->render('app/home.html.twig', ['count' => $this->questionRepository->count([])]);
+        return $this->render('app/home.html.twig', [
+            'count' => $this->questionData->count(),
+            'last' => $this->questionData->getLastQuestion(),
+        ]);
     }
 
     /**

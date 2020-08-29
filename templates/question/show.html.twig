@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% set isRandom = app.request.get('_route') == 'question_random' %}
+{% set isLast = app.request.get('_route') == 'question_last' %}
 
 {% block title %}Quiz n°{{ question.id }}/{{ count }}: Answer the following question{% endblock %}
 
@@ -25,11 +26,11 @@
     <div class="content">
         <ul>
             <li>Suggested by <a target="_blank" href="https://twitter.com/{{ question.suggestedBy.twitter }}">{{ question.suggestedBy.twitter }}</a>
-            <li>Created on {{ question.createdAt|date('Y-m-d') }}</li>
+            <li>Created on <b>{{ question.createdAt|date('Y-m-d') }}</b></li>
             {% if question.updatedAt != question.createdAt %}
-                <li>Modified on {{ question.updatedAt|date('Y-m-d') }}</li>
+                <li>Modified on <b>{{ question.updatedAt|date('Y-m-d') }}</b></li>
             {% endif %}
-            <li>Difficulty: {{ question.difficulty.label }}</li>
+            <li>Difficulty: <b>{{ question.difficulty.label }}</b></li>
         </ul>
 
         <h3>{{ question.label }} 🤔</h3>
@@ -95,19 +96,27 @@
             <br/>
             <hr/>
 
-            <h3>Going further... 🤓</h3>
+            {% if question.links|length %}
+                <h3>Going further... 🤓</h3>
 
-            <ul>
-                {% for link in question.links %}
-                    <li><a target="_blank" href="{{ link.url }}">{{ link.label|raw }}</a></li>
-                {% endfor %}
-            </ul>
+                <ul>
+                    {% for link in question.links %}
+                        <li><a target="_blank" href="{{ link.url }}">{{ link.label|raw }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
 
             {% if isRandom %}
                 <h3>Want More? 🤔</h3>
 
                 <p class="center">
                     <a href="{{ path('question_random') }}" class="pure-button pure-button-primary button-xlarge">New random question ⏩</a>
+                </p>
+            {% elseif isLast %}
+                <h3>Want More? 🤔</h3>
+
+                <p class="center">
+                    <a href="{{ path('question_show', {id: 1}) }}" class="pure-button pure-button-primary button-xlarge">👈️ Get back to first question</a>
                 </p>
             {% elseif question.nextQuestion %}
                 <h3>Want More? 🤔</h3>

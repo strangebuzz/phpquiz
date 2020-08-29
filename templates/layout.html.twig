@@ -44,8 +44,9 @@
 
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item{{ app.request.get('_route') == 'home' ? ' pure-menu-selected' : '' }}"><a href="{{ path('home') }}" class="pure-menu-link">Home</a></li>
-                        <li class="pure-menu-item{{ app.request.get('_route') == 'question_show' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_show', {id: 1}) }}" class="pure-menu-link">All quiz</a></li>
+                        <li class="pure-menu-item{{ app.request.get('_route') == 'question_last' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_last') }}" class="pure-menu-link">Last quiz</a></li>
                         <li class="pure-menu-item{{ app.request.get('_route') == 'question_random' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_random') }}" class="pure-menu-link">Random quiz</a></li>
+                        <li class="pure-menu-item{{ app.request.get('_route') == 'question_show' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_show', {id: 1}) }}" class="pure-menu-link">All quiz</a></li>
                         <li class="pure-menu-item{{ app.request.get('_route') == 'about' ? ' pure-menu-selected' : '' }}"><a href="{{ path('about') }}" class="pure-menu-link">About</a></li>
                         <li class="pure-menu-item"><a target="_blank" href="https://github.com/strangebuzz/phpquiz" class="pure-menu-link">GitHub</a></li>
                     </ul>
