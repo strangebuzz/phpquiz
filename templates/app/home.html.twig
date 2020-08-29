@@ -8,12 +8,13 @@
     <div class="content">
         <p>
             There is currently {{ count }} questions in the quiz. Click on the links
-            below to start. Go go go! 😀
+            below to start. Good luck! Go go go! 😀
         </p>
 
         <ul>
-            <li><a href="{{ path('question_show', {id: 1}) }}">Pass all questions sequentially</a></li>
+            <li><a href="{{ path('question_last') }}">Show the last question of {{ last.createdAt|date('Y-m-d') }}</a></li>
             <li><a href="{{ path('question_random') }}">Show a random question</a></li>
+            <li><a href="{{ path('question_show', {id: 1}) }}">Pass all questions sequentially</a></li>
         </ul>
     </div>
 {% endblock %}

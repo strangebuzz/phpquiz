@@ -26,7 +26,7 @@
 * Add a question uuid for nav?
 * OK to use the carbon Twitter image or host it?
 * Create a timed quiz?
-* Mailing list to notify when a new quiz is out ?
+* Mailing list to notify when a new quiz is out?
 * Or create a simple RSS ?
 
 
@@ -57,8 +57,6 @@
 @References
 ————————————————————————————————————————————————————————————————————————————————
 
-* https://twitter.com/FredBouchery/status/1286207296767438848 (namespace \Foo \Bar)
-* https://twitter.com/FredBouchery/status/1285134865176956929 (yield '1' => 4)
 * https://twitter.com/FredBouchery
 
 

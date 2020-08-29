@@ -69,4 +69,14 @@ class QuestionControllerTest extends WebTestCase
         $client->request('GET', '/question/random');
         self::assertResponseIsSuccessful();
     }
+
+    /**
+     * @covers QuestionController::last
+     */
+    public function testLast(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/question/last');
+        self::assertResponseIsSuccessful();
+    }
 }

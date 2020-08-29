@@ -53,6 +53,23 @@ class QuestionData
         return $this->getQuestion($id);
     }
 
+    public function getLastId(): int
+    {
+        $result = $this->connection->fetchAll('SELECT id FROM question ORDER BY created_at DESC LIMIT 1');
+        if (!$result[0]['id']) {
+            throw new \UnexpectedValueException('No question found.');
+        }
+
+        return (int) $result[0]['id'];
+    }
+
+    public function getLastQuestion(): Question
+    {
+        $id = $this->getLastId();
+
+        return $this->getQuestion($id);
+    }
+
     /**
      * @return array<string,mixed>
      */
