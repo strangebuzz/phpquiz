@@ -11,7 +11,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 {
     use AppFixturesTrait;
 
-    private const DATA = [
+    public const DATA = [
         [
             /*'previous_question'        =>*/ null,
             /*'id'                       =>*/ 1,
@@ -79,7 +79,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'previous_question'        =>*/ 4,
             /*'id'                       =>*/ 5,
-            /*'next_question'            =>*/ null,
+            /*'next_question'            =>*/ 6,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed?',
@@ -91,6 +91,22 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'differences_output_notes' =>*/ null,
             /*'created_at'               =>*/ '2020-08-24',
             /*'updated_at'               =>*/ '2020-08-24',
+        ],
+        [
+            /*'previous_question'        =>*/ 5,
+            /*'id'                       =>*/ 6,
+            /*'next_question'            =>*/ null,
+            /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
+            /*'label'                    =>*/ 'What will be displayed?',
+            /*'reminder'                 =>*/ "Can call ::class on function.",
+            /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EgaScdJX0AECpMV?format=jpg&name=small',
+            /*'answer_explanations'      =>*/ 'WTF?  ',
+            /*'live_snippet_url'         =>*/ 'https://3v4l.org/FVUEu',
+            /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1298887883244396544',
+            /*'differences_output_notes' =>*/ null,
+            /*'created_at'               =>*/ '2020-08-27',
+            /*'updated_at'               =>*/ '2020-08-27',
         ],
     ];
 

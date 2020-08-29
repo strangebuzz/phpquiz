@@ -141,7 +141,33 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'correct'     =>*/ false,
                 /*'poll_result' =>*/ 670,
             ],
-        ]
+        ],
+        /*'question_id'*/ 6 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'foo',
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 2880,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'Fatal error: Uncaught TypeError: Cannot use "::class" on function name',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2710,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ "Fatal error: Uncaught Error: Call to undefined function ()",
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1530,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'Parse error: syntax error, unexpected token "::"',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2880,
+            ],
+        ],
     ];
 
     public function load(ObjectManager $manager): void

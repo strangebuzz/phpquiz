@@ -2,6 +2,7 @@
 
 namespace App\Tests\Controller;
 
+use App\DataFixtures\QuestionFixtures;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -10,18 +11,11 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class QuestionControllerTest extends WebTestCase
 {
-    /**
-     * @todo Make it dynamic with a simple count on the question table.
-     */
-    public function getAnswers(): array
+    public function getAnswers(): \Generator
     {
-        return [
-            [1],
-            [2],
-            [3],
-            [4],
-            [5],
-        ];
+        foreach (range(1, count(QuestionFixtures::DATA)) as $id) {
+            yield [$id];
+        }
     }
 
     /**
