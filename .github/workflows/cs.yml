@@ -8,7 +8,7 @@ jobs:
   cs:
     name: Coding Standards ✨
     # https://github.com/shivammathur/setup-php#cloud-osplatform-support
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     steps:
       # —— Setup Github actions 🐙 —————————————————————————————————————————————
       # https://github.com/actions/checkout
