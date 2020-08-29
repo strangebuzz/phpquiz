@@ -1,6 +1,8 @@
 {
     "type": "project",
     "license": "MIT",
+    "name": "strangebuzz/phpquiz",
+    "description": "Open source repository of the phpquiz.xyz website",
     "require": {
         "php": ">=7.4.0",
         "ext-ctype": "*",
