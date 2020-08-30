@@ -6,6 +6,7 @@ DOCKER      = docker
 DOCKER_COMP = docker-compose
 YARN        = yarn
 STAN        = ./vendor/bin/phpstan
+PHPCS       = ./vendor/squizlabs/php_codesniffer/bin/phpcs
 PHPUNIT     = ./vendor/bin/simple-phpunit
 LE_EXEC     = certbot
 .DEFAULT_GOAL := help
@@ -80,8 +81,13 @@ build: ## Build assets for production
 	$(YARN) run encore production
 
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
-cs: ## Run PHPStan
+codesniffer: ## Run php_codesniffer
+	$(PHPCS) -n -p src/
+
+stan: ## Run PHPStan
 	$(STAN) analyse -l max -c phpstan.neon src/
+
+cs: codesniffer stan ## Run all coding standards checks
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
 test: phpunit.xml.dist ## Launch functional and unit tests
