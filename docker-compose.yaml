@@ -18,7 +18,5 @@ services:
   adminer:
     image: adminer:4.7
     container_name: phpquiz-adminer
-    depends_on:
-      - postgres
     ports:
       - "8986:8080"
