@@ -1,9 +1,9 @@
 # https://help.github.com/en/actions
 name: PHPQuiz 🐘
-on:
-  push:
-    branches:
-    - master
+#on:
+#  push:
+#    branches:
+#    - master
 jobs:
   cs:
     name: Coding Standards ✨
@@ -41,6 +41,7 @@ jobs:
         run: composer install
 
       # —— Symfony 🎵 ——————————————————————————————————————————————————————————
+      # We need the dev cache because the PHPStan Symfony plugin requires it.
       - name: Check Symfony requirements
         run: vendor/bin/requirements-checker
 
