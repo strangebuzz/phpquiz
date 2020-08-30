@@ -92,7 +92,7 @@ Troubleshooting 🐛
 -----------------
 
   * Verify that you have at least PHP *7.4* (`php -v`).
-  * In other cases, very your versions and submit a [bug report][3].
+  * In other cases, verify your versions and eventually submit a [bug report][3].
 
 
 [1]: https://phpquiz.xyz
