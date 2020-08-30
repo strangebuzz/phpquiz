@@ -605,9 +605,6 @@
     "twig/twig": {
         "version": "v3.0.4"
     },
-    "vishnubob/wait-for-it": {
-        "version": "dev-master"
-    },
     "webimpress/safe-writer": {
         "version": "2.0.1"
     },
