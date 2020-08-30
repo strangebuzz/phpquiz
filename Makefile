@@ -27,6 +27,9 @@ dpsn: ## List Docker containers for the project
 	$(DOCKER) ps -a | grep "phpquiz-"
 	@echo "-------------------------------------------------------------------"
 
+wait-postgres: ## Wait for postgresql to be up
+	bin/wait-for-postgres.sh
+
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
 serve: ## Serve the application with HTTPS support
 	$(SYMFONY_BIN) serve --daemon --port=8006
@@ -61,7 +64,7 @@ load-fixtures: ## Build the db, control the schema validity, load fixtures and c
 
 install: composer-install assets dev ## Install all the project dependencies
 
-run: up load-fixtures serve ## Start docker, load fixtures and start the web server
+run: up wait-postgres load-fixtures serve ## Start docker, load fixtures and start the web server
 
 abort: down unserve ## Stop docker and the Symfony binary server
 

@@ -1,7 +1,8 @@
 PHP Quiz 🐘
 ===========
 
-This is the public repository of the [https://phpquiz.xyz][1] website.
+This is the public repository of the [https://phpquiz.xyz][1] website. It's a
+Symfony 5.1 application trying to respect best practices.
 
 
 Requirements ⚙
@@ -19,6 +20,7 @@ Here are the versions I currently use:
   * Docker-compose **1.26.2**
   * Yarn **1.22.4**
 
+
 How to install this project 📚
 ------------------------------
 
@@ -30,7 +32,6 @@ To install and run the project, run the following commands:
   1. `git clone git@github.com:strangebuzz/phpquiz.git`
   1. `cd phpquiz`
   1. `make install`
-  1. `make up`
   1. `make run`
   1. Browse `http://127.0.0.1:8006`
 
@@ -69,6 +70,7 @@ Execute this command to run the [PHPUnit][11] tests:
 $ make test
 ```
 
+
 Deploy 🚀
 --------
 
@@ -90,8 +92,6 @@ Troubleshooting 🐛
 -----------------
 
   * Verify that you have at least PHP *7.4* (`php -v`).
-  * If you have an error regarding the database connection, run `make run` a second
-    time, so PostgreSQL is finally available.
   * In other cases, very your versions and submit a [bug report][3].
 
 
