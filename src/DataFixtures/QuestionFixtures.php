@@ -101,7 +101,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'label'                    =>*/ 'What will be displayed?',
             /*'reminder'                 =>*/ "Can call ::class on function.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EgaScdJX0AECpMV?format=jpg&name=small',
-            /*'answer_explanations'      =>*/ 'The PHP class name resolution using ::class is a compile time transformation. As a consequence, class names are expanded even if the class does not exist. No error is issued in that case. The right answer was "A"',
+            /*'answer_explanations'      =>*/ 'The PHP class name resolution using ::class is a compile time transformation. As a consequence, class names are expanded even if the class does not exist. No error is issued in that case. The right answer was "A".',
             /*'live_snippet_url'         =>*/ 'https://3v4l.org/FVUEu',
             /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1298887883244396544',
             /*'differences_output_notes' =>*/ null,
