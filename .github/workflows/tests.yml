@@ -51,7 +51,9 @@ jobs:
 
       ## —— Tests ✅ ———————————————————————————————————————————————————————————
       - name: Prepare test env
-        run: cp .env.ci .env.test
+        run: |
+          cp .env.ci .env.test
+          make cc
 
       - name: Load Doctrine fixtures
         run: make load-fixtures
