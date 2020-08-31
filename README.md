@@ -30,7 +30,7 @@ you want one, it would be nice.
 To install and run the project, run the following commands:
 
   1. `git clone git@github.com:strangebuzz/phpquiz.git`
-  1. `cd phpquiz`
+                   1. `cd phpquiz`
   1. `make install`
   1. `make run`
   1. Browse `http://127.0.0.1:8006`
