@@ -6,9 +6,18 @@ on:
     - master
 jobs:
   cs:
-    name: Coding Standards ✨
+    name: Unit and functional test ✅
     # https://github.com/shivammathur/setup-php#cloud-osplatform-support
     runs-on: ubuntu-18.04
+    services:
+      # https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-postgresql-service-containers
+      postgres:
+        image: postgres:11-alpine # same as docker-compose.yaml
+        env:
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: root
+          POSTGRES_DB: phpquiz
+
     steps:
       # —— Setup Github actions 🐙 —————————————————————————————————————————————
       # https://github.com/actions/checkout
@@ -23,6 +32,9 @@ jobs:
           extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, gd, iconv, json, mbstring, pdo
 
       # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
       - name: Get composer cache directory
         id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
@@ -37,14 +49,11 @@ jobs:
       - name: Install Composer dependencies
         run: composer install
 
-      # —— Symfony 🎵 ——————————————————————————————————————————————————————————
-      # We need the dev cache because the PHPStan Symfony plugin requires it.
-      - name: Check Symfony requirements
-        run: vendor/bin/requirements-checker
+      ## —— Tests ✅ ———————————————————————————————————————————————————————————
+      - name: Load Doctrine fixtures
+        run: make load-fixtures
 
-      - name: Check the Symfony console
-        run: php bin/console -V
-
-      ## —— Coding standards ✨ ————————————————————————————————————————————————
-      - name: Coding standards checks (php_codesniffer + PHPStan)
-        run: make cs
+      - name: Run functionnal and unit tests
+        run: |
+          cp .env.ci .env.test
+          make test
