@@ -17,6 +17,8 @@ jobs:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: root
           POSTGRES_DB: phpquiz
+        ports:
+          - 5436:5432 # out/in
 
     steps:
       # —— Setup Github actions 🐙 —————————————————————————————————————————————
