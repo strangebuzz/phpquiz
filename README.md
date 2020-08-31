@@ -2,7 +2,7 @@ PHP Quiz 🐘
 ===========
 
 This is the public repository of the [https://phpquiz.xyz][1] website. It's a
-Symfony 5.1 application trying to respect best practices.
+Symfony 5.1 application trying to respect [best practices][12].
 
 
 Requirements ⚙
@@ -106,3 +106,4 @@ Troubleshooting 🐛
 [9]: https://github.com/phpstan/phpstan
 [10]: config/prod/deploy_sample.php
 [11]: https://phpunit.de/
+[12]: https://www.strangebuzz.com/en/blog/what-are-your-symfony-best-practices
