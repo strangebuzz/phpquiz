@@ -37,6 +37,11 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
             /*'label'       =>*/ 'Read the array_merge function documentation on php.net',
             /*'url'         =>*/ 'https://www.php.net/manual/en/function.array-merge.php',
         ],
+        [
+            /*'question_id' =>*/ 6,
+            /*'label'       =>*/ 'Read the ::class documentation on php.net',
+            /*'url'         =>*/ 'https://www.php.net/manual/en/language.oop5.basic.php#language.oop5.basic.class.class',
+        ],
     ];
 
     public function load(ObjectManager $manager): void
