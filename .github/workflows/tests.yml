@@ -50,10 +50,11 @@ jobs:
         run: composer install
 
       ## —— Tests ✅ ———————————————————————————————————————————————————————————
+      - name: Prepare test env
+        run: cp .env.ci .env.test
+
       - name: Load Doctrine fixtures
         run: make load-fixtures
 
       - name: Run functionnal and unit tests
-        run: |
-          cp .env.ci .env.test
-          make test
+        run: make test
