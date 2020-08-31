@@ -5,7 +5,7 @@ on:
     branches:
     - master
 jobs:
-  cs:
+  tests:
     name: Unit and functional test ✅
     # https://github.com/shivammathur/setup-php#cloud-osplatform-support
     runs-on: ubuntu-18.04

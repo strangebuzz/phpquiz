@@ -1,9 +1,9 @@
 # https://help.github.com/en/actions
 name: PHPQuiz 🐘
-#on:
-#  push:
-#    branches:
-#    - master
+on:
+  push:
+    branches:
+    - master
 jobs:
   cs:
     name: Coding Standards ✨
