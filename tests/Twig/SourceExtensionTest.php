@@ -37,7 +37,7 @@ class SourceExtensionTest extends KernelTestCase
         try {
             $question = new Question();
             $this->sourceExtension->getSource($question);
-            self::fail('Calling SourceExtension::getSource() on a question without associated snipped raises an exception.');
+            self::fail('Calling SourceExtension::getSource() on a question without associated snippet raises an exception.');
         } catch (\Exception $e) {
             self::assertInstanceOf(\InvalidArgumentException::class, $e);
         }
