@@ -168,6 +168,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'poll_result' =>*/ 3000,
             ],
         ],
+        /*'question_id'*/ 7 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'Fatal error: Uncaught Error: Call to undefined function Foo\Bar()',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 4750,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'Fatal error: Cannot declare Foo\bar() because the name is already in use',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1630,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ "BAR",
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 2130,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'BARBAR',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1500,
+            ],
+        ],
     ];
 
     public function load(ObjectManager $manager): void

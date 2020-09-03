@@ -95,7 +95,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'previous_question'        =>*/ 5,
             /*'id'                       =>*/ 6,
-            /*'next_question'            =>*/ null,
+            /*'next_question'            =>*/ 7,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed?',
@@ -107,6 +107,22 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'differences_output_notes' =>*/ null,
             /*'created_at'               =>*/ '2020-08-27',
             /*'updated_at'               =>*/ '2020-08-27',
+        ],
+        [
+            /*'previous_question'        =>*/ 6,
+            /*'id'                       =>*/ 7,
+            /*'next_question'            =>*/ null,
+            /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
+            /*'label'                    =>*/ 'What will be displayed?',
+            /*'reminder'                 =>*/ "One can use the same name for a class, a method, a function and a constant.",
+            /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EgvJgopXsAA8FGJ?format=jpg&name=small',
+            /*'answer_explanations'      =>*/ 'You can use the same name for a class, a method, a function and a constant. In addition, functions and classes are case-insensitive. The right answer was "BAR" (C). "BARBAR" happens for versions prior to #PHP 8 when there is no namespace',
+            /*'live_snippet_url'         =>*/ 'https://3v4l.org/6NXXh',
+            /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1300355047440683010',
+            /*'differences_output_notes' =>*/ null,
+            /*'created_at'               =>*/ '2020-08-31',
+            /*'updated_at'               =>*/ '2020-08-31',
         ],
     ];
 
