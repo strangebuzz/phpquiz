@@ -21,7 +21,7 @@ return new class extends DefaultDeployer
             ->repositoryBranch('master')
             ->keepReleases(3)
             ->remoteComposerBinaryPath('/usr/bin/composer')
-            ->composerInstallFlags('--no-interaction --quiet')
+            ->composerInstallFlags('--no-interaction --quiet --no-dev --optimize-autoloader')
             ->sharedFilesAndDirs(['.env'])
             ->fixPermissionsWithChown('www-data');
     }
