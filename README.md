@@ -91,7 +91,7 @@ Please create an [an issue][3] so we can talk about it.
 Troubleshooting 🐛
 -----------------
 
-  * Verify that you have at least PHP *7.4* (`php -v`).
+  * Verify that you have at least PHP **7.4** (`php -v`).
   * In other cases, verify your versions and eventually submit a [bug report][3].
 
 

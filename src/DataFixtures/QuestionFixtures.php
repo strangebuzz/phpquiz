@@ -117,7 +117,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'label'                    =>*/ 'What will be displayed?',
             /*'reminder'                 =>*/ "One can use the same name for a class, a method, a function and a constant.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EgvJgopXsAA8FGJ?format=jpg&name=small',
-            /*'answer_explanations'      =>*/ 'You can use the same name for a class, a method, a function and a constant. In addition, functions and classes are case-insensitive. The right answer was "BAR" (C). "BARBAR" happens for versions prior to #PHP 8 when there is no namespace',
+            /*'answer_explanations'      =>*/ 'You can use the same name for a class, a method, a function and a constant. In addition, functions and classes are case-insensitive. The right answer was "BAR" (C). "BARBAR" happens for versions prior to #PHP 8 when there is no namespace.',
             /*'live_snippet_url'         =>*/ 'https://3v4l.org/6NXXh',
             /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1300355047440683010',
             /*'differences_output_notes' =>*/ null,
