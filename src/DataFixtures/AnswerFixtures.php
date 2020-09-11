@@ -194,6 +194,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'poll_result' =>*/ 1500,
             ],
         ],
+        /*'question_id'*/ 8 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'int(42)',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 3410,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'Fatal error: Abstract function T::get() cannot be declared private',
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 3410,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ "Fatal error: Abstract function T::get() cannot be declared in trait",
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2200,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'Obi Wan Kenobi',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 980,
+            ],
+        ],
     ];
 
     public function load(ObjectManager $manager): void

@@ -111,7 +111,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'previous_question'        =>*/ 6,
             /*'id'                       =>*/ 7,
-            /*'next_question'            =>*/ null,
+            /*'next_question'            =>*/ 8,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed?',
@@ -123,6 +123,22 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'differences_output_notes' =>*/ null,
             /*'created_at'               =>*/ '2020-08-31',
             /*'updated_at'               =>*/ '2020-08-31',
+        ],
+        [
+            /*'previous_question'        =>*/ 7,
+            /*'id'                       =>*/ 8,
+            /*'next_question'            =>*/ null,
+            /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
+            /*'label'                    =>*/ 'What will be displayed in current supported PHP version? (<8)',
+            /*'reminder'                 =>*/ "An abstract method cannot be private (PHP 7).",
+            /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EhS0HiFWAAEOmYb?format=jpg&name=small',
+            /*'answer_explanations'      =>*/ 'An abstract method cannot be private and this will raise a fatal error during compile time. The right answer was "B". This will change with PHP 8 which will be able to declare a abstract private method in a trait (answer "A")',
+            /*'live_snippet_url'         =>*/ 'https://3v4l.org/9pubJ',
+            /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1302865230653988865',
+            /*'differences_output_notes' =>*/ 'An abstract method can be private with PHP 8, the correct answer in this case is "A" (int 42).',
+            /*'created_at'               =>*/ '2020-09-07',
+            /*'updated_at'               =>*/ '2020-09-07',
         ],
     ];
 
