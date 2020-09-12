@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Data\QuestionData;
+use App\Data\QuizData;
+use App\Entity\Quiz;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,10 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuizController extends AbstractController
 {
     private QuestionData $questionData;
+    private QuizData $quizData;
 
-    public function __construct(QuestionData $questionData)
+    public function __construct(QuestionData $questionData, QuizData $quizData)
     {
         $this->questionData = $questionData;
+        $this->quizData = $quizData;
     }
 
     /**
@@ -32,19 +36,19 @@ class QuizController extends AbstractController
 
         // 1. Get all questions available and randomize
         $questions = $this->questionData->getQuestions();
-        dump($questions); die();
+        dump($questions);
 
         // 2. Create a new quiz with all the questions
-
-        //  quiz
-        // id
-        // uuid
-        // created_at
-        // current question
+        $quiz = new Quiz();
+        $quiz->setUuid($uuid);
+        $quiz->setCurrentQuestion($questions[0]);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($quiz);
+        $em->flush();
 
         // quiz / questions
 
-        //  quiz / answer
+        // quiz / answer
         // quiz_id
         // question_id
         // answer_code
@@ -60,8 +64,16 @@ class QuizController extends AbstractController
      *
      * @see https://stackoverflow.com/q/136505/633864
      */
-    public function show(int $uuid): Response
+    public function show(string $uuid): Response
     {
-        dump($uuid); die();
+        $quiz = $this->quizData->getQuiz($uuid);
+        dump($quiz); die();
+    }
+
+    /**
+     * @Route("/{uuid}", name="answer", methods={"POST"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
+     */
+    public function answer(string $uuid): Response
+    {
     }
 }
