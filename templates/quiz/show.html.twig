@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Quiz n°{{ question.order }}/{{ count }}: Answer the following question{% endblock %}
+
+{% block og_image %}{{ question.codeImage|raw }}{% endblock %}
+
+{% block jsapp %}show{% endblock %}
+
+{% block javascripts %}
+    <script>
+      const questionId = {{ question.id }}
+      const code = `{{ code }}`
+      const questionUrl = '{{ path('question_show_json', {id: question.id }) }}'
+    </script>
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h1>Quiz {{ question.order }}/{{ count }}: Answer the following question</h1>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>Suggested by <a target="_blank" href="https://twitter.com/{{ question.suggestedBy.twitter }}">{{ question.suggestedBy.twitter }}</a>
+            <li>Created on <b>{{ question.createdAt|date('Y-m-d') }}</b></li>
+            {% if question.updatedAt != question.createdAt %}
+                <li>Modified on <b>{{ question.updatedAt|date('Y-m-d') }}</b></li>
+            {% endif %}
+            <li>Difficulty: <b>{{ question.difficulty.label }}</b></li>
+        </ul>
+
+        <h3>{{ question.label }} 🤔</h3>
+
+        <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.order }}"/>
+
+        <div v-if="!hasValidated">
+            <h3>Answers</h3>
+
+            <form class="pure-form pure-form-stacked" method="post" ref="form">
+                <fieldset>
+                    <legend>Select your answer: 🧐</legend>
+
+                    {% for answer in question.answers %}
+                        <label class="pure-radio" for="answer_{{ answer.code }}">
+                            <input required="required" v-model="answer" name="answer" id="answer_{{ answer.code }}" type="radio" value="{{ answer.code }}" />&nbsp;
+                            <b>{{ answer.code }}</b>: {{ answer.label|raw }}
+                        </label>
+                    {% endfor %}
+
+                    <p v-if="ready" class="center">
+                        <button type="submit" v-on:click="validateAnswer" class="pure-button pure-button-primary button-xlarge">Validate</button>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}
