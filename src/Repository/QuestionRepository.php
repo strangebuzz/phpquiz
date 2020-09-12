@@ -36,4 +36,12 @@ class QuestionRepository extends ServiceEntityRepository
             return null;
         }
     }
+
+    public function findAllByDate(): array
+    {
+        return $this->createQueryBuilder('q')
+            ->addOrderBy('q.createdAt', 'ASC')
+            ->getQuery()
+            ->execute();
+    }
 }
