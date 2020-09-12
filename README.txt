@@ -24,9 +24,7 @@
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add a question uuid for nav?
-* OK to use the carbon Twitter image or host it?
-* Create a timed quiz?
+* OK to use the carbon Twitter image or host it? (
 * Mailing list to notify when a new quiz is out?
 * Or create a simple RSS ?
 
