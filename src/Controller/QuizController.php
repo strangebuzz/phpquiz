@@ -36,8 +36,21 @@ class QuizController extends AbstractController
 
         // 2. Create a new quiz with all the questions
 
+        //  quiz
+        // id
+        // uuid
+        // created_at
+        // current question
 
-        // Addflash
+        // quiz / questions
+
+        //  quiz / answer
+        // quiz_id
+        // question_id
+        // answer_code
+        // created_at
+
+        // Addflash your quiz has been created, you access to it later with this URL.
 
         return $this->redirectToRoute('quiz_show', ['uuid' => $uuid]);
     }
