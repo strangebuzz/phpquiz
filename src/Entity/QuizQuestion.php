@@ -51,7 +51,7 @@ class QuizQuestion extends BaseEntity
         return $this;
     }
 
-    public function getQuestion(): ?Question
+    public function getQuestion(): Question
     {
         return $this->question;
     }

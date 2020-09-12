@@ -31,6 +31,9 @@ class QuestionData
         return $question;
     }
 
+    /**
+     * @return array<string,Question>
+     */
     public function getQuestions(): array
     {
         return $this->questionRepository->findAllByDate();

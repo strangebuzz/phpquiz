@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use _HumbugBox71425477b33d\Symfony\Component\Console\Exception\LogicException;
 use App\Repository\QuizRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -87,21 +88,24 @@ class Quiz extends BaseEntity
     /* End basic 'etters ———————————————————————————————————————————————————— */
 
     /**
-     * Get the current question to answer.
+     * Get the current quiz-question to answer.
      */
-    public function getQuestion(): ?Question
+    public function getQuizQuestion(): QuizQuestion
     {
         $cpt = 0;
         foreach ($this->getQuestions() as $quizQuestion) {
             ++$cpt;
             if ($quizQuestion->getAnswer() === null) {
                 $question = $quizQuestion->getQuestion();
-                if ($question instanceof Question) {
-                    return $question->setOrder($cpt);
+                if (!$question instanceof Question) {
+                    throw new \LogicException('No question attached to quiz question.');
                 }
+                $question->setOrder($cpt);
+
+                return $quizQuestion;
             }
         }
 
-        return null;
+        throw new \LogicException('All questions of this quiz already answered.');
     }
 }

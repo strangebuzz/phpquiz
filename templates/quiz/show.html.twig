@@ -4,17 +4,6 @@
 
 {% block og_image %}{{ question.codeImage|raw }}{% endblock %}
 
-{% block jsapp %}show{% endblock %}
-
-{% block javascripts %}
-    <script>
-      const questionId = {{ question.id }}
-      const code = `{{ code }}`
-      const questionUrl = '{{ path('question_show_json', {id: question.id }) }}'
-    </script>
-    {{ parent() }}
-{% endblock %}
-
 {% block body %}
     <div class="header">
         <h1>Quiz {{ question.order }}/{{ count }}: Answer the following question</h1>
@@ -34,25 +23,23 @@
 
         <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.order }}"/>
 
-        <div v-if="!hasValidated">
-            <h3>Answers</h3>
+        <h3>Answers</h3>
 
-            <form class="pure-form pure-form-stacked" method="post" ref="form">
-                <fieldset>
-                    <legend>Select your answer: 🧐</legend>
+        <form class="pure-form pure-form-stacked" method="post">
+            <fieldset>
+                <legend>Select your answer: 🧐</legend>
 
-                    {% for answer in question.answers %}
-                        <label class="pure-radio" for="answer_{{ answer.code }}">
-                            <input required="required" v-model="answer" name="answer" id="answer_{{ answer.code }}" type="radio" value="{{ answer.code }}" />&nbsp;
-                            <b>{{ answer.code }}</b>: {{ answer.label|raw }}
-                        </label>
-                    {% endfor %}
+                {% for answer in question.answers %}
+                    <label class="pure-radio" for="answer_{{ answer.code }}">
+                        <input required="required" name="answer" id="answer_{{ answer.code }}" type="radio" value="{{ answer.code }}" />&nbsp;
+                        <b>{{ answer.code }}</b>: {{ answer.label|raw }}
+                    </label>
+                {% endfor %}
 
-                    <p v-if="ready" class="center">
-                        <button type="submit" v-on:click="validateAnswer" class="pure-button pure-button-primary button-xlarge">Validate</button>
-                    </p>
-                </fieldset>
-            </form>
-        </div>
+                <p class="center">
+                    <button type="submit" v-on:click="validateAnswer" class="pure-button pure-button-primary button-xlarge">Validate</button>
+                </p>
+            </fieldset>
+        </form>
     </div>
 {% endblock %}
