@@ -63,12 +63,16 @@ class QuizController extends AbstractController
      */
     public function show(string $uuid): Response
     {
-        $question = $this->quizData->getQuiz($uuid)->getQuestion();
-        if ($question === null) {
+        $quiz = $this->quizData->getQuiz($uuid);
+
+        try {
+            $quizQuestion = $quiz->getQuizQuestion();
+        } catch (\Exception $e) {
             return $this->redirectToRoute('quiz_result', ['uuid' => $uuid]);
         }
+        // create form
 
-        return $this->render('quiz/show.html.twig', $this->questionData->getViewParameters($question));
+        return $this->render('quiz/show.html.twig', $this->questionData->getViewParameters($quizQuestion->getQuestion()));
     }
 
     /**
@@ -79,7 +83,8 @@ class QuizController extends AbstractController
     public function answer(Request $request, string $uuid): Response
     {
         $quiz = $this->quizData->getQuiz($uuid);
-        dump($quiz); die();
+        dump($quiz);
+        die();
     }
 
     /**
@@ -90,6 +95,7 @@ class QuizController extends AbstractController
     public function result(Request $request, string $uuid): Response
     {
         $quiz = $this->quizData->getQuiz($uuid);
-        dump($quiz); die();
+        dump($quiz);
+        die();
     }
 }
