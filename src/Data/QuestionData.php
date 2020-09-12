@@ -31,6 +31,11 @@ class QuestionData
         return $question;
     }
 
+    public function getQuestions(): array
+    {
+        return $this->questionRepository->findAllByDate();
+    }
+
     public function count(): int
     {
         return $this->questionRepository->count([]);
