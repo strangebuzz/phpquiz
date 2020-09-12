@@ -62,6 +62,7 @@
 @Ressources
 ————————————————————————————————————————————————————————————————————————————————
 
+* https://docs.moodle.org/dev/Quiz_database_structure
 * https://codeseven.github.io/toastr/
 * https://clipboardjs.com/
 * https://twig.symfony.com/doc/2.x/functions/block.html

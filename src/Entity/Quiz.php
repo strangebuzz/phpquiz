@@ -3,9 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\QuizRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @todo delete add/remove questions methods?
+ *
  * @ORM\Entity(repositoryClass=QuizRepository::class)
  */
 class Quiz extends BaseEntity
@@ -15,18 +19,22 @@ class Quiz extends BaseEntity
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    protected ?int $id;
 
     /**
      * @ORM\Column(type="guid")
      */
-    private ?string $uuid;
+    protected ?string $uuid;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Question::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity=QuizQuestion::class, mappedBy="quiz")
      */
-    private ?Question $currentQuestion;
+    private Collection $questions;
+
+    public function __construct()
+    {
+        $this->questions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -45,15 +53,55 @@ class Quiz extends BaseEntity
         return $this;
     }
 
-    public function getCurrentQuestion(): ?Question
+    /**
+     * @return Collection|QuizQuestion[]
+     */
+    public function getQuestions(): Collection
     {
-        return $this->currentQuestion;
+        return $this->questions;
     }
 
-    public function setCurrentQuestion(?Question $currentQuestion): self
+    public function addQuestion(QuizQuestion $question): self
     {
-        $this->currentQuestion = $currentQuestion;
+        if (!$this->questions->contains($question)) {
+            $this->questions[] = $question;
+            $question->setQuiz($this);
+        }
 
         return $this;
+    }
+
+    public function removeQuestion(QuizQuestion $question): self
+    {
+        if ($this->questions->contains($question)) {
+            $this->questions->removeElement($question);
+            // set the owning side to null (unless already changed)
+            if ($question->getQuiz() === $this) {
+                $question->setQuiz(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /* End basic 'etters ———————————————————————————————————————————————————— */
+
+    /**
+     * Get the current question to answer.
+     */
+    public function getQuestion(): ?Question
+    {
+        $cpt = 0;
+        foreach ($this->getQuestions() as $quizQuestion) {
+            ++$cpt;
+            if ($quizQuestion->getAnswer() === null) {
+                $question = $quizQuestion->getQuestion();
+                if ($question instanceof Question) {
+                    return $question->setOrder($cpt);
+                }
+            }
+        }
+
+        return null;
     }
 }
