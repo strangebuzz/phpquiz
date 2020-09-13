@@ -23,8 +23,7 @@
 
         <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.order }}"/>
 
-        <h3>Answers</h3>
-
+        {#
         <form class="pure-form pure-form-stacked" method="post">
             <fieldset>
                 <legend>Select your answer: 🧐</legend>
@@ -41,5 +40,19 @@
                 </p>
             </fieldset>
         </form>
+        #}
+
+        {{ form_start(form, {'attr': {'class': 'pure-form pure-form-stacked'}}) }}
+        <fieldset>
+            <legend>Select your answer: 🧐</legend>
+
+            {{ form_widget(form.answer) }}
+
+            <p class="center">
+                <button type="submit" class="pure-button pure-button-primary button-xlarge">Submit</button>
+            </p>
+        </fieldset>
+        {{ form_widget(form.quiz_question_id) }}
+        {{ form_end(form) }}
     </div>
 {% endblock %}

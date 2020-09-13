@@ -6,8 +6,8 @@ use App\Data\QuestionData;
 use App\Data\QuizData;
 use App\Entity\Quiz;
 use App\Entity\QuizQuestion;
+use App\Form\QuizType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -30,7 +30,7 @@ class QuizController extends AbstractController
      *
      * @Route("/new", name="new")
      */
-    public function create(): Response
+    public function new(): Response
     {
         // 1. get a new uid that will be the identifier of the quiz
         $uuid = uuid_create();
@@ -53,46 +53,40 @@ class QuizController extends AbstractController
         $em->persist($quiz);
         $em->flush();
 
-        return $this->redirectToRoute('quiz_show', ['uuid' => $uuid]);
+        return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
     }
 
     /**
-     * @Route("/{uuid}", name="show", methods={"GET"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
+     * @Route("/{uuid}", name="question", methods={"GET"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
      *
      * @see https://stackoverflow.com/q/136505/633864
      */
-    public function show(string $uuid): Response
+    public function question(string $uuid): Response
     {
         $quiz = $this->quizData->getQuiz($uuid);
-
         try {
             $quizQuestion = $quiz->getQuizQuestion();
         } catch (\Exception $e) {
             return $this->redirectToRoute('quiz_result', ['uuid' => $uuid]);
         }
-        // create form
 
-        return $this->render('quiz/show.html.twig', $this->questionData->getViewParameters($quizQuestion->getQuestion()));
+        $form = $this->createForm(QuizType::class, ['quiz_question_id' => $quizQuestion->getId()], [
+            'quiz_question' => $quizQuestion,
+            'action' => $this->generateUrl('quiz_question', ['uuid' => $uuid]),
+        ]);
+
+        // handle submission
+
+        $parameters = $this->questionData->getViewParameters($quizQuestion->getQuestion());
+        $parameters['form'] = $form->createView();
+
+        return $this->render('quiz/show.html.twig', $parameters);
     }
 
     /**
-     * @todo
-     *
-     * @Route("/{uuid}", name="answer", methods={"POST"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
+     * @Route("/{uuid}/result", name="result", methods={"GET"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
      */
-    public function answer(Request $request, string $uuid): Response
-    {
-        $quiz = $this->quizData->getQuiz($uuid);
-        dump($quiz);
-        die();
-    }
-
-    /**
-     * @todo
-     *
-     * @Route("/result/{uuid}", name="result", methods={"GET"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
-     */
-    public function result(Request $request, string $uuid): Response
+    public function result(string $uuid): Response
     {
         $quiz = $this->quizData->getQuiz($uuid);
         dump($quiz);
