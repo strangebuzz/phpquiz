@@ -13,16 +13,15 @@ class QuizType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $quizQuestions = $options['quiz_question'];
-        if (!$quizQuestions instanceof QuizQuestion) {
-            throw new \InvalidArgumentException('Invalid quiz!');
+        $quizQuestion = $options['quiz_question'];
+        if (!$quizQuestion instanceof QuizQuestion) {
+            throw new \InvalidArgumentException('Invalid quiz question!');
         }
 
-        $answers = $quizQuestions->getQuestion()->getAnswers();
         $builder
             ->add('quiz_question_id', HiddenType::class)
             ->add('answer', ChoiceType::class, [
-                'choices' => $answers,
+                'choices' => $quizQuestion->getQuestion()->getAnswers(),
                 'choice_value' => 'id',
                 'choice_label' => 'labelWithCode',
                 'expanded' => true, // radio

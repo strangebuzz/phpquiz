@@ -8,6 +8,7 @@ use App\Entity\Quiz;
 use App\Entity\QuizQuestion;
 use App\Form\QuizType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -61,7 +62,7 @@ class QuizController extends AbstractController
      *
      * @see https://stackoverflow.com/q/136505/633864
      */
-    public function question(string $uuid): Response
+    public function question(Request $request, string $uuid): Response
     {
         $quiz = $this->quizData->getQuiz($uuid);
         try {
@@ -73,14 +74,11 @@ class QuizController extends AbstractController
         $form = $this->createForm(QuizType::class, ['quiz_question_id' => $quizQuestion->getId()], [
             'quiz_question' => $quizQuestion,
             'action' => $this->generateUrl('quiz_question', ['uuid' => $uuid]),
-        ]);
+        ])->handleRequest($request);
 
         // handle submission
 
-        $parameters = $this->questionData->getViewParameters($quizQuestion->getQuestion());
-        $parameters['form'] = $form->createView();
-
-        return $this->render('quiz/show.html.twig', $parameters);
+        return $this->render('quiz/show.html.twig', $this->quizData->getViewParameters($quizQuestion, $form));
     }
 
     /**

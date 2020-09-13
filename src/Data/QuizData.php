@@ -3,7 +3,9 @@
 namespace App\Data;
 
 use App\Entity\Quiz;
+use App\Entity\QuizQuestion;
 use App\Repository\QuizRepository;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class QuizData
@@ -23,5 +25,17 @@ class QuizData
         }
 
         return $quiz;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function getViewParameters(QuizQuestion $quizQuestion, FormInterface $form): array
+    {
+        return [
+            'question' => $quizQuestion->getQuestion(),
+            'count' => count($quizQuestion->getQuestion()->getAnswers()),
+            'form' => $form->createView(),
+        ];
     }
 }
