@@ -32,9 +32,15 @@ class QuizData
      */
     public function getViewParameters(QuizQuestion $quizQuestion, FormInterface $form): array
     {
+        $quiz = $quizQuestion->getQuiz();
+        $questions = [];
+        if ($quiz instanceof Quiz) {
+            $questions = $quiz->getQuestions();
+        }
+
         return [
             'question' => $quizQuestion->getQuestion(),
-            'count' => count($quizQuestion->getQuestion()->getAnswers()),
+            'count' => count($questions),
             'form' => $form->createView(),
         ];
     }
