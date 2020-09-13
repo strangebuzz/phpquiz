@@ -44,10 +44,11 @@
 
         {{ form_start(form, {'attr': {'class': 'pure-form pure-form-stacked'}}) }}
         <fieldset>
+            {{ form_errors(form) }}
+
             <legend>Select your answer: 🧐</legend>
-
             {{ form_widget(form.answer) }}
-
+            {{ form_errors(form.answer) }}
             <p class="center">
                 <button type="submit" class="pure-button pure-button-primary button-xlarge">Submit</button>
             </p>

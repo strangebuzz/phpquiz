@@ -97,10 +97,9 @@ class Quiz extends BaseEntity
             ++$cpt;
             if ($quizQuestion->getAnswer() === null) {
                 $question = $quizQuestion->getQuestion();
-                if (!$question instanceof Question) {
-                    throw new \LogicException('No question attached to quiz question.');
+                if ($question instanceof Question) {
+                    $question->setOrder($cpt);
                 }
-                $question->setOrder($cpt);
 
                 return $quizQuestion;
             }
