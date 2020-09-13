@@ -120,4 +120,11 @@ class Answer extends BaseEntity
 
         return $this;
     }
+
+    /* End basic 'etters ———————————————————————————————————————————————————— */
+
+    public function getLabelWithCode(): string
+    {
+        return $this->getCode(). ': '.$this->getLabel();
+    }
 }
