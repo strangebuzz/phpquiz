@@ -97,7 +97,7 @@ class Quiz extends BaseEntity
             ++$cpt;
             if ($quizQuestion->getAnswer() === null) {
                 $question = $quizQuestion->getQuestion();
-                if ($question instanceof Question) {
+                if ($question instanceof Question) { // cs
                     $question->setOrder($cpt);
                 }
 
