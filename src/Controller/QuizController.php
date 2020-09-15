@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Data\QuestionData;
 use App\Data\QuizData;
+use App\Entity\Answer;
 use App\Entity\Quiz;
 use App\Entity\QuizQuestion;
 use App\Form\QuizType;
@@ -58,7 +59,7 @@ class QuizController extends AbstractController
     }
 
     /**
-     * @Route("/{uuid}", name="question", methods={"GET"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
+     * @Route("/{uuid}", name="question", requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
      *
      * @see https://stackoverflow.com/q/136505/633864
      */
@@ -76,7 +77,18 @@ class QuizController extends AbstractController
             'action' => $this->generateUrl('quiz_question', ['uuid' => $uuid]),
         ])->handleRequest($request);
 
-        // handle submission
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $answer = $data['answer'];
+            if (!$answer instanceof Answer) {
+                throw new \RuntimeException('Invalid type.');
+            }
+
+            $quizQuestion->setAnswer($answer);
+            $this->get('doctrine')->getManager()->flush();
+
+            return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
+        }
 
         return $this->render('quiz/show.html.twig', $this->quizData->getViewParameters($quizQuestion, $form));
     }

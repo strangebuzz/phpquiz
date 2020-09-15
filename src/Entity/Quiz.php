@@ -86,25 +86,4 @@ class Quiz extends BaseEntity
     }
 
     /* End basic 'etters ———————————————————————————————————————————————————— */
-
-    /**
-     * Get the current quiz-question to answer.
-     */
-    public function getQuizQuestion(): QuizQuestion
-    {
-        $cpt = 0;
-        foreach ($this->getQuestions() as $quizQuestion) {
-            ++$cpt;
-            if ($quizQuestion->getAnswer() === null) {
-                $question = $quizQuestion->getQuestion();
-                if ($question instanceof Question) { // cs
-                    $question->setOrder($cpt);
-                }
-
-                return $quizQuestion;
-            }
-        }
-
-        throw new \LogicException('All questions of this quiz already answered.');
-    }
 }

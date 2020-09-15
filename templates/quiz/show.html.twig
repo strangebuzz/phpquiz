@@ -1,12 +1,12 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Quiz n°{{ question.order }}/{{ count }}: Answer the following question{% endblock %}
+{% block title %}Question n°{{ question.order }}/{{ count }}: Answer the following question{% endblock %}
 
 {% block og_image %}{{ question.codeImage|raw }}{% endblock %}
 
 {% block body %}
     <div class="header">
-        <h1>Quiz {{ question.order }}/{{ count }}: Answer the following question</h1>
+        <h1>Question {{ question.order }}/{{ count }}: Answer the following question</h1>
     </div>
 
     <div class="content">
@@ -22,25 +22,6 @@
         <h3>{{ question.label }} 🤔</h3>
 
         <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.order }}"/>
-
-        {#
-        <form class="pure-form pure-form-stacked" method="post">
-            <fieldset>
-                <legend>Select your answer: 🧐</legend>
-
-                {% for answer in question.answers %}
-                    <label class="pure-radio" for="answer_{{ answer.code }}">
-                        <input required="required" name="answer" id="answer_{{ answer.code }}" type="radio" value="{{ answer.code }}" />&nbsp;
-                        <b>{{ answer.code }}</b>: {{ answer.label|raw }}
-                    </label>
-                {% endfor %}
-
-                <p class="center">
-                    <button type="submit" v-on:click="validateAnswer" class="pure-button pure-button-primary button-xlarge">Validate</button>
-                </p>
-            </fieldset>
-        </form>
-        #}
 
         {{ form_start(form, {'attr': {'class': 'pure-form pure-form-stacked'}}) }}
         <fieldset>

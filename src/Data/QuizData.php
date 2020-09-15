@@ -2,6 +2,7 @@
 
 namespace App\Data;
 
+use App\Entity\Question;
 use App\Entity\Quiz;
 use App\Entity\QuizQuestion;
 use App\Repository\QuizRepository;
@@ -12,9 +13,10 @@ class QuizData
 {
     private QuizRepository $quizRepository;
 
-    public function __construct(QuizRepository $quizRepository)
+    public function __construct(QuizRepository $quizRepository, QuestionData $questionData)
     {
         $this->quizRepository = $quizRepository;
+        $this->questionData = $questionData;
     }
 
     public function getQuiz(string $uuid): Quiz
@@ -43,5 +45,26 @@ class QuizData
             'count' => count($questions),
             'form' => $form->createView(),
         ];
+    }
+
+    /**
+     * Get the current quiz-question to answer.
+     */
+    public function getQuizQuestion(Quiz $quiz): QuizQuestion
+    {
+        $cpt = 0;
+        foreach ($this->quizRepository->getQuestionsByDate($quiz) as $quizQuestion) {
+            ++$cpt;
+            if ($quizQuestion->getAnswer() === null) {
+                $question = $quizQuestion->getQuestion();
+                if ($question instanceof Question) {
+                    $question->setOrder($cpt);
+                }
+
+                return $quizQuestion;
+            }
+        }
+
+        throw new \LogicException('All questions of this quiz already answered.');
     }
 }
