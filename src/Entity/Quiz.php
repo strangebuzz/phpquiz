@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use _HumbugBox71425477b33d\Symfony\Component\Console\Exception\LogicException;
 use App\Repository\QuizRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -88,4 +87,18 @@ class Quiz extends BaseEntity
     }
 
     /* End basic 'etters ———————————————————————————————————————————————————— */
+
+    public function getScore(): int
+    {
+        $score = 0;
+        foreach ($this->getQuestions() as $quizQuestion) {
+            $answer = $quizQuestion->getAnswer();
+            if (!$answer instanceof Answer) {
+                throw new \RuntimeException('Invalid answer type');
+            }
+            $score += $answer->isCorrect() ? 1 : 0;
+        }
+
+        return $score;
+    }
 }
