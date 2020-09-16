@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Quiz;
 use App\Entity\QuizQuestion;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,32 +20,15 @@ class QuizQuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, QuizQuestion::class);
     }
 
-    // /**
-    //  * @return QuizQuestion[] Returns an array of QuizQuestion objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getQuestionsByRank(Quiz $quiz): array
     {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('q.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('quiz_question')
+            ->join('quiz_question.quiz', 'quiz')
+            ->join('quiz_question.question', 'question')
+            ->andWhere('quiz_question.quiz = :id')
+            ->setParameter('id', $quiz->getId())
+            ->addOrderBy('quiz_question.rank', 'ASC')
             ->getQuery()
-            ->getResult()
-        ;
+            ->execute();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?QuizQuestion
-    {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

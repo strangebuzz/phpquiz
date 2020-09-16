@@ -5,6 +5,7 @@ namespace App\Data;
 use App\Entity\Question;
 use App\Entity\Quiz;
 use App\Entity\QuizQuestion;
+use App\Repository\QuizQuestionRepository;
 use App\Repository\QuizRepository;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -12,11 +13,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class QuizData
 {
     private QuizRepository $quizRepository;
+    private QuizQuestionRepository $quizQuestionRepository;
 
-    public function __construct(QuizRepository $quizRepository, QuestionData $questionData)
+    public function __construct(QuizRepository $quizRepository, QuizQuestionRepository  $quizQuestionRepository)
     {
         $this->quizRepository = $quizRepository;
-        $this->questionData = $questionData;
+        $this->quizQuestionRepository = $quizQuestionRepository;
     }
 
     public function getQuiz(string $uuid): Quiz
@@ -53,7 +55,7 @@ class QuizData
     public function getQuizQuestion(Quiz $quiz): QuizQuestion
     {
         $cpt = 0;
-        foreach ($this->quizRepository->getQuestionsByDate($quiz) as $quizQuestion) {
+        foreach ($this->quizQuestionRepository->getQuestionsByRank($quiz) as $quizQuestion) {
             ++$cpt;
             if ($quizQuestion->getAnswer() === null) {
                 $question = $quizQuestion->getQuestion();
