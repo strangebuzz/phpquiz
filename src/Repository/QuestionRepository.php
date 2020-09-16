@@ -37,6 +37,9 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return array<int,Question>
+     */
     public function findAllByDate(): array
     {
         return $this->createQueryBuilder('q')

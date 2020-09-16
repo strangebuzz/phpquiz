@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Question;
 use App\Entity\QuizQuestion;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -18,10 +19,15 @@ class QuizType extends AbstractType
             throw new \InvalidArgumentException('Invalid quiz question!');
         }
 
+        $question = $quizQuestion->getQuestion();
+        if (!$question instanceof Question) {
+            throw new \InvalidArgumentException('Invalid question!');
+        }
+
         $builder
             ->add('quiz_question_id', HiddenType::class)
             ->add('answer', ChoiceType::class, [
-                'choices' => $quizQuestion->getQuestion()->getAnswers(),
+                'choices' => $question->getAnswers(),
                 'choice_value' => 'id',
                 'choice_label' => 'labelWithCode',
                 'expanded' => true, // radio

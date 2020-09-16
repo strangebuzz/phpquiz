@@ -20,6 +20,9 @@ class QuizQuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, QuizQuestion::class);
     }
 
+    /**
+     * @return array<int,QuizQuestion>
+     */
     public function getQuestionsByRank(Quiz $quiz): array
     {
         return $this->createQueryBuilder('quiz_question')
