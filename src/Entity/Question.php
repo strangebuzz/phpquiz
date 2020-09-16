@@ -158,11 +158,6 @@ class Question extends BaseEntity
      */
     protected ?Difficulty $difficulty;
 
-    /**
-     * @var int|null $order
-     */
-    protected ?int $order;
-
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -369,18 +364,6 @@ class Question extends BaseEntity
     public function setDifficulty(?Difficulty $difficulty): self
     {
         $this->difficulty = $difficulty;
-
-        return $this;
-    }
-
-    public function getOrder(): ?int
-    {
-        return $this->order;
-    }
-
-    public function setOrder(?int $order): Question
-    {
-        $this->order = $order;
 
         return $this;
     }
