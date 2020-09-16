@@ -2,11 +2,12 @@
 
 namespace App\Data;
 
-use App\Entity\Question;
 use App\Entity\Quiz;
 use App\Entity\QuizQuestion;
+use App\Repository\QuestionRepository;
 use App\Repository\QuizQuestionRepository;
 use App\Repository\QuizRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -14,11 +15,15 @@ class QuizData
 {
     private QuizRepository $quizRepository;
     private QuizQuestionRepository $quizQuestionRepository;
+    private QuestionRepository $questionRepository;
+    private EntityManagerInterface $entityManager;
 
-    public function __construct(QuizRepository $quizRepository, QuizQuestionRepository  $quizQuestionRepository)
+    public function __construct(QuizRepository $quizRepository, QuizQuestionRepository  $quizQuestionRepository, QuestionRepository $questionRepository, EntityManagerInterface $entityManager)
     {
         $this->quizRepository = $quizRepository;
         $this->quizQuestionRepository = $quizQuestionRepository;
+        $this->questionRepository = $questionRepository;
+        $this->entityManager = $entityManager;
     }
 
     public function getQuiz(string $uuid): Quiz
@@ -62,5 +67,31 @@ class QuizData
         }
 
         throw new \LogicException('All questions of this quiz already answered.');
+    }
+
+    public function generateQuiz(): Quiz
+    {
+        $uuid = uuid_create();
+
+        // Get all questions available
+        $questions = $this->questionRepository->findAllByDate();
+
+        // Create a new quiz with all the questions
+        $quiz = new Quiz();
+        $quiz->setUuid($uuid);
+
+        $cpt = 0;
+        foreach ($questions as $question) {
+            $quizQuestion = new QuizQuestion();
+            $quizQuestion->setQuiz($quiz);
+            $quizQuestion->setQuestion($question);
+            $quizQuestion->setRank(++$cpt);
+            $this->entityManager->persist($quizQuestion);
+        }
+
+        $this->entityManager->persist($quiz);
+        $this->entityManager->flush();
+
+        return $quiz;
     }
 }
