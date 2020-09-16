@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div class="header">
+        <h1>Congratulations! The quiz is over!</h1>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>Your score: <b>{{ score }}/{{ count }}</b></li>
+            <li>Score percent: <b>{{ score/count*100 }}%</b></li>
+        </ul>
+
+        <p>If you want to check all the correct answers please pass the quiz with the learn mode.</p>
+
+        <p class="center">
+            <a href="{{ path('question_show', {id: 1}) }}">&raquo; Access the learn mode </a>
+        </p>
+    </div>
+{% endblock %}
