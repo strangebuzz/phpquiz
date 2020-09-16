@@ -69,23 +69,18 @@ class QuizData
         throw new \LogicException('All questions of this quiz already answered.');
     }
 
+    /**
+     * Create a new quiz in database with all the available questions at the time.
+     */
     public function generateQuiz(): Quiz
     {
-        $uuid = uuid_create();
-
-        // Get all questions available
-        $questions = $this->questionRepository->findAllByDate();
-
-        // Create a new quiz with all the questions
         $quiz = new Quiz();
-        $quiz->setUuid($uuid);
-
-        $cpt = 0;
-        foreach ($questions as $question) {
+        $quiz->setUuid(uuid_create());
+        foreach ($this->questionRepository->findAllByDate() as $idx => $question) {
             $quizQuestion = new QuizQuestion();
             $quizQuestion->setQuiz($quiz);
             $quizQuestion->setQuestion($question);
-            $quizQuestion->setRank(++$cpt);
+            $quizQuestion->setRank($idx+1);
             $this->entityManager->persist($quizQuestion);
         }
 
