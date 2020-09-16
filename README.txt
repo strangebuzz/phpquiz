@@ -16,6 +16,7 @@
 * Add quiz menu entry
 * Add fixtures for the quiz mode
 * Add tests for the quiz mode
+* Add time to answer for each question + direct link with question
 
 
 @Quiz ideas

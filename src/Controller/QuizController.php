@@ -28,9 +28,7 @@ class QuizController extends AbstractController
      */
     public function new(): Response
     {
-        $quiz = $this->quizData->generateQuiz();
-
-        return $this->redirectToRoute('quiz_question', ['uuid' => $quiz->getUuid()]);
+        return $this->redirectToRoute('quiz_question', ['uuid' => $this->quizData->generateQuiz()->getUuid()]);
     }
 
     /**
@@ -38,7 +36,7 @@ class QuizController extends AbstractController
      *
      * @see https://stackoverflow.com/q/136505/633864
      */
-    public function question(Request $request, string $uuid): Response
+    public function question(Request $request, string $uuid, string $_route): Response
     {
         $quiz = $this->quizData->getQuiz($uuid);
         try {
@@ -47,16 +45,16 @@ class QuizController extends AbstractController
             return $this->redirectToRoute('quiz_result', ['uuid' => $uuid]);
         }
 
-        $form = $this->createForm(QuizType::class, ['quiz_question_id' => $quizQuestion->getId()], [
+        $form = $this->createForm(QuizType::class, [], [
             'quiz_question' => $quizQuestion,
-            'action' => $this->generateUrl('quiz_question', ['uuid' => $uuid]),
+            'action' => $this->generateUrl($_route, ['uuid' => $uuid]),
         ])->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $quizQuestion->setAnswer($form->getData()['answer']);
             $this->get('doctrine')->getManager()->flush();
 
-            return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
+            return $this->redirectToRoute($_route, ['uuid' => $uuid]);
         }
 
         return $this->render('quiz/show.html.twig', $this->quizData->getViewParameters($quizQuestion, $form));
