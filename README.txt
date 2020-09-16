@@ -14,8 +14,8 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Add quiz menu entry
+* Add fixtures for the quiz mode
 * Add tests for the quiz mode
-* Quizcontroller cleanup
 
 
 @Quiz ideas

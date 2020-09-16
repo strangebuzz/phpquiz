@@ -2,11 +2,7 @@
 
 namespace App\Controller;
 
-use App\Data\QuestionData;
 use App\Data\QuizData;
-use App\Entity\Answer;
-use App\Entity\Quiz;
-use App\Entity\QuizQuestion;
 use App\Form\QuizType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,12 +14,10 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class QuizController extends AbstractController
 {
-    private QuestionData $questionData;
     private QuizData $quizData;
 
-    public function __construct(QuestionData $questionData, QuizData $quizData)
+    public function __construct(QuizData $quizData)
     {
-        $this->questionData = $questionData;
         $this->quizData = $quizData;
     }
 
@@ -34,30 +28,9 @@ class QuizController extends AbstractController
      */
     public function new(): Response
     {
-        // 1. get a new uid that will be the identifier of the quiz
-        $uuid = uuid_create();
+        $quiz = $this->quizData->generateQuiz();
 
-        // 2. Get all questions available
-        $questions = $this->questionData->getQuestions();
-
-        // 2. Create a new quiz with all the questions
-        $quiz = new Quiz();
-        $quiz->setUuid($uuid);
-        $em = $this->getDoctrine()->getManager();
-
-        $cpt = 0;
-        foreach ($questions as $question) {
-            $quizQuestion = new QuizQuestion();
-            $quizQuestion->setQuiz($quiz);
-            $quizQuestion->setQuestion($question);
-            $quizQuestion->setRank(++$cpt);
-            $em->persist($quizQuestion);
-        }
-
-        $em->persist($quiz);
-        $em->flush();
-
-        return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
+        return $this->redirectToRoute('quiz_question', ['uuid' => $quiz->getUuid()]);
     }
 
     /**
@@ -80,13 +53,7 @@ class QuizController extends AbstractController
         ])->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            $answer = $data['answer'];
-            if (!$answer instanceof Answer) {
-                throw new \RuntimeException('Invalid type.');
-            }
-
-            $quizQuestion->setAnswer($answer);
+            $quizQuestion->setAnswer($form->getData()['answer']);
             $this->get('doctrine')->getManager()->flush();
 
             return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
