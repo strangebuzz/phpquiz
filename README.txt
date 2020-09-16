@@ -13,6 +13,10 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Add quiz menu entry
+* Add tests for the quiz mode
+* Quizcontroller cleanup
+
 
 @Quiz ideas
 ————————————————————————————————————————————————————————————————————————————————
@@ -32,7 +36,7 @@
 @Nice to have
 ————————————————————————————————————————————————————————————————————————————————
 
-* Allow to choose the number of questions to pass
+* Allow to choose the number of questions to pass?
 
 
 @Infra
