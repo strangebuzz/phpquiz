@@ -45,10 +45,12 @@ class QuizController extends AbstractController
         $quiz->setUuid($uuid);
         $em = $this->getDoctrine()->getManager();
 
+        $cpt = 0;
         foreach ($questions as $question) {
             $quizQuestion = new QuizQuestion();
             $quizQuestion->setQuiz($quiz);
             $quizQuestion->setQuestion($question);
+            $quizQuestion->setRank(++$cpt);
             $em->persist($quizQuestion);
         }
 
@@ -67,7 +69,7 @@ class QuizController extends AbstractController
     {
         $quiz = $this->quizData->getQuiz($uuid);
         try {
-            $quizQuestion = $quiz->getQuizQuestion();
+            $quizQuestion = $this->quizData->getQuizQuestion($quiz);
         } catch (\Exception $e) {
             return $this->redirectToRoute('quiz_result', ['uuid' => $uuid]);
         }

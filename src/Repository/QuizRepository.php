@@ -19,21 +19,4 @@ class QuizRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Quiz::class);
     }
-
-    /**
-     * Or add an order ease this instead of taking the date that may change.
-     *
-     * @see QuestionRepository::findAllByDate
-     */
-    public function getQuestionsByDate(Quiz $quiz): array
-    {
-        return $this->createQueryBuilder('quiz')
-            ->join('quiz.questions', 'questions')
-            ->join('questions.question', 'question')
-            ->andWhere('quiz.id = :id')
-            ->setParameter('id', $quiz->getId())
-            ->addOrderBy('question.createdAt', 'ASC')
-            ->getQuery()
-            ->execute();
-    }
 }

@@ -34,6 +34,11 @@ class QuizQuestion extends BaseEntity
      */
     protected ?Answer $answer;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private ?int $rank;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class QuizQuestion extends BaseEntity
     public function setAnswer(?Answer $answer): self
     {
         $this->answer = $answer;
+
+        return $this;
+    }
+
+    public function getRank(): ?int
+    {
+        return $this->rank;
+    }
+
+    public function setRank(int $rank): self
+    {
+        $this->rank = $rank;
 
         return $this;
     }
