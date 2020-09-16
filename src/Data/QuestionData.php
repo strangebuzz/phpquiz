@@ -32,7 +32,7 @@ class QuestionData
     }
 
     /**
-     * @return array<string,Question>
+     * @return array<int,Question>
      */
     public function getQuestions(): array
     {

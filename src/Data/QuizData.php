@@ -43,6 +43,7 @@ class QuizData
         }
 
         return [
+            'quiz_question' => $quizQuestion,
             'question' => $quizQuestion->getQuestion(),
             'count' => count($questions),
             'form' => $form->createView(),
@@ -54,15 +55,8 @@ class QuizData
      */
     public function getQuizQuestion(Quiz $quiz): QuizQuestion
     {
-        $cpt = 0;
         foreach ($this->quizQuestionRepository->getQuestionsByRank($quiz) as $quizQuestion) {
-            ++$cpt;
             if ($quizQuestion->getAnswer() === null) {
-                $question = $quizQuestion->getQuestion();
-                if ($question instanceof Question) {
-                    $question->setOrder($cpt);
-                }
-
                 return $quizQuestion;
             }
         }

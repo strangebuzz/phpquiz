@@ -28,9 +28,11 @@ class Quiz extends BaseEntity
     protected ?string $uuid;
 
     /**
+     * @var Collection<int,QuizQuestion> $questions
+     *
      * @ORM\OneToMany(targetEntity=QuizQuestion::class, mappedBy="quiz")
      */
-    private Collection $questions;
+    protected Collection $questions;
 
     public function __construct()
     {
@@ -55,7 +57,7 @@ class Quiz extends BaseEntity
     }
 
     /**
-     * @return Collection|QuizQuestion[]
+     * @return Collection<int,QuizQuestion>|QuizQuestion[]
      */
     public function getQuestions(): Collection
     {

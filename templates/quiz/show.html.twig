@@ -1,12 +1,12 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Question n°{{ question.order }}/{{ count }}: Answer the following question{% endblock %}
+{% block title %}Question n°{{ quiz_question.rank }}/{{ count }}: Answer the following question{% endblock %}
 
 {% block og_image %}{{ question.codeImage|raw }}{% endblock %}
 
 {% block body %}
     <div class="header">
-        <h1>Question {{ question.order }}/{{ count }}: Answer the following question</h1>
+        <h1>Question {{ quiz_question.rank }}/{{ count }}: Answer the following question</h1>
     </div>
 
     <div class="content">
@@ -21,7 +21,7 @@
 
         <h3>{{ question.label }} 🤔</h3>
 
-        <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ question.order }}"/>
+        <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ quiz_question.rank }}"/>
 
         {{ form_start(form, {'attr': {'class': 'pure-form pure-form-stacked'}}) }}
         <fieldset>
