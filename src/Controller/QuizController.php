@@ -72,7 +72,6 @@ class QuizController extends AbstractController
         try {
             $parameters['score'] = $quiz->getScore();
         } catch (\Exception $e) {
-
             return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
         }
 
