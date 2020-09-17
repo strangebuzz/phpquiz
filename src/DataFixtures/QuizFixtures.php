@@ -10,10 +10,15 @@ class QuizFixtures extends Fixture
 {
     use AppFixturesTrait;
 
+    public const UUID = '1d8bd99d-088d-473d-bf0c-0da4bce79075';
+
+    /**
+     * @see QuizControllerTest
+     */
     public const DATA = [
         [
             /*'id'   => */ 1,
-            /*'uuid' => */ '1d8bd99d-088d-473d-bf0c-0da4bce79075',
+            /*'uuid' => */ self::UUID,
         ],
     ];
 
