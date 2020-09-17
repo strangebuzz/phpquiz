@@ -65,9 +65,16 @@ class QuizController extends AbstractController
      */
     public function result(string $uuid): Response
     {
-        $parameters['quiz'] = $this->quizData->getQuiz($uuid);
-        $parameters['score'] = $parameters['quiz']->getScore();
-        $parameters['count'] = count($parameters['quiz']->getQuestions());
+        try {
+            $quiz = $this->quizData->getQuiz($uuid);
+            $parameters['quiz'] = $quiz;
+            $parameters['score'] = $quiz->getScore();
+            $parameters['count'] = count($quiz->getQuestions());
+        } catch (\Exception $e) {
+            // quiz not finished
+
+            return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
+        }
 
         return $this->render('quiz/result.html.twig', $parameters);
     }

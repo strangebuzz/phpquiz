@@ -94,7 +94,7 @@ class Quiz extends BaseEntity
         foreach ($this->getQuestions() as $quizQuestion) {
             $answer = $quizQuestion->getAnswer();
             if (!$answer instanceof Answer) {
-                throw new \RuntimeException('Invalid answer type');
+                throw new \LogicException("Can't get the score of a non completed test.");
             }
             $score += $answer->isCorrect() ? 1 : 0;
         }
