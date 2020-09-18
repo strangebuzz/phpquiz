@@ -6,6 +6,7 @@ use App\Entity\Answer;
 use App\Entity\Link;
 use App\Entity\Person;
 use App\Entity\Question;
+use App\Entity\Quiz;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -38,6 +39,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Docker', 'fas fa-server')->setSubItems([
             MenuItem::linkToUrl('Adminer', 'fas fa-database', 'http://127.0.0.1:8986')->setLinkRel('noreferrer'),
         ]);
+        yield MenuItem::linkToCrud('Quiz', 'fas fa-check-circle', Quiz::class);
         yield MenuItem::linkToCrud('Answer', 'fas fa-list', Answer::class);
         yield MenuItem::linkToCrud('Link', 'fas fa-link', Link::class);
         yield MenuItem::linkToCrud('Person', 'fas fa-user', Person::class);

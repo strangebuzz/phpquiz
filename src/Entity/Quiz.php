@@ -101,4 +101,24 @@ class Quiz extends BaseEntity
 
         return $score;
     }
+
+    /**
+     * For a quick view in easyamin
+     */
+    public function getAdminScore(): string
+    {
+        $notAnswered = 0;
+        $score = 0;
+        $qestions = $this->getQuestions();
+        foreach ($qestions as $quizQuestion) {
+            $answer = $quizQuestion->getAnswer();
+            if ($answer instanceof Answer) {
+                $score += $answer->isCorrect() ? 1 : 0;
+            } else {
+                ++$notAnswered;
+            }
+        }
+
+        return $score.'/'.(count($qestions)-$notAnswered).' ('.count($qestions).')';
+    }
 }
