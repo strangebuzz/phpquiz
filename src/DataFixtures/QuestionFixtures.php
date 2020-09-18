@@ -127,7 +127,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'previous_question'        =>*/ 7,
             /*'id'                       =>*/ 8,
-            /*'next_question'            =>*/ null,
+            /*'next_question'            =>*/ 9,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed in current supported PHP version? (<8)',
@@ -139,6 +139,22 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'differences_output_notes' =>*/ 'An abstract method can be private with PHP 8, the correct answer in this case is "A" (int 42).',
             /*'created_at'               =>*/ '2020-09-07',
             /*'updated_at'               =>*/ '2020-09-07',
+        ],
+        [
+            /*'previous_question'        =>*/ 8,
+            /*'id'                       =>*/ 9,
+            /*'next_question'            =>*/ null,
+            /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
+            /*'label'                    =>*/ 'What will be displayed in current supported PHP version? (<8)',
+            /*'reminder'                 =>*/ "A numeric value can be prefixed by blank characters, but not after.",
+            /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EhnaramXYAEE2hp?format=jpg&name=small',
+            /*'answer_explanations'      =>*/ 'A numeric value can be prefixed by blank characters, but not after. The right answer was "C". This will change with PHP 8 which will accept blank characters after.',
+            /*'live_snippet_url'         =>*/ 'https://3v4l.org/WEi6L',
+            /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1304314751628070912',
+            /*'differences_output_notes' =>*/ 'With PHP 8 the right answer is "D".',
+            /*'created_at'               =>*/ '2020-09-11',
+            /*'updated_at'               =>*/ '2020-09-11',
         ],
     ];
 

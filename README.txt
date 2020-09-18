@@ -6,6 +6,7 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
+* Fix the label and radio display in the quiz mode
 * Joins OK in the show action, query count seems weird? To verify.
 * Can't set the admin password! Symfony binary bug?
 
@@ -21,8 +22,6 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Next quiz to enter:
-  https://twitter.com/FredBouchery/status/1304314751628070912
-  https://twitter.com/FredBouchery/status/1305409073542762498
 * https://twitter.com/dkarlovi/status/1295312397780037632
 
 

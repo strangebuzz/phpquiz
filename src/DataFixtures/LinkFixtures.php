@@ -47,6 +47,16 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
             /*'label'       =>*/ 'Read the Trait documentation on php.net',
             /*'url'         =>*/ 'https://www.php.net/manual/en/language.oop5.traits.php',
         ],
+        [
+            /*'question_id' =>*/ 8,
+            /*'label'       =>*/ 'Read the Class Abstraction documentation on php.net',
+            /*'url'         =>*/ 'https://www.php.net/manual/en/language.oop5.abstract.php',
+        ],
+        [
+            /*'question_id' =>*/ 9,
+            /*'label'       =>*/ 'Read the "Saner numeric strings" RFC.',
+            /*'url'         =>*/ 'https://wiki.php.net/rfc/saner-numeric-strings',
+        ],
     ];
 
     public function load(ObjectManager $manager): void
