@@ -143,7 +143,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'previous_question'        =>*/ 8,
             /*'id'                       =>*/ 9,
-            /*'next_question'            =>*/ null,
+            /*'next_question'            =>*/ 10,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed in current supported PHP version? (<8)',
@@ -155,6 +155,22 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'differences_output_notes' =>*/ 'With PHP 8 the right answer is "D".',
             /*'created_at'               =>*/ '2020-09-11',
             /*'updated_at'               =>*/ '2020-09-11',
+        ],
+        [
+            /*'previous_question'        =>*/ 9,
+            /*'id'                       =>*/ 10,
+            /*'next_question'            =>*/ null,
+            /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
+            /*'label'                    =>*/ 'What will be displayed in current supported PHP version? (<8)',
+            /*'reminder'                 =>*/ "PHP magic methods must be declared with the exact number of parameters.",
+            /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/Eh8DgSUXsAEnJin?format=jpg&name=small',
+            /*'answer_explanations'      =>*/ 'PHP magic methods must be declared with the exact number of parameters. It is not necessary to specify type, but if you do, the first one must be a string and the second an array. The right answer was "C".',
+            /*'live_snippet_url'         =>*/ 'https://3v4l.org/9WApp',
+            /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1305768968398024704',
+            /*'differences_output_notes' =>*/ '',
+            /*'created_at'               =>*/ '2020-09-15',
+            /*'updated_at'               =>*/ '2020-09-15',
         ],
     ];
 

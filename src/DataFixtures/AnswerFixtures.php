@@ -246,6 +246,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'poll_result' =>*/ 3330,
             ],
         ],
+        /*'question_id'*/ 10 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'string, string',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 3730,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'string, array',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2060,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ "Fatal error: Method Foo::__call() must take exactly 2 arguments",
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 2750,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'Fatal error: A void function must not return a value',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1470,
+            ],
+        ],
     ];
 
     public function load(ObjectManager $manager): void

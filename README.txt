@@ -21,7 +21,7 @@
 @Quiz ideas
 ————————————————————————————————————————————————————————————————————————————————
 
-* Next quiz to enter:
+* Next quiz to enter: https://twitter.com/FredBouchery/status/1307963044929114113
 * https://twitter.com/dkarlovi/status/1295312397780037632
 
 
