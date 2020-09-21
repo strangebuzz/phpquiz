@@ -6,6 +6,7 @@ use App\Entity\Answer;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class AnswerCrudController extends AbstractCrudController
@@ -22,6 +23,7 @@ class AnswerCrudController extends AbstractCrudController
             TextField::new('code'),
             TextField::new('label'),
             BooleanField::new('correct'),
+            IntegerField::new('pollResult'),
         ];
     }
 }

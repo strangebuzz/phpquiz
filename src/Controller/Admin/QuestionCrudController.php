@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Question;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -21,6 +22,7 @@ class QuestionCrudController extends AbstractCrudController
             AssociationField::new('suggestedBy'),
             AssociationField::new('previousQuestion'),
             AssociationField::new('nextQuestion'),
+            AssociationField::new('difficulty'),
             TextField::new('label'),
             TextField::new('reminder'),
             TextField::new('codeImage'),
@@ -28,6 +30,7 @@ class QuestionCrudController extends AbstractCrudController
             TextField::new('liveSnippetUrl'),
             TextField::new('twitterPollUrl'),
             TextareaField::new('differencesOutputNotes'),
+            DateTimeField::new('createdAt'),
         ];
     }
 }

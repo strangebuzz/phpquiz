@@ -36,6 +36,11 @@ class Difficulty extends BaseEntity
         $this->questions = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return (string) $this->label;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
