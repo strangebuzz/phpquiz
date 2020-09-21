@@ -14,6 +14,7 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Add a form on the home to access a quiz by its uuid
 * Add quiz menu entry
 * Add time to answer for each question + direct link with question in the result page
 

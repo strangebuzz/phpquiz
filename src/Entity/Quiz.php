@@ -29,7 +29,7 @@ class Quiz extends BaseEntity
     /**
      * @var Collection<int,QuizQuestion> $questions
      *
-     * @ORM\OneToMany(targetEntity=QuizQuestion::class, mappedBy="quiz")
+     * @ORM\OneToMany(targetEntity=QuizQuestion::class, mappedBy="quiz", cascade={"remove"})
      */
     protected Collection $questions;
 
