@@ -14,9 +14,8 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add a form on the home to access a quiz by its uuid
-* Add quiz menu entry
-* Add time to answer for each question + direct link with question in the result page
+* New retry fonction that delete all answers of a quiz to repass it
+* Add a form on the home page to access a quiz by its uuid
 
 
 @Quiz ideas
@@ -29,7 +28,8 @@
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* OK to use the carbon Twitter image or host it? (
+* Add quiz menu entry
+* OK to use the carbon Twitter image or host it? (seems better for share)
 * Mailing list to notify when a new quiz is out?
 * Or create a simple RSS ?
 

@@ -1,0 +1,5 @@
+{% set timeToAnswer = date(endDate).diff(date(startDate)) %}
+{% if timeToAnswer.i > 0 %}
+    {{ timeToAnswer.i }} {{ 'results_minutes'|trans({minutes: timeToAnswer.i}) }} and
+{% endif %}
+{{ timeToAnswer.s }} {{ 'results_seconds'|trans({seconds: timeToAnswer.s}) }}. {# Debug ({{ question.updatedAt|date('Y-m-d H:i:s') }}) #}

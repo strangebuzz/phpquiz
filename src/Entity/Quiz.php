@@ -103,7 +103,7 @@ class Quiz extends BaseEntity
     }
 
     /**
-     * For a quick view in easyamin
+     * For a quick view of the score in EasyAdmin.
      */
     public function getAdminScore(): string
     {

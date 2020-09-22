@@ -162,7 +162,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'next_question'            =>*/ null,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
-            /*'label'                    =>*/ 'What will be displayed in current supported PHP version? (<8)',
+            /*'label'                    =>*/ 'What will be displayed in current supported PHP version? (<=8)',
             /*'reminder'                 =>*/ "PHP magic methods must be declared with the exact number of parameters.",
             /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/Eh8DgSUXsAEnJin?format=jpg&name=small',
             /*'answer_explanations'      =>*/ 'PHP magic methods must be declared with the exact number of parameters. It is not necessary to specify type, but if you do, the first one must be a string and the second an array. The right answer was "C".',

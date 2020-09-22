@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Data\QuizData;
 use App\Form\QuizType;
+use App\Repository\QuizQuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuizController extends AbstractController
 {
     private QuizData $quizData;
+    private QuizQuestionRepository $quizQuestionRepository;
 
-    public function __construct(QuizData $quizData)
+    public function __construct(QuizData $quizData, QuizQuestionRepository $quizQuestionRepository)
     {
         $this->quizData = $quizData;
+        $this->quizQuestionRepository = $quizQuestionRepository;
     }
 
     /**
@@ -66,16 +69,16 @@ class QuizController extends AbstractController
     public function result(string $uuid): Response
     {
         $quiz = $this->quizData->getQuiz($uuid);
-        $parameters['quiz'] = $quiz;
-
-        // All questons answered?
+        // Can't get the score if not all questons were answered.
         try {
             $parameters['score'] = $quiz->getScore();
         } catch (\Exception $e) {
             return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
         }
 
-        $parameters['count'] = count($quiz->getQuestions());
+        $parameters['quiz'] = $quiz;
+        $parameters['questions'] = $this->quizQuestionRepository->getQuestionsByRank($quiz);
+        $parameters['count'] = count($parameters['questions']);
 
         return $this->render('quiz/result.html.twig', $parameters);
     }
