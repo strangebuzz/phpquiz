@@ -10,7 +10,7 @@
         <ul>
             <li>Your score: <b>{{ score }}/{{ count }}</b></li>
             <li>Score percent: <b>{{ score/count*100 }}%</b></li>
-            <li>Total time : <b>{% include '_time_interval.html.twig' with {startDate: quiz.createdAt, endDate: (questions|last).updatedAt} %}.</b></li>
+            <li>Total time : <b>{% include '_time_interval.html.twig' with {startDate: quiz.createdAt, endDate: (questions|last).updatedAt} %}</b></li>
         </ul>
 
         <table class="pure-table pure-table-bordered table-center">
