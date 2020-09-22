@@ -2,3 +2,4 @@ twig:
     globals:
         twitter: FredBouchery
         app_name: PHPQuiz
+    form_themes: ['form/theme.html.twig']

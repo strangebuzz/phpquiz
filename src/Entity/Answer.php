@@ -125,6 +125,6 @@ class Answer extends BaseEntity
 
     public function getLabelWithCode(): string
     {
-        return $this->getCode(). ': '.$this->getLabel();
+        return '<b>'.$this->getCode(). '</b>: '.$this->getLabel();
     }
 }

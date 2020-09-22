@@ -6,7 +6,6 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
-* Fix the label and radio display in the quiz mode
 * Joins OK in the show action, query count seems weird? To verify.
 * Can't set the admin password! Symfony binary bug?
 
@@ -14,7 +13,8 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* New retry fonction that delete all answers of a quiz to repass it
+* New retry fonction quiz controller that deletes all answers of a quiz to repass
+  it without having to recreate a new quiz and uuid.
 * Add a form on the home page to access a quiz by its uuid
 
 

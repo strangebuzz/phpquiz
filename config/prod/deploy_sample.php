@@ -28,6 +28,7 @@ return new class extends DefaultDeployer
 
     public function beforePublishing(): void
     {
+        $this->runRemote('make load-fixtures');
         $this->runRemote('yarn install');
         $this->runRemote('make build');
         $this->runRemote('make fix-perms');

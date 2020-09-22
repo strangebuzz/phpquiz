@@ -15,7 +15,7 @@ class QuizType extends AbstractType
     {
         $builder
             ->add('answer', ChoiceType::class, [
-                'choices' => $this->getQuestion($options)->getAnswers(),
+                'choices' => $this->getQuestion($options['quiz_question'])->getAnswers(),
                 'choice_value' => 'id',
                 'choice_label' => 'labelWithCode',
                 'expanded' => true, // radio
@@ -23,16 +23,8 @@ class QuizType extends AbstractType
         ;
     }
 
-    /**
-     * @param array<string,mixed> $options
-     */
-    private function getQuestion(array $options): Question
+    private function getQuestion(QuizQuestion $quizQuestion): Question
     {
-        $quizQuestion = $options['quiz_question'];
-        if (!$quizQuestion instanceof QuizQuestion) {
-            throw new \InvalidArgumentException('Invalid quiz question!');
-        }
-
         $question = $quizQuestion->getQuestion();
         if (!$question instanceof Question) {
             throw new \InvalidArgumentException('Invalid question!');

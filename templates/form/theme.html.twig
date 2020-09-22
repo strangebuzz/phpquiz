@@ -1,0 +1,18 @@
+{# Resources/views/Form/form_div_layout.html.twig #}
+
+{# 49 #}
+{%- block choice_widget_expanded -%}
+    <div {{ block('widget_container_attributes') }}>
+        {%- for child in form %}
+            <label class="pure-radio" for="quiz_answer_{{ loop.index0 }}">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+            </label>
+        {% endfor -%}
+    </div>
+{%- endblock choice_widget_expanded -%}
+
+{# 285 #}
+{%- block form_label -%}
+    &nbsp;&nbsp; {{- label|trans(label_translation_parameters, translation_domain)|raw -}}
+{%- endblock form_label -%}

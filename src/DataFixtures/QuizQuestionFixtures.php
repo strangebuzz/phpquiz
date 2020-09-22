@@ -13,7 +13,7 @@ class QuizQuestionFixtures extends Fixture implements DependentFixtureInterface
 
     // Make it dynamic?
     private const DATA = [
-        /*'quiz_id'*/ 1 => [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        /*'quiz_id'*/ 1 => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     ];
 
     public function load(ObjectManager $manager): void
