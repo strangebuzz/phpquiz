@@ -1,13 +1,13 @@
 results_minutes: >-
   {minutes, plural,
-      =0    {minute}
-      one   {minute}
-      other {minutes}
+      =0    {}
+      one   {One minute}
+      other {# minutes}
   }
 
 results_seconds: >-
   {seconds, plural,
-      =0    {second}
-      one   {second}
-      other {seconds}
+      =0    {}
+      one   {One second}
+      other {# seconds}
   }

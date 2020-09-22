@@ -1,5 +1,10 @@
+{% apply spaceless %}
 {% set timeToAnswer = date(endDate).diff(date(startDate)) %}
 {% if timeToAnswer.i > 0 %}
-    {{ timeToAnswer.i }} {{ 'results_minutes'|trans({minutes: timeToAnswer.i}) }} and
+    {{ 'results_minutes'|trans({minutes: timeToAnswer.i}) }}{% if timeToAnswer.s > 0 %} and{% endif %}
 {% endif %}
-{{ timeToAnswer.s }} {{ 'results_seconds'|trans({seconds: timeToAnswer.s}) }}. {# Debug ({{ question.updatedAt|date('Y-m-d H:i:s') }}) #}
+{% if timeToAnswer.s > 0 %}
+    {{ 'results_seconds'|trans({seconds: timeToAnswer.s}) }}{# Debug ({{ question.updatedAt|date('Y-m-d H:i:s') }}) #}
+{% endif %}
+{% if timeToAnswer.i == 0 and timeToAnswer.s == 0 %}😮{% else %}.{% endif %}
+{% endapply %}
