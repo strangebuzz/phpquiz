@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\QuizQuestion;
+use App\Repository\QuestionRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -11,22 +12,26 @@ class QuizQuestionFixtures extends Fixture implements DependentFixtureInterface
 {
     use AppFixturesTrait;
 
-    // Make it dynamic?
+    private QuestionRepository $questionRepository;
+
     private const DATA = [
-        /*'quiz_id'*/ 1 => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        /*'quiz_id'*/ 1,
     ];
+
+    public function __construct(QuestionRepository $questionRepository)
+    {
+        $this->questionRepository = $questionRepository;
+    }
 
     public function load(ObjectManager $manager): void
     {
-        foreach (self::DATA as $quizId => $questionsId) {
+        foreach (self::DATA as $quizId) {
             $quiz = $this->getQuiz($quizId);
-
-            foreach ($questionsId as $questionId) {
-                $question = $this->getQuestion($questionId);
+            foreach ($this->questionRepository->findAllByDate() as $idx => $question) {
                 $quizQuestion = (new QuizQuestion())
                     ->setQuiz($quiz)
                     ->setQuestion($question)
-                    ->setRank($questionId);
+                    ->setRank($idx+1);
                 $manager->persist($quizQuestion);
             }
         }
