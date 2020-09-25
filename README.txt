@@ -13,15 +13,23 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* New retry fonction quiz controller that deletes all answers of a quiz to repass
-  it without having to recreate a new quiz and uuid.
+* New retry/rest fonction quiz controller that deletes all answers of a quiz to
+  repass it without having to recreate a new quiz object.
 * Add a form on the home page to access a quiz by its uuid
+
+
+@Refactoring/cleanup
+————————————————————————————————————————————————————————————————————————————————
+
+* Create an helper for the question image path and use it everywhere
 
 
 @Quiz ideas
 ————————————————————————————————————————————————————————————————————————————————
 
-* Next quiz to enter: https://twitter.com/FredBouchery/status/1307963044929114113
+* Next quiz to enter:
+  * [18/09/2020] https://twitter.com/FredBouchery/status/1307963044929114113
+  * [22/09/2020] https://twitter.com/FredBouchery/status/1309397497538805760
 * https://twitter.com/dkarlovi/status/1295312397780037632
 
 
@@ -47,10 +55,6 @@
 * Deploy on bref.sh?
 * Deploy on SensioCloud, ask for a free account if possible? As it is an open-source
   project.
-
-
-@Refactoring/cleanup
-————————————————————————————————————————————————————————————————————————————————
 
 
 @Social/Twitter
