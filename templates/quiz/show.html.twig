@@ -12,6 +12,8 @@
             {% set quizUrl = url('quiz_question', {'uuid': quiz_question.quiz.uuid}) %}
             <h2>Your quiz URL is <a href="{{ quizUrl }}">{{ quizUrl }}</a></h2>
             <p>You can finish it later with this URL.</p>
+            <p>You have 24 hours to finish your quiz, after this time we can't garantee that
+            it will be still available with your previous answers.</p>
         {% endif %}
     </div>
 
