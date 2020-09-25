@@ -76,11 +76,10 @@ class QuizData
     {
         $quiz = new Quiz();
         foreach ($this->questionRepository->findAllByDate() as $idx => $question) {
-            $quizQuestion = new QuizQuestion();
-            $quizQuestion->setQuiz($quiz);
-            $quizQuestion->setQuestion($question);
-            $quizQuestion->setRank($idx+1);
-            $this->entityManager->persist($quizQuestion);
+            $this->entityManager->persist((new QuizQuestion())
+                ->setQuiz($quiz)
+                ->setQuestion($question)
+                ->setRank($idx+1));
         }
 
         $this->entityManager->persist($quiz);

@@ -8,8 +8,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @todo delete add/remove questions methods?
- *
  * @ORM\Entity(repositoryClass=QuizRepository::class)
  * @ORM\HasLifecycleCallbacks
  */
@@ -24,6 +22,8 @@ class Quiz extends BaseEntity
 
     /**
      * @ORM\Column(type="guid")
+     *
+     * @todo 5.2: https://symfony.com/blog/new-in-symfony-5-2-doctrine-types-for-uuid-and-ulid
      */
     protected ?string $uuid;
 
