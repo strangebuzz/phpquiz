@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @todo delete add/remove questions methods?
  *
  * @ORM\Entity(repositoryClass=QuizRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Quiz extends BaseEntity
 {
@@ -36,6 +37,16 @@ class Quiz extends BaseEntity
     public function __construct()
     {
         $this->questions = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist(): void
+    {
+        if (empty($this->uuid)) {
+            $this->setUuid(uuid_create());
+        }
     }
 
     public function getId(): ?int

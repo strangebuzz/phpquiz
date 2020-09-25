@@ -66,7 +66,7 @@ class QuizData
             }
         }
 
-        throw new \LogicException('All questions of this quiz already answered.');
+        throw new \LogicException('All questions of this quiz have been already answered.');
     }
 
     /**
@@ -75,7 +75,6 @@ class QuizData
     public function generateQuiz(): Quiz
     {
         $quiz = new Quiz();
-        $quiz->setUuid(uuid_create());
         foreach ($this->questionRepository->findAllByDate() as $idx => $question) {
             $quizQuestion = new QuizQuestion();
             $quizQuestion->setQuiz($quiz);

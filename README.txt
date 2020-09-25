@@ -13,6 +13,7 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Get all the images
 * New retry fonction quiz controller that deletes all answers of a quiz to repass
   it without having to recreate a new quiz and uuid.
 * Add a form on the home page to access a quiz by its uuid
@@ -50,8 +51,6 @@
 
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
-
-* Generate the uuid with a Doctrine event
 
 
 @Social/Twitter
