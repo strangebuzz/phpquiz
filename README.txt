@@ -13,7 +13,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Get all the images
 * New retry fonction quiz controller that deletes all answers of a quiz to repass
   it without having to recreate a new quiz and uuid.
 * Add a form on the home page to access a quiz by its uuid
@@ -29,8 +28,9 @@
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add quiz menu entry
+* Store image filename with question id or twitter random string?
 * OK to use the carbon Twitter image or host it? (seems better for share)
+* Add quiz menu entry
 * Mailing list to notify when a new quiz is out?
 * Or create a simple RSS ?
 
@@ -38,7 +38,7 @@
 @Nice to have
 ————————————————————————————————————————————————————————————————————————————————
 
-* Allow to choose the number of questions to pass?
+* Allow to choose the number of questions to pass (when more than 50)
 
 
 @Infra

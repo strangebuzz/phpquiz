@@ -65,6 +65,17 @@ class Question extends BaseEntity
     protected ?string $codeImage;
 
     /**
+     * The carbon image file save saves locally on the img/questions public asset
+     * folder.
+     *
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
+     */
+    protected ?string $codeImageFile;
+
+    /**
      * Some explanations about the correct answer.
      *
      * @ORM\Column(type="text")
@@ -206,6 +217,18 @@ class Question extends BaseEntity
     public function setCodeImage(string $codeImage): self
     {
         $this->codeImage = $codeImage;
+
+        return $this;
+    }
+
+    public function getCodeImageFile(): ?string
+    {
+        return $this->codeImageFile;
+    }
+
+    public function setCodeImageFile(string $codeImageFile): self
+    {
+        $this->codeImageFile = $codeImageFile;
 
         return $this;
     }

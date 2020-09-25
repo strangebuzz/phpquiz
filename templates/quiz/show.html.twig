@@ -2,7 +2,7 @@
 
 {% block title %}Question n°{{ quiz_question.rank }}/{{ count }}: Answer the following question{% endblock %}
 
-{% block og_image %}{{ question.codeImage|raw }}{% endblock %}
+{% set codeImage = absolute_url(asset('img/questions/'~quiz_question.question.codeImageFile)) %}
 
 {% block body %}
     <div class="header">
@@ -27,7 +27,7 @@
 
         <h3>{{ question.label }} 🤔</h3>
 
-        <img class="pure-img" src="{{ question.codeImage }}" alt="PHP Quiz n°{{ quiz_question.rank }}"/>
+        <img class="pure-img" src="{{ codeImage }}" alt="PHP Quiz n°{{ quiz_question.rank }}"/>
 
         {{ form_start(form, {'attr': {'class': 'pure-form pure-form-stacked'}}) }}
         <fieldset>

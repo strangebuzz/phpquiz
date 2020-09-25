@@ -27,12 +27,13 @@
                 {% set dateRef = quiz.createdAt %}
                 {% for question in questions %}
                     {% set timeToAnswer = date(question.updatedAt).diff(date(dateRef)) %}
+                    {% set codeImage = absolute_url(asset('img/questions/'~question.question.codeImageFile)) %}
                     <tr>
                         <td>{{ question.rank }}</td>
                         <td>
                             <details>
                                 <summary>Show code</summary>
-                                <img class="pure-img" src="{{ question.question.codeImage }}" alt="PHP Quiz n°{{ question.rank }}"/>
+                                <img class="pure-img" src="{{ codeImage }}" alt="PHP Quiz n°{{ question.rank }}"/>
                             </details>
                         </td>
                         <td>{{ question.answer.code }} &raquo; {{ question.answer.correct ? '✅' : '❌' }} </td>
