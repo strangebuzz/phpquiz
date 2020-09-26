@@ -15,6 +15,8 @@
 
 * New retry/rest fonction quiz controller that deletes all answers of a quiz to
   repass it without having to recreate a new quiz object.
+* Implement a fonctional rule to check that there is only one correct answer by
+  question
 * Add a form on the home page to access a quiz by its uuid
 
 
@@ -28,7 +30,6 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Next quiz to enter:
-  * [18/09/2020] https://twitter.com/FredBouchery/status/1307963044929114113
   * [22/09/2020] https://twitter.com/FredBouchery/status/1309397497538805760
 * https://twitter.com/dkarlovi/status/1295312397780037632
 

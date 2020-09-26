@@ -272,6 +272,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'poll_result' =>*/ 1470,
             ],
         ],
+        /*'question_id'*/ 11 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ '__invoke',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2220,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'Foo\Bar',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1110,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ 'Fatal error: Uncaught TypeError: Foo\Bar::__call(): Argument #1 ($name) must be of type string, array given',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2590,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'Fatal error: Uncaught Error: Object of type Foo\Bar is not callable',
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 4070,
+            ],
+        ],
     ];
 
     public function load(ObjectManager $manager): void

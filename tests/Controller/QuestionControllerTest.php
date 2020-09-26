@@ -28,8 +28,11 @@ class QuestionControllerTest extends WebTestCase
     public function testShow(int $questionId): void
     {
         $client = static::createClient();
-        $client->request('GET', '/question/'.$questionId);
+        $crawler = $client->request('GET', '/question/'.$questionId);
         self::assertResponseIsSuccessful();
+
+        // Test that is is at least one "Read more" link associated to the question
+        self::assertTrue(count($crawler->filter('a.read-more')) > 0);
     }
 
     /**

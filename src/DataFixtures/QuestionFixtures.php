@@ -169,7 +169,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'previous_question'        =>*/ 9,
             /*'id'                       =>*/ 10,
-            /*'next_question'            =>*/ null,
+            /*'next_question'            =>*/ 11,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed in current supported PHP version? (<=8)',
@@ -182,6 +182,23 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'differences_output_notes' =>*/ '',
             /*'created_at'               =>*/ '2020-09-15',
             /*'updated_at'               =>*/ '2020-09-15',
+        ],
+        [
+            /*'previous_question'        =>*/ 10,
+            /*'id'                       =>*/ 11,
+            /*'next_question'            =>*/ null,
+            /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
+            /*'label'                    =>*/ 'What will be displayed in current supported PHP version ?',
+            /*'reminder'                 =>*/ "PHP object is callable only if the method __invoke is implemented.",
+            /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EiL3H_lWkAEpMq2?format=jpg&name=small',
+            /*'codeImageFile'            =>*/ '11.jpg',
+            /*'answer_explanations'      =>*/ 'PHP object is callable only if the method __invoke is implemented.',
+            /*'live_snippet_url'         =>*/ 'https://3v4l.org/YiIUv',
+            /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1306878803755630593',
+            /*'differences_output_notes' =>*/ 'For PHP 8, the right answer is "D".',
+            /*'created_at'               =>*/ '2020-09-18',
+            /*'updated_at'               =>*/ '2020-09-18',
         ],
     ];
 
