@@ -287,7 +287,7 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
             ],
             [
                 /*'code'        =>*/ 'C',
-                /*'label'       =>*/ 'Fatal error: Uncaught TypeError: Foo\Bar::__call(): Argument #1 ($name) must be of type string, array given',
+                /*'label'       =>*/ 'Fatal error: Uncaught Error: Function name must be a string',
                 /*'correct'     =>*/ false,
                 /*'poll_result' =>*/ 2590,
             ],
