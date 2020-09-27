@@ -402,12 +402,21 @@ class Question extends BaseEntity
      */
     public function getCorrectAnswerCode(): string
     {
+        $correctAnswer = null;
         foreach ($this->getAnswers() as $answer) {
-            if ($answer->isCorrect()) {
-                return (string) $answer->getCode();
+            if ($correctAnswer !== null && $answer->isCorrect()) {
+                throw new \LogicException("Question has more than a correct answer.");
+            }
+
+            if ($correctAnswer === null && $answer->isCorrect()) {
+                $correctAnswer = $answer;
             }
         }
 
-        throw new \LogicException("Question doesn't have a correct answer.");
+        if ($correctAnswer === null) {
+            throw new \LogicException("Question doesn't have a correct answer.");
+        }
+
+        return (string) $correctAnswer->getCode();
     }
 }

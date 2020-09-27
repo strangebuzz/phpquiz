@@ -32,4 +32,21 @@ class QuestionRepositoryTest extends KernelTestCase
         self::assertInstanceOf(Question::class, $question->getPreviousQuestion());
         self::assertInstanceOf(Question::class, $question->getNextQuestion());
     }
+
+    /**
+     * @covers QuestionRepository::findAllByDate
+     * @covers AnswerFixtures::load
+     */
+    public function testFindAllByDate(): void
+    {
+        foreach ($this->repo->findAllByDate() as $question) {
+            self::assertInstanceOf(Question::class, $question);
+
+            if (!$question instanceof Question) {
+                throw new \InvalidArgumentException('Wrong type! (IDE)');
+            }
+            // Check that every question has a signle correct answer.
+            $question->getCorrectAnswerCode();
+        }
+    }
 }

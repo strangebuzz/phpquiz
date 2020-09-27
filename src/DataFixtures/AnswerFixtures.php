@@ -298,6 +298,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'poll_result' =>*/ 4070,
             ],
         ],
+        /*'question_id'*/ 12 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'int(3)',
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 2290,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'int(0)',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 8600,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ 'Fatal error: Uncaught TypeError: Foo::__set(): Argument #2 ($value) must be of type int, string given',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 5430,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'Fatal error: Uncaught Error: Cannot access undefined property Foo::$x',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 0,
+            ],
+        ],
     ];
 
     public function load(ObjectManager $manager): void
