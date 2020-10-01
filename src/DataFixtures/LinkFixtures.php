@@ -75,7 +75,7 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'question_id' =>*/ 13,
             /*'label'       =>*/ 'Read the "::class" documentation on php.net',
-            /*'url'         =>*/ 'https://www.php.net/manual/fr/language.oop5.basic.php#language.oop5.basic.class.class',
+            /*'url'         =>*/ 'https://www.php.net/manual/en/language.oop5.basic.php#language.oop5.basic.class.class',
         ],
     ];
 
