@@ -72,6 +72,11 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
             /*'label'       =>*/ 'Read the "__set" documentation on php.net',
             /*'url'         =>*/ 'https://www.php.net/manual/en/language.oop5.overloading.php#object.set',
         ],
+        [
+            /*'question_id' =>*/ 13,
+            /*'label'       =>*/ 'Read the "::class" documentation on php.net',
+            /*'url'         =>*/ 'https://www.php.net/manual/fr/language.oop5.basic.php#language.oop5.basic.class.class',
+        ],
     ];
 
     public function load(ObjectManager $manager): void

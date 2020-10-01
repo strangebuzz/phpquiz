@@ -324,6 +324,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'poll_result' =>*/ 0,
             ],
         ],
+        /*'question_id'*/ 13 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'string(1) "B"',
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 5330,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'Fatal error: Declaration of B::foo(): B must be compatible with A::foo(): A',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1000,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ "Parse error: syntax error, unexpected 'static'",
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1670,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'Fatal error: Cannot use ::class with dynamic class name',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2000,
+            ],
+        ],
     ];
 
     public function load(ObjectManager $manager): void

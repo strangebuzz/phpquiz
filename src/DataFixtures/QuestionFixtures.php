@@ -203,7 +203,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'previous_question'        =>*/ 11,
             /*'id'                       =>*/ 12,
-            /*'next_question'            =>*/ null, // 13
+            /*'next_question'            =>*/ 13,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed in PHP 8?',
@@ -216,6 +216,23 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'differences_output_notes' => */ null,
             /*'created_at'               =>*/ '2020-09-22',
             /*'updated_at'               =>*/ '2020-09-22',
+        ],
+        [
+            /*'previous_question'        =>*/ 12,
+            /*'id'                       =>*/ 13,
+            /*'next_question'            =>*/ null,
+            /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
+            /*'label'                    =>*/ 'What will be displayed with PHP 8.0?',
+            /*'reminder'                 =>*/ 'PHP 8 can now return "static".',
+            /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/Ei-8YTyWsAEn-Gy?format=jpg&name=small',
+            /*'codeImageFile'            =>*/ '13.jpg',
+            /*'answer_explanations'      =>*/ 'PHP 8 can now return "static". Prior to this version it returned a fatal error "unexpected static". In addition, you can use "::class" in a dynamic context (that was not allowed before). The right answer was "A".',
+            /*'live_snippet_url'         =>*/ 'https://3v4l.org/X0tgt',
+            /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1310475146684256256',
+            /*'differences_output_notes' => */ "Prior to this version you get the following error: 'PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) on line 5'",
+            /*'created_at'               =>*/ '2020-09-28',
+            /*'updated_at'               =>*/ '2020-09-28',
         ],
     ];
 

@@ -28,7 +28,6 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Next quiz to enter:
-  * [22/09/2020] https://twitter.com/FredBouchery/status/1309397497538805760
 * https://twitter.com/dkarlovi/status/1295312397780037632
 
 
