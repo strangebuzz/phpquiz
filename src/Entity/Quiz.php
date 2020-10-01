@@ -132,4 +132,16 @@ class Quiz extends BaseEntity
 
         return $score.'/'.(count($qestions)-$notAnswered).' ('.count($qestions).')';
     }
+
+    /**
+     * Reset all anwers.
+     */
+    public function reset(): self
+    {
+        foreach ($this->getQuestions() as $quizQuestion) {
+            $quizQuestion->setAnswer(null);
+        }
+
+        return $this;
+    }
 }

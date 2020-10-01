@@ -13,8 +13,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* New retry/rest fonction quiz controller that deletes all answers of a quiz to
-  repass it without having to recreate a new quiz object.
 * Add a form on the home page to access a quiz by its uuid
 
 

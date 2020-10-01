@@ -82,4 +82,15 @@ class QuizController extends AbstractController
 
         return $this->render('quiz/result.html.twig', $parameters);
     }
+
+    /**
+     * @Route("/{uuid}/reset", name="reset", methods={"GET"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
+     */
+    public function reset(string $uuid): Response
+    {
+        $this->quizData->getQuiz($uuid)->reset();
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
+    }
 }

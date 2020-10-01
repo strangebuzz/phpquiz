@@ -1,15 +1,17 @@
 {% extends 'layout.html.twig' %}
 
+{% set scorePercent = (score/count*100)|round %}
+
 {% block body %}
     <div class="header">
         <h1>Congratulations! The quiz is over!</h1>
-        <h3>Your score: {{ score }}/{{ count }} - {{ score/count*100 }}%</h3>
+        <h3>Your score: {{ score }}/{{ count }} - {{ scorePercent }}%</h3>
     </div>
 
     <div class="content">
         <ul>
             <li>Your score: <b>{{ score }}/{{ count }}</b></li>
-            <li>Score percent: <b>{{ score/count*100 }}%</b></li>
+            <li>Score percent: <b>{{ scorePercent }}%</b></li>
             <li>Total time : <b>{% include '_time_interval.html.twig' with {startDate: quiz.createdAt, endDate: (questions|last).updatedAt} %}</b></li>
         </ul>
 
@@ -52,7 +54,7 @@
         <p class="center">
             <a class="pure-button pure-button-primary button-xlarge" href="{{ path('question_show', {id: 1}) }}">Learn mode 🤓</a>
             {% if count > score %}
-                <a href="{{ path('quiz_new') }}" class="pure-button pure-button-primary button-xlarge">Retry ⏩</a>
+                <a href="{{ path('quiz_reset', {uuid: quiz.uuid}) }}" class="pure-button pure-button-primary button-xlarge">Retry ⏩</a>
             {% endif %}
         </p>
     </div>
