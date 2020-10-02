@@ -35,7 +35,7 @@ class QuizController extends AbstractController
     }
 
     /**
-     * @Route("/{uuid}", name="question", requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
+     * @Route("/{uuid}", name="question", requirements={"uuid"="%requirements.uuid%"})
      *
      * @see https://stackoverflow.com/q/136505/633864
      */
@@ -64,7 +64,7 @@ class QuizController extends AbstractController
     }
 
     /**
-     * @Route("/{uuid}/result", name="result", methods={"GET"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
+     * @Route("/{uuid}/result", name="result", methods={"GET"}, requirements={"uuid"="%requirements.uuid%"})
      */
     public function result(string $uuid): Response
     {
@@ -84,7 +84,7 @@ class QuizController extends AbstractController
     }
 
     /**
-     * @Route("/{uuid}/reset", name="reset", methods={"GET"}, requirements={"uuid"="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"})
+     * @Route("/{uuid}/reset", name="reset", methods={"GET"}, requirements={"uuid"="%requirements.uuid%"})
      */
     public function reset(string $uuid): Response
     {
