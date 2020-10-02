@@ -13,6 +13,8 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Add functional tests to answer all the questions of the test quiz and check
+  the score computation.
 * Add a form on the home page to access a quiz by its uuid
 
 
