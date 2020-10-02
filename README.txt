@@ -19,6 +19,7 @@
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
 
+* Factorize the uuid routing requirements
 * Create an helper for the question image path and use it everywhere
 
 
