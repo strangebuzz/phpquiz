@@ -2,7 +2,7 @@
 
 {% set isRandom = app.request.get('_route') == 'question_random' %}
 {% set isLast = app.request.get('_route') == 'question_last' %}
-{% set codeImage = absolute_url(asset('img/questions/'~question.codeImageFile)) %}
+{% set codeImage = question_image(question) %}
 
 {% block title %}Quiz n°{{ question.id }}/{{ count }}: Answer the following question{% endblock %}
 

@@ -21,8 +21,6 @@
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
 
-* Create an helper for the question image path and use it everywhere
-
 
 @Quiz ideas
 ————————————————————————————————————————————————————————————————————————————————

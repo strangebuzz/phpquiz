@@ -27,23 +27,22 @@
             </thead>
             <tbody>
                 {% set dateRef = quiz.createdAt %}
-                {% for question in questions %}
-                    {% set timeToAnswer = date(question.updatedAt).diff(date(dateRef)) %}
-                    {% set codeImage = absolute_url(asset('img/questions/'~question.question.codeImageFile)) %}
+                {% for questionQuestion in questions %}
+                    {% set timeToAnswer = date(questionQuestion.updatedAt).diff(date(dateRef)) %}
                     <tr>
-                        <td>{{ question.rank }}</td>
+                        <td>{{ questionQuestion.rank }}</td>
                         <td>
                             <details>
                                 <summary>Show code</summary>
-                                <img class="pure-img" src="{{ codeImage }}" alt="PHP Quiz n°{{ question.rank }}"/>
+                                <img class="pure-img" src="{{ question_image(questionQuestion.question) }}" alt="PHP Quiz n°{{ questionQuestion.rank }}"/>
                             </details>
                         </td>
-                        <td>{{ question.answer.code }} &raquo; {{ question.answer.correct ? '✅' : '❌' }} </td>
+                        <td>{{ questionQuestion.answer.code }} &raquo; {{ questionQuestion.answer.correct ? '✅' : '❌' }} </td>
                         <td>
-                            {% include '_time_interval.html.twig' with {startDate: dateRef, endDate: question.updatedAt} %}
+                            {% include '_time_interval.html.twig' with {startDate: dateRef, endDate: questionQuestion.updatedAt} %}
                         </td>
-                        <td><a href="{{ path('question_show', {id: question.question.id}) }}">🔎 View answer</a></td>
-                        {% set dateRef = question.updatedAt %}
+                        <td><a href="{{ path('question_show', {id: questionQuestion.question.id}) }}">🔎 View answer</a></td>
+                        {% set dateRef = questionQuestion.updatedAt %}
                     </tr>
                 {% endfor %}
             </tbody>

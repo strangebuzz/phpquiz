@@ -29,3 +29,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    Symfony\Bridge\Twig\Extension\HttpFoundationExtension:
+        alias: 'twig.extension.httpfoundation'
+
+    Symfony\Bridge\Twig\Extension\AssetExtension:
+        alias: 'twig.extension.assets'
