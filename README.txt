@@ -35,7 +35,6 @@
 
 * Store image filename with question id or twitter random string?
 * OK to use the carbon Twitter image or host it? (seems better for share)
-* Add quiz menu entry
 * Mailing list to notify when a new quiz is out?
 * Or create a simple RSS ?
 

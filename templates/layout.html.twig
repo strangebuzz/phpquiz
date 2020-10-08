@@ -48,6 +48,9 @@
                         <li class="pure-menu-item{{ route == 'question_last' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_last') }}" class="pure-menu-link">Last question</a></li>
                         <li class="pure-menu-item{{ route == 'question_random' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_random') }}" class="pure-menu-link">Random question</a></li>
                         <li class="pure-menu-item{{ route == 'question_show' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_show', {id: 1}) }}" class="pure-menu-link">All questions</a></li>
+                        {% if route starts with 'quiz_' %}
+                            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Quiz</a></li>
+                        {% endif %}
                         <li class="pure-menu-item{{ route == 'about' ? ' pure-menu-selected' : '' }}"><a href="{{ path('about') }}" class="pure-menu-link">About</a></li>
                         <li class="pure-menu-item"><a target="_blank" href="https://github.com/strangebuzz/phpquiz" class="pure-menu-link">GitHub</a></li>
                     </ul>

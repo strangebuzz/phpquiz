@@ -84,9 +84,9 @@ class QuizController extends AbstractController
     }
 
     /**
-     * @Route("/{uuid}/reset", name="reset", methods={"GET"}, requirements={"uuid"="%requirements.uuid%"})
+     * @Route("/{uuid}/retry", name="retry", methods={"GET"}, requirements={"uuid"="%requirements.uuid%"})
      */
-    public function reset(string $uuid): Response
+    public function retry(string $uuid): Response
     {
         $this->quizData->getQuiz($uuid)->reset();
         $this->getDoctrine()->getManager()->flush();

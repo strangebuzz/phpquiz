@@ -48,7 +48,7 @@ class QuizControllerTest extends WebTestCase
     public function testReset(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/quiz/'.QuizFixtures::UUID.'/reset');
+        $client->request('GET', '/quiz/'.QuizFixtures::UUID.'/retry');
         self::assertResponseRedirects('/quiz/'.QuizFixtures::UUID);
     }
 }

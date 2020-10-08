@@ -54,7 +54,7 @@
         <p class="center">
             <a class="pure-button pure-button-primary button-xlarge" href="{{ path('question_show', {id: 1}) }}">Learn mode 🤓</a>
             {% if count > score %}
-                <a href="{{ path('quiz_reset', {uuid: quiz.uuid}) }}" class="pure-button pure-button-primary button-xlarge">Retry ⏩</a>
+                <a href="{{ path('quiz_retry', {uuid: quiz.uuid}) }}" class="pure-button pure-button-primary button-xlarge">Retry ⏩</a>
             {% endif %}
         </p>
     </div>
