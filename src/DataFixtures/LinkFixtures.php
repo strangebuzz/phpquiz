@@ -80,7 +80,7 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'question_id' =>*/ 14,
             /*'label'       =>*/ 'Read the "Variable variables" documentation on php.net',
-            /*'url'         =>*/ 'https://www.php.net/manual/en/language.variables.variable.php',
+            /*'url'         =>*/ 'https://www.php.net/manual/en/language.types.string.php#language.types.string.parsing',
         ],
     ];
 
