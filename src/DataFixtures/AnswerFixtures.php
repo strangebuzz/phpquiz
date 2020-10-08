@@ -350,6 +350,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'poll_result' =>*/ 2000,
             ],
         ],
+        /*'question_id'*/ 14 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'bar / bar',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2730,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'foo->bar() / bar ',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 4240,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ "() / bar",
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 1520,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'Parse error',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 1520,
+            ],
+        ],
     ];
 
     public function load(ObjectManager $manager): void

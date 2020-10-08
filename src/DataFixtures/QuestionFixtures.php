@@ -220,7 +220,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'previous_question'        =>*/ 12,
             /*'id'                       =>*/ 13,
-            /*'next_question'            =>*/ null,
+            /*'next_question'            =>*/ 14,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed with PHP 8.0?',
@@ -233,6 +233,23 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'differences_output_notes' => */ "Prior to this version you get the following error: 'PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) on line 5'",
             /*'created_at'               =>*/ '2020-09-28',
             /*'updated_at'               =>*/ '2020-09-28',
+        ],
+        [
+            /*'previous_question'        =>*/ 13,
+            /*'id'                       =>*/ 14,
+            /*'next_question'            =>*/ null,
+            /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
+            /*'label'                    =>*/ 'What will be displayed with PHP 8.0?',
+            /*'reminder'                 =>*/ '',
+            /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/EjjFhPgXYAAxajV?format=jpg&name=small',
+            /*'codeImageFile'            =>*/ '14.jpg',
+            /*'answer_explanations'      =>*/ "PHP variables in double-quoted strings are parse differently if they are between braces or not. Outside braces, #PHP can access to properties but don't call methods. The right answer was '() / bar' because property 'bar' doesn't exists.",
+            /*'live_snippet_url'         =>*/ 'https://3v4l.org/VALlY',
+            /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1313017003842637824',
+            /*'differences_output_notes' => */ null,
+            /*'created_at'               =>*/ '2020-10-05',
+            /*'updated_at'               =>*/ '2020-10-05',
         ],
     ];
 

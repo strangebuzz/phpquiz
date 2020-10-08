@@ -27,8 +27,7 @@
 @Quiz ideas
 ————————————————————————————————————————————————————————————————————————————————
 
-* Next quiz to enter:
-* https://twitter.com/dkarlovi/status/1295312397780037632
+* Next quiz to enter: https://twitter.com/FredBouchery/status/1314100784838119424
 
 
 @Ideas/To decide
