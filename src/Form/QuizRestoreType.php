@@ -35,7 +35,7 @@ class QuizRestoreType extends AbstractType
     /**
      * Check that the uuid is found in the database.
      */
-    public function checkQuiz(string $uuid, ExecutionContextInterface $context): void
+    public function checkQuiz(?string $uuid, ExecutionContextInterface $context): void
     {
         // duplicate with uuid constraint, try to order the constraints with
         // https://symfony.com/doc/current/reference/constraints/Sequentially.html
