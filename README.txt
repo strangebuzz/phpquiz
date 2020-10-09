@@ -13,7 +13,6 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Stats about correct answers
 * Add Symfony insight (mail sent)
 
 

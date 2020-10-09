@@ -38,7 +38,7 @@ class QuestionRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return array<int,Question>
+     * @return Question[]|array<int,Question>
      */
     public function findAllByDate(): array
     {

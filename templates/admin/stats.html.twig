@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div class="header">
+        <h1>Correct answers stats</h1>
+    </div>
+
+    <div class="content">
+        <ul>
+            {% for code, count in answer_codes %}
+                <li><b>{{ code }}</b> : {{ count }} - {{ (count / total * 100) | round }}%</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
