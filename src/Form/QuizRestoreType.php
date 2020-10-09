@@ -44,7 +44,7 @@ class QuizRestoreType extends AbstractType
         }
 
         try {
-            $this->quizData->getQuiz($uuid);
+            $this->quizData->getQuiz((string) $uuid);
         } catch (\Exception $e) {
             $context->getRoot()->addError(new FormError('Quiz not found!'));
         }
