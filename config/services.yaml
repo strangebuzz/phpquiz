@@ -30,6 +30,6 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    # Simple alias
+    # Simple alias for injection
     Symfony\Bridge\Twig\Extension\HttpFoundationExtension: '@twig.extension.httpfoundation'
     Symfony\Bridge\Twig\Extension\AssetExtension: '@twig.extension.assets'

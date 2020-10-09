@@ -39,7 +39,9 @@ class QuizRestoreType extends AbstractType
 
     /**
      * Check that the uuid is found in the database. This constraint must be called
-     * only if the uuid validy has been checked before.
+     * only if the uuid validity has been checked before.
+     *
+     * @see buildForm
      */
     public function checkQuiz(string $uuid, ExecutionContextInterface $context): void
     {
