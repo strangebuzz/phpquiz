@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Data\QuestionData;
 use App\Entity\Answer;
 use App\Entity\Link;
 use App\Entity\Person;
@@ -16,8 +15,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * EasyAdmin dashboard.
- *
  * @Route("/gerer")
  */
 class DashboardController extends AbstractDashboardController
@@ -49,13 +46,5 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Question', 'fas fa-question', Question::class);
         yield MenuItem::linktoRoute('Answers stats', 'fas fa-chart-bar', 'admin_stats');
         yield MenuItem::linktoRoute('Front website', 'fas fa-external-link-alt', 'home');
-    }
-
-    /**
-     * @Route("/stats", name="admin_stats")
-     */
-    public function stats(QuestionData $questionData): Response
-    {
-        return $this->render('admin/stats.html.twig', $questionData->getAnswersStats());
     }
 }
