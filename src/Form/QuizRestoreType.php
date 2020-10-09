@@ -48,7 +48,7 @@ class QuizRestoreType extends AbstractType
         try {
             $this->quizData->getQuiz($uuid);
         } catch (NotFoundHttpException $e) {
-            $uuidField = $context->getRoot();
+            $uuidField = $context->getObject();
             if (!$uuidField instanceof Form) {
                 throw new \RuntimeException('Invalid form field.');
             }

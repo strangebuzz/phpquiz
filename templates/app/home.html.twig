@@ -28,7 +28,9 @@
 
         <hr/>
 
-        {{ form_start(form, {'attr': {'class': 'pure-form pure-form-stacked'}}) }}
+        {# set attr = {'class': 'pure-form pure-form-stacked', 'novalidate-off': 'novalidate'} #}
+        {% set attr = {'class': 'pure-form pure-form-stacked'} %}
+        {{ form_start(form, {'attr': attr}) }}
         <fieldset>
             {{ form_errors(form) }}
             <legend>Enter your quiz id to resume it:</legend>

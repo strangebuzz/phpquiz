@@ -13,13 +13,14 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Stats about correct answers
+
 
 @Tests
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add functional tests for quiz resume (AppController:home)
-* Add functional tests to answer all the questions of the test quiz and check
-  the score computation.
+* Add functional tests to answer all the questions of the test quiz and check the
+  score computation.
 * Add code coverage
 
 
