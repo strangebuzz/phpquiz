@@ -55,7 +55,7 @@ class QuestionData
 
     public function getLastId(): int
     {
-        $result = $this->connection->fetchAll('SELECT id FROM question ORDER BY created_at DESC LIMIT 1');
+        $result = $this->connection->fetchAllAssociative('SELECT id FROM question ORDER BY created_at DESC LIMIT 1');
         if (!$result[0]['id']) {
             throw new \UnexpectedValueException('No question found.');
         }
@@ -79,6 +79,28 @@ class QuestionData
             'question' => $question,
             'code' => $this->sourceExtension->getSource($question),
             'count' => $this->count()
+        ];
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function getAnswersStats(): array
+    {
+        $answerCodes = [
+            'A' => 0,
+            'B' => 0,
+            'C' => 0,
+            'D' => 0,
+        ];
+
+        foreach ($this->questionRepository->findAll() as $question) {
+            ++$answerCodes[$question->getCorrectAnswerCode()];
+        }
+
+        return [
+            'answer_codes' => $answerCodes,
+            'total' => array_sum($answerCodes)
         ];
     }
 }

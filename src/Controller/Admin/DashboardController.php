@@ -2,12 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\Data\QuestionData;
 use App\Entity\Answer;
 use App\Entity\Link;
 use App\Entity\Person;
 use App\Entity\Question;
 use App\Entity\Quiz;
-use App\Repository\QuestionRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -54,24 +54,8 @@ class DashboardController extends AbstractDashboardController
     /**
      * @Route("/stats", name="admin_stats")
      */
-    public function stats(QuestionRepository $questionRepository): Response
+    public function stats(QuestionData $questionData): Response
     {
-        $answerCodes = [
-            'A' => 0,
-            'B' => 0,
-            'C' => 0,
-            'D' => 0,
-        ];
-
-        foreach ($questionRepository->findAll() as $question) {
-            ++$answerCodes[$question->getCorrectAnswerCode()];
-        }
-
-        $parameters = [
-            'answer_codes' => $answerCodes,
-            'total' => array_sum($answerCodes)
-        ];
-
-        return $this->render('admin/stats.html.twig', $parameters);
+        return $this->render('admin/stats.html.twig', $questionData->getAnswersStats());
     }
 }
