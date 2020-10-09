@@ -2,14 +2,12 @@
 
 namespace App\Controller\Admin;
 
-use App\Data\QuizData;
 use App\Entity\Answer;
 use App\Entity\Link;
 use App\Entity\Person;
 use App\Entity\Question;
 use App\Entity\Quiz;
 use App\Repository\QuestionRepository;
-use App\Repository\QuizRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -56,7 +54,7 @@ class DashboardController extends AbstractDashboardController
     /**
      * @Route("/stats", name="admin_stats")
      */
-    public function stats(QuestionRepository $questionRepository, AdminContext $context): Response
+    public function stats(QuestionRepository $questionRepository): Response
     {
         $answerCodes = [
             'A' => 0,

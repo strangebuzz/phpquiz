@@ -1,15 +1,12 @@
-{% extends 'layout.html.twig' %}
+{% extends '@EasyAdmin/page/content.html.twig' %}
 
-{% block body %}
-    <div class="header">
-        <h1>Correct answers stats</h1>
-    </div>
+{% block page_title 'Correct answers stats' %}
 
-    <div class="content">
-        <ul>
-            {% for code, count in answer_codes %}
-                <li><b>{{ code }}</b> : {{ count }} - {{ (count / total * 100) | round }}%</li>
-            {% endfor %}
-        </ul>
-    </div>
+{% block page_content %}
+    <h4>{{ total }} questions</h4>
+    <ul>
+        {% for code, count in answer_codes %}
+            <li><b>{{ code }}</b> : {{ count }} - {{ (count / total * 100) | round }}%</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
