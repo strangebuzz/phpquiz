@@ -14,6 +14,7 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Stats about correct answers
+* Add Symfony insight (mail sent)
 
 
 @Tests
