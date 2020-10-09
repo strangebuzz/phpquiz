@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Data\QuestionData;
+use App\Form\QuizRestoreType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,11 +24,17 @@ class AppController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home(): Response
+    public function home(Request $request): Response
     {
+        $form = $this->createForm(QuizRestoreType::class)->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('quiz_question', ['uuid' => $form->getData()['uuid']]);
+        }
+
         return $this->render('app/home.html.twig', [
             'count' => $this->questionData->count(),
             'last' => $this->questionData->getLastQuestion(),
+            'form' => $form->createView()
         ]);
     }
 

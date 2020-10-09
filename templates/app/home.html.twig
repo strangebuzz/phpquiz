@@ -25,5 +25,19 @@
             <li><a href="{{ path('question_last') }}">Show the last question of {{ last.createdAt|date('Y-m-d') }}</a></li>
             <li><a href="{{ path('question_random') }}">Show a random question</a></li>
         </ul>
+
+        <hr/>
+
+        {{ form_start(form, {'attr': {'class': 'pure-form pure-form-stacked'}}) }}
+        <fieldset>
+            {{ form_errors(form) }}
+            <legend>Enter your quiz id to resume it:</legend>
+            {{ form_widget(form.uuid, {attr: {class: 'pure-input-rounded pure-input-1-2'}}) }}
+            {{ form_errors(form.uuid) }}
+            <p class="center">
+                <button type="submit" class="pure-button pure-button-primary button-large">Resume</button>
+            </p>
+        </fieldset>
+        {{ form_end(form) }}
     </div>
 {% endblock %}
