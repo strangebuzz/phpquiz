@@ -38,7 +38,7 @@ class QuestionData
 
     public function getRandomId(): int
     {
-        $result = $this->connection->fetchAll('SELECT id FROM question ORDER BY RANDOM() LIMIT 1');
+        $result = $this->connection->fetchAllAssociative('SELECT id FROM question ORDER BY RANDOM() LIMIT 1');
         if (!$result[0]['id']) {
             throw new \UnexpectedValueException('No question found.');
         }
