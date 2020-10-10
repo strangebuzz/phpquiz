@@ -53,6 +53,10 @@
                         {% endif %}
                         <li class="pure-menu-item{{ route == 'about' ? ' pure-menu-selected' : '' }}"><a href="{{ path('about') }}" class="pure-menu-link">About</a></li>
                         <li class="pure-menu-item"><a target="_blank" href="https://github.com/strangebuzz/phpquiz" class="pure-menu-link">GitHub</a></li>
+                        {% if app.environment == 'dev' %}
+                            <hr/>
+                            <li class="pure-menu-item"><a target="_blank" href="{{ path('app_admin_dashboard_index') }}" class="pure-menu-link">Admin</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
