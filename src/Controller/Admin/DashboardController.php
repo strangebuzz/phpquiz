@@ -39,11 +39,13 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Docker', 'fas fa-server')->setSubItems([
             MenuItem::linkToUrl('Adminer', 'fas fa-database', 'http://127.0.0.1:8986')->setLinkRel('noreferrer'),
         ]);
-        yield MenuItem::linkToCrud('Quiz', 'fas fa-check-circle', Quiz::class);
-        yield MenuItem::linkToCrud('Answer', 'fas fa-list', Answer::class);
-        yield MenuItem::linkToCrud('Link', 'fas fa-link', Link::class);
-        yield MenuItem::linkToCrud('Person', 'fas fa-user', Person::class);
-        yield MenuItem::linkToCrud('Question', 'fas fa-question', Question::class);
+        yield MenuItem::subMenu('Entities', 'fas fa-database')->setSubItems([
+            MenuItem::linkToCrud('Quiz', 'fas fa-check-circle', Quiz::class),
+            MenuItem::linkToCrud('Answer', 'fas fa-list', Answer::class),
+            MenuItem::linkToCrud('Link', 'fas fa-link', Link::class),
+            MenuItem::linkToCrud('Person', 'fas fa-user', Person::class),
+            MenuItem::linkToCrud('Question', 'fas fa-question', Question::class),
+        ]);
         yield MenuItem::linktoRoute('Answers stats', 'fas fa-chart-bar', 'admin_stats');
         yield MenuItem::linktoRoute('Front website', 'fas fa-external-link-alt', 'home');
     }
