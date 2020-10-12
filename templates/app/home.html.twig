@@ -6,6 +6,7 @@
     </div>
 
     <div class="content">
+        <h2>Introduction 🧐</h2>
         <p>There is currently {{ count }} questions in the quiz. Click on the links
             below to start. Good luck! Go go go! 😀</p>
 
@@ -14,7 +15,8 @@
 
         <p>In the learn mode, you pass all the questions sequentially, the correct
         answer and the explanations are given as soon as you answer, the code will
-        be available for copy/paste so you can test it and understand.</p>
+        be available for copy/paste so you can test it and understand whta's going
+        on.</p>
 
         <p>Note that there is no ads nor subcription. You will be able to see your
         results wihout registering.</p>
@@ -26,14 +28,13 @@
             <li><a href="{{ path('question_random') }}">Show a random question</a></li>
         </ul>
 
-        <hr/>
-
+        <br/>
+        <h2>Enter your quiz id to resume it : 🥇</h2>
         {# set attr = {'class': 'pure-form pure-form-stacked', 'novalidate-off': 'novalidate'} #}
         {% set attr = {'class': 'pure-form pure-form-stacked'} %}
         {{ form_start(form, {'attr': attr}) }}
         <fieldset>
             {{ form_errors(form) }}
-            <legend>Enter your quiz id to resume it:</legend>
             {{ form_widget(form.uuid, {attr: {class: 'pure-input-rounded pure-input-1-2'}}) }}
             {{ form_errors(form.uuid) }}
             <p class="center">
@@ -41,5 +42,11 @@
             </p>
         </fieldset>
         {{ form_end(form) }}
+
+        <h2>Badges 🏅</h2>
+
+        <a target="_blank" href="https://insight.symfony.com/projects/26fa7619-c350-4c47-a676-3791304d5f32">
+            <img class="pure-img" alt="Symfony insight" src="https://insight.symfony.com/projects/26fa7619-c350-4c47-a676-3791304d5f32/big.svg"/>
+        </a>
     </div>
 {% endblock %}

@@ -4,6 +4,11 @@ PHP Quiz 🐘
 This is the public repository of the [https://phpquiz.xyz][1] website. It's a
 Symfony 5.1 application trying to respect [best practices][12].
 
+Badges 🏅
+--------
+
+[![SymfonyInsight](https://insight.symfony.com/projects/26fa7619-c350-4c47-a676-3791304d5f32/big.svg)](https://insight.symfony.com/projects/26fa7619-c350-4c47-a676-3791304d5f32)
+
 
 Requirements ⚙
 --------------
