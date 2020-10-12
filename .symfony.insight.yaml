@@ -6,3 +6,4 @@ global_exclude_dirs:
   - tests
   - DataFixtures
   - var
+  - code

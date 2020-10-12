@@ -21,7 +21,7 @@
 
         <ul>
             <li><a href="{{ path('quiz_new') }}">Test yourself with the hardest PHP quiz online (quiz mode)</a></li>
-            <li><a href="{{ path('question_show', {id: 1}) }}">Pass all questions sequentially with code and explanations (learn mode)</a></li>
+            <li><a href="{{ path('question_show') }}">Pass all questions sequentially with code and explanations (learn mode)</a></li>
             <li><a href="{{ path('question_last') }}">Show the last question of {{ last.createdAt|date('Y-m-d') }}</a></li>
             <li><a href="{{ path('question_random') }}">Show a random question</a></li>
         </ul>

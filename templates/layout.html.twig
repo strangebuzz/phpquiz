@@ -47,7 +47,7 @@
                         <li class="pure-menu-item{{ route == 'home' ? ' pure-menu-selected' : '' }}"><a href="{{ path('home') }}" class="pure-menu-link">Home</a></li>
                         <li class="pure-menu-item{{ route == 'question_last' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_last') }}" class="pure-menu-link">Last question</a></li>
                         <li class="pure-menu-item{{ route == 'question_random' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_random') }}" class="pure-menu-link">Random question</a></li>
-                        <li class="pure-menu-item{{ route == 'question_show' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_show', {id: 1}) }}" class="pure-menu-link">All questions</a></li>
+                        <li class="pure-menu-item{{ route == 'question_show' ? ' pure-menu-selected' : '' }}"><a href="{{ path('question_show') }}" class="pure-menu-link">All questions</a></li>
                         {% if route starts with 'quiz_' %}
                             <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Quiz</a></li>
                         {% endif %}

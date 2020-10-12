@@ -51,7 +51,7 @@
         <p>You can also check all the correct answers with the learn mode.</p>
 
         <p class="center">
-            <a class="pure-button pure-button-primary button-xlarge" href="{{ path('question_show', {id: 1}) }}">Learn mode 🤓</a>
+            <a class="pure-button pure-button-primary button-xlarge" href="{{ path('question_show') }}">Learn mode 🤓</a>
             {% if count > score %}
                 <a href="{{ path('quiz_retry', {uuid: quiz.uuid}) }}" class="pure-button pure-button-primary button-xlarge">Retry ⏩</a>
             {% endif %}

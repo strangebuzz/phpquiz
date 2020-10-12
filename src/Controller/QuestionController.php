@@ -22,9 +22,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @todo make 1 as the default id.
-     *
-     * @Route("/{id}", name="show", requirements={"id"="\d+"})
+     * @Route("/{id}", name="show", requirements={"id"="\d+"}, defaults={"id": 1})
      * @Route("/{id}.json", name="show_json", defaults={"_format": "json"})
      */
     public function show(int $id, string $_route): Response
