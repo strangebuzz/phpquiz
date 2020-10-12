@@ -23,7 +23,7 @@ class Quiz extends BaseEntity
     /**
      * @ORM\Column(type="guid")
      *
-     * @todo 5.2: https://symfony.com/blog/new-in-symfony-5-2-doctrine-types-for-uuid-and-ulid
+     * @see 5.2: https://symfony.com/blog/new-in-symfony-5-2-doctrine-types-for-uuid-and-ulid
      */
     protected ?string $uuid;
 
