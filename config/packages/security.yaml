@@ -27,6 +27,8 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
+    # Default strategy is affirmative: https://symfony.com/doc/current/security/voters.html#security-voters-change-strategy
+    # https://symfony.com/doc/current/security/access_control.html
     access_control:
-        - { path: ^/gerer, roles: ROLE_ADMIN, allow_if: "'127.0.0.1' == request.getClientIp()" }
+        - { path: ^/gerer, roles: ROLE_ADMIN, allow_if: "'dev' == request.attributes.get('env')" }
         - { path: '^/', roles: IS_AUTHENTICATED_ANONYMOUSLY }
