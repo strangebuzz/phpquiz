@@ -29,7 +29,7 @@
 @Quiz ideas
 ————————————————————————————————————————————————————————————————————————————————
 
-* Next quiz to enter: https://twitter.com/FredBouchery/status/1314100784838119424
+* Next quiz to enter: https://twitter.com/FredBouchery/status/1315542897769566208
 
 
 @Ideas/To decide

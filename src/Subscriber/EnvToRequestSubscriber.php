@@ -4,19 +4,16 @@ namespace App\Subscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class EnvToRequestSubscriber implements EventSubscriberInterface
 {
-    protected RequestStack $requestStack;
-    protected KernelInterface $kernel;
+    private KernelInterface $kernel;
 
-    public function __construct(RequestStack $requestStack, KernelInterface $kernel)
+    public function __construct(KernelInterface $kernel)
     {
-        $this->requestStack = $requestStack;
         $this->kernel = $kernel;
     }
 
