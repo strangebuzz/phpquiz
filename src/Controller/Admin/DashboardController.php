@@ -26,7 +26,7 @@ class DashboardController extends AbstractDashboardController
     {
         $routeBuilder = $this->get(CrudUrlGenerator::class)->build();
 
-        return $this->redirect($routeBuilder->setController(AnswerCrudController::class)->generateUrl());
+        return $this->redirect($routeBuilder->setController(QuizCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard

@@ -7,14 +7,12 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Joins OK in the show action, query count seems weird? To verify.
-* Can't set the admin password! Symfony binary bug?
 
 
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add version the quiz is related too. Show in the question header.
-* Link in admin to access a quiz
+* Add PHP versions the quiz is related too. Show in the question header.
 
 
 @Tests
@@ -42,7 +40,7 @@
 * Store image filename with question id or twitter random string?
 * OK to use the carbon Twitter image or host it? (seems better for share)
 * Mailing list to notify when a new quiz is out?
-* Or create a simple RSS ?
+* Or create a simple RSS?
 
 
 @Nice to have

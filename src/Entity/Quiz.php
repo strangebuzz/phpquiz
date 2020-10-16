@@ -18,7 +18,7 @@ class Quiz extends BaseEntity
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected ?int $id;
+    protected ?int $id = null;
 
     /**
      * @ORM\Column(type="guid")
