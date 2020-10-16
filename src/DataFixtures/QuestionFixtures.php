@@ -237,7 +237,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         [
             /*'previous_question'        =>*/ 13,
             /*'id'                       =>*/ 14,
-            /*'next_question'            =>*/ null,
+            /*'next_question'            =>*/ 15,
             /*'person_id'                =>*/ 1,
             /*'difficulty_id'            =>*/ 3,
             /*'label'                    =>*/ 'What will be displayed with PHP 8.0?',
@@ -250,6 +250,23 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'differences_output_notes' => */ null,
             /*'created_at'               =>*/ '2020-10-05',
             /*'updated_at'               =>*/ '2020-10-05',
+        ],
+        [
+            /*'previous_question'        =>*/ 14,
+            /*'id'                       =>*/ 15,
+            /*'next_question'            =>*/ null,
+            /*'person_id'                =>*/ 1,
+            /*'difficulty_id'            =>*/ 3,
+            /*'label'                    =>*/ 'What will be displayed ? (PHP => 7.4)',
+            /*'reminder'                 =>*/ 'When using a PHP closure (or a short closure) with "$this", the closure must be declare inside a class method.',
+            /*'codeImage'                =>*/ 'https://pbs.twimg.com/media/Ejye6kRWAAEGi5v?format=jpg&name=small',
+            /*'codeImageFile'            =>*/ '15.jpg',
+            /*'answer_explanations'      =>*/ 'When using a PHP closure (or a short closure) with "$this", the closure must be declare inside a class method. The result was "C".',
+            /*'live_snippet_url'         =>*/ 'https://3v4l.org/1kgRa',
+            /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1314100784838119424',
+            /*'differences_output_notes' => */ "'For PHP 7.3 and below we have the following error: Parse error: syntax error, unexpected 'string' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)",
+            /*'created_at'               =>*/ '2020-10-08',
+            /*'updated_at'               =>*/ '2020-10-08',
         ],
     ];
 

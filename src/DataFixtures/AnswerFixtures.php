@@ -376,6 +376,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'poll_result' =>*/ 1520,
             ],
         ],
+        /*'question_id'*/ 15 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'Fatal error: Uncaught TypeError',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 230,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'Fatal error: Uncaught Error: Cannot access private property',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 680,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ 'Fatal error: Uncaught Error: Using $this when not in object context',
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 5450,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'bar',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 3640,
+            ]
+        ]
     ];
 
     public function load(ObjectManager $manager): void

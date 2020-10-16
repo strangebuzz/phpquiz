@@ -82,6 +82,11 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
             /*'label'       =>*/ 'Read the "Variable variables" documentation on php.net',
             /*'url'         =>*/ 'https://www.php.net/manual/en/language.types.string.php#language.types.string.parsing',
         ],
+        [
+            /*'question_id' =>*/ 15,
+            /*'label'       =>*/ 'Read the closure documentation on php.net',
+            /*'url'         =>*/ 'https://www.php.net/manual/en/class.closure.php',
+        ],
     ];
 
     public function load(ObjectManager $manager): void

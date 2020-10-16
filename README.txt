@@ -13,6 +13,8 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Add version the quiz is related too. Show in the question header.
+
 
 @Tests
 ————————————————————————————————————————————————————————————————————————————————
@@ -29,7 +31,9 @@
 @Quiz ideas
 ————————————————————————————————————————————————————————————————————————————————
 
-* Next quiz to enter: https://twitter.com/FredBouchery/status/1315542897769566208
+* Next quiz to enter:
+- [12/10/2020] https://twitter.com/FredBouchery/status/1315579400377839616
+- [15/10/2020] https://twitter.com/FredBouchery/status/1316639108471627776
 
 
 @Ideas/To decide
