@@ -32,7 +32,6 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Next quiz to enter:
-- [12/10/2020] https://twitter.com/FredBouchery/status/1315579400377839616
 - [15/10/2020] https://twitter.com/FredBouchery/status/1316639108471627776
 
 

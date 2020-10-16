@@ -401,6 +401,32 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
                 /*'correct'     =>*/ false,
                 /*'poll_result' =>*/ 3640,
             ]
+        ],
+        /*'question_id'*/ 16 => [
+            [
+                /*'code'        =>*/ 'A',
+                /*'label'       =>*/ 'end',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2960,
+            ],
+            [
+                /*'code'        =>*/ 'B',
+                /*'label'       =>*/ 'fooend',
+                /*'correct'     =>*/ true,
+                /*'poll_result' =>*/ 4070,
+            ],
+            [
+                /*'code'        =>*/ 'C',
+                /*'label'       =>*/ 'foofooend',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 930,
+            ],
+            [
+                /*'code'        =>*/ 'D',
+                /*'label'       =>*/ 'Parse Error',
+                /*'correct'     =>*/ false,
+                /*'poll_result' =>*/ 2040,
+            ]
         ]
     ];
 
