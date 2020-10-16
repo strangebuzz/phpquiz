@@ -29,6 +29,7 @@ class QuestionRepository extends ServiceEntityRepository
                 ->join('q.answers', 'answers')
                 ->join('q.suggestedBy', 'suggestedBy')
                 ->join('q.difficulty', 'difficulty')
+                ->join('q.links', 'links')
                 ->leftJoin('q.previousQuestion', 'previousQuestion')
                 ->leftJoin('q.nextQuestion', 'nextQuestion')
                 ->getQuery()->getSingleResult();

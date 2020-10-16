@@ -3,11 +3,11 @@
 {% block title %}Question n°{{ quiz_question.rank }}/{{ count }}: Answer the following question{% endblock %}
 
 {% set codeImage = question_image(quiz_question.question) %}
+{% set progress = (quiz_question.rank / count * 100)|round %}
 
 {% block body %}
     <div class="header">
         <h1>Question {{ quiz_question.rank }}/{{ count }}: Answer the following question</h1>
-
         {% if quiz_question.rank == 1 %}
             {% set quizUrl = url('quiz_question', {'uuid': quiz_question.quiz.uuid}) %}
             <h2>Your quiz URL is <a href="{{ quizUrl }}">{{ quizUrl }}</a></h2>
@@ -15,6 +15,9 @@
             <p>You have 24 hours to finish your quiz, after this time we can't garantee that
             it will be still available with your previous answers.</p>
         {% endif %}
+
+        <h4>Your progression: {{ progress }}%</h4>
+        <progress value="{{ progress }}" max="100">{{ progress }}%</progress>
     </div>
 
     <div class="content">

@@ -30,3 +30,9 @@ label:hover {
 .hidden {
     display: none;
 }
+
+progress {
+    border: 0;
+    height: 20px;
+    width: 250px;
+}

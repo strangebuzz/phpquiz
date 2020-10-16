@@ -42,7 +42,6 @@ new Vue({
     validateAnswer() {
       if (!this.$refs.form.checkValidity()) {
         this.$refs.form.click()
-        // Toastr.warning('Select an answer please. 🤔') // HTML5 validation is enough
       } else {
         this.hasValidated = true
       }
