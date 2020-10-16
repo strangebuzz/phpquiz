@@ -30,5 +30,5 @@ security:
     # Default strategy is affirmative: https://symfony.com/doc/current/security/voters.html#security-voters-change-strategy
     # https://symfony.com/doc/current/security/access_control.html
     access_control:
-        - { path: ^/gerer, roles: ROLE_ADMIN, allow_if: "'dev' == request.attributes.get('env')" }
+        - { path: '^/gerer', roles: ROLE_ADMIN, allow_if: "'dev' == request.server.get('APP_ENV')" } # role OR allow if...
         - { path: '^/', roles: IS_AUTHENTICATED_ANONYMOUSLY }
