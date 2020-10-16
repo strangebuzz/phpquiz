@@ -23,8 +23,10 @@
 {% block body %}
     <div class="header">
         <h1>Quiz {{ question.id }}/{{ count }}: Answer the following question</h1>
-        <h4>Your progression: {{ progress }}%</h4>
-        <progress value="{{ progress }}" max="100">{{ progress }}%</progress>
+        {% if not (isRandom or isLast) %}
+            <h4>Your progression: {{ progress }}%</h4>
+            <progress value="{{ progress }}" max="100">{{ progress }}%</progress>
+        {% endif  %}
     </div>
 
     <div class="content">
