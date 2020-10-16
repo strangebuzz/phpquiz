@@ -72,6 +72,7 @@
 @Ressources
 ————————————————————————————————————————————————————————————————————————————————
 
+* https://symfony.com/doc/master/bundles/EasyAdminBundle/actions.html#adding-actions
 * https://docs.moodle.org/dev/Quiz_database_structure
 * https://codeseven.github.io/toastr/
 * https://clipboardjs.com/
