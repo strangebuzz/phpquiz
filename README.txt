@@ -18,8 +18,6 @@
 @Tests
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add functional tests to answer all the questions of the test quiz and check the
-  score computation.
 * Add code coverage
 
 
