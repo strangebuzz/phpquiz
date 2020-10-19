@@ -10,6 +10,7 @@ PHPCS       = ./vendor/squizlabs/php_codesniffer/bin/phpcs
 PHPUNIT     = ./vendor/bin/simple-phpunit
 LE_EXEC     = certbot
 .DEFAULT_GOAL := help
+.PHONY: assets
 
 ## —— 🐘 PhpQuiz Make file 🐘 ——————————————————————————————————————————————————
 help: ## Outputs this help screen
