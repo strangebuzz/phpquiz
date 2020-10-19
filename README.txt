@@ -6,6 +6,7 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
+* Fixed the assets target in the MakeFile
 * Joins OK in the show action, query count seems weird? To verify.
 
 
