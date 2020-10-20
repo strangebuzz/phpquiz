@@ -23,12 +23,6 @@ up: docker-compose.yaml ## Start the docker hub (Postgres,adminer)
 down: docker-compose.yaml ## Stop the docker hub
 	$(DOCKER_COMP) down --remove-orphans
 
-dpsn: ## List Docker containers for the project
-	$(DOCKER_COMP) images
-	@echo "-------------------------------------------------------------------"
-	$(DOCKER) ps -a | grep "phpquiz-"
-	@echo "-------------------------------------------------------------------"
-
 wait-postgres: ## Wait for postgresql to be up
 	bin/wait-for-postgres.sh
 
