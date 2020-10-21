@@ -92,6 +92,11 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
             /*'label'       =>*/ 'Read the alternative syntax for control structures documentation on php.net',
             /*'url'         =>*/ 'https://www.php.net/manual/en/control-structures.alternative-syntax.php',
         ],
+        [
+            /*'question_id' =>*/ 17,
+            /*'label'       =>*/ 'Read the nullable types PHP 7.1 new feature on php.net',
+            /*'url'         =>*/ 'https://php.net/manual/en/migration71.new-features.php#migration71.new-features.nullable-types',
+        ],
     ];
 
     public function load(ObjectManager $manager): void

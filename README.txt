@@ -30,7 +30,7 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Next quiz to enter:
-- [15/10/2020] https://twitter.com/FredBouchery/status/1316639108471627776
+- [19/10/2020] https://twitter.com/FredBouchery/status/1318101855793258497
 
 
 @Ideas/To decide
