@@ -38,21 +38,6 @@ class QuestionControllerTest extends WebTestCase
     }
 
     /**
-     * Route "show_json".
-     *
-     * @covers QuestionController::show
-     */
-    public function testShowJson(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/question/1.json');
-        $json = $client->getResponse()->getContent();
-        self::assertResponseIsSuccessful();
-        self::assertJson($json);
-        self::assertJsonStringEqualsJsonString('{"id":1,"correctAnswerCode":"A"}', $json);
-    }
-
-    /**
      * @covers QuestionController::show
      */
     public function testShowNotFOund(): void

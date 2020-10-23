@@ -18,5 +18,6 @@ framework:
 
     trusted_hosts:
         - localhost # PHPUnit tests
+        - example.com # ApiTestCase
         - 127.0.0.1 # Symfony binary web server
         - ^phpquiz.xyz # Prod

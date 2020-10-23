@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\QuestionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -14,6 +15,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  * part of a multiple questions quiz. A question has several answers.
  *
  * @ORM\Entity(repositoryClass=QuestionRepository::class)
+ *
+ * @ApiResource(
+ *     collectionOperations={},
+ *     itemOperations={"get"},
+ *     normalizationContext={"groups"={"show"}},
+ *     denormalizationContext={"groups"={"show"}}
+ * )
  */
 class Question extends BaseEntity
 {

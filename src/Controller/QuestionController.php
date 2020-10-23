@@ -23,14 +23,10 @@ class QuestionController extends AbstractController
 
     /**
      * @Route("/{id}", name="show", requirements={"id"="\d+"}, defaults={"id": 1})
-     * @Route("/{id}.json", name="show_json", defaults={"_format": "json"})
      */
-    public function show(int $id, string $_route): Response
+    public function show(int $id): Response
     {
         $question = $this->questionData->getQuestion($id);
-        if ($_route === 'question_show_json') {
-            return $this->json($question, Response::HTTP_OK, [], ['groups' => 'show']);
-        }
 
         return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
     }

@@ -15,7 +15,7 @@
     <script>
       const questionId = {{ question.id }}
       const code = `{{ code }}`
-      const questionUrl = '{{ path('question_show_json', {id: question.id }) }}'
+      const questionUrl = '{{ path('api_questions_get_item', {id: question.id }) }}'
     </script>
     {{ parent() }}
 {% endblock %}
