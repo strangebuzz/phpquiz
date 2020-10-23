@@ -36,6 +36,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linktoRoute('APi Platform', 'fas fa-spider', 'api_doc');
         yield MenuItem::subMenu('Docker', 'fas fa-server')->setSubItems([
             MenuItem::linkToUrl('Adminer', 'fas fa-database', 'http://127.0.0.1:8986')->setLinkRel('noreferrer'),
         ]);

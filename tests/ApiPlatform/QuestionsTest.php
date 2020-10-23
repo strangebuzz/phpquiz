@@ -15,8 +15,10 @@ class QuestionsTest extends ApiTestCase
         $client = static::createClient();
         $client->request('GET', '/api/questions/1');
         self::assertResponseIsSuccessful();
+        /** @noinspection PhpInternalEntityUsedInspection */
+        $response = $client->getResponse();
         self::assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
-        self::assertJson($client->getResponse()->getContent());
+        self::assertJson($response->getContent());
         self::assertMatchesResourceItemJsonSchema(Question::class);
         $json = <<<EOT
 { 
@@ -27,6 +29,6 @@ class QuestionsTest extends ApiTestCase
   "correctAnswerCode": "A"
 }
 EOT;
-        self::assertJsonStringEqualsJsonString($json, $client->getResponse()->getContent());
+        self::assertJsonStringEqualsJsonString($json, $response->getContent());
     }
 }
