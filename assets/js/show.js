@@ -61,19 +61,23 @@ new Vue({
         }
       })
     },
+    /**
+     * @see loadQuestion
+     */
+    async fetchQuestion() {
+      console.log('async fetchQuestion')
+      const response = await fetch(this.questionUrl)
+
+      return await response.json(); // return question JSON
+    },
     loadQuestion() {
       self = this;
-      fetch(this.questionUrl, {
-        method: 'GET'
-      })
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(json) {
+      this.fetchQuestion()
+        .then(json => {
           self.question = json;
-          self.ready = true
+          self.ready = true // show the submit button
         })
-        .catch(function(reason) {
+        .catch(reason => {
           alert('An error occured sorry: '+reason)
         })
     }
