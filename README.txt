@@ -13,6 +13,7 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Put fixtures in YAML files (use AliceFixtures bundle).
 * Add PHP versions the quiz is related too. Show in the question header.
 
 
