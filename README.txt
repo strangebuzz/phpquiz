@@ -14,7 +14,7 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Add the doc to add a snippet (at least put a reference commit)
-* Put fixtures in YAML files (use AliceFixtures bundle).
+* Put fixtures in YAML files (use AliceFixtures bundle?).
 * Add PHP versions the quiz is related too. Show in the question header.
 * Added a command to generete a new question in fixtures
 
@@ -34,7 +34,7 @@
 
 * Next quiz to enter:
 - [23/10/2020] https://twitter.com/FredBouchery/status/1319555743675273216
-
+- Typical commit to add a quiz: https://github.com/strangebuzz/phpquiz/commit/44b83215de64b28db32e7cd353b2307d45bd7271
 
 @Ideas/To decide
 ————————————————————————————————————————————————————————————————————————————————
@@ -68,6 +68,7 @@
 @References
 ————————————————————————————————————————————————————————————————————————————————
 
+* https://github.com/strangebuzz/phpquiz/commit/44b83215de64b28db32e7cd353b2307d45bd7271
 * https://twitter.com/FredBouchery
 
 
