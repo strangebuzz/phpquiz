@@ -97,6 +97,16 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
             /*'label'       =>*/ 'Read the nullable types PHP 7.1 new feature on php.net',
             /*'url'         =>*/ 'https://php.net/manual/en/migration71.new-features.php#migration71.new-features.nullable-types',
         ],
+        [
+            /*'question_id' =>*/ 18,
+            /*'label'       =>*/ 'Read the "numeric literal separator" RFC on php.net',
+            /*'url'         =>*/ 'https://wiki.php.net/rfc/numeric_literal_separator',
+        ],
+        [
+            /*'question_id' =>*/ 18,
+            /*'label'       =>*/ 'Read the "saner numeric strings" RFC on php.net',
+            /*'url'         =>*/ 'https://wiki.php.net/rfc/saner-numeric-strings',
+        ],
     ];
 
     public function load(ObjectManager $manager): void

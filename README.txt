@@ -13,8 +13,10 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* Add the doc to add a snippet (at least put a reference commit)
 * Put fixtures in YAML files (use AliceFixtures bundle).
 * Add PHP versions the quiz is related too. Show in the question header.
+* Added a command to generete a new question in fixtures
 
 
 @Tests
@@ -31,7 +33,7 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Next quiz to enter:
-- [19/10/2020] https://twitter.com/FredBouchery/status/1318101855793258497
+- [23/10/2020] https://twitter.com/FredBouchery/status/1319555743675273216
 
 
 @Ideas/To decide
