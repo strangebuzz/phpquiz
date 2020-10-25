@@ -315,7 +315,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             /*'answer_explanations'      =>*/ 'PHP numeric literal separator are only available during script parsing, and since PHP 8 (> alpha) non well formed numeric value raise a warning which become TypeError, Right answer was C: "[10]TypeError".',
             /*'live_snippet_url'         =>*/ 'https://3v4l.org/DduJJ',
             /*'twitter_poll_url'         =>*/ 'https://twitter.com/FredBouchery/status/1318101855793258497',
-            /*'differences_output_notes' =>*/ 'since PHP 8 (> alpha) non well formed numeric value raise a warning which become TypeError',
+            /*'differences_output_notes' =>*/ 'Since PHP 8 (> alpha) non well formed numeric value raise a warning which become TypeError.',
             /*'created_at'               =>*/ '2020-10-19',
             /*'updated_at'               =>*/ '2020-10-19',
         ],
