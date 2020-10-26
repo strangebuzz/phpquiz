@@ -28,6 +28,9 @@
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
 
+* Fixture cleanup for local caching, it should be handled by Doctrine itself,
+  to verifiy.
+
 
 @Quiz ideas
 ————————————————————————————————————————————————————————————————————————————————
