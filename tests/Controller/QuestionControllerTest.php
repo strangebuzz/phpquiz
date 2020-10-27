@@ -13,14 +13,12 @@ class QuestionControllerTest extends WebTestCase
 {
     public function getAnswers(): \Generator
     {
-        foreach (range(1, count(QuestionFixtures::DATA)) as $id) {
+        foreach (range(1, QuestionFixtures::COUNT) as $id) {
             yield [$id];
         }
     }
 
     /**
-     * Route "show".
-     *
      * @covers QuestionController::show
      *
      * @dataProvider getAnswers

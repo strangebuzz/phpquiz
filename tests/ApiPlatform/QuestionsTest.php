@@ -9,6 +9,8 @@ class QuestionsTest extends ApiTestCase
 {
     /**
      * Route: api_questions_get_item
+     *
+     * @see https://127.0.0.1:8006/api/questions/1
      */
     public function testGet(): void
     {

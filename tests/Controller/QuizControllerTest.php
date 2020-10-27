@@ -64,7 +64,7 @@ class QuizControllerTest extends WebTestCase
      */
     public function testQuestionSubmit(): void
     {
-        $questionsCount = count(QuestionFixtures::DATA);
+        $questionsCount = QuestionFixtures::COUNT;
         $scoreWithA = 5;
 
         $client = static::createClient();

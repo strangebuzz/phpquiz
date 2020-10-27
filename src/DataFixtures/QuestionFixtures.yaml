@@ -1,0 +1,354 @@
+questions:
+    1:
+        previous_question: null
+        id: 1
+        next_question: 2
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed?
+        reminder: Namespaces can't begin with a backslash.
+        codeImage: https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small
+        codeImageFile: 1.png
+        answer_explanations: >
+            PHP namespaces can contain space characters, but they can\'t begin with a backslash.
+            The right answer was "A".
+        live_snippet_url: https://3v4l.org/pQOMe
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1286207302018699264
+        differences_output_notes: >
+            As I am writing this quiz (2020-07-31), there is a slight difference between all versions and PHP 8.0.0alpha3:<br/>With this last version,
+            the exception message "Foo\Bar" is wrapped by double quotes instead of single quotes for other versions (\'Foo\Bar\'). 🤔
+        created_at: '2020-07-23'
+        updated_at: '2020-07-23'
+
+    2:
+        previous_question: 1
+        id: 2
+        next_question: 3
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed (PHP version >= 7.4)?
+        reminder: Can't unpack a traversable if keys are string.
+        codeImage: https://pbs.twimg.com/media/EdW2xTnXYAIDjBP?format=png&name=small
+        codeImageFile: 2.png
+        answer_explanations: >
+            7.4 unpack a Traversable by keeping the iteration order, but it fails when the keys are strings, even if those strings are numeric.
+            The right answer was "D".
+        live_snippet_url: https://3v4l.org/qKGPt
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1285134865176956929
+        differences_output_notes: null
+        created_at: '2020-07-20'
+        updated_at: '2020-07-20'
+
+    3:
+        previous_question: 2
+        id: 3
+        next_question: 4
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed?
+        reminder: property_exists finds private properties but we can't access it.
+        codeImage: https://pbs.twimg.com/media/Ec8_XgPXsAEypnr?format=png&name=small
+        codeImageFile: 3.png
+        answer_explanations: >
+            PHP function <code>property_exists</code> will find the private property, but you cannot access to it.
+            The right answer was "C".
+        live_snippet_url: https://3v4l.org/1Qe3c
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1283314819228225537
+        differences_output_notes: null
+        created_at: '2020-07-15'
+        updated_at: '2020-07-15'
+
+    4:
+        previous_question: 3
+        id: 4
+        next_question: 5
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed?
+        reminder: PHP functions prefixed by array_ expect an array
+        codeImage: https://pbs.twimg.com/media/EfsQiZQX0AA39FK?format=jpg&name=small
+        codeImageFile: 4.jpg
+        answer_explanations: >
+            All PHP functions prefixed by "array_" expect an array, and not a traversable/iterator. The result is "[nothing]" (A).
+            Note: If the values had been in an array it would have been "int(42)" because internal array functions do not follow strict typing.
+        live_snippet_url: https://3v4l.org/kKt77
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1295648502370926593
+        differences_output_notes: null
+        created_at: '2020-08-18'
+        updated_at: '2020-08-18'
+
+    5:
+        previous_question: 4
+        id: 5
+        next_question: 6
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed?
+        reminder: array_merge reorders numeric keys.
+        codeImage: https://pbs.twimg.com/media/EgKx3TdXsAEauEX?format=jpg&name=small
+        codeImageFile: 5.jpg
+        answer_explanations: >
+            When you use the PHP function <code>array_merge</code>, all values in the input arrays with numeric keys will be renumbered
+            with incrementing keys starting from zero. The right answer was "42" (C).
+        live_snippet_url: https://3v4l.org/lb1YD
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1297796014338973697
+        differences_output_notes: null
+        created_at: '2020-08-24'
+        updated_at: '2020-08-24'
+
+    6:
+        previous_question: 5
+        id: 6
+        next_question: 7
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed?
+        reminder: >
+            Can call ::class on function.
+        codeImage: https://pbs.twimg.com/media/EgaScdJX0AECpMV?format=jpg&name=small
+        codeImageFile: 6.jpg
+        answer_explanations: >
+            The PHP class name resolution using ::class is a compile time transformation.
+            As a consequence, class names are expanded even if the class does not exist. No error is issued in that case.
+            The right answer was "A".
+        live_snippet_url: https://3v4l.org/FVUEu
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1298887883244396544
+        differences_output_notes: null
+        created_at: '2020-08-27'
+        updated_at: '2020-08-27'
+
+    7:
+        previous_question: 6
+        id: 7
+        next_question: 8
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed?
+        reminder: One can use the same name for a class, a method, a function and a constant.
+        codeImage: https://pbs.twimg.com/media/EgvJgopXsAA8FGJ?format=jpg&name=small
+        codeImageFile: 7.jpg
+        answer_explanations: >
+            You can use the same name for a class, a method, a function and a constant. In addition, functions and classes are case-insensitive.
+            The right answer was "BAR" (C). "BARBAR" happens for versions prior to PHP 8 when there is no namespace.
+        live_snippet_url: https://3v4l.org/6NXXh
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1300355047440683010
+        differences_output_notes: null
+        created_at: '2020-08-31'
+        updated_at: '2020-08-31'
+
+    8:
+        previous_question: 7
+        id: 8
+        next_question: 9
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed in current supported PHP version? (<8)
+        reminder: An abstract method cannot be private (PHP 7).
+        codeImage: https://pbs.twimg.com/media/EhS0HiFWAAEOmYb?format=jpg&name=small
+        codeImageFile: 8.jpg
+        answer_explanations: >
+            An abstract method cannot be private and this will raise a fatal error during compile time. The right answer was "B".
+            This will change with PHP 8 which will be able to declare a abstract private method in a trait (answer "A")
+        live_snippet_url: https://3v4l.org/9pubJ
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1302865230653988865
+        differences_output_notes: >
+            An abstract method can be private with PHP 8, the correct answer in this case is "A" (int 42).
+        created_at: '2020-09-07'
+        updated_at: '2020-09-07'
+
+    9:
+        previous_question: 8
+        id: 9
+        next_question: 10
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed in current supported PHP version? (<8)
+        reminder: A numeric value can be prefixed by blank characters, but not after.
+        codeImage: https://pbs.twimg.com/media/EhnaramXYAEE2hp?format=jpg&name=small
+        codeImageFile: 9.jpg
+        answer_explanations: >
+            A numeric value can be prefixed by blank characters, but not after. The right answer was "C".
+            This will change with PHP 8 which will accept blank characters after.
+        live_snippet_url: https://3v4l.org/WEi6L
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1304314751628070912
+        differences_output_notes: With PHP 8 the right answer is "D".
+        created_at: '2020-09-11'
+        updated_at: '2020-09-11'
+
+    10:
+        previous_question: 9
+        id: 10
+        next_question: 11
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed in current supported PHP version? (<=8)
+        reminder: PHP magic methods must be declared with the exact number of parameters.
+        codeImage: https://pbs.twimg.com/media/Eh8DgSUXsAEnJin?format=jpg&name=small
+        codeImageFile: 10.jpg
+        answer_explanations: >
+            PHP magic methods must be declared with the exact number of parameters.
+            It is not necessary to specify type, but if you do, the first one must be a string and the second an array.
+            The right answer was "C".
+        live_snippet_url: https://3v4l.org/9WApp
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1305768968398024704
+        differences_output_notes: null
+        created_at: '2020-09-15'
+        updated_at: '2020-09-15'
+
+    11:
+        previous_question: 10
+        id: 11
+        next_question: 12
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed in PHP 8?
+        reminder: PHP object is callable only if the method __invoke is implemented.
+        codeImage: https://pbs.twimg.com/media/EiL3H_lWkAEpMq2?format=jpg&name=small
+        codeImageFile: 11.jpg
+        answer_explanations: PHP object is callable only if the method __invoke is implemented.
+        live_snippet_url: https://3v4l.org/YiIUv
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1306878803755630593
+        differences_output_notes: >
+            For PHP 7, the right answer is "C" (there was an error the original Twitter poll).
+        created_at: '2020-09-18'
+        updated_at: '2020-09-18'
+
+    12:
+        previous_question: 11
+        id: 12
+        next_question: 13
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed in PHP 8?
+        reminder: PHP magic setters do not follow strict_types and you can set a property which does not exist.
+        codeImage: https://pbs.twimg.com/media/EigPHTlXsAABypN?format=jpg&name=small
+        codeImageFile: 12.jpg
+        answer_explanations: >
+            PHP magic setters do not follow strict_types and you can set a property which does not exist.
+            PHP 8 will not change this behavior. The right answer was "A".
+        live_snippet_url: https://3v4l.org/lWGYU
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1308313561744265217
+        differences_output_notes: null
+        created_at: '2020-09-22'
+        updated_at: '2020-09-22'
+
+    13:
+        previous_question: 12
+        id: 13
+        next_question: 14
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed with PHP 8.0?
+        reminder: PHP 8 can now return "static".
+        codeImage: https://pbs.twimg.com/media/Ei-8YTyWsAEn-Gy?format=jpg&name=small
+        codeImageFile: 13.jpg
+        answer_explanations: >
+            PHP 8 can now return "static". Prior to this version it returned a fatal error "unexpected static".
+            In addition, you can use "::class" in a dynamic context (that was not allowed before). The right answer was "A".
+        live_snippet_url: https://3v4l.org/X0tgt
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1310475146684256256
+        differences_output_notes: >
+            Prior to this version you get the following error: 'PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) on line 5'
+        created_at: '2020-09-28'
+        updated_at: '2020-09-28'
+
+    14:
+        previous_question: 13
+        id: 14
+        next_question: 15
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed with PHP 8.0?
+        reminder: PHP variables in double-quoted strings are parse differently if they are between braces or not.
+        codeImage: https://pbs.twimg.com/media/EjjFhPgXYAAxajV?format=jpg&name=small
+        codeImageFile: 14.jpg
+        answer_explanations: >
+            PHP variables in double-quoted strings are parse differently if they are between braces or not.
+            Outside braces, PHP can access to properties but don't call methods.
+            The right answer was '() / bar' because property 'bar' doesn't exists.
+        live_snippet_url: https://3v4l.org/VALlY
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1313017003842637824
+        differences_output_notes: null
+        created_at: '2020-10-05'
+        updated_at: '2020-10-05'
+
+    15:
+        previous_question: 14
+        id: 15
+        next_question: 16
+        person_id: 1
+        difficulty_id: 3
+        label: What will be displayed? (PHP => 7.4)
+        reminder: When using a PHP closure (or a short closure) with "$this", the closure must be declare inside a class method.
+        codeImage: https://pbs.twimg.com/media/Ejye6kRWAAEGi5v?format=jpg&name=small
+        codeImageFile: 15.jpg
+        answer_explanations: >
+            When using a PHP closure (or a short closure) with "$this", the closure must be declare inside a class method. The result was "C".
+        live_snippet_url: https://3v4l.org/1kgRa
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1314100784838119424
+        differences_output_notes: >
+            For PHP 7.3 and below we have the following error: Parse error: syntax error, unexpected 'string' (T_STRING),
+            expecting function (T_FUNCTION) or const (T_CONST).",
+        created_at: '2020-10-08'
+        updated_at: '2020-10-08'
+
+    16:
+        previous_question: 15
+        id: 16
+        next_question: 17
+        person_id: 1
+        difficulty_id: 3
+        label: >
+            WTF PHP 8 quiz: What will be displayed?
+        reminder: PHP always has alternative syntax for control structures, and you can mix them.
+        codeImage: https://pbs.twimg.com/media/EkHgLuZWAAAePqc?format=jpg&name=small
+        codeImageFile: 16.jpg
+        answer_explanations: >
+            Yes, PHP 8 always has alternative syntax for control structures, and you can mix them. "goto" was introduced in PHP 5.3
+            and it still exists in version 8. This is not a good practice, please do not use it. This quiz is a joke! The right answer was "fooend" (B).
+        live_snippet_url: https://3v4l.org/UMPHi
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1315579400377839616
+        differences_output_notes: It also works with previous PHP versions!
+        created_at: '2020-10-12'
+        updated_at: '2020-10-12'
+
+    17:
+        previous_question: 16
+        id: 17
+        next_question: 18
+        person_id: 1
+        difficulty_id: 3
+        label: >
+            PHP 8: What will be displayed?
+        reminder: Default value of unset variable is "NULL"
+        codeImage: https://pbs.twimg.com/media/EkWjCgkX0AAlbQH?format=jpg&name=large
+        codeImageFile: 17.jpg
+        answer_explanations: >
+            Default value of unset variable is "NULL".  Then type must be nullable even when it s a reference.
+            The right answer was a fatal TypeError.
+        live_snippet_url: https://3v4l.org/rptQ6
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1316639108471627776
+        differences_output_notes: null
+        created_at: '2020-10-15'
+        updated_at: '2020-10-15'
+
+    18:
+        previous_question: 17
+        id: 18
+        next_question: null
+        person_id: 1
+        difficulty_id: 3
+        label: >
+            PHP 8: What will be displayed?
+        reminder: PHP numeric literal separator are only available during script parsing.
+        codeImage: https://pbs.twimg.com/media/EkrV_nBXYAAIJDG?format=jpg&name=small
+        codeImageFile: 18.jpg
+        answer_explanations: >
+            PHP numeric literal separator are only available during script parsing, and since PHP 8 (> alpha) non well formed numeric
+            value raise a warning which become TypeError, Right answer was C: "[10]TypeError".
+        live_snippet_url: https://3v4l.org/DduJJ
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1318101855793258497
+        differences_output_notes: >
+            Since PHP 8 (> alpha) non well formed numeric value raise a warning which become TypeError.
+        created_at: '2020-10-19'
+        updated_at: '2020-10-19'
