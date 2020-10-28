@@ -5,7 +5,6 @@ namespace App\DataFixtures;
 use App\Entity\Quiz;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Yaml\Yaml;
 
 class QuizFixtures extends Fixture
 {

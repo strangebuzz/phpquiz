@@ -14,19 +14,18 @@ class QuizQuestionFixtures extends Fixture implements DependentFixtureInterface
 
     private QuestionRepository $questionRepository;
 
-    private const DATA = [
-        /*'quiz_id'*/ 1,
-    ];
-
     public function __construct(QuestionRepository $questionRepository)
     {
         $this->questionRepository = $questionRepository;
     }
 
+    /**
+     * YAML loader is not really necessary but it's to keep consistency with other ones.
+     */
     public function load(ObjectManager $manager): void
     {
-        foreach (self::DATA as $quizId) {
-            $quiz = $this->getQuiz($quizId);
+        foreach ($this->loadYaml(self::class)['quiz_questions'] as $quizQuestionArr) {
+            $quiz = $this->getQuiz($quizQuestionArr['quiz_id']);
             foreach ($this->questionRepository->findAllByDate() as $idx => $question) {
                 $quizQuestion = (new QuizQuestion())
                     ->setQuiz($quiz)

@@ -23,3 +23,74 @@ answers:
             correct: false
             poll_result: 3250
 
+    2:
+        -
+            code: A
+            label: '42'
+            correct: false
+            poll_result: 4260
+        -
+            code: B
+            label: '24'
+            correct: false
+            poll_result: 1300
+        -
+            code: C
+            label: >
+                Parse error: syntax error, unexpected '...' (T_ELLIPSIS)
+            correct: false
+            poll_result: 1480
+        -
+            code: D
+            label: >
+                Fatal error: Uncaught Error: Cannot unpack Traversable with string keys
+            correct:
+            poll_result: 2960
+
+    3:
+        -
+            code: A
+            label: int(42)
+            correct: false
+            poll_result: 6250
+        -
+            code: B
+            label: 'NULL'
+            correct: false
+            poll_result: 1880
+        -
+            code: C
+            label: >
+                Fatal error: Uncaught Error: Cannot access private property B::\$foo
+            correct: 1560
+            poll_result: 1560
+        -
+            code: D
+            label: >
+                Parse error: syntax error, unexpected '{'
+            correct: false
+            poll_result: 310
+
+    4:
+        -
+            code: A
+            label: >
+
+            correct:
+            poll_result:
+        -
+            code: B
+            label: >
+
+            correct:
+            poll_result:
+        -
+            code: C
+            label:
+            correct:
+            poll_result:
+        -
+            code: D
+            label:
+            correct:
+            poll_result:
