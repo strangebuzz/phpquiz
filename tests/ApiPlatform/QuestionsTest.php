@@ -32,5 +32,16 @@ class QuestionsTest extends ApiTestCase
 }
 EOT;
         self::assertJsonStringEqualsJsonString($json, $response->getContent());
+
+        // doesn't work, create issue
+        /*
+        self::assertJsonContains([
+            '@context' => '/api/contexts/Question',
+            '@id' => '/api/questions/1',
+            '@type' => 'Question',
+            'id' => 1,
+            'correctAnswerCode' => 'A'
+        ]);
+        */
     }
 }
