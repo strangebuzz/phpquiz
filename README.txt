@@ -13,10 +13,8 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
-* Add the doc to add a snippet (at least put a reference commit)
-* Put fixtures in YAML files (use AliceFixtures bundle?).
 * Add PHP versions the quiz is related too. Show in the question header.
-* Added a command to generete a new question in fixtures
+* Added a command to generate a new question in fixtures
 
 
 @Tests
@@ -27,9 +25,6 @@
 
 @Refactoring/cleanup
 ————————————————————————————————————————————————————————————————————————————————
-
-* Fixture cleanup for local caching, it should be handled by Doctrine itself,
-  to verifiy.
 
 
 @Quiz ideas
