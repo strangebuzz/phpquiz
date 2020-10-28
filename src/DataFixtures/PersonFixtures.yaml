@@ -1,0 +1,10 @@
+persons:
+    1:
+        id: 1
+        twitter: FredBouchery
+        pseudo: null
+
+    2:
+        id: 2
+        twitter: C0il
+        pseudo: null

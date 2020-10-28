@@ -5,31 +5,15 @@ namespace App\DataFixtures;
 use App\Entity\Person;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Yaml\Yaml;
 
 class PersonFixtures extends Fixture
 {
-    private const DATA = [
-        [
-            /*'id'      =>*/ 1,
-            /*'twitter' =>*/ 'FredBouchery',
-            /*'pseudo'  =>*/ null,
-        ],
-        [
-            /*'id'      =>*/ 2,
-            /*'twitter' =>*/ 'C0il',
-            /*'pseudo'  =>*/ null,
-        ]
-    ];
-
-    /**
-     * The following annotation is to prevent PHPSorm from reporting a false positive.
-     *
-     * @noinspection PhpStrictTypeCheckingInspection
-     * @noinspection PhpParamsInspection
-     */
     public function load(ObjectManager $manager): void
     {
-        foreach (self::DATA as [$id, $twitter, $pseudo]) {
+        $data = Yaml::parseFile(__DIR__.'/PersonFixtures.yaml');
+        foreach ($data['persons'] as $person) {
+            [$id, $twitter, $pseudo] = array_values($person);
             if (empty($twitter) && empty($pseudo)) {
                 throw new \InvalidArgumentException('The Twitter or the pseudo should be filled.');
             }

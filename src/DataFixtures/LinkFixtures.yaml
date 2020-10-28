@@ -1,0 +1,95 @@
+links:
+    1:
+        question_id: 1
+        label: Read the namespaces documentation on php.net
+        url: https://www.php.net/manual/en/language.namespaces.definition.php
+
+    2:
+        question_id: 2
+        label: Read the generators documentation on php.net
+        url: https://www.php.net/manual/en/language.generators.syntax.php
+
+    3:
+        question_id: 3
+        label: Read the property_exists function documentation on php.net
+        url: https://www.php.net/manual/en/function.property-exists.php
+
+    4:
+        question_id: 4
+        label: Read the array functions documentation on php.net
+        url: https://www.php.net/manual/en/ref.array.php
+
+    5:
+        question_id: 5
+        label: Read the array_merge function documentation on php.net
+        url: https://www.php.net/manual/en/function.array-merge.php
+
+    6:
+        question_id: 6
+        label: Read the ::class documentation on php.net
+        url: https://www.php.net/manual/en/language.oop5.basic.php#language.oop5.basic.class.class
+
+    7:
+        question_id: 7
+        label: Read the Trait documentation on php.net
+        url: https://www.php.net/manual/en/language.oop5.traits.php
+
+    8:
+        question_id: 8
+        label: Read the Class Abstraction documentation on php.net
+        url: https://www.php.net/manual/en/language.oop5.abstract.php
+
+    9:
+        question_id: 9
+        label: Read the "Saner numeric strings" RFC
+        url: https://wiki.php.net/rfc/saner-numeric-strings
+
+    10:
+        question_id: 10
+        label: Read the magic methods documentation on php.net
+        url: https://www.php.net/manual/en/language.oop5.magic.php
+
+    11:
+        question_id: 11
+        label: Read the "invoke" documentation on php.net
+        url: https://www.php.net/manual/en/language.oop5.magic.php#object.invoke
+
+    12:
+        question_id: 12
+        label: Read the "__set" documentation on php.net
+        url: https://www.php.net/manual/en/language.oop5.overloading.php#object.set
+
+    13:
+        question_id: 13
+        label: Read the "::class" documentation on php.net
+        url: https://www.php.net/manual/en/language.oop5.basic.php#language.oop5.basic.class.class
+
+    14:
+        question_id: 14
+        label: Read the "Variable variables" documentation on php.net
+        url: https://www.php.net/manual/en/language.types.string.php#language.types.string.parsing
+
+    15:
+        question_id: 15
+        label: Read the closure documentation on php.net
+        url: https://www.php.net/manual/en/class.closure.php
+
+    16:
+        question_id: 16
+        label: Read the alternative syntax for control structures documentation on php.net
+        url: https://www.php.net/manual/en/control-structures.alternative-syntax.php
+
+    17:
+        question_id: 17
+        label: Read the nullable types PHP 7.1 new feature on php.net
+        url: https://php.net/manual/en/migration71.new-features.php#migration71.new-features.nullable-types
+
+    18_1:
+        question_id: 18
+        label: Read the "numeric literal separator" RFC on php.net
+        url: https://wiki.php.net/rfc/numeric_literal_separator
+
+    18_2:
+        question_id: 18
+        label: Read the "saner numeric strings" RFC on php.net
+        url: https://wiki.php.net/rfc/saner-numeric-strings
