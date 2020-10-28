@@ -1,0 +1,25 @@
+answers:
+    1:
+        -
+            code: A
+            label: >
+                Fatal error: Uncaught Error: Undefined constant 'Foo\Bar'
+            correct: true
+            poll_result: 1250
+        -
+            code: B
+            label: >
+                Parse error: syntax error, unexpected '\' (T_NS_SEPARATOR)'
+            correct: false
+            poll_result: 3750
+        -
+            code: C
+            label: Foo\Bar\A
+            correct: false
+            poll_result: 1750
+        -
+            code: D
+            label: Foo\Bar\B
+            correct: false
+            poll_result: 3250
+

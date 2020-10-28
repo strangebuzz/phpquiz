@@ -6,7 +6,6 @@ use App\Entity\Link;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Yaml\Yaml;
 
 class LinkFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -14,8 +13,7 @@ class LinkFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        $data = Yaml::parseFile(__DIR__.'/LinkFixtures.yaml');
-        foreach ($data['links'] as $link) {
+        foreach ($this->loadYaml(self::class)['links'] as $link) {
             [$questionId, $label, $url] = array_values($link);
             $question = $this->getQuestion($questionId);
             $link = (new Link())

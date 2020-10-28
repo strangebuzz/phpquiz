@@ -6,7 +6,6 @@ use App\Entity\Question;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Yaml\Yaml;
 
 class QuestionFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -16,9 +15,9 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        $data = Yaml::parseFile(__DIR__.'/QuestionFixtures.yaml');
-        foreach ($data['questions'] as $question) {
-            [, $id, ,$personId, $difficultyId, $label, $reminder, $codeImage, $codeImageFile, $answerExplanations,
+        $questions = $this->loadYaml(self::class)['questions'];
+        foreach ($questions as $question) {
+            [/*previous_question*/, $id, /*next_question*/, $personId, $difficultyId, $label, $reminder, $codeImage, $codeImageFile, $answerExplanations,
                 $liveSnippetUrl, $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt] = array_values($question);
             $createdAtDateTime = date_create($createdAt);
             $updatedAtDateTime = date_create($updatedAt);
@@ -45,7 +44,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         }
 
         // prev and next questions
-        foreach ($data['questions'] as $question) {
+        foreach ($questions as $question) {
             [$previousQuestionId, $id, $nextQuestionId] = array_values($question);
             $previousQuestion = is_int($previousQuestionId) ? $this->getQuestion($previousQuestionId) : null;
             $nextQuestion = is_int($nextQuestionId) ? $this->getQuestion($nextQuestionId) : null;

@@ -484,9 +484,11 @@ class AnswerFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        foreach (self::DATA as $questionId => $questions) {
+        foreach ($this->loadYaml(self::class)['answers'] ?? [] as $questionId => $questions) {
+            //dump($questionId, $questions); die();
             $question = $this->getQuestion($questionId);
-            foreach ($questions as [$code, $label, $correct, $pollResult]) {
+            foreach ($questions as $questionArr) {
+                [$code, $label, $correct, $pollResult] = array_values($questionArr);
                 $answer = (new Answer())
                     ->setCode($code)
                     ->setLabel($label)

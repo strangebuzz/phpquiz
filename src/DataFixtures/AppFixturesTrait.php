@@ -7,6 +7,7 @@ use App\Entity\Person;
 use App\Entity\Question;
 use App\Entity\Quiz;
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
+use Symfony\Component\Yaml\Yaml;
 
 trait AppFixturesTrait
 {
@@ -48,5 +49,19 @@ trait AppFixturesTrait
         }
 
         return $quiz;
+    }
+
+    /**
+     * @return array<string,array>
+     */
+    private function loadYaml(string $class): array
+    {
+        $classInfo = explode('\\', $class);
+        $yaml = Yaml::parseFile(__DIR__.'/'.($classInfo[2] ?? '').'.yaml');
+        if (!is_array($yaml)) {
+            throw new \RuntimeException('Invalid YAML data');
+        }
+
+        return $yaml;
     }
 }

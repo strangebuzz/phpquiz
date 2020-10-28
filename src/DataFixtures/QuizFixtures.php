@@ -15,8 +15,7 @@ class QuizFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $data = Yaml::parseFile(__DIR__.'/QuizFixtures.yaml');
-        foreach ($data['quiz'] as $quizArr) {
+        foreach ($this->loadYaml(self::class)['quiz'] as $quizArr) {
             [$id, $uuid] = array_values($quizArr);
             $quiz = (new Quiz())->setUuid((string) $uuid);
             $manager->persist($quiz);
