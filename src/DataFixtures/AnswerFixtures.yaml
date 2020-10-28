@@ -44,7 +44,7 @@ answers:
             code: D
             label: >
                 Fatal error: Uncaught Error: Cannot unpack Traversable with string keys
-            correct:
+            correct: true
             poll_result: 2960
 
     3:
@@ -62,7 +62,7 @@ answers:
             code: C
             label: >
                 Fatal error: Uncaught Error: Cannot access private property B::\$foo
-            correct: 1560
+            correct: true
             poll_result: 1560
         -
             code: D
@@ -71,26 +71,26 @@ answers:
             correct: false
             poll_result: 310
 
-    4:
-        -
-            code: A
-            label: >
-
-            correct:
-            poll_result:
-        -
-            code: B
-            label: >
-
-            correct:
-            poll_result:
-        -
-            code: C
-            label:
-            correct:
-            poll_result:
-        -
-            code: D
-            label:
-            correct:
-            poll_result:
+#    4:
+#        -
+#            code: A
+#            label: >
+#
+#            correct:
+#            poll_result:
+#        -
+#            code: B
+#            label: >
+#
+#            correct:
+#            poll_result:
+#        -
+#            code: C
+#            label:
+#            correct:
+#            poll_result:
+#        -
+#            code: D
+#            label:
+#            correct:
+#            poll_result:
