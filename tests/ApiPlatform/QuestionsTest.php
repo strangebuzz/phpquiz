@@ -22,26 +22,15 @@ class QuestionsTest extends ApiTestCase
         self::assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         self::assertJson($response->getContent());
         self::assertMatchesResourceItemJsonSchema(Question::class);
-        $json = <<<EOT
-{ 
-  "@context": "/api/contexts/Question",
-  "@id": "/api/questions/1",
-  "@type": "Question",
-  "id": 1,
-  "correctAnswerCode": "A"
-}
-EOT;
-        self::assertJsonStringEqualsJsonString($json, $response->getContent());
 
-        // doesn't work, create issue
-        /*
-        self::assertJsonContains([
+        //self::assertJsonStringEqualsJsonString($json, $response->getContent());
+
+        slf::assertJsonEquals([
             '@context' => '/api/contexts/Question',
             '@id' => '/api/questions/1',
             '@type' => 'Question',
             'id' => 1,
             'correctAnswerCode' => 'A'
         ]);
-        */
     }
 }
