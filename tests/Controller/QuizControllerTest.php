@@ -65,8 +65,6 @@ class QuizControllerTest extends WebTestCase
     public function testQuestionSubmit(): void
     {
         $questionsCount = QuestionFixtures::COUNT;
-        $scoreWithA = 5;
-
         $client = static::createClient();
         $client->request('GET', '/quiz/new');
         $client->followRedirect();
@@ -87,7 +85,7 @@ class QuizControllerTest extends WebTestCase
             // Results or question page
             if ($questionRank === $questionsCount) {
                 $client->followRedirect();
-                self::assertContains(sprintf('Your score: %d/%d', $scoreWithA, $questionsCount), $client->getResponse()->getContent());
+                self::assertContains(sprintf('Your score: %d/%d', QuestionFixtures::SCORE_WITH_A, $questionsCount), $client->getResponse()->getContent());
             } else {
                 self::assertContains(sprintf('Question %d/%d', $questionRank+1, $questionsCount), $client->getResponse()->getContent());
             }

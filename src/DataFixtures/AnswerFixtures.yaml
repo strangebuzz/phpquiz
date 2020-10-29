@@ -413,3 +413,49 @@ answers:
             label: 'ParseError'
             correct: false
             poll_result: 1090
+
+    19:
+        -
+            code: A
+            label: ClassThatNotExists
+            correct: true
+            poll_result: 2920
+        -
+            code: B
+            label: 'Foo\ClassThatNotExists'
+            correct: false
+            poll_result: 2500
+        -
+            code: C
+            label: >
+                Fatal error: Uncaught Error: Class "ClassThatNotExists" not found
+            correct: false
+            poll_result: 1880
+        -
+            code: D
+            label: >
+                Fatal error: Uncaught Error: Class "Foo\ClassThatNotExists" not found
+            correct: false
+            poll_result: 2710
+
+#    20:
+#        -
+#            code: A
+#            label:
+#            correct:
+#            poll_result:
+#        -
+#            code: B
+#            label:
+#            correct:
+#            poll_result:
+#        -
+#            code: C
+#            label:
+#            correct:
+#            poll_result:
+#        -
+#            code: D
+#            label:
+#            correct:
+#            poll_result:

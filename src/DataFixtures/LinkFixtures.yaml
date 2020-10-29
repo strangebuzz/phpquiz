@@ -93,3 +93,8 @@ links:
         question_id: 18
         label: Read the "saner numeric strings" RFC on php.net
         url: https://wiki.php.net/rfc/saner-numeric-strings
+
+    19:
+        question_id: 19
+        label: Read the namespaces rules on php.net
+        url: https://www.php.net/manual/en/language.namespaces.rules.php

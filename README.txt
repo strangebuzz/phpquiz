@@ -31,8 +31,9 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Next quiz to enter:
-- [23/10/2020] https://twitter.com/FredBouchery/status/1320663980898164737
-- Typical commit to add a quiz: https://github.com/strangebuzz/phpquiz/commit/44b83215de64b28db32e7cd353b2307d45bd7271
+- [26/10/2020] https://twitter.com/FredBouchery/status/1321737538273509378
+- [29/10/2020] https://twitter.com/FredBouchery/status/1321764081364324352
+- Typical commit to add a quiz:
 
 
 @Ideas/To decide
