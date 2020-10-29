@@ -17,15 +17,9 @@ class QuestionsTest extends ApiTestCase
         $client = static::createClient();
         $client->request('GET', '/api/questions/1');
         self::assertResponseIsSuccessful();
-        /** @noinspection PhpInternalEntityUsedInspection */
-        $response = $client->getResponse();
         self::assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
-        self::assertJson($response->getContent());
         self::assertMatchesResourceItemJsonSchema(Question::class);
-
-        //self::assertJsonStringEqualsJsonString($json, $response->getContent());
-
-        slf::assertJsonEquals([
+        self::assertJsonEquals([
             '@context' => '/api/contexts/Question',
             '@id' => '/api/questions/1',
             '@type' => 'Question',
