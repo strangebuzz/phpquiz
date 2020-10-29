@@ -33,7 +33,7 @@
 * Next quiz to enter:
 - [26/10/2020] https://twitter.com/FredBouchery/status/1321737538273509378
 - [29/10/2020] https://twitter.com/FredBouchery/status/1321764081364324352
-- Typical commit to add a quiz:
+- Typical commit to add a quiz: https://github.com/strangebuzz/phpquiz/commit/43921de379f4642364ab7f5d9be524ab14cd17a2
 
 
 @Ideas/To decide

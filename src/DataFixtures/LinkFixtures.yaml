@@ -98,3 +98,8 @@ links:
         question_id: 19
         label: Read the namespaces rules on php.net
         url: https://www.php.net/manual/en/language.namespaces.rules.php
+
+#    20:
+#        question_id: 20
+#        label:
+#        url:
