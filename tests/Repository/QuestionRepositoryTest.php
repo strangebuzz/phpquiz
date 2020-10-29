@@ -45,7 +45,7 @@ class QuestionRepositoryTest extends KernelTestCase
             if (!$question instanceof Question) {
                 throw new \InvalidArgumentException('Wrong type! (IDE)');
             }
-            // Check that every question has a signle correct answer.
+            // Check that every question has a single correct answer.
             $question->getCorrectAnswerCode();
         }
     }
