@@ -106,12 +106,12 @@ answers:
             poll_result: 3070
         -
             code: C
-            label: 42
+            label: '42'
             correct: true
             poll_result: 1070
         -
             code: D
-            label: [nothing]
+            label: '[nothing]'
             correct: false
             poll_result: 670
 
@@ -143,44 +143,120 @@ answers:
     7:
         -
             code: A
-            label:
-            correct:
-            poll_result:
+            label: >
+                Fatal error: Uncaught Error: Call to undefined function Foo\Bar()
+            correct: false
+            poll_result: 4750
         -
             code: B
-            label:
-            correct:
-            poll_result:
+            label: >
+                Fatal error: Cannot declare Foo\bar() because the name is already in use
+            correct: false
+            poll_result: 1630
         -
             code: C
-            label:
-            correct:
-            poll_result:
+            label: BAR
+            correct: true
+            poll_result: 2130
         -
             code: D
-            label:
-            correct:
-            poll_result:
+            label: BARBAR
+            correct: false
+            poll_result: 1500
 
     8:
         -
             code: A
-            label:
-            correct:
-            poll_result:
+            label: int(42)
+            correct: false
+            poll_result: 3410
         -
             code: B
-            label:
-            correct:
-            poll_result:
+            label: >
+                Fatal error: Abstract function T::get() cannot be declared private
+            correct: true
+            poll_result: 3410
         -
             code: C
-            label:
-            correct:
-            poll_result:
+            label: >
+                Fatal error: Abstract function T::get() cannot be declared in trait
+            correct: false
+            poll_result: 2200
         -
             code: D
-            label:
-            correct:
-            poll_result:
+            label: Obi Wan Kenobi
+            correct: false
+            poll_result: 980
+
+    9:
+        -
+            code: A
+            label: >
+                not numeric: 0, not numeric: 1337
+            correct: false
+            poll_result: 3330
+        -
+            code: B
+            label: >
+                not numeric: 0, numeric: 1337
+            correct: false
+            poll_result: 2330
+        -
+            code: C
+            label: >
+                numeric: 42, not numeric: 1337
+            correct: true
+            poll_result: 1000
+        -
+            code: D
+            label: >
+                numeric: 42, numeric: 1337
+            correct: false
+            poll_result: 3330
+
+    10:
+        -
+            code: A
+            label: string, string
+            correct: false
+            poll_result: 3730
+        -
+            code: B
+            label: 'string, array'
+            correct: false
+            poll_result: 2060
+        -
+            code: C
+            label: >
+                Fatal error: Method Foo::__call() must take exactly 2 arguments
+            correct: true
+            poll_result: 2750
+        -
+            code: D
+            label: >
+                Fatal error: A void function must not return a value
+            correct: false
+            poll_result: 1470
+
+#    11:
+#        -
+#            code: A
+#            label:
+#            correct:
+#            poll_result:
+#        -
+#            code: B
+#            label:
+#            correct:
+#            poll_result:
+#        -
+#            code: C
+#            label:
+#            correct:
+#            poll_result:
+#        -
+#            code: D
+#            label:
+#            correct:
+#            poll_result:
 
