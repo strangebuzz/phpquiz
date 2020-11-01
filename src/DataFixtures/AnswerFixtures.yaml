@@ -438,7 +438,32 @@ answers:
             correct: false
             poll_result: 2710
 
-#    20:
+    20:
+        -
+            code: A
+            label: '42'
+            correct: false
+            poll_result: 2800
+        -
+            code: B
+            label: >
+                "Notice: Undefined variable: x"  + "0"
+            correct: false
+            poll_result: 1800
+        -
+            code: C
+            label: >
+                "Warning: Undefined variable $x" + "0"
+            correct: true
+            poll_result: 2200
+        -
+            code: D
+            label: >
+                Fatal error: Uncaught ErrorException: Undefined variable $x
+            correct: false
+            poll_result: 3200
+
+#    21:
 #        -
 #            code: A
 #            label:

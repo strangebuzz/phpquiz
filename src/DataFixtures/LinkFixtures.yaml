@@ -99,7 +99,12 @@ links:
         label: Read the namespaces rules on php.net
         url: https://www.php.net/manual/en/language.namespaces.rules.php
 
-#    20:
-#        question_id: 20
+    20:
+        question_id: 20
+        label: Read the engine warnings "undefined variable" RFC on php.net
+        url: https://wiki.php.net/rfc/engine_warnings#undefined_variable
+
+#    21:
+#        question_id: 21
 #        label:
 #        url:
