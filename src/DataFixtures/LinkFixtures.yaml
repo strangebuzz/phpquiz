@@ -104,7 +104,12 @@ links:
         label: Read the engine warnings "undefined variable" RFC on php.net
         url: https://wiki.php.net/rfc/engine_warnings#undefined_variable
 
-#    21:
-#        question_id: 21
+    21:
+        question_id: 21
+        label: Read how reference counting is working on php.net
+        url: https://www.php.net/manual/en/features.gc.refcounting-basics.php#example-427
+
+#    22:
+#        question_id: 22
 #        label:
 #        url:

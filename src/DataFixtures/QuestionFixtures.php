@@ -11,7 +11,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 {
     use AppFixturesTrait;
 
-    public const COUNT = 20;
+    public const COUNT = 21;
     public const SCORE_WITH_A = 6;
 
     public function load(ObjectManager $manager): void
