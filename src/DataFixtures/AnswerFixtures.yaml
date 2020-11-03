@@ -463,7 +463,29 @@ answers:
             correct: false
             poll_result: 3200
 
-#    21:
+    21:
+        -
+            code: A
+            label: '123'
+            correct: false
+            poll_result: 700
+        -
+            code: B
+            label: '123DD'
+            correct: false
+            poll_result: 3200
+        -
+            code: C
+            label: '1D2D3'
+            correct: false
+            poll_result: 700
+        -
+            code: D
+            label: '1D23D'
+            correct: true
+            poll_result: 5400
+
+#    22:
 #        -
 #            code: A
 #            label:
