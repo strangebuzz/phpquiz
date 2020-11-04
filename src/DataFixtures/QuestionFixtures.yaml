@@ -377,7 +377,7 @@ questions:
     20:
         previous_question: 19
         id: 20
-        next_question: null
+        next_question: 21
         person_id: 1
         difficulty_id: 3
         label: >
