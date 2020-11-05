@@ -109,3 +109,6 @@
 
 * //dump($question, $question->getSuggestedBy(), $question->getPreviousQuestion(), $question->getNextQuestion(), $question->getAnswers());
 * const question = {{ question|serialize(block('jsapp') )|raw }};
+* <li><a href="{{ path('question_last') }}">Show the last question of {{ last.createdAt|format_datetime('short', 'none', locale='fr') }}</a></li>
+* <li><a href="{{ path('question_last') }}">Show the last question of {{ last.createdAt|format_datetime('short', 'none', '', null, 'gregorian', locale='fr') }}</a></li>
+* <li><a href="{{ path('question_last') }}">Show the last question of {{ last.createdAt|format_datetime(locale='fr') }}</a></li>
