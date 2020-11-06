@@ -39,7 +39,7 @@ jobs:
 
       # —— Symfony 🎵 ——————————————————————————————————————————————————————————
       # We need the dev cache because the PHPStan Symfony plugin requires it.
-      - name: Check the Symfony console
+      - name: Symfony cache warmup
         run: php bin/console cache:warmup --env=dev
 
       ## —— Coding standards ✨ ————————————————————————————————————————————————
