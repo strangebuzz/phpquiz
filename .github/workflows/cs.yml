@@ -20,7 +20,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '7.4'
-          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, gd, iconv, json, mbstring, pdo
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, gd, iconv, json, mbstring, pdo, pgsql
 
       # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
       - name: Get composer cache directory
@@ -39,11 +39,8 @@ jobs:
 
       # —— Symfony 🎵 ——————————————————————————————————————————————————————————
       # We need the dev cache because the PHPStan Symfony plugin requires it.
-      - name: Check Symfony requirements
-        run: vendor/bin/requirements-checker
-
       - name: Check the Symfony console
-        run: php bin/console -V
+        run: php bin/console cache:warmup --env=dev
 
       ## —— Coding standards ✨ ————————————————————————————————————————————————
       - name: Coding standards checks (php_codesniffer + PHPStan)
