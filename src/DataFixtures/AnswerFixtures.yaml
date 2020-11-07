@@ -485,7 +485,31 @@ answers:
             correct: true
             poll_result: 5400
 
-#    22:
+    22:
+        -
+            code: A
+            label: >
+                "foo&voilà"
+            correct: true
+            poll_result: 4000
+        -
+            code: B
+            label: >
+                Parse error: syntax error
+            correct: false
+            poll_result: 1600
+        -
+            code: C
+            label: TypeError
+            correct: false
+            poll_result: 3200
+        -
+            code: D
+            label: Error
+            correct: false
+            poll_result: 1200
+
+#    23:
 #        -
 #            code: A
 #            label:

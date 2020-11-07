@@ -109,7 +109,12 @@ links:
         label: Read how reference counting is working on php.net
         url: https://www.php.net/manual/en/features.gc.refcounting-basics.php#example-427
 
-#    22:
-#        question_id: 22
+    22:
+        question_id: 22
+        label: Check the variable property example on php.net
+        url: https://php.net/manual/en/language.variables.variable.php#example-86
+
+#    23:
+#        question_id: 23
 #        label:
 #        url:
