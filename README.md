@@ -120,7 +120,7 @@ Thanks goes out to all these wonderful people:
 <table>
   <tr>
     <td align="center"><a href="https://github.com/COil"><img src="https://avatars1.githubusercontent.com/u/177844?s=460&u=740a02df5028ae640ad1d158ec04b94939cccfe8&v=4" width="100px;" alt=""/><br /><sub><b>COil</b></sub></a>
-    <td align="center"><a href="https://github.com/COil"><img src="https://pbs.twimg.com/profile_images/1126758661043265543/DPBOnFra_400x400.png" width="100px;" alt=""/><br /><sub><b>Fred</b></sub></a>
+    <td align="center"><a href="https://github.com/f2r"><img src="https://pbs.twimg.com/profile_images/1126758661043265543/DPBOnFra_400x400.png" width="100px;" alt=""/><br /><sub><b>Fred</b></sub></a>
   </tr>
 </table>
 
