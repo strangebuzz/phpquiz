@@ -7,6 +7,15 @@ Symfony 5.1 application trying to respect [best practices][12].
 Badges 🏅
 --------
 
+<p align="center">
+  <a href="#all-contributors">
+    <img src="https://img.shields.io/badge/all_contributors-2-orange.svg" alt="All Contributors" />
+  </a>
+  <a href="/LICENSE">
+    <img src="https://img.shields.io/github/license/strangebuzz/phpquiz.svg" alt="MIT License" />
+  </a>
+</p>
+
 [![SymfonyInsight](https://insight.symfony.com/projects/26fa7619-c350-4c47-a676-3791304d5f32/big.svg)](https://insight.symfony.com/projects/26fa7619-c350-4c47-a676-3791304d5f32)
 
 
@@ -99,6 +108,25 @@ Troubleshooting 🐛
   * Verify that you have at least PHP **7.4** (`php -v`).
   * In other cases, verify your versions and eventually submit a [bug report][3].
 
+
+All Contributors
+----------------
+
+Thanks goes out to all these wonderful people:
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/COil"><img src="https://avatars1.githubusercontent.com/u/177844?s=460&u=740a02df5028ae640ad1d158ec04b94939cccfe8&v=4" width="100px;" alt=""/><br /><sub><b>COil</b></sub></a>
+    <td align="center"><a href="https://github.com/COil"><img src="https://pbs.twimg.com/profile_images/1126758661043265543/DPBOnFra_400x400.png" width="100px;" alt=""/><br /><sub><b>Fred</b></sub></a>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 [1]: https://phpquiz.xyz
 [2]: https://symfony.com/doc/current/setup.html#technical-requirements
