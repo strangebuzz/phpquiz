@@ -14,13 +14,14 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Add PHP versions the quiz is related too. Show in the question header.
-* Added a command to generate a new question in fixtures
+* Add a command to generate a new question in fixtures
 
 
 @Tests
 ————————————————————————————————————————————————————————————————————————————————
 
 * Add code coverage
+* Better readme with badges, check : https://github.com/carbon-app/carbon
 
 
 @Refactoring/cleanup
