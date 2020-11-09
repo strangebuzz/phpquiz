@@ -93,7 +93,7 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install Composer dependencies
-        run: composer install
+        run: composer install --prefer-dist --no-progress --no-suggest --no-interaction
 
       ## —— Yarn 🐱 ————————————————————————————————————————————————————————————
       - name: Yarn install
