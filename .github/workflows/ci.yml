@@ -43,7 +43,6 @@ jobs:
         run: bin/console cache:warmup --env=dev
 
       - name: Install PHPUnit
-        working-directory: api
         run: vendor/bin/simple-phpunit --version
 
       ## —— Coding standards ✨ ————————————————————————————————————————————————
