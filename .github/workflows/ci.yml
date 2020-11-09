@@ -44,7 +44,7 @@ jobs:
 
       - name: Install PHPUnit
         working-directory: api
-        run: vendor/bin/simple-phpunit --version
+        run: ./vendor/bin/simple-phpunit --version
 
       ## —— Coding standards ✨ ————————————————————————————————————————————————
       - name: Coding standards checks (php_codesniffer + PHPStan)
