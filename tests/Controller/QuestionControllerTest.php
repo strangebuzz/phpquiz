@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class QuestionControllerTest extends WebTestCase
 {
+    /**
+     * @return \Generator<int, array>
+     */
     public function getAnswers(): \Generator
     {
         foreach (range(1, QuestionFixtures::COUNT) as $id) {

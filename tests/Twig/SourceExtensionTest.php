@@ -25,6 +25,10 @@ class SourceExtensionTest extends KernelTestCase
     public function testSource(): void
     {
         $question = $this->questionRepository->find(1);
+        self::assertInstanceOf(Question::class, $question);
+        if (!$question instanceof Question) {
+            throw new \RuntimeException('Test question not found.');
+        }
         $source = $this->sourceExtension->getSource($question);
         self::assertContains("namespace \Foo \Bar;", $source);
     }

@@ -60,6 +60,8 @@ class QuizControllerTest extends WebTestCase
      * varaible after each new question which correct answer is "A".
      *
      * @covers QuizController::result
+     *
+     * @return array<int, array>
      */
     public function questionSubmitDataProvider(): array
     {

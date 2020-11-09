@@ -80,7 +80,7 @@ codesniffer: ## Run php_codesniffer
 	$(PHPCS) -n -p src/
 
 stan: ## Run PHPStan
-	$(STAN) analyse -l max -c phpstan.neon src/
+	$(STAN) analyse -c phpstan.neon
 
 cs: codesniffer stan ## Run all coding standards checks
 

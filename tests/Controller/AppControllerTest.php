@@ -37,7 +37,10 @@ class AppControllerTest extends WebTestCase
         self::assertResponseIsSuccessful();
     }
 
-    public function homeFormErrorsProvider(): ?\Generator
+    /**
+     * @return \Generator<int, array>
+     */
+    public function homeFormErrorsProvider(): \Generator
     {
         yield['', 'This value should not be blank'];
         yield['foo', 'This is not a valid UUID'];

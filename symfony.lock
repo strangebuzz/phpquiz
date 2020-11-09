@@ -147,6 +147,9 @@
     "egulias/email-validator": {
         "version": "2.1.18"
     },
+    "ekino/phpstan-banned-code": {
+        "version": "v0.3.1"
+    },
     "fig/link-util": {
         "version": "1.1.1"
     },
@@ -200,6 +203,9 @@
     },
     "phpstan/phpstan": {
         "version": "0.12.34"
+    },
+    "phpstan/phpstan-deprecation-rules": {
+        "version": "0.12.5"
     },
     "phpstan/phpstan-symfony": {
         "version": "0.12.7"
