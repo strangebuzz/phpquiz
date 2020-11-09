@@ -40,7 +40,11 @@ jobs:
       # —— Symfony 🎵 ——————————————————————————————————————————————————————————
       # We need the dev cache because the PHPStan Symfony plugin requires it.
       - name: Symfony cache warmup
-        run: php bin/console cache:warmup --env=dev
+        run: bin/console cache:warmup --env=dev
+
+      - name: Install PHPUnit
+        working-directory: api
+        run: vendor/bin/simple-phpunit --version
 
       ## —— Coding standards ✨ ————————————————————————————————————————————————
       - name: Coding standards checks (php_codesniffer + PHPStan)
