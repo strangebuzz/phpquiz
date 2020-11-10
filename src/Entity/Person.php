@@ -8,8 +8,8 @@ use App\Repository\PersonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
@@ -57,7 +57,7 @@ class Person extends BaseEntity
         $this->questions = new ArrayCollection();
     }
 
-    public function __toString() : string
+    public function __toString(): string
     {
         return (string) ($this->twitter ?: $this->pseudo);
     }
@@ -125,7 +125,7 @@ class Person extends BaseEntity
     /* End basic 'etters and Doctrine generated code ———————————————————————— */
 
     /**
-     * Custom constraint: "The Twitter or the pseudo should be illed , but not both"
+     * Custom constraint: "The Twitter or the pseudo should be illed , but not both".
      *
      * @Assert\Callback
      */

@@ -102,7 +102,7 @@ class QuizControllerTest extends WebTestCase
             }
 
             // Select 1st option available, it's always "A".
-            $answerFormField->select($answerFormField->availableOptionValues()[ord($answserCode)-65]); // "A" ord is 65. "B" is 66...
+            $answerFormField->select($answerFormField->availableOptionValues()[ord($answserCode) - 65]); // "A" ord is 65. "B" is 66...
             $client->submit($form);
             $client->followRedirect();
             // Results or question page
@@ -110,7 +110,7 @@ class QuizControllerTest extends WebTestCase
                 $client->followRedirect();
                 self::assertContains(sprintf('Your score: %d/%d', $score, $questionsCount), $client->getResponse()->getContent());
             } else {
-                self::assertContains(sprintf('Question %d/%d', $questionRank+1, $questionsCount), $client->getResponse()->getContent());
+                self::assertContains(sprintf('Question %d/%d', $questionRank + 1, $questionsCount), $client->getResponse()->getContent());
             }
         }
     }

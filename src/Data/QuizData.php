@@ -20,7 +20,7 @@ class QuizData
     private QuestionRepository $questionRepository;
     private EntityManagerInterface $entityManager;
 
-    public function __construct(QuizRepository $quizRepository, QuizQuestionRepository  $quizQuestionRepository, QuestionRepository $questionRepository, EntityManagerInterface $entityManager)
+    public function __construct(QuizRepository $quizRepository, QuizQuestionRepository $quizQuestionRepository, QuestionRepository $questionRepository, EntityManagerInterface $entityManager)
     {
         $this->quizRepository = $quizRepository;
         $this->quizQuestionRepository = $quizQuestionRepository;
@@ -51,9 +51,9 @@ class QuizData
 
         return [
             'quiz_question' => $quizQuestion,
-            'question' => $quizQuestion->getQuestion(),
-            'count' => count($questions),
-            'form' => $form->createView(),
+            'question'      => $quizQuestion->getQuestion(),
+            'count'         => count($questions),
+            'form'          => $form->createView(),
         ];
     }
 
@@ -81,7 +81,7 @@ class QuizData
             $this->entityManager->persist((new QuizQuestion())
                 ->setQuiz($quiz)
                 ->setQuestion($question)
-                ->setRank($idx+1));
+                ->setRank($idx + 1));
         }
 
         $this->entityManager->persist($quiz);

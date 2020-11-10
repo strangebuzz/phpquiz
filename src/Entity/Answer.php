@@ -45,7 +45,7 @@ class Answer extends BaseEntity
      */
     private ?Question $question;
 
-    public function __toString() : string
+    public function __toString(): string
     {
         return (string) $this->code;
     }
@@ -127,6 +127,6 @@ class Answer extends BaseEntity
 
     public function getLabelWithCode(): string
     {
-        return '<b>'.$this->getCode(). '</b>: '.$this->getLabel();
+        return '<b>'.$this->getCode().'</b>: '.$this->getLabel();
     }
 }

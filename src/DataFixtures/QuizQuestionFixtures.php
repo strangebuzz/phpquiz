@@ -32,7 +32,7 @@ class QuizQuestionFixtures extends Fixture implements DependentFixtureInterface
                 $quizQuestion = (new QuizQuestion())
                     ->setQuiz($quiz)
                     ->setQuestion($question)
-                    ->setRank($idx+1);
+                    ->setRank($idx + 1);
                 $manager->persist($quizQuestion);
             }
         }

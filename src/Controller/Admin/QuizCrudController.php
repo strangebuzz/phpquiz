@@ -39,7 +39,7 @@ class QuizCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         $accessQuizAction = Action::new('accessQuiz', 'Access Quiz', 'fa fa-external-link')
-            ->linkToRoute('admin_quiz_access', fn(Quiz $entity) => ['uuid' => $entity->getUuid()]);
+            ->linkToRoute('admin_quiz_access', fn (Quiz $entity) => ['uuid' => $entity->getUuid()]);
 
         return $actions->add(Crud::PAGE_INDEX, $accessQuizAction);
     }

@@ -44,6 +44,7 @@ class QuizController extends AbstractController
     public function question(Request $request, string $uuid, string $_route): Response
     {
         $quiz = $this->quizData->getQuiz($uuid);
+
         try {
             $quizQuestion = $this->quizData->getQuizQuestion($quiz);
         } catch (\Exception $e) {
@@ -52,7 +53,7 @@ class QuizController extends AbstractController
 
         $form = $this->createForm(QuizType::class, [], [
             'quiz_question' => $quizQuestion,
-            'action' => $this->generateUrl($_route, ['uuid' => $uuid]),
+            'action'        => $this->generateUrl($_route, ['uuid' => $uuid]),
         ])->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

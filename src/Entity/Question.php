@@ -138,7 +138,7 @@ class Question extends BaseEntity
     /**
      * List of possible answers for the question.
      *
-     * @var Collection<int,Answer> $answers
+     * @var Collection<int,Answer>
      *
      * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="question", orphanRemoval=true, fetch="EAGER")
      */
@@ -187,7 +187,7 @@ class Question extends BaseEntity
 
     public function __toString(): string
     {
-        return $this->reminder. '('.$this->id.')';
+        return $this->reminder.'('.$this->id.')';
     }
 
     public function getId(): ?int
@@ -415,7 +415,7 @@ class Question extends BaseEntity
         $correctAnswer = null;
         foreach ($this->getAnswers() as $answer) {
             if ($correctAnswer !== null && $answer->isCorrect()) {
-                throw new \LogicException("Question has more than a correct answer.");
+                throw new \LogicException('Question has more than a correct answer.');
             }
 
             if ($correctAnswer === null && $answer->isCorrect()) {

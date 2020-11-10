@@ -45,7 +45,7 @@ class Link extends BaseEntity
      */
     private ?Question $question;
 
-    public function __toString() : string
+    public function __toString(): string
     {
         return (string) $this->label;
     }

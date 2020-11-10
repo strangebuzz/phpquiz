@@ -33,7 +33,7 @@ class QuizRestoreType extends AbstractType
                 new Sequentially([
                     new NotBlank(),
                     new Uuid(),
-                    new Callback([$this, 'checkQuiz'])
+                    new Callback([$this, 'checkQuiz']),
                 ]),
             ]
         ]);

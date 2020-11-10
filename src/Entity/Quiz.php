@@ -30,7 +30,7 @@ class Quiz extends BaseEntity
     protected ?string $uuid;
 
     /**
-     * @var Collection<int,QuizQuestion> $questions
+     * @var Collection<int,QuizQuestion>
      *
      * @ORM\OneToMany(targetEntity=QuizQuestion::class, mappedBy="quiz", cascade={"remove"})
      */
@@ -128,11 +128,11 @@ class Quiz extends BaseEntity
             if ($answer instanceof Answer) {
                 $score += $answer->isCorrect() ? 1 : 0;
             } else {
-                ++$notAnswered;
+                $notAnswered++;
             }
         }
 
-        return $score.'/'.(count($qestions)-$notAnswered).' ('.count($qestions).')';
+        return $score.'/'.(count($qestions) - $notAnswered).' ('.count($qestions).')';
     }
 
     /**
