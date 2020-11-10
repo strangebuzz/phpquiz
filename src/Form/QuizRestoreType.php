@@ -35,7 +35,7 @@ class QuizRestoreType extends AbstractType
                     new Uuid(),
                     new Callback([$this, 'checkQuiz']),
                 ]),
-            ]
+            ],
         ]);
     }
 

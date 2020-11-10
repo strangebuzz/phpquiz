@@ -26,7 +26,7 @@ class QuestionsTest extends ApiTestCase
             '@id'               => '/api/questions/1',
             '@type'             => 'Question',
             'id'                => 1,
-            'correctAnswerCode' => 'A'
+            'correctAnswerCode' => 'A',
         ]);
     }
 }

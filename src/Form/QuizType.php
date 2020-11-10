@@ -21,8 +21,7 @@ class QuizType extends AbstractType
                 'choice_value' => 'id',
                 'choice_label' => 'labelWithCode',
                 'expanded'     => true, // radio
-            ])
-        ;
+            ]);
     }
 
     private function getQuestion(QuizQuestion $quizQuestion): Question

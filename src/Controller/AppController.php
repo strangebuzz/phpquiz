@@ -36,7 +36,7 @@ class AppController extends AbstractController
         return $this->render('app/home.html.twig', [
             'count' => $this->questionData->count(),
             'last'  => $this->questionData->getLastQuestion(),
-            'form'  => $form->createView()
+            'form'  => $form->createView(),
         ]);
     }
 

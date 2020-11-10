@@ -80,7 +80,7 @@ class QuestionData
         return [
             'question' => $question,
             'code'     => $this->sourceExtension->getSource($question),
-            'count'    => $this->count()
+            'count'    => $this->count(),
         ];
     }
 
@@ -102,7 +102,7 @@ class QuestionData
 
         return [
             'answer_codes' => $answerCodes,
-            'total'        => array_sum($answerCodes)
+            'total'        => array_sum($answerCodes),
         ];
     }
 }
