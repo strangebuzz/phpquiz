@@ -11,7 +11,7 @@ use EasyCorp\Bundle\EasyDeployBundle\Deployer\DefaultDeployer;
  * "server()" call. Don't forget to create a ".env" file in the "shared" directory
  * of the "deployDir()". Check out the commited ".env" file.
  */
-return new class extends DefaultDeployer {
+return new class() extends DefaultDeployer {
     public function configure(): DefaultConfiguration
     {
         return $this->getConfigBuilder()
