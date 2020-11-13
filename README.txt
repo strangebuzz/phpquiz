@@ -13,6 +13,8 @@
 @Todo
 ————————————————————————————————————————————————————————————————————————————————
 
+* See to add scrutinizer.yml
+  > example: https://github.com/scheb/2fa/blob/5.x/.scrutinizer.yml
 * Add PHP versions the quiz is related too. Show in the question header.
 * Add a command to generate a new question in fixtures
 
