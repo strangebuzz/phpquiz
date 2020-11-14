@@ -50,7 +50,7 @@ assets: ## Install assets
 	$(SYMFONY) assets:install public --symlink --relative
 
 load-fixtures: ## Build the db, control the schema validity, load fixtures and check the migration status
-	$(SYMFONY) doctrine:cache:clear-metadata
+	$(SYMFONY) doctrine:cache:clear-metadata --flush
 	$(SYMFONY) doctrine:database:create --if-not-exists
 	$(SYMFONY) doctrine:schema:drop --force
 	$(SYMFONY) doctrine:schema:create
