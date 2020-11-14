@@ -114,7 +114,12 @@ links:
         label: Check the variable property example on php.net
         url: https://php.net/manual/en/language.variables.variable.php#example-86
 
-#    23:
-#        question_id: 23
+    23:
+        question_id: 23
+        label: Check the "What References Do" documentation page on php.net
+        url: https://php.net/manual/en/language.references.whatdo.php
+
+#    24:
+#        question_id: 24
 #        label:
 #        url:

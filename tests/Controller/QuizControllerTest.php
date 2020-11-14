@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Controller;
 
-use App\DataFixtures\QuestionFixtures;
 use App\DataFixtures\QuizFixtures;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
@@ -15,6 +14,8 @@ use Symfony\Component\DomCrawler\Field\ChoiceFormField;
  */
 class QuizControllerTest extends WebTestCase
 {
+    public const COUNT = 23; // Change me after each fixtures update
+
     /**
      * @covers QuizController::new
      */
@@ -69,7 +70,7 @@ class QuizControllerTest extends WebTestCase
     {
         return [
             ['A', 7], // Answer code => number of correction answers for this code
-            ['B', 2],
+            ['B', 3],
             ['C', 9],
             ['D', 4],
         ];
@@ -88,7 +89,7 @@ class QuizControllerTest extends WebTestCase
      */
     public function testQuestionSubmit(string $answserCode, int $score): void
     {
-        $questionsCount = QuestionFixtures::COUNT;
+        $questionsCount = self::COUNT;
         $client = static::createClient();
         $client->request('GET', '/quiz/new');
         $client->followRedirect();
@@ -120,6 +121,6 @@ class QuizControllerTest extends WebTestCase
      */
     public function testQuestionsCount(): void
     {
-        self::assertSame(QuestionFixtures::COUNT, array_sum(array_column($this->questionSubmitDataProvider(), 1)));
+        self::assertSame(self::COUNT, array_sum(array_column($this->questionSubmitDataProvider(), 1)));
     }
 }

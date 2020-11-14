@@ -509,7 +509,30 @@ answers:
             correct: false
             poll_result: 1200
 
-#    23:
+    23:
+        -
+            code: A
+            label: >
+                Parse error: syntax error
+            correct: false
+            poll_result: 1000
+        -
+            code: B
+            label: TypeError
+            correct: true
+            poll_result: 6250
+        -
+            code: C
+            label: Warning + int(0)
+            correct: false
+            poll_result: 500
+        -
+            code: D
+            label: int(42)
+            correct: false
+            poll_result: 2250
+
+#    24:
 #        -
 #            code: A
 #            label:

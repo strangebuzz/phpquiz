@@ -6,7 +6,6 @@
 @Bugs
 ————————————————————————————————————————————————————————————————————————————————
 
-* Fixed the assets target in the MakeFile
 * Joins OK in the show action, query count seems weird? To verify.
 
 
@@ -34,7 +33,6 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Next quiz to enter:
-- [06/11/2020] https://twitter.com/FredBouchery/status/1325732091099836416
 - [09/11/2020] https://twitter.com/FredBouchery/status/1326796631510032386
 - Typical commit to add a quiz: https://github.com/strangebuzz/phpquiz/commit/43921de379f4642364ab7f5d9be524ab14cd17a2
 

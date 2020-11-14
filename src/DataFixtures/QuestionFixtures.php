@@ -13,8 +13,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 {
     use AppFixturesTrait;
 
-    public const COUNT = 22; // Change me after each fixtures update
-
     public function load(ObjectManager $manager): void
     {
         $questions = $this->loadYaml(self::class)['questions'];

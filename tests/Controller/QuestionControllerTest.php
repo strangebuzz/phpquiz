@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Controller;
 
-use App\DataFixtures\QuestionFixtures;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,7 +17,7 @@ class QuestionControllerTest extends WebTestCase
      */
     public function getAnswers(): \Generator
     {
-        foreach (range(1, QuestionFixtures::COUNT) as $id) {
+        foreach (range(1, QuizControllerTest::COUNT) as $id) {
             yield [$id];
         }
     }
