@@ -33,9 +33,8 @@ serve: ## Serve the application with HTTPS support
 unserve: ## Stop the web server
 	$(SYMFONY_BIN) server:stop
 
-## —— Composer 🧙‍♂️ ————————————————————————————————————————————————————————————
 composer-install: composer.lock ## Install vendors according to the current composer.lock file
-	$(SYMFONY_BIN) composer install
+	$(COMPOSER) install
 
 ## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
 cc: ## Clear cache
