@@ -531,8 +531,30 @@ answers:
             label: int(42)
             correct: false
             poll_result: 2250
+    24:
+        -
+            code: A
+            label: >
+                oooo
+            correct: false
+            poll_result: 3100
+        -
+            code: B
+            label: xxoo
+            correct: true
+            poll_result: 3800
+        -
+            code: C
+            label: xooo
+            correct: false
+            poll_result: 600
+        -
+            code: D
+            label: xoxo
+            correct: false
+            poll_result: 2500
 
-#    24:
+#    25:
 #        -
 #            code: A
 #            label:

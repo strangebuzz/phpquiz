@@ -437,7 +437,7 @@ questions:
     23:
         previous_question: 22
         id: 23
-        next_question: null
+        next_question: 24
         person_id: 1
         difficulty_id: 3
         label: >
@@ -455,9 +455,29 @@ questions:
         created_at: '2020-11-06'
         updated_at: '2020-11-06'
 
-#    24:
-#        previous_question: 23
-#        id: 24
+    24:
+        previous_question: 23
+        id: 24
+        next_question: null
+        person_id: 1
+        difficulty_id: 3
+        label: >
+            PHP 8 quiz: What will be displayed?
+        reminder: Only properties and constants are case-sensitives.
+        codeImage: https://pbs.twimg.com/media/EmX0VfhW8AAjmYR?format=jpg&name=small
+        codeImageFile: 24.jpg
+        answer_explanations: >
+            #PHP namespaces, classes and functions/methods are not case sensitive, but properties and constants are.
+            Since PHP 8, it is not possible to declare a case insensitive constant.
+        live_snippet_url: https://3v4l.org/gMUTO
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1325735317912121348
+        differences_output_notes: null
+        created_at: '2020-11-09'
+        updated_at: '2020-11-09'
+
+#    25:
+#        previous_question: 24
+#        id: 25
 #        next_question: null
 #        person_id: 1
 #        difficulty_id: 3
@@ -466,7 +486,7 @@ questions:
 #        reminder: >
 #
 #        codeImage:
-#        codeImageFile: 22.jpg
+#        codeImageFile: 25.jpg
 #        answer_explanations: >
 #
 #        live_snippet_url:

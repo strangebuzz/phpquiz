@@ -119,6 +119,11 @@ links:
         label: Check the "What References Do" documentation page on php.net
         url: https://php.net/manual/en/language.references.whatdo.php
 
+    24:
+        question_id: 24
+        label: Check the "define" third parameter on php.net for global constant case sensibility
+        url: https://www.php.net/manual/en/function.define.php
+
 #    24:
 #        question_id: 24
 #        label:
