@@ -14,7 +14,7 @@ use Symfony\Component\DomCrawler\Field\ChoiceFormField;
  */
 class QuizControllerTest extends WebTestCase
 {
-    public const COUNT = 23; // Change me after each fixtures update
+    public const COUNT = 24; // Change me after each fixtures update
 
     /**
      * @covers QuizController::new
@@ -70,7 +70,7 @@ class QuizControllerTest extends WebTestCase
     {
         return [
             ['A', 7], // Answer code => number of correction answers for this code
-            ['B', 3],
+            ['B', 4],
             ['C', 9],
             ['D', 4],
         ];
