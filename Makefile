@@ -79,7 +79,7 @@ codesniffer: ## Run php_codesniffer
 	$(PHPCS) -n -p src/
 
 stan: ## Run PHPStan
-	$(STAN) analyse -c phpstan.neon
+	$(STAN) analyse -c phpstan.neon --memory-limit 1G
 
 cs: codesniffer stan ## Run all coding standards checks
 

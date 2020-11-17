@@ -5,7 +5,7 @@ declare(strict_types=1);
 use EasyCorp\Bundle\EasyDeployBundle\Configuration\DefaultConfiguration;
 use EasyCorp\Bundle\EasyDeployBundle\Deployer\DefaultDeployer;
 
-/**
+/*
  * This is a sample class. To deploy, copy this file to deploy.php and fix the
  * settings corresponding to your server. The first setting to change is the
  * "server()" call. Don't forget to create a ".env" file in the "shared" directory

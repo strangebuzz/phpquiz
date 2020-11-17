@@ -22,10 +22,10 @@ class QuestionsTest extends ApiTestCase
         self::assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         self::assertMatchesResourceItemJsonSchema(Question::class);
         self::assertJsonEquals([
-            '@context'          => '/api/contexts/Question',
-            '@id'               => '/api/questions/1',
-            '@type'             => 'Question',
-            'id'                => 1,
+            '@context' => '/api/contexts/Question',
+            '@id' => '/api/questions/1',
+            '@type' => 'Question',
+            'id' => 1,
             'correctAnswerCode' => 'A',
         ]);
     }

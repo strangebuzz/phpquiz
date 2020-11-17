@@ -22,7 +22,7 @@ class SourceExtensionTest extends KernelTestCase
     }
 
     /**
-     * @covers SourceExtension::getSource
+     * @covers \SourceExtension::getSource
      */
     public function testSource(): void
     {
@@ -36,7 +36,7 @@ class SourceExtensionTest extends KernelTestCase
     }
 
     /**
-     * @covers SourceExtension::getSource
+     * @covers \SourceExtension::getSource
      */
     public function testSourceNotFound(): void
     {
