@@ -16,8 +16,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
 trait TimestampableEntityTrait
 {
     /**
-     * @var \DateTime|null
-     *
      * @Gedmo\Timestampable(on="create")
      *
      * @ORM\Column(type="datetime", name="created_at")
@@ -25,8 +23,6 @@ trait TimestampableEntityTrait
     protected ?\DateTime $createdAt = null;
 
     /**
-     * @var \DateTime|null
-     *
      * @Gedmo\Timestampable(on="update")
      *
      * @ORM\Column(type="datetime", name="updated_at")

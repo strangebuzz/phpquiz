@@ -79,8 +79,8 @@ class QuestionData
     {
         return [
             'question' => $question,
-            'code'     => $this->sourceExtension->getSource($question),
-            'count'    => $this->count(),
+            'code' => $this->sourceExtension->getSource($question),
+            'count' => $this->count(),
         ];
     }
 
@@ -97,12 +97,12 @@ class QuestionData
         ];
 
         foreach ($this->questionRepository->findAll() as $question) {
-            $answerCodes[$question->getCorrectAnswerCode()]++;
+            ++$answerCodes[$question->getCorrectAnswerCode()];
         }
 
         return [
             'answer_codes' => $answerCodes,
-            'total'        => array_sum($answerCodes),
+            'total' => array_sum($answerCodes),
         ];
     }
 }

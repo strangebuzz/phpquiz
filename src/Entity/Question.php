@@ -414,16 +414,16 @@ class Question extends BaseEntity
     {
         $correctAnswer = null;
         foreach ($this->getAnswers() as $answer) {
-            if ($correctAnswer !== null && $answer->isCorrect()) {
+            if (null !== $correctAnswer && $answer->isCorrect()) {
                 throw new \LogicException('Question has more than a correct answer.');
             }
 
-            if ($correctAnswer === null && $answer->isCorrect()) {
+            if (null === $correctAnswer && $answer->isCorrect()) {
                 $correctAnswer = $answer;
             }
         }
 
-        if ($correctAnswer === null) {
+        if (null === $correctAnswer) {
             throw new \LogicException("Question doesn't have a correct answer.");
         }
 

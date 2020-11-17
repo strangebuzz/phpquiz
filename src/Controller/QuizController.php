@@ -53,7 +53,7 @@ class QuizController extends AbstractController
 
         $form = $this->createForm(QuizType::class, [], [
             'quiz_question' => $quizQuestion,
-            'action'        => $this->generateUrl($_route, ['uuid' => $uuid]),
+            'action' => $this->generateUrl($_route, ['uuid' => $uuid]),
         ])->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -17,10 +17,10 @@ class QuizType extends AbstractType
     {
         $builder
             ->add('answer', ChoiceType::class, [
-                'choices'      => $this->getQuestion($options['quiz_question'])->getAnswers(),
+                'choices' => $this->getQuestion($options['quiz_question'])->getAnswers(),
                 'choice_value' => 'id',
                 'choice_label' => 'labelWithCode',
-                'expanded'     => true, // radio
+                'expanded' => true, // radio
             ]);
     }
 

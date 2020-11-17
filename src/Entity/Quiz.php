@@ -128,7 +128,7 @@ class Quiz extends BaseEntity
             if ($answer instanceof Answer) {
                 $score += $answer->isCorrect() ? 1 : 0;
             } else {
-                $notAnswered++;
+                ++$notAnswered;
             }
         }
 

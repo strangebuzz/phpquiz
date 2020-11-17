@@ -51,9 +51,9 @@ class QuizData
 
         return [
             'quiz_question' => $quizQuestion,
-            'question'      => $quizQuestion->getQuestion(),
-            'count'         => count($questions),
-            'form'          => $form->createView(),
+            'question' => $quizQuestion->getQuestion(),
+            'count' => count($questions),
+            'form' => $form->createView(),
         ];
     }
 
@@ -63,7 +63,7 @@ class QuizData
     public function getQuizQuestion(Quiz $quiz): QuizQuestion
     {
         foreach ($this->quizQuestionRepository->getQuestionsByRank($quiz) as $quizQuestion) {
-            if ($quizQuestion->getAnswer() === null) {
+            if (null === $quizQuestion->getAnswer()) {
                 return $quizQuestion;
             }
         }

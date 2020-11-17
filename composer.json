@@ -54,6 +54,7 @@
     "require-dev": {
         "easycorp/easy-deploy-bundle": "^1.0",
         "ekino/phpstan-banned-code": "^0.3.1",
+        "friendsofphp/php-cs-fixer": "^2.16",
         "justinrainbow/json-schema": "^5.2",
         "phpstan/phpstan-deprecation-rules": "^0.12.5",
         "phpstan/phpstan-symfony": "^0.12",
