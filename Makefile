@@ -1,14 +1,14 @@
 # Setup ————————————————————————————————————————————————————————————————————————
-EXEC_PHP    = php
-SYMFONY     = $(EXEC_PHP) bin/console
-SYMFONY_BIN = symfony
-DOCKER      = docker
-DOCKER_COMP = docker-compose
-YARN        = yarn
-STAN        = ./vendor/bin/phpstan
-PHPCS       = ./vendor/squizlabs/php_codesniffer/bin/phpcs
-PHPUNIT     = ./vendor/bin/simple-phpunit
-LE_EXEC     = certbot
+EXEC_PHP     = php
+SYMFONY      = $(EXEC_PHP) bin/console
+SYMFONY_BIN  = symfony
+DOCKER       = docker
+DOCKER_COMP  = docker-compose
+YARN         = yarn
+STAN         = ./vendor/bin/phpstan
+PHP_CS_FIXER = ./vendor/bin/php-cs-fixer
+PHPUNIT      = ./vendor/bin/simple-phpunit
+LE_EXEC      = certbot
 .DEFAULT_GOAL := help
 .PHONY: assets
 
@@ -75,13 +75,13 @@ build: ## Build assets for production
 	$(YARN) run encore production
 
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
-codesniffer: ## Run php_codesniffer
-	$(PHPCS) -n -p src/
+fix-cs: ## Fix files with php-cs-fixer
+	$(PHP_CS_FIXER) fix
 
 stan: ## Run PHPStan
 	$(STAN) analyse -c phpstan.neon --memory-limit 1G
 
-cs: codesniffer stan ## Run all coding standards checks
+cs: fix-cs stan ## Run all coding standards checks
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
 test: ## Launch functional and unit tests
