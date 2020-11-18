@@ -5,22 +5,25 @@ declare(strict_types=1);
 namespace App\Data;
 
 use App\Entity\Question;
+use App\Repository\AnswerRepository;
 use App\Repository\QuestionRepository;
-use App\Twig\SourceExtension;
-use Doctrine\DBAL\Connection;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class QuestionData
+final class QuestionData
 {
     private QuestionRepository $questionRepository;
-    private Connection $connection;
-    private SourceExtension $sourceExtension;
+    private AnswerRepository $answerRepository;
+    private string $sourceCodeDirectory;
 
-    public function __construct(QuestionRepository $questionRepository, Connection $connection, SourceExtension $sourceExtension)
-    {
+    public function __construct(
+        QuestionRepository $questionRepository,
+        AnswerRepository $answerRepository,
+        string $sourceCodeDirectory
+    ) {
         $this->questionRepository = $questionRepository;
-        $this->connection = $connection;
-        $this->sourceExtension = $sourceExtension;
+        $this->answerRepository = $answerRepository;
+        $this->sourceCodeDirectory = $sourceCodeDirectory;
     }
 
     public function getQuestion(int $id): Question
@@ -38,71 +41,44 @@ class QuestionData
         return $this->questionRepository->count([]);
     }
 
-    public function getRandomId(): int
-    {
-        $result = $this->connection->fetchAllAssociative('SELECT id FROM question ORDER BY RANDOM() LIMIT 1');
-        if (!$result[0]['id']) {
-            throw new \UnexpectedValueException('No question found.');
-        }
-
-        return (int) $result[0]['id'];
-    }
-
     public function getRandomQuestion(): Question
     {
-        $id = $this->getRandomId();
-
-        return $this->getQuestion($id);
-    }
-
-    public function getLastId(): int
-    {
-        $result = $this->connection->fetchAllAssociative('SELECT id FROM question ORDER BY created_at DESC LIMIT 1');
-        if (!$result[0]['id']) {
-            throw new \UnexpectedValueException('No question found.');
+        $offset = \mt_rand(0, $this->count() - 1);
+        $questions = $this->questionRepository->findBy([], null, 1, $offset);
+        if (\count($questions) > 0) {
+            return $questions[0];
         }
-
-        return (int) $result[0]['id'];
+        throw new HttpException(500, 'Could not return random question for offset '.$offset);
     }
 
     public function getLastQuestion(): Question
     {
-        $id = $this->getLastId();
-
-        return $this->getQuestion($id);
+        $questions = $this->questionRepository->findBy([], ['createdAt' => 'DESC'], 1, 0);
+        if (\count($questions) > 0) {
+            return $questions[0];
+        }
+        throw new HttpException(500, 'Could not return the last question');
     }
 
-    /**
-     * @return array<string,mixed>
-     */
-    public function getViewParameters(Question $question): array
+    public function getAnswersStatistics(): AnswerStatistics
     {
-        return [
-            'question' => $question,
-            'code' => $this->sourceExtension->getSource($question),
-            'count' => $this->count(),
-        ];
-    }
+        $answerStatistics = new AnswerStatistics();
 
-    /**
-     * @return array<string,mixed>
-     */
-    public function getAnswersStats(): array
-    {
-        $answerCodes = [
-            'A' => 0,
-            'B' => 0,
-            'C' => 0,
-            'D' => 0,
-        ];
-
-        foreach ($this->questionRepository->findAll() as $question) {
-            ++$answerCodes[$question->getCorrectAnswerCode()];
+        foreach ($this->answerRepository->calculateCorrectAnswerStatistics() as ['code' => $code, 'count' => $count]) {
+            $answerStatistics->answerCodes[$code] = $count;
+            $answerStatistics->sum += $count;
         }
 
-        return [
-            'answer_codes' => $answerCodes,
-            'total' => array_sum($answerCodes),
-        ];
+        return $answerStatistics;
+    }
+
+    public function getSourceCode(Question $question): string
+    {
+        $filename = sprintf($this->sourceCodeDirectory.'/%d.php', $question->getId());
+        if (!is_file($filename)) {
+            throw new \InvalidArgumentException(sprintf('Question code not found, create the "/code/%d.php" file.', $question->getId()));
+        }
+
+        return (string) file_get_contents($filename);
     }
 }
