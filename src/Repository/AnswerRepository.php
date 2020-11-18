@@ -20,4 +20,16 @@ class AnswerRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Answer::class);
     }
+
+    public function calculateCorrectAnswerStatistics()
+    {
+        return $this->createQueryBuilder('q')
+            ->select('q.code, count(q.id) as count')
+            ->where('q.correct=true')
+            ->groupBy('q.code')
+            ->orderBy('q.code')
+            ->getQuery()
+            ->execute()
+        ;
+    }
 }

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Data\QuestionData;
+use App\Entity\Question;
+use App\Twig\SourceExtension;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,10 +19,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuestionController extends AbstractController
 {
     private QuestionData $questionData;
+    private SourceExtension $sourceExtension;
 
-    public function __construct(QuestionData $questionData)
+    public function __construct(QuestionData $questionData, SourceExtension $sourceExtension)
     {
         $this->questionData = $questionData;
+        $this->sourceExtension = $sourceExtension;
     }
 
     /**
@@ -28,9 +32,7 @@ class QuestionController extends AbstractController
      */
     public function show(int $id): Response
     {
-        $question = $this->questionData->getQuestion($id);
-
-        return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
+        return $this->renderQuestion($this->questionData->getQuestion($id));
     }
 
     /**
@@ -38,9 +40,7 @@ class QuestionController extends AbstractController
      */
     public function random(): Response
     {
-        $question = $this->questionData->getRandomQuestion();
-
-        return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
+        return $this->renderQuestion($this->questionData->getRandomQuestion());
     }
 
     /**
@@ -48,8 +48,15 @@ class QuestionController extends AbstractController
      */
     public function last(): Response
     {
-        $question = $this->questionData->getLastQuestion();
+        return $this->renderQuestion($this->questionData->getLastQuestion());
+    }
 
-        return $this->render('question/show.html.twig', $this->questionData->getViewParameters($question));
+    private function renderQuestion(Question $question): Response
+    {
+        return $this->render('question/show.html.twig', [
+            'question' => $question,
+            'code' => $this->sourceExtension->getSource($question),
+            'count' => $this->questionData->count(),
+        ]);
     }
 }

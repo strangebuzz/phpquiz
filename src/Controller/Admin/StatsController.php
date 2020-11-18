@@ -19,6 +19,6 @@ class StatsController extends AbstractController
      */
     public function stats(QuestionData $questionData): Response
     {
-        return $this->render('admin/stats.html.twig', $questionData->getAnswersStats());
+        return $this->render('admin/stats.html.twig', ['data' => $questionData->getAnswersStatistics()]);
     }
 }

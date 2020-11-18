@@ -3,10 +3,10 @@
 {% block page_title 'Correct answers stats' %}
 
 {% block page_content %}
-    <h4>{{ total }} questions</h4>
+    <h4>{{ data.sum }} questions</h4>
     <ul>
-        {% for code, count in answer_codes %}
-            <li><b>{{ code }}</b> : {{ count }} - {{ (count / total * 100) | round }}%</li>
+        {% for code, count in data.answerCodes %}
+            <li><b>{{ code }}</b> : {{ count }} - {{ (count / data.sum * 100) | round }}%</li>
         {% endfor %}
     </ul>
 {% endblock %}
