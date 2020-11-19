@@ -1,5 +1,7 @@
 <?php
 
+// https://cs.symfony.com/
+
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
     ->exclude('var')
@@ -12,6 +14,7 @@ return PhpCsFixer\Config::create()
         '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
         'declare_strict_types' => true,
+        'php_unit_fqcn_annotation' => false,
     ])
     ->setFinder($finder)
 ;

@@ -10,7 +10,7 @@ use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
- * @covers \Person
+ * @covers Person
  */
 class PersonTest extends KernelTestCase
 {
@@ -23,7 +23,7 @@ class PersonTest extends KernelTestCase
     }
 
     /**
-     * @covers \Person::validate
+     * @covers Person::validate
      */
     public function testValidate(): void
     {

@@ -8,12 +8,12 @@ use App\DataFixtures\QuizFixtures;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * @covers \AppController
+ * @covers AppController
  */
 class AppControllerTest extends WebTestCase
 {
     /**
-     * @covers \AppController::home
+     * @covers AppController::home
      */
     public function testHome(): void
     {
@@ -25,7 +25,7 @@ class AppControllerTest extends WebTestCase
     /**
      * Handling of form, nominal case.
      *
-     * @covers \AppController::home
+     * @covers AppController::home
      */
     public function testHomeFormNominal(): void
     {
@@ -55,7 +55,7 @@ class AppControllerTest extends WebTestCase
      *
      * @dataProvider homeFormErrorsProvider
      *
-     * @covers \AppController::home
+     * @covers AppController::home
      */
     public function testHomeFormErrors(string $value, string $error): void
     {
@@ -69,7 +69,7 @@ class AppControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \AppController::about
+     * @covers AppController::about
      */
     public function testAbout(): void
     {

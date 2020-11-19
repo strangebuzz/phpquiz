@@ -10,14 +10,14 @@ use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
 use Symfony\Component\DomCrawler\Field\ChoiceFormField;
 
 /**
- * @covers \QuizController
+ * @covers QuizController
  */
 class QuizControllerTest extends WebTestCase
 {
     public const COUNT = 24; // Change me after each fixtures update
 
     /**
-     * @covers \QuizController::new
+     * @covers QuizController::new
      */
     public function testNew(): void
     {
@@ -27,7 +27,7 @@ class QuizControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \QuizController::question
+     * @covers QuizController::question
      */
     public function testQuestion(): void
     {
@@ -37,7 +37,7 @@ class QuizControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \QuizController::result
+     * @covers QuizController::result
      */
     public function testResult(): void
     {
@@ -49,7 +49,7 @@ class QuizControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \QuizController::retry
+     * @covers QuizController::retry
      */
     public function testRetry(): void
     {
@@ -62,7 +62,7 @@ class QuizControllerTest extends WebTestCase
      * Test to whole quiz and anwer all questions with "A". Modify the $scoreWithA
      * varaible after each new question which correct answer is "A".
      *
-     * @covers \QuizController::result
+     * @covers QuizController::result
      *
      * @return array<int, array>
      */
@@ -81,8 +81,8 @@ class QuizControllerTest extends WebTestCase
      * have to use a separte process because they can mess up the memory and raise
      * unexepcted warnings.
      *
-     * @covers \QuizController::question
-     * @covers \QuizController::result
+     * @covers QuizController::question
+     * @covers QuizController::result
      *
      * @dataProvider questionSubmitDataProvider
      * @runInSeparateProcess
