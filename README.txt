@@ -29,6 +29,10 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Migration Doctrine 3
+* [EA] : @covers referencing to a non-existing entity '\QuizController::new'
+  Inspection info: Analyzes PHPUnit related code reporting bugs and proposing to use best practices.
+  > cette inspection n'est pas compatbible avec les règles de base php-cs-fixer.
+  > Add a rule for that?
 
 
 @Quiz ideas
