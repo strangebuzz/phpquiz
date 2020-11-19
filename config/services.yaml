@@ -11,6 +11,8 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $sourceCodeDirectory: "%kernel.project_dir%/code"
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
