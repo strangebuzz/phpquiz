@@ -59,24 +59,6 @@ class QuizControllerTest extends WebTestCase
     }
 
     /**
-     * Test to whole quiz and anwer all questions with "A". Modify the $scoreWithA
-     * varaible after each new question which correct answer is "A".
-     *
-     * @covers QuizController::result
-     *
-     * @return array<int, array>
-     */
-    public function questionSubmitDataProvider(): array
-    {
-        return [
-            ['A', 7], // Answer code => number of correction answers for this code
-            ['B', 4],
-            ['C', 9],
-            ['D', 4],
-        ];
-    }
-
-    /**
      * Test to whole quiz and anwer all questions with A, B, C and D. These tests
      * have to use a separte process because they can mess up the memory and raise
      * unexepcted warnings.
@@ -84,18 +66,17 @@ class QuizControllerTest extends WebTestCase
      * @covers QuizController::question
      * @covers QuizController::result
      *
-     * @dataProvider questionSubmitDataProvider
      * @runInSeparateProcess
      */
-    public function testQuestionSubmit(string $answserCode, int $score): void
+    public function testQuestionSubmit(): void
     {
-        $questionsCount = self::COUNT;
+        $questionCount = self::COUNT;
         $client = static::createClient();
         $client->request('GET', '/quiz/new');
         $client->followRedirect();
-        self::assertContains(sprintf('Question 1/%d', $questionsCount), $client->getResponse()->getContent());
+        self::assertContains(sprintf('Question 1/%d', $questionCount), $client->getResponse()->getContent());
 
-        foreach (range(1, $questionsCount) as $questionRank) {
+        foreach (range(1, $questionCount) as $questionRank) {
             $form = $client->getCrawler()->selectButton('Submit')->form();
             $answerFormField = $form['quiz[answer]'];
             if (!$answerFormField instanceof ChoiceFormField) {
@@ -103,24 +84,17 @@ class QuizControllerTest extends WebTestCase
             }
 
             // Select 1st option available, it's always "A".
-            $answerFormField->select($answerFormField->availableOptionValues()[ord($answserCode) - 65]); // "A" ord is 65. "B" is 66...
+            $answerFormField->select($answerFormField->availableOptionValues()[mt_rand(0, 3)]);
             $client->submit($form);
             $client->followRedirect();
+
             // Results or question page
-            if ($questionRank === $questionsCount) {
+            if ($questionRank === $questionCount) {
                 $client->followRedirect();
-                self::assertContains(sprintf('Your score: %d/%d', $score, $questionsCount), $client->getResponse()->getContent());
+                self::assertContains('Your score:', $client->getResponse()->getContent());
             } else {
-                self::assertContains(sprintf('Question %d/%d', $questionRank + 1, $questionsCount), $client->getResponse()->getContent());
+                self::assertContains(sprintf('Question %d/%d', $questionRank + 1, $questionCount), $client->getResponse()->getContent());
             }
         }
-    }
-
-    /**
-     * Check that we have the same number of answer that.
-     */
-    public function testQuestionsCount(): void
-    {
-        self::assertSame(self::COUNT, array_sum(array_column($this->questionSubmitDataProvider(), 1)));
     }
 }
