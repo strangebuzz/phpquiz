@@ -50,7 +50,6 @@
 @Nice to have
 ————————————————————————————————————————————————————————————————————————————————
 
-* Added tests for B,C,D answers with a data provider
 * Allow to choose the number of questions to pass (when more than 50)
 
 
