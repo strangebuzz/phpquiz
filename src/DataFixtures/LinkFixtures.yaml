@@ -41,7 +41,7 @@ links:
 
     9:
         question_id: 9
-        label: Read the "Saner numeric strings" RFC
+        label: Read the "Saner numeric strings" RFC on php.net
         url: https://wiki.php.net/rfc/saner-numeric-strings
 
     10:
@@ -124,7 +124,12 @@ links:
         label: Check the "define" third parameter on php.net for global constant case sensibility
         url: https://www.php.net/manual/en/function.define.php
 
-#    24:
+    25:
+        question_id: 25
+        label: Read the "concatenation precedence" RFC on php.net
+        url: https://wiki.php.net/rfc/concatenation_precedence
+
+#    26:
 #        question_id: 24
 #        label:
 #        url:

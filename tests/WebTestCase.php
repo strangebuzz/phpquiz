@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as BaseWebTestCase;
 class WebTestCase extends BaseWebTestCase
 {
     /**
-     * Get the question count thanks to the
+     * Get the question count thanks to API plarform.
      */
     public function getQuestionCount(KernelBrowser $client): int
     {

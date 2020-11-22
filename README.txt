@@ -34,7 +34,7 @@
 ————————————————————————————————————————————————————————————————————————————————
 
 * Next quiz to enter:
-- [12/11/2020] https://twitter.com/FredBouchery/status/1328257556356194304
+- [16/11/2020] https://twitter.com/FredBouchery/status/1329330579146465280
 - Typical commit to add a quiz: https://github.com/strangebuzz/phpquiz/commit/43921de379f4642364ab7f5d9be524ab14cd17a2
 
 
