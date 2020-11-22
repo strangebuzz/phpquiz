@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Controller;
 
 use App\DataFixtures\QuizFixtures;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Tests\WebTestCase;
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
 use Symfony\Component\DomCrawler\Field\ChoiceFormField;
 
@@ -14,8 +14,6 @@ use Symfony\Component\DomCrawler\Field\ChoiceFormField;
  */
 class QuizControllerTest extends WebTestCase
 {
-    public const COUNT = 24; // Change me after each fixtures update
-
     /**
      * @covers QuizController::new
      */
@@ -70,8 +68,9 @@ class QuizControllerTest extends WebTestCase
      */
     public function testQuestionSubmit(): void
     {
-        $questionCount = self::COUNT;
         $client = static::createClient();
+        $questionCount = $this->getQuestionCount($client);
+
         $client->request('GET', '/quiz/new');
         $client->followRedirect();
         self::assertContains(sprintf('Question 1/%d', $questionCount), $client->getResponse()->getContent());
@@ -83,12 +82,12 @@ class QuizControllerTest extends WebTestCase
                 throw new InvalidTypeException('Type check.');
             }
 
-            // Select 1st option available, it's always "A".
+            // Select a random answer
             $answerFormField->select($answerFormField->availableOptionValues()[mt_rand(0, 3)]);
             $client->submit($form);
             $client->followRedirect();
 
-            // Results or question page
+            // Results or next question page
             if ($questionRank === $questionCount) {
                 $client->followRedirect();
                 self::assertContains('Your score:', $client->getResponse()->getContent());
