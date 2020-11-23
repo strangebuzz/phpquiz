@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass=QuestionRepository::class)
  *
  * @ApiResource(
- *     collectionOperations={},
+ *     collectionOperations={"get"},
  *     itemOperations={"get"},
  *     normalizationContext={"groups"={"show"}},
  *     denormalizationContext={"groups"={"show"}}

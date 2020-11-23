@@ -554,6 +554,28 @@ answers:
             correct: false
             poll_result: 2500
 
+    25:
+        -
+            code: A
+            label: int(42)
+            correct: false
+            poll_result: 1790
+        -
+            code: B
+            label: string(3) "312"
+            correct: false
+            poll_result: 1070
+        -
+            code: C
+            label: Deprecatred + "int(42)"
+            correct: false
+            poll_result: 710
+        -
+            code: D
+            label: TypeError
+            correct: true
+            poll_result: 6430
+
 #    25:
 #        -
 #            code: A

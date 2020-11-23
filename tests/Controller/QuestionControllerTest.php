@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @covers \QuestionController
+ * @covers QuestionController
  */
 class QuestionControllerTest extends WebTestCase
 {
@@ -17,13 +17,13 @@ class QuestionControllerTest extends WebTestCase
      */
     public function getAnswers(): \Generator
     {
-        foreach (range(1, QuizControllerTest::COUNT) as $id) {
+        foreach (range(1, 24) as $id) {
             yield [$id];
         }
     }
 
     /**
-     * @covers \QuestionController::show
+     * @covers QuestionController::show
      *
      * @dataProvider getAnswers
      */
@@ -40,7 +40,7 @@ class QuestionControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \QuestionController::show
+     * @covers QuestionController::show
      */
     public function testShowNotFOund(): void
     {
@@ -53,7 +53,7 @@ class QuestionControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \QuestionController::random
+     * @covers QuestionController::random
      */
     public function testRandom(): void
     {
@@ -63,7 +63,7 @@ class QuestionControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \QuestionController::last
+     * @covers QuestionController::last
      */
     public function testLast(): void
     {

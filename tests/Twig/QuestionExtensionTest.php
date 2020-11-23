@@ -21,7 +21,7 @@ class QuestionExtensionTest extends KernelTestCase
     }
 
     /**
-     * @covers \QuestionExtension::questionImage
+     * @covers QuestionExtension::questionImage
      */
     public function testQuestionImage(): void
     {

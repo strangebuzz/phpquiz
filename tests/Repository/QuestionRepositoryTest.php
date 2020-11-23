@@ -10,7 +10,7 @@ use App\Repository\QuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
- * @covers \QuestionRepository
+ * @covers QuestionRepository
  */
 class QuestionRepositoryTest extends KernelTestCase
 {
@@ -23,7 +23,7 @@ class QuestionRepositoryTest extends KernelTestCase
     }
 
     /**
-     * @covers \QuestionRepository::findOneWithNav
+     * @covers QuestionRepository::findOneWithNav
      *
      * @see QuestionFixtures
      */
@@ -40,8 +40,8 @@ class QuestionRepositoryTest extends KernelTestCase
     }
 
     /**
-     * @covers \QuestionRepository::findAllByDate
-     * @covers \AnswerFixtures::load
+     * @covers QuestionRepository::findAllByDate
+     * @covers AnswerFixtures::load
      */
     public function testFindAllByDate(): void
     {
