@@ -14,9 +14,14 @@ class WebTestCase extends BaseWebTestCase
      */
     public function getQuestionCount(KernelBrowser $client): int
     {
-        $client->request('GET', '/api/questions', [], [], ['HTTP_ACCEPT' => 'application/ld+json']);
+        $client->request('GET', '/api/questions.jsonld');
+        //$client->request('GET', '/api/questions', [], [], ['HTTP_ACCEPT' => 'application/ld+json']); // same result
         $data = json_decode((string) $client->getResponse()->getContent(), true, 512, JSON_THROW_ON_ERROR);
 
-        return (int) ($data['hydra:totalItems'] ?? 0);
+        if (!array_key_exists('hydra:totalItems', $data)) {
+            throw new \RuntimeException("Can't find the totalItems hydra field.");
+        }
+
+        return (int) $data['hydra:totalItems'];
     }
 }
