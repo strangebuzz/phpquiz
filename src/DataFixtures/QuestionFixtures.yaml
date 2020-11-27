@@ -478,7 +478,7 @@ questions:
     25:
         previous_question: 24
         id: 25
-        next_question: null
+        next_question: 26
         person_id: 1
         difficulty_id: 3
         label: >
@@ -498,22 +498,43 @@ questions:
         created_at: '2020-11-12'
         updated_at: '2020-11-12'
 
-#    25-6:
-#        previous_question: 24
-#        id: 25
-#        next_question: null
-#        person_id: 1
-#        difficulty_id: 3
-#        label: >
-#
-#        reminder: >
-#
-#        codeImage:
-#        codeImageFile: 25.jpg
-#        answer_explanations: >
-#
-#        live_snippet_url:
-#        twitter_poll_url:
-#        differences_output_notes: null
-#        created_at: '2020-10-26'
-#        updated_at: '2020-10-26'
+    26:
+        previous_question: 25
+        id: 26
+        next_question: 27
+        person_id: 1
+        difficulty_id: 3
+        label: >
+            PHP 8 quiz: What will be displayed?
+        reminder: >
+            An uninitialized typed  property is not considered visible.
+        codeImage: https://pbs.twimg.com/media/Em7y322W8AA8o-U?format=jpg&name=small
+        codeImageFile: 26.jpg
+        answer_explanations: >
+            When iterate through a PHP object, all visible properties will be used.
+            An uninitialized typed  property is not considered visible.
+        live_snippet_url: https://3v4l.org/qPdvt
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1328267933982871552
+        differences_output_notes: null
+        created_at: '2020-11-16'
+        updated_at: '2020-11-16'
+    27:
+        previous_question: 26
+        id: 27
+        next_question: null
+        person_id: 1
+        difficulty_id: 3
+        label: >
+            PHP 8 quiz: What will be displayed?
+        reminder: >
+            Contravariance allows to widen the parameter type.
+        codeImage: https://pbs.twimg.com/media/EnK8c_PXIAA-cCS?format=jpg&name=small
+        codeImageFile: 27.jpg
+        answer_explanations: >
+            It is possible that 2 implemented interfaces use the same name, but the signatures must be identical.
+            Since PHP 8, contravariance allows to widen the parameter type, so this code is allowed.
+        live_snippet_url: https://3v4l.org/nQ1Yo
+        twitter_poll_url: https://twitter.com/FredBouchery/status/1329333201597313025
+        differences_output_notes: null
+        created_at: '2020-11-19'
+        updated_at: '2020-11-19'

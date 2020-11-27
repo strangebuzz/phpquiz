@@ -576,24 +576,46 @@ answers:
             correct: true
             poll_result: 6430
 
-#    25:
-#        -
-#            code: A
-#            label:
-#            correct:
-#            poll_result:
-#        -
-#            code: B
-#            label:
-#            correct:
-#            poll_result:
-#        -
-#            code: C
-#            label:
-#            correct:
-#            poll_result:
-#        -
-#            code: D
-#            label:
-#            correct:
-#            poll_result:
+    26:
+        -
+            code: A
+            label: "Nothing =>2 Warns foreach"
+            correct: false
+            poll_result: 600
+        -
+            code: B
+            label: "x:null,y:null,x:4,y:2,"
+            correct: false
+            poll_result: 3500
+        -
+            code: C
+            label: "[Fatal Uninitialized]"
+            correct: false
+            poll_result: 4800
+        -
+            code: D
+            label: "x:4,y:2,"
+            correct: true
+            poll_result: 1100
+
+    27:
+        -
+            code: A
+            label: TypeError int expected
+            correct: false
+            poll_result: 1000
+        -
+            code: B
+            label: TypeError string expected
+            correct: false
+            poll_result: 800
+        -
+            code: C
+            label: Fatal declaration compat.
+            correct: false
+            poll_result: 5100
+        -
+            code: D
+            label: boolean
+            correct: true
+            poll_result: 3100
