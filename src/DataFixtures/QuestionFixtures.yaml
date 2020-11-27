@@ -518,6 +518,7 @@ questions:
         differences_output_notes: null
         created_at: '2020-11-16'
         updated_at: '2020-11-16'
+
     27:
         previous_question: 26
         id: 27
@@ -531,7 +532,7 @@ questions:
         codeImage: https://pbs.twimg.com/media/EnK8c_PXIAA-cCS?format=jpg&name=small
         codeImageFile: 27.jpg
         answer_explanations: >
-            It is possible that 2 implemented interfaces use the same name, but the signatures must be identical.
+            It is possible that two implemented interfaces use the same name, but the signatures must be identical.
             Since PHP 8, contravariance allows to widen the parameter type, so this code is allowed.
         live_snippet_url: https://3v4l.org/nQ1Yo
         twitter_poll_url: https://twitter.com/FredBouchery/status/1329333201597313025

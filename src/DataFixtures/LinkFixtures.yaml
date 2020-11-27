@@ -129,6 +129,16 @@ links:
         label: Read the "concatenation precedence" RFC on php.net
         url: https://wiki.php.net/rfc/concatenation_precedence
 
+    26:
+        question_id: 26
+        label: Read the "Object Iteration" documentation on php.net
+        url: https://www.php.net/manual/en/language.oop5.iterations.php
+
+    27:
+        question_id: 27
+        label: Read the contravariance documentation on php.net
+        url: https://www.php.net/manual/fr/language.oop5.variance.php#language.oop5.variance.contravariance
+
 #    26:
 #        question_id: 24
 #        label:
