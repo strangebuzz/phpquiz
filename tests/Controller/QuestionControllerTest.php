@@ -17,7 +17,7 @@ class QuestionControllerTest extends WebTestCase
      */
     public function getAnswers(): \Generator
     {
-        foreach (range(1, 24) as $id) {
+        foreach (range(1, 27) as $id) {
             yield [$id];
         }
     }
