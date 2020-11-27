@@ -13,10 +13,3 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
       POSTGRES_DB: phpquiz
-
-  # https://hub.docker.com/_/adminer
-  adminer:
-    image: adminer:4.7
-    container_name: phpquiz-adminer
-    ports:
-      - "8986:8080"

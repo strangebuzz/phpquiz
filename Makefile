@@ -17,10 +17,10 @@ help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
-up: docker-compose.yaml ## Start the docker hub (Postgres,adminer)
-	$(DOCKER_COMP) -f docker-compose.yaml up -d
+up: ## Start the docker hub (Postgres,adminer)
+	$(DOCKER_COMP) up -d
 
-down: docker-compose.yaml ## Stop the docker hub
+down: ## Stop the docker hub
 	$(DOCKER_COMP) down --remove-orphans
 
 wait-postgres: ## Wait for postgresql to be up
@@ -59,9 +59,9 @@ load-fixtures: ## Build the db, control the schema validity, load fixtures and c
 
 install: composer-install assets dev ## Install all the project dependencies
 
-run: up wait-postgres load-fixtures serve ## Start docker, load fixtures and start the web server
+start: up wait-postgres load-fixtures serve ## Start docker, load fixtures and start the web server
 
-abort: down unserve ## Stop docker and the Symfony binary server
+stop: down unserve ## Stop docker and the Symfony binary server
 
 ## —— Yarn 🐱 / JavaScript —————————————————————————————————————————————————————
 dev: ## Rebuild assets for the dev env
