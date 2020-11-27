@@ -1,0 +1,10 @@
+# Copy this file to docker-compose.override.yaml to have adminer locally
+version: '3.7'
+
+services:
+  # https://hub.docker.com/_/adminer
+  adminer:
+    image: adminer:4.7
+    container_name: phpquiz-adminer
+    ports:
+      - "8986:8080"
