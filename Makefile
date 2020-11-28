@@ -1,5 +1,6 @@
 # Setup ————————————————————————————————————————————————————————————————————————
 EXEC_PHP     = php
+COMPOSER     = composer
 SYMFONY      = $(EXEC_PHP) bin/console
 SYMFONY_BIN  = symfony
 DOCKER       = docker
