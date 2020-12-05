@@ -6,7 +6,7 @@ on:
     - master
 jobs:
   cs:
-    name: Coding Standards ✨
+    name: Coding Standards and checks ✨
     # https://github.com/shivammathur/setup-php#cloud-osplatform-support
     runs-on: ubuntu-18.04
     steps:
@@ -34,6 +34,9 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-interaction
 
@@ -50,7 +53,7 @@ jobs:
         run: make cs
 
   tests:
-    name: Unit and functional test ✅
+    name: Unit and functional test (PHP ${{ matrix.php-versions }}) ✅
     # https://github.com/shivammathur/setup-php#cloud-osplatform-support
     runs-on: ubuntu-18.04
     services:
@@ -63,6 +66,10 @@ jobs:
           POSTGRES_DB: phpquiz
         ports:
           - 5436:5432 # out/in
+    strategy:
+      fail-fast: true
+      matrix:
+        php-versions: ['7.4', '8.0']
 
     steps:
       # —— Setup Github actions 🐙 —————————————————————————————————————————————
@@ -74,13 +81,10 @@ jobs:
       - name: Setup PHP, extensions and composer with shivammathur/setup-php
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: ${{ matrix.php-versions }}
           extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, gd, iconv, json, mbstring, pdo, pgsql
 
       # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
-      - name: Validate composer.json and composer.lock
-        run: composer validate
-
       - name: Get composer cache directory
         id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
