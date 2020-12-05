@@ -69,7 +69,15 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php-versions: ['7.4', '8.0']
+        php-versions: ['7.4'] # , '8.0'
+
+      # PHP 8 errors ———————————————————————————————————————————————————————————
+      # doctrine/doctrine-migrations-bundle 3.0.1 requires php ^7.2 -> your php version (8.0.0) does not satisfy that requirement.
+      # doctrine/migrations 3.0.1 requires php ^7.2 -> your php version (8.0.0) does not satisfy that requirement.
+      # doctrine/orm 2.7.5 requires php ^7.1 -> your php version (8.0.0) does not satisfy that requirement.
+      # ocramius/proxy-manager 2.10.0 requires php ~7.4.1 -> your php version (8.0.0) does not satisfy that requirement.
+      # ekino/phpstan-banned-code v0.3.1 requires php ^7.1 -> your php version (8.0.0) does not satisfy that requirement.
+      # friendsofphp/php-cs-fixer v2.16.7 requires php ^7.1 -> your php version (8.0.0) does not satisfy that requirement.
 
     steps:
       # —— Setup Github actions 🐙 —————————————————————————————————————————————
