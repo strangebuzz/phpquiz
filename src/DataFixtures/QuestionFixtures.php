@@ -17,7 +17,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     {
         $questions = $this->loadYaml(self::class)['questions'];
         foreach ($questions as $question) {
-            [/*previous_question*/, $id, /*next_question*/, $personId, $difficultyId, $label, $reminder, $codeImage, $codeImageFile, $answerExplanations,
+            [/*previous_question*/, $id, /*next_question*/, $personId, $difficultyId, $label, $codeImage, $codeImageFile, $answerExplanations,
                 $liveSnippetUrl, $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt] = array_values($question);
             $createdAtDateTime = date_create($createdAt);
             $updatedAtDateTime = date_create($updatedAt);
@@ -29,7 +29,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
                 ->setSuggestedBy($this->getPerson($personId))
                 ->setDifficulty($this->getDifficulty($difficultyId))
                 ->setLabel($label)
-                ->setReminder($reminder)
                 ->setCodeImage($codeImage)
                 ->setCodeImageFile($codeImageFile)
                 ->setAnswerExplanations($answerExplanations)

@@ -37,19 +37,6 @@ class Question extends BaseEntity
     protected ?int $id = null; // for the unit tests
 
     /**
-     * Reminder to identify the quiz, it is thus a shorter version of the "$answerExplanations"
-     * field.
-     *
-     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
-     *
-     * @example "Namespaces name can't start with an antslash "
-     *
-     * @Assert\NotBlank
-     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
-     */
-    protected ?string $reminder;
-
-    /**
      * Just a sentence to introduce the code.
      *
      * @example "What will be displayed?"
@@ -187,24 +174,12 @@ class Question extends BaseEntity
 
     public function __toString(): string
     {
-        return $this->reminder.'('.$this->id.')';
+        return 'Question n°'.$this->id;
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getReminder(): ?string
-    {
-        return $this->reminder;
-    }
-
-    public function setReminder(string $reminder): self
-    {
-        $this->reminder = $reminder;
-
-        return $this;
     }
 
     public function getLabel(): ?string

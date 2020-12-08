@@ -6,7 +6,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed?
-        reminder: Namespaces can't begin with a backslash.
         codeImage: https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small
         codeImageFile: 1.png
         answer_explanations: >
@@ -27,7 +26,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed (PHP version >= 7.4)?
-        reminder: Can't unpack a traversable if keys are string.
         codeImage: https://pbs.twimg.com/media/EdW2xTnXYAIDjBP?format=png&name=small
         codeImageFile: 2.png
         answer_explanations: >
@@ -46,7 +44,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed?
-        reminder: property_exists finds private properties but we can't access it.
         codeImage: https://pbs.twimg.com/media/Ec8_XgPXsAEypnr?format=png&name=small
         codeImageFile: 3.png
         answer_explanations: >
@@ -65,7 +62,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed?
-        reminder: PHP functions prefixed by array_ expect an array
         codeImage: https://pbs.twimg.com/media/EfsQiZQX0AA39FK?format=jpg&name=small
         codeImageFile: 4.jpg
         answer_explanations: >
@@ -84,7 +80,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed?
-        reminder: array_merge reorders numeric keys.
         codeImage: https://pbs.twimg.com/media/EgKx3TdXsAEauEX?format=jpg&name=small
         codeImageFile: 5.jpg
         answer_explanations: >
@@ -103,8 +98,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed?
-        reminder: >
-            Can call ::class on function.
         codeImage: https://pbs.twimg.com/media/EgaScdJX0AECpMV?format=jpg&name=small
         codeImageFile: 6.jpg
         answer_explanations: >
@@ -124,7 +117,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed?
-        reminder: One can use the same name for a class, a method, a function and a constant.
         codeImage: https://pbs.twimg.com/media/EgvJgopXsAA8FGJ?format=jpg&name=small
         codeImageFile: 7.jpg
         answer_explanations: >
@@ -143,7 +135,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed in current supported PHP version? (<8)
-        reminder: An abstract method cannot be private (PHP 7).
         codeImage: https://pbs.twimg.com/media/EhS0HiFWAAEOmYb?format=jpg&name=small
         codeImageFile: 8.jpg
         answer_explanations: >
@@ -163,7 +154,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed in current supported PHP version? (<8)
-        reminder: A numeric value can be prefixed by blank characters, but not after.
         codeImage: https://pbs.twimg.com/media/EhnaramXYAEE2hp?format=jpg&name=small
         codeImageFile: 9.jpg
         answer_explanations: >
@@ -182,7 +172,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed in current supported PHP version? (<=8)
-        reminder: PHP magic methods must be declared with the exact number of parameters.
         codeImage: https://pbs.twimg.com/media/Eh8DgSUXsAEnJin?format=jpg&name=small
         codeImageFile: 10.jpg
         answer_explanations: >
@@ -202,7 +191,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed in PHP 8?
-        reminder: PHP object is callable only if the method __invoke is implemented.
         codeImage: https://pbs.twimg.com/media/EiL3H_lWkAEpMq2?format=jpg&name=small
         codeImageFile: 11.jpg
         answer_explanations: PHP object is callable only if the method __invoke is implemented.
@@ -220,7 +208,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed in PHP 8?
-        reminder: PHP magic setters do not follow strict_types and you can set a property which does not exist.
         codeImage: https://pbs.twimg.com/media/EigPHTlXsAABypN?format=jpg&name=small
         codeImageFile: 12.jpg
         answer_explanations: >
@@ -239,7 +226,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed with PHP 8.0?
-        reminder: PHP 8 can now return "static".
         codeImage: https://pbs.twimg.com/media/Ei-8YTyWsAEn-Gy?format=jpg&name=small
         codeImageFile: 13.jpg
         answer_explanations: >
@@ -259,7 +245,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed with PHP 8.0?
-        reminder: PHP variables in double-quoted strings are parse differently if they are between braces or not.
         codeImage: https://pbs.twimg.com/media/EjjFhPgXYAAxajV?format=jpg&name=small
         codeImageFile: 14.jpg
         answer_explanations: >
@@ -279,7 +264,6 @@ questions:
         person_id: 1
         difficulty_id: 3
         label: What will be displayed? (PHP => 7.4)
-        reminder: When using a PHP closure (or a short closure) with "$this", the closure must be declare inside a class method.
         codeImage: https://pbs.twimg.com/media/Ejye6kRWAAEGi5v?format=jpg&name=small
         codeImageFile: 15.jpg
         answer_explanations: >
@@ -300,7 +284,6 @@ questions:
         difficulty_id: 3
         label: >
             WTF PHP 8 quiz: What will be displayed?
-        reminder: PHP always has alternative syntax for control structures, and you can mix them.
         codeImage: https://pbs.twimg.com/media/EkHgLuZWAAAePqc?format=jpg&name=small
         codeImageFile: 16.jpg
         answer_explanations: >
@@ -320,7 +303,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8: What will be displayed?
-        reminder: Default value of unset variable is "NULL"
         codeImage: https://pbs.twimg.com/media/EkWjCgkX0AAlbQH?format=jpg&name=large
         codeImageFile: 17.jpg
         answer_explanations: >
@@ -340,7 +322,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8: What will be displayed?
-        reminder: PHP numeric literal separator are only available during script parsing.
         codeImage: https://pbs.twimg.com/media/EkrV_nBXYAAIJDG?format=jpg&name=small
         codeImageFile: 18.jpg
         answer_explanations: >
@@ -361,8 +342,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8 quiz: What will be displayed?
-        reminder: >
-            PHP "use" and "::class" are done at compile time and not runtime (except for "static").
         codeImage: https://pbs.twimg.com/media/ElAAELyWkAAWMP9?format=jpg&name=small
         codeImageFile: 19.jpg
         answer_explanations: >
@@ -382,7 +361,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8 quiz: What will be displayed?
-        reminder: PHP import variables when a short closure is declared.
         codeImage: https://pbs.twimg.com/media/ElP0HDxWMAA87G9?format=jpg&name=small
         codeImageFile: 20.jpg
         answer_explanations: >
@@ -402,7 +380,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8 quiz: What will be displayed?
-        reminder: PHP variables are freed when function ends.
         codeImage: https://pbs.twimg.com/media/ElfYqAlX0AAWfjV?format=jpg&name=small
         codeImageFile: 21.jpg
         answer_explanations: >
@@ -422,7 +399,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8 quiz: What will be displayed?
-        reminder: >
         codeImage: https://pbs.twimg.com/media/ElzgzuaWoAEbPs7?format=jpg&name=small
         codeImageFile: 22.jpg
         answer_explanations: >
@@ -442,7 +418,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8 quiz: What will be displayed?
-        reminder: PHP references on properties allow you to make a variable refer to the property's content.
         codeImage: https://pbs.twimg.com/media/EmIAHlMXgAAwlN2?format=jpg&name=small
         codeImageFile: 23.jpg
         answer_explanations: >
@@ -463,7 +438,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8 quiz: What will be displayed?
-        reminder: Only properties and constants are case-sensitives.
         codeImage: https://pbs.twimg.com/media/EmX0VfhW8AAjmYR?format=jpg&name=small
         codeImageFile: 24.jpg
         answer_explanations: >
@@ -483,8 +457,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8 quiz: What will be displayed?
-        reminder: >
-            PHP 8 has changed the concat's precedence.
         codeImage: https://pbs.twimg.com/media/Emm-W1TW8AIyW0M?format=jpg&name=small
         codeImageFile: 25.jpg
         answer_explanations: >
@@ -506,8 +478,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8 quiz: What will be displayed?
-        reminder: >
-            An uninitialized typed  property is not considered visible.
         codeImage: https://pbs.twimg.com/media/Em7y322W8AA8o-U?format=jpg&name=small
         codeImageFile: 26.jpg
         answer_explanations: >
@@ -527,8 +497,6 @@ questions:
         difficulty_id: 3
         label: >
             PHP 8 quiz: What will be displayed?
-        reminder: >
-            Contravariance allows to widen the parameter type.
         codeImage: https://pbs.twimg.com/media/EnK8c_PXIAA-cCS?format=jpg&name=small
         codeImageFile: 27.jpg
         answer_explanations: >
