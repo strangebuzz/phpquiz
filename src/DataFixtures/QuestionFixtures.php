@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\DataFixtures;
 
+use App\Entity\Answer;
 use App\Entity\Question;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -16,41 +17,39 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $questions = $this->loadYaml(self::class)['questions'];
-        foreach ($questions as $question) {
-            [/*previous_question*/, $id, /*next_question*/, $personId, $difficultyId, $label, $codeImage, $codeImageFile, $answerExplanations,
-                $liveSnippetUrl, $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt] = array_values($question);
-            $createdAtDateTime = date_create($createdAt);
-            $updatedAtDateTime = date_create($updatedAt);
-            if (!$createdAtDateTime instanceof \DateTimeInterface || !$updatedAtDateTime instanceof \DateTimeInterface) {
-                throw new \InvalidArgumentException(sprintf('Invalide create (%s) or update date (%s).', $createdAt, $updatedAt));
+        foreach ($questions as $id => $data) {
+            $createdAt = new \DateTime($data['created_at']);
+            if (isset($data['updated_at'])) {
+                $updatedAt = new \DateTime($data['updated_at']);
+            } else {
+                $updatedAt = clone $createdAt;
             }
 
             $question = (new Question())
-                ->setSuggestedBy($this->getPerson($personId))
-                ->setDifficulty($this->getDifficulty($difficultyId))
-                ->setLabel($label)
-                ->setCodeImage($codeImage)
-                ->setCodeImageFile($codeImageFile)
-                ->setAnswerExplanations($answerExplanations)
-                ->setLiveSnippetUrl($liveSnippetUrl)
-                ->setTwitterPollUrl($twitterPollUrl)
-                ->setDifferencesOutputNotes($differencesOutputNotes)
-                ->setCreatedAt($createdAtDateTime)
-                ->setUpdatedAt($updatedAtDateTime);
+                ->setSuggestedBy($this->getPerson($data['person_id']))
+                ->setDifficulty($data['difficulty'])
+                ->setLabel($data['label'])
+                ->setDescription($data['description'])
+                ->setAnswerExplanations($data['answer_explanations'])
+                ->setSourceUrl($data['sourceUrl'])
+                ->setCreatedAt($createdAt)
+                ->setUpdatedAt($updatedAt)
+            ;
 
             $manager->persist($question);
-            $this->addReference(self::class.$id, $question);
+
+            foreach ($data['answers'] as $order => $data) {
+                $answer = (new Answer())
+                    ->setOrder($order)
+                    ->setLabel($data['label'])
+                    ->setQuestion($question)
+                    ->setScore($data['score'])
+                ;
+                $manager->persist($answer);
+
+            }
         }
 
-        // prev and next questions
-        foreach ($questions as $question) {
-            [$previousQuestionId, $id, $nextQuestionId] = array_values($question);
-            $previousQuestion = is_int($previousQuestionId) ? $this->getQuestion($previousQuestionId) : null;
-            $nextQuestion = is_int($nextQuestionId) ? $this->getQuestion($nextQuestionId) : null;
-            $this->getQuestion($id)
-                ->setPreviousQuestion($previousQuestion)
-                ->setNextQuestion($nextQuestion);
-        }
         $manager->flush();
     }
 
@@ -58,7 +57,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             PersonFixtures::class,
-            DifficultyFixtures::class,
         ];
     }
 }

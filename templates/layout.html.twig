@@ -31,6 +31,8 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags(block('jsapp')) }}
         {% endblock %}
+        <link rel="stylesheet" href="/styles/highlight.css" />
+        <script src="/js/highlight.js"></script>
     </head>
     <body>
         <div id="layout">
@@ -71,5 +73,8 @@
             <script src="{{ preload(asset('js/ui.js'), {as: 'script'}) }}"></script>
             {{ encore_entry_script_tags(block('jsapp')) }}
         {% endblock %}
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
     </body>
 </html>
