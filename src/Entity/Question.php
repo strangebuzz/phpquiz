@@ -25,7 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     denormalizationContext={"groups"={"show"}}
  * )
  */
-class Question extends BaseEntity
+final class Question extends BaseEntity
 {
     /**
      * @ORM\Id()
@@ -34,7 +34,7 @@ class Question extends BaseEntity
      *
      * @Groups({"show"})
      */
-    protected ?int $id = null; // for the unit tests
+    private int $id; // for the unit tests
 
     /**
      * Just a sentence to introduce the code.
@@ -46,60 +46,33 @@ class Question extends BaseEntity
      * @Assert\NotBlank
      * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      */
-    protected ?string $label;
+    private string $label;
 
     /**
-     * The carbon image URL that was generated for Twitter.
+     * Question details written with markdown syntax.
      *
-     * @example https://pbs.twimg.com/media/EdmGDDEXoAAcmsH?format=png&name=small
+     * @example "Is true == '3apples' ?"
      *
-     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
-     *
-     * @Assert\NotBlank
-     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
-     * @Assert\Url()
-     */
-    protected ?string $codeImage;
-
-    /**
-     * The carbon image file save saves locally on the img/questions public asset
-     * folder.
-     *
-     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
+     * @ORM\Column(type="text")
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      */
-    protected ?string $codeImageFile;
+    private string $description;
 
     /**
      * Some explanations about the correct answer.
      *
-     * @ORM\Column(type="text")
-     *
      * @example PHP namespaces can contain space characters, but they can't begin
      *          with a backslash. The right answer was "A"
      *
-     * @Assert\NotBlank
-     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
-     */
-    protected ?string $answerExplanations;
-
-    /**
-     * The testable snippet on the 3v4l.org website.
-     *
-     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
-     *
-     * @example https://3v4l.org/pQOMe
+     * @ORM\Column(type="text")
      *
      * @Assert\NotBlank
-     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
-     * @Assert\Url()
      */
-    protected ?string $liveSnippetUrl;
+    private string $answerExplanations;
 
     /**
-     * The poll results on Twitter.
+     * Url where the question came from.
      *
      * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH, nullable=true)
      *
@@ -109,18 +82,7 @@ class Question extends BaseEntity
      * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
      * @Assert\Url()
      */
-    protected ?string $twitterPollUrl;
-
-    /**
-     * Additional notes if there is something to notice about the output between
-     * PHP versions in cases there would be differences.
-     *
-     * @ORM\Column(type="text", nullable=true)
-     *
-     * @example With this last version, the exception message "Foo\Bar" is wrapped
-     *          by double quotes instead of single quotes for other versions.
-     */
-    protected ?string $differencesOutputNotes;
+    private ?string $sourceUrl;
 
     /**
      * List of possible answers for the question.
@@ -129,16 +91,7 @@ class Question extends BaseEntity
      *
      * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="question", orphanRemoval=true, fetch="EAGER")
      */
-    protected Collection $answers;
-
-    /**
-     * List of additional links for question, documentation, blog post, stackoverflow...
-     *
-     * @var Collection<int,Link>
-     *
-     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="question", orphanRemoval=true, fetch="EAGER")
-     */
-    protected Collection $links;
+    private Collection $answers;
 
     /**
      * The person who has suggested the question.
@@ -146,124 +99,19 @@ class Question extends BaseEntity
      * @ORM\ManyToOne(targetEntity=Person::class, inversedBy="questions", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      */
-    protected ?Person $suggestedBy;
+    private ?Person $suggestedBy;
 
     /**
-     * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"}, fetch="EAGER")
+     * @ORM\Column(type="integer")
+     * @Assert\PositiveOrZero()
      */
-    protected ?Question $previousQuestion;
-
-    /**
-     * @ORM\OneToOne(targetEntity=Question::class, cascade={"persist", "remove"}, fetch="EAGER")
-     */
-    protected ?Question $nextQuestion;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Difficulty::class, inversedBy="questions")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    protected ?Difficulty $difficulty;
+    private int $difficulty;
 
     public function __construct()
     {
         $this->answers = new ArrayCollection();
-        $this->links = new ArrayCollection();
-    }
-
-    public function __toString(): string
-    {
-        return 'Question n°'.$this->id;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getLabel(): ?string
-    {
-        return $this->label;
-    }
-
-    public function setLabel(string $label): self
-    {
-        $this->label = $label;
-
-        return $this;
-    }
-
-    public function getCodeImage(): ?string
-    {
-        return $this->codeImage;
-    }
-
-    public function setCodeImage(string $codeImage): self
-    {
-        $this->codeImage = $codeImage;
-
-        return $this;
-    }
-
-    public function getCodeImageFile(): ?string
-    {
-        return $this->codeImageFile;
-    }
-
-    public function setCodeImageFile(string $codeImageFile): self
-    {
-        $this->codeImageFile = $codeImageFile;
-
-        return $this;
-    }
-
-    public function getAnswerExplanations(): ?string
-    {
-        return $this->answerExplanations;
-    }
-
-    public function setAnswerExplanations(string $answerExplanations): self
-    {
-        $this->answerExplanations = $answerExplanations;
-
-        return $this;
-    }
-
-    public function getLiveSnippetUrl(): ?string
-    {
-        return $this->liveSnippetUrl;
-    }
-
-    public function setLiveSnippetUrl(string $liveSnippetUrl): self
-    {
-        $this->liveSnippetUrl = $liveSnippetUrl;
-
-        return $this;
-    }
-
-    public function getTwitterPollUrl(): ?string
-    {
-        return $this->twitterPollUrl;
-    }
-
-    public function setTwitterPollUrl(?string $twitterPollUrl): self
-    {
-        $this->twitterPollUrl = $twitterPollUrl;
-
-        return $this;
-    }
-
-    public function getDifferencesOutputNotes(): ?string
-    {
-        return $this->differencesOutputNotes;
-    }
-
-    public function setDifferencesOutputNotes(?string $differencesOutputNotes): self
-    {
-        $this->differencesOutputNotes = $differencesOutputNotes;
-
-        return $this;
     }
 
     /**
@@ -297,33 +145,62 @@ class Question extends BaseEntity
         return $this;
     }
 
-    /**
-     * @return Collection<int,Link>
-     */
-    public function getLinks(): Collection
+    public function getId(): int
     {
-        return $this->links;
+        return $this->id;
     }
 
-    public function addLink(Link $link): self
+    public function setId(int $id): Question
     {
-        if (!$this->links->contains($link)) {
-            $this->links[] = $link;
-            $link->setQuestion($this);
-        }
+        $this->id = $id;
 
         return $this;
     }
 
-    public function removeLink(Link $link): self
+    public function getLabel(): string
     {
-        if ($this->links->contains($link)) {
-            $this->links->removeElement($link);
-            // set the owning side to null (unless already changed)
-            if ($link->getQuestion() === $this) {
-                $link->setQuestion(null);
-            }
-        }
+        return $this->label;
+    }
+
+    public function setLabel(string $label): Question
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): Question
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getAnswerExplanations(): string
+    {
+        return $this->answerExplanations;
+    }
+
+    public function setAnswerExplanations(string $answerExplanations): Question
+    {
+        $this->answerExplanations = $answerExplanations;
+
+        return $this;
+    }
+
+    public function getSourceUrl(): ?string
+    {
+        return $this->sourceUrl;
+    }
+
+    public function setSourceUrl(?string $sourceUrl): Question
+    {
+        $this->sourceUrl = $sourceUrl;
 
         return $this;
     }
@@ -333,43 +210,19 @@ class Question extends BaseEntity
         return $this->suggestedBy;
     }
 
-    public function setSuggestedBy(?Person $suggestedBy): self
+    public function setSuggestedBy(?Person $suggestedBy): Question
     {
         $this->suggestedBy = $suggestedBy;
 
         return $this;
     }
 
-    public function getPreviousQuestion(): ?self
-    {
-        return $this->previousQuestion;
-    }
-
-    public function setPreviousQuestion(?self $previousQuestion): self
-    {
-        $this->previousQuestion = $previousQuestion;
-
-        return $this;
-    }
-
-    public function getNextQuestion(): ?self
-    {
-        return $this->nextQuestion;
-    }
-
-    public function setNextQuestion(?self $nextQuestion): self
-    {
-        $this->nextQuestion = $nextQuestion;
-
-        return $this;
-    }
-
-    public function getDifficulty(): ?Difficulty
+    public function getDifficulty(): int
     {
         return $this->difficulty;
     }
 
-    public function setDifficulty(?Difficulty $difficulty): self
+    public function setDifficulty(int $difficulty): Question
     {
         $this->difficulty = $difficulty;
 

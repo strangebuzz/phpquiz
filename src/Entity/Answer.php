@@ -6,11 +6,12 @@ namespace App\Entity;
 
 use App\Repository\AnswerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AnswerRepository::class)
  */
-class Answer extends BaseEntity
+final class Answer extends BaseEntity
 {
     /**
      * @ORM\Id()
@@ -20,9 +21,10 @@ class Answer extends BaseEntity
     private ?int $id = null;
 
     /**
-     * @ORM\Column(type="string", length=1)
+     * @ORM\Column(type="integer", name="`order`")
+     * @Assert\PositiveOrZero
      */
-    private ?string $code;
+    private int $order;
 
     /**
      * @ORM\Column(type="text")
@@ -30,14 +32,9 @@ class Answer extends BaseEntity
     private ?string $label;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="float")
      */
-    private ?bool $correct;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private ?int $pollResult;
+    private float $score;
 
     /**
      * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="answers")
@@ -45,24 +42,14 @@ class Answer extends BaseEntity
      */
     private ?Question $question;
 
-    public function __toString(): string
+    public function getOrder(): int
     {
-        return (string) $this->code;
+        return $this->order;
     }
 
-    public function getId(): ?int
+    public function setOrder(int $order): Answer
     {
-        return $this->id;
-    }
-
-    public function getCode(): ?string
-    {
-        return $this->code;
-    }
-
-    public function setCode(string $code): self
-    {
-        $this->code = $code;
+        $this->order = $order;
 
         return $this;
     }
@@ -72,41 +59,21 @@ class Answer extends BaseEntity
         return $this->label;
     }
 
-    public function setLabel(string $label): self
+    public function setLabel(?string $label): Answer
     {
         $this->label = $label;
 
         return $this;
     }
 
-    public function getCorrect(): ?bool
+    public function getScore(): float
     {
-        return $this->correct;
+        return $this->score;
     }
 
-    /**
-     * Alias.
-     */
-    public function isCorrect(): ?bool
+    public function setScore(float $score): Answer
     {
-        return $this->getCorrect();
-    }
-
-    public function setCorrect(bool $correct): self
-    {
-        $this->correct = $correct;
-
-        return $this;
-    }
-
-    public function getPollResult(): ?int
-    {
-        return $this->pollResult;
-    }
-
-    public function setPollResult(?int $pollResult): self
-    {
-        $this->pollResult = $pollResult;
+        $this->score = $score;
 
         return $this;
     }
@@ -116,17 +83,10 @@ class Answer extends BaseEntity
         return $this->question;
     }
 
-    public function setQuestion(?Question $question): self
+    public function setQuestion(?Question $question): Answer
     {
         $this->question = $question;
 
         return $this;
-    }
-
-    /* End basic 'etters ———————————————————————————————————————————————————— */
-
-    public function getLabelWithCode(): string
-    {
-        return '<b>'.$this->getCode().'</b>: '.$this->getLabel();
     }
 }
