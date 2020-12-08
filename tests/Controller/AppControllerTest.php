@@ -44,10 +44,10 @@ class AppControllerTest extends WebTestCase
      */
     public function homeFormErrorsProvider(): \Generator
     {
-        yield['', 'This value should not be blank'];
-        yield['foo', 'This is not a valid UUID'];
-        yield['7424d787-6490-4b95-b489-056c890abbe55', 'This is not a valid UUID'];
-        yield['7424d787-6490-4b95-b489-056c890abbe6', 'Quiz not found'];
+        yield ['', 'This value should not be blank'];
+        yield ['foo', 'This is not a valid UUID'];
+        yield ['7424d787-6490-4b95-b489-056c890abbe55', 'This is not a valid UUID'];
+        yield ['7424d787-6490-4b95-b489-056c890abbe6', 'Quiz not found'];
     }
 
     /**
