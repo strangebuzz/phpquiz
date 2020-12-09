@@ -109,6 +109,10 @@ final class Question extends BaseEntity
      */
     private int $difficulty;
 
+    public ?Question $previousQuestion = null;
+    public ?Question $nextQuestion = null;
+
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();

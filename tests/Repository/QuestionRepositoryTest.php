@@ -23,23 +23,6 @@ class QuestionRepositoryTest extends KernelTestCase
     }
 
     /**
-     * @covers QuestionRepository::findOneWithNav
-     *
-     * @see QuestionFixtures
-     */
-    public function testFindOneWithNav(): void
-    {
-        $question = $this->repo->findOneWithNav(2);
-        self::assertInstanceOf(Question::class, $question);
-        if (!$question instanceof Question) {
-            throw new \RuntimeException('Test question not found.');
-        }
-        self::assertInstanceOf(Question::class, $question);
-        self::assertInstanceOf(Question::class, $question->getPreviousQuestion());
-        self::assertInstanceOf(Question::class, $question->getNextQuestion());
-    }
-
-    /**
      * @covers QuestionRepository::findAllByDate
      * @covers AnswerFixtures::load
      */

@@ -29,7 +29,7 @@ class QuestionController extends AbstractController
      */
     public function show(int $id): Response
     {
-        return $this->renderQuestion($this->questionData->getQuestion($id));
+        return $this->renderQuestion($this->questionData->getQuestion($id), $id);
     }
 
     /**
@@ -37,7 +37,8 @@ class QuestionController extends AbstractController
      */
     public function random(): Response
     {
-        return $this->renderQuestion($this->questionData->getRandomQuestion());
+        [$position, $question] = $this->questionData->getRandomQuestion();
+        return $this->renderQuestion($question, $position);
     }
 
     /**
@@ -45,13 +46,14 @@ class QuestionController extends AbstractController
      */
     public function last(): Response
     {
-        return $this->renderQuestion($this->questionData->getLastQuestion());
+        return $this->renderQuestion($this->questionData->getLastQuestion(), $this->questionData->count());
     }
 
-    private function renderQuestion(Question $question): Response
+    private function renderQuestion(Question $question, int $position): Response
     {
         return $this->render('question/show.html.twig', [
             'question' => $question,
+            'position' => $position,
             'count' => $this->questionData->count(),
         ]);
     }

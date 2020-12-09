@@ -22,24 +22,6 @@ class QuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, Question::class);
     }
 
-    public function findOneWithNav(int $id): ?Question
-    {
-        try {
-            return $this->createQueryBuilder('q')
-                ->andWhere('q.id = :id')
-                ->setParameter('id', $id)
-                ->join('q.answers', 'answers')
-                ->join('q.suggestedBy', 'suggestedBy')
-                ->join('q.difficulty', 'difficulty')
-                ->join('q.links', 'links')
-                ->leftJoin('q.previousQuestion', 'previousQuestion')
-                ->leftJoin('q.nextQuestion', 'nextQuestion')
-                ->getQuery()->getSingleResult();
-        } catch (NoResultException $exception) {
-            return null;
-        }
-    }
-
     /**
      * @return Question[]|array<int,Question>
      */
