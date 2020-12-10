@@ -2,24 +2,24 @@
 
 {% set isRandom = app.request.get('_route') == 'question_random' %}
 {% set isLast = app.request.get('_route') == 'question_last' %}
-{% set progress = (position / count * 100)|round %}
-{% set isBeforeLastQuestion = (position + 1) == count %}
+{% set progress = (question.id / count * 100)|round %}
+{% set isBeforeLastQuestion = (question.id + 1) == count %}
 
-{% block title %}Quiz n°{{ position }}/{{ count }}: Answer the following question{% endblock %}
+{% block title %}Quiz n°{{ question.id }}/{{ count }}: Answer the following question{% endblock %}
 
 {% block jsapp %}show{% endblock %}
 
 {% block javascripts %}
     <script>
-      const questionId = {{ position }}
-      const questionUrl = '{{ path('api_questions_get_item', {id: position }) }}'
+      const questionId = {{ question.id }}
+      const questionUrl = '{{ path('api_questions_get_item', {id: question.id }) }}'
     </script>
     {{ parent() }}
 {% endblock %}
 
 {% block body %}
     <div class="header">
-        <h1>Quiz {{ position }}/{{ count }}: Answer the following question</h1>
+        <h1>Quiz {{ question.id }}/{{ count }}: Answer the following question</h1>
         {% if not (isRandom or isLast) %}
             <h4>Your progression: {{ progress }}%</h4>
             <progress value="{{ progress }}" max="100">{{ progress }}%</progress>
@@ -83,11 +83,11 @@
                 <p class="center">
                     <a href="{{ path('question_show') }}" class="pure-button pure-button-primary button-xlarge">👈️ Get back to first question</a>
                 </p>
-            {% elseif question.nextQuestion %}
+            {% elseif question.id < count %}
                 <h3>Want More? 🤔</h3>
 
                 <p class="center">
-                    <a href="{{ path('question_show', {id: position + 1}) }}" class="pure-button pure-button-primary button-xlarge">{{ isBeforeLastQuestion ? 'Last question' : 'Next question' }} ⏩</a>
+                    <a href="{{ path('question_show', {id: question.id + 1}) }}" class="pure-button pure-button-primary button-xlarge">{{ isBeforeLastQuestion ? 'Last question' : 'Next question' }} ⏩</a>
                 </p>
             {% else %}
                 <h3>The end. 😭</h3>

@@ -17,6 +17,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $questions = $this->loadYaml(self::class)['questions'];
+
         foreach ($questions as $id => $data) {
             $createdAt = new \DateTime($data['created_at']);
             if (isset($data['updated_at'])) {
@@ -26,6 +27,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
             }
 
             $question = (new Question())
+                ->setId($id)
                 ->setSuggestedBy($this->getPerson($data['person_id']))
                 ->setDifficulty($data['difficulty'])
                 ->setLabel($data['label'])
@@ -38,12 +40,12 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist($question);
 
-            foreach ($data['answers'] as $order => $data) {
+            foreach ($data['answers'] as $order => $answerData) {
                 $answer = (new Answer())
                     ->setOrder($order)
-                    ->setLabel($data['label'])
+                    ->setLabel($answerData['label'])
                     ->setQuestion($question)
-                    ->setScore($data['score'])
+                    ->setScore($answerData['score'])
                 ;
                 $manager->persist($answer);
 
