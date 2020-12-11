@@ -6,23 +6,38 @@ namespace App\DataFixtures;
 
 use App\Entity\Quiz;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class QuizFixtures extends Fixture
+class QuizFixtures extends Fixture implements DependentFixtureInterface
 {
     use AppFixturesTrait;
 
-    public const UUID = '1d8bd99d-088d-473d-bf0c-0da4bce79075'; // for tests
-
     public function load(ObjectManager $manager): void
     {
-        foreach ($this->loadYaml(self::class)['quiz'] as $quizArr) {
-            [$id, $uuid] = array_values($quizArr);
-            $quiz = (new Quiz())->setUuid((string) $uuid);
+        foreach ($this->loadYaml(self::class)['quiz'] as $id => $data) {
+            $quiz = (new Quiz())
+                ->setId($id)
+                ->setLabel($data['label'])
+                ->setDescription($data['description'])
+                ->setDifficulty($data['difficulty'])
+            ;
+
+            foreach ($data['questions'] as $id) {
+                $quiz->addQuestion($this->getQuestion($id));
+            }
+
             $manager->persist($quiz);
-            $this->addReference(self::class.$id, $quiz);
+            $this->addReference(self::class.':'.$id, $quiz);
         }
 
         $manager->flush();
+    }
+
+    public function getDependencies(): array
+    {
+        return [
+            QuestionFixtures::class,
+        ];
     }
 }

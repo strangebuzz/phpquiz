@@ -25,7 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     denormalizationContext={"groups"={"show"}}
  * )
  */
-final class Question extends BaseEntity
+class Question extends BaseEntity
 {
     /**
      * @ORM\Id()

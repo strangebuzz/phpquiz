@@ -1,4 +1,7 @@
 quiz:
-    1:
-        id: 1
-        uuid: 1d8bd99d-088d-473d-bf0c-0da4bce79075
+    all:
+        label: All questions
+        description: This is a very large quiz, with all the questions
+        difficulty: 3
+        questions: [1, 2, 3, 4, 5]
+

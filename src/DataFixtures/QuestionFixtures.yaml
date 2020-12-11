@@ -1,6 +1,6 @@
 questions:
     1:
-        person_id: 1
+        person: Fred
         difficulty: 3
         label: Namespaces and extended classes
         description: |
@@ -46,46 +46,184 @@ questions:
 
         sourceUrl: https://twitter.com/FredBouchery/status/1286207302018699264
         created_at: '2020-07-23'
-        
-#    2:
-#        id: 2
-#        person_id: 1
-#        difficulty: 3
-#        label: What will be displayed (PHP version >= 7.4)?
-#        answer_explanations: >
-#            7.4 unpack a Traversable by keeping the iteration order, but it fails when the keys are strings, even if those strings are numeric.
-#            The right answer was "D".
-#        live_snippet_url: https://3v4l.org/qKGPt
-#        sourceUrl: https://twitter.com/FredBouchery/status/1285134865176956929
-#        differences_output_notes: null
-#        created_at: '2020-07-20'
+
+    2:
+        person: Fred
+        difficulty: 3
+        label: Generator
+        description: |
+            What will be displayed (PHP version >= 7.4)?
+
+            ```php
+            <?php
+
+            function generator() {
+                yield '1' => 4;
+                yield '0' => 2;
+            }
+
+            $array = [... generator()];
+
+            echo implode('', $array);
+            ```
+
+        answers:
+            - label: '42'
+              score: 0.0
+            - label: '24'
+              score: 0.0
+            - label: "Parse error: syntax error, unexpected '...' (T_ELLIPSIS)"
+              score: 0.0
+            - label: 'Fatal error: Uncaught Error: Cannot unpack Traversable with string keys'
+              score: 1.0
+
+        answer_explanations: |
+            PHP 7.4 unpack a Traversable by keeping the iteration order, but it fails when the keys are strings, even if those strings are numeric.
+
+            The right answer was "Fatal error: Uncaught Error: Cannot unpack Traversable with string keys".
+
+            Try here: [https://3v4l.org/qKGPt]
+
+            Read the generators documentation on php.net: [Generator syntax](https://www.php.net/manual/en/language.generators.syntax.php)
+
+        sourceUrl: https://twitter.com/FredBouchery/status/1285134865176956929
+        created_at: '2020-07-20'
+
+    3:
+        person: Fred
+        difficulty: 3
+        label: property_exists ?
+        description: |
+            What will be displayed (PHP version >= 7.4)?
+
+            ```php
+            <?php
+            declare(strict_types=0);
+            class A {
+                public function get(string $name, $default) {
+                    if (property_exists($this, $name)) {
+                        return $this->{$name};
+                    }
+
+                    return $default;
+                }
+            }
+
+            class B extends A {
+                private $foo = 42;
+            }
+
+            var_dump((new B)->get('foo', null));
+
+            ```
+
+
+        answers:
+            - label: 'int(42)'
+              score: 0.0
+            - label: 'NULL'
+              score: 0.0
+            - label: 'Fatal error: Uncaught Error: Cannot access private property B::\$foo'
+              score: 1.0
+            - label: "Parse error: syntax error, unexpected '{'"
+              score: 0.0
+
+        answer_explanations: |
+            PHP function `property_exists` will find the private property, but you cannot access to it.
+
+            The right answer was "`Fatal error: Uncaught Error: Cannot access private property B::\$foo`"
+
+            Try here: [ https://3v4l.org/1Qe3c ]
+
+            Read the property_exists documentation on php.net: [ property_exists ](https://www.php.net/manual/en/function.property-exists.php)
+
+        sourceUrl: https://twitter.com/FredBouchery/status/1283314819228225537
+        created_at: '2020-07-15'
+
+    4:
+        person: Fred
+        difficulty: 3
+        label: label
+        description: |
+            What will be displayed ?
+
+            ```php
+            <?php
+            declare(strict_types=1);
+
+            $generator = (function() {
+                yield 42;
+            });
+
+            array_walk($generator, function (int $value) {
+                var_dump($value);
+            });
+
+             ```
+
+        answers:
+            - label: '[nothing]'
+              score: 1.0
+            - label: 'int(42)'
+              score: 0.0
+            - label: 'string(2) "42"'
+              score: 0.0
+            - label: 'Fatal Error (type error)'
+              score: 0.0
+
+        answer_explanations: |
+            All PHP functions prefixed by "array_" expect an array, and not a traversable/iterator.
+
+            The result is "[nothing]". Try here: [ https://3v4l.org/kKt77 ]
+
+            > Note: If the values had been in an array it would have been "int(42)" because internal array functions do not follow strict typing.
+
+            Read the array functions documentation on php.net: [ Array Functions ](https://www.php.net/manual/en/ref.array.php)
+
+        sourceUrl: https://twitter.com/FredBouchery/status/1295648502370926593
+        created_at: '2020-08-18'
+
+    5:
+        person: Fred
+        difficulty: 3
+        label: label
+        description: |
+            What will be displayed ?
+
+            ```php
+            <?php
+
+            $array = [];
+            foreach (['a', '42'] as $key) {
+                $array[$key] = $key;
+            }
+
+            $merge = array_merge($array, []);
+            echo $merge[0] ?? 'null';
+             ```
+
+        answers:
+            - label: 'null'
+              score: 0.0
+            - label: 'a'
+              score: 0.0
+            - label: '42'
+              score: 1.0
+            - label: '[nothing]'
+              score: 0.0
+
+        answer_explanations: |
+            When you use the PHP function <code>array_merge</code>, all values in the input arrays with numeric keys will be renumbered with incrementing keys starting from zero.
+
+            The right answer was "42" (C).
+
+            Try here: [ https://3v4l.org/lb1YD ]
+
+            Read the array_merge function documentation on php.net: [array_merge](https://www.php.net/manual/en/function.array-merge.php)
+
+        sourceUrl: https://twitter.com/FredBouchery/status/1297796014338973697
+        created_at: '2020-08-24'
 #
-#    3:
-#        id: 3
-#        person_id: 1
-#        difficulty: 3
-#        label: What will be displayed?
-#        answer_explanations: >
-#            PHP function <code>property_exists</code> will find the private property, but you cannot access to it.
-#            The right answer was "C".
-#        live_snippet_url: https://3v4l.org/1Qe3c
-#        sourceUrl: https://twitter.com/FredBouchery/status/1283314819228225537
-#        differences_output_notes: null
-#        created_at: '2020-07-15'
-#
-#    4:
-#        id: 4
-#        person_id: 1
-#        difficulty: 3
-#        label: What will be displayed?
-#        answer_explanations: >
-#            All PHP functions prefixed by "array_" expect an array, and not a traversable/iterator. The result is "[nothing]" (A).
-#            Note: If the values had been in an array it would have been "int(42)" because internal array functions do not follow strict typing.
-#        live_snippet_url: https://3v4l.org/kKt77
-#        sourceUrl: https://twitter.com/FredBouchery/status/1295648502370926593
-#        differences_output_notes: null
-#        created_at: '2020-08-18'
-#        
 #    5:
 #        id: 5
 #        person_id: 1
@@ -98,7 +236,38 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1297796014338973697
 #        differences_output_notes: null
 #        created_at: '2020-08-24'
-#        
+
+        #    3:
+        #        person: Fred
+        #        difficulty: 3
+        #        label: label
+        #        description: |
+        #            What will be displayed ?
+        #
+        #            ```php
+        #             ```
+        #
+        #        answers:
+        #            - label: ''
+        #              score: 1.0
+        #            - label: ''
+        #              score: 0.0
+        #            - label: ''
+        #              score: 0.0
+        #            - label: ''
+        #              score: 0.0
+        #
+        #        answer_explanations: |
+        #            explaination
+
+        #            Try here: [ https://3v4l.org/xxxx ]
+        #
+        #            Read the generators documentation on php.net: [ Generator syntax ](https://www.php.net/manual/en/language.generators.syntax.php)
+        #
+        #        sourceUrl: https://twitter.com/FredBouchery/status/xxxxx
+        #        created_at: '2020-07-23'
+
+#
 #    6:
 #        id: 6
 #        person_id: 1

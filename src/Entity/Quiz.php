@@ -8,6 +8,7 @@ use App\Repository\QuizRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=QuizRepository::class)
@@ -16,23 +17,42 @@ use Doctrine\ORM\Mapping as ORM;
 class Quiz extends BaseEntity
 {
     /**
+     * Uniq identifier for a quiz.
+     *
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
+     */
+    protected string $id;
+    /**
+     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(max=BaseEntity::STRING_DEFAULT_LENGTH)
+     */
+    private string $label;
+
+    /**
+     * @ORM\Column(type="text")
+     *
+     * @Assert\NotBlank
+     */
+    private string $description;
+
+    /**
      * @ORM\Column(type="integer")
+     * @Assert\PositiveOrZero()
      */
-    protected ?int $id = null;
+    private int $difficulty;
 
     /**
-     * @ORM\Column(type="guid")
+     * @var Collection<int,Question>
      *
-     * @see 5.2: https://symfony.com/blog/new-in-symfony-5-2-doctrine-types-for-uuid-and-ulid
-     */
-    protected ?string $uuid;
-
-    /**
-     * @var Collection<int,QuizQuestion>
-     *
-     * @ORM\OneToMany(targetEntity=QuizQuestion::class, mappedBy="quiz", cascade={"remove"})
+     * @ORM\ManyToMany(targetEntity="Question")
+     * @ORM\JoinTable(
+     *     name="quiz_question",
+     *     joinColumns={@ORM\JoinColumn(name="quiz_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="question_id", referencedColumnName="id", unique=true)}
+     * )
      */
     protected Collection $questions;
 
@@ -42,107 +62,66 @@ class Quiz extends BaseEntity
     }
 
     /**
-     * @ORM\PrePersist()
-     */
-    public function prePersist(): void
-    {
-        if (empty($this->uuid)) {
-            $this->setUuid(uuid_create());
-        }
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getUuid(): ?string
-    {
-        return $this->uuid;
-    }
-
-    public function setUuid(string $uuid): self
-    {
-        $this->uuid = $uuid;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int,QuizQuestion>|QuizQuestion[]
+     * @return Question[]|Collection
      */
     public function getQuestions(): Collection
     {
         return $this->questions;
     }
 
-    public function addQuestion(QuizQuestion $question): self
+    public function addQuestion(Question $question): self
     {
         if (!$this->questions->contains($question)) {
             $this->questions[] = $question;
-            $question->setQuiz($this);
         }
 
         return $this;
     }
 
-    public function removeQuestion(QuizQuestion $question): self
+    public function getId(): string
     {
-        if ($this->questions->contains($question)) {
-            $this->questions->removeElement($question);
-            // set the owning side to null (unless already changed)
-            if ($question->getQuiz() === $this) {
-                $question->setQuiz(null);
-            }
-        }
+        return $this->id;
+    }
+
+    public function setId(string $id): Quiz
+    {
+        $this->id = $id;
 
         return $this;
     }
 
-    /* End basic 'etters ———————————————————————————————————————————————————— */
-
-    public function getScore(): int
+    public function getLabel(): string
     {
-        $score = 0;
-        foreach ($this->getQuestions() as $quizQuestion) {
-            $answer = $quizQuestion->getAnswer();
-            if (!$answer instanceof Answer) {
-                throw new \LogicException("Can't get the score of a non completed test.");
-            }
-            $score += $answer->isCorrect() ? 1 : 0;
-        }
-
-        return $score;
+        return $this->label;
     }
 
-    /**
-     * For a quick view of the score in EasyAdmin.
-     */
-    public function getAdminScore(): string
+    public function setLabel(string $label): Quiz
     {
-        $notAnswered = 0;
-        $score = 0;
-        $qestions = $this->getQuestions();
-        foreach ($qestions as $quizQuestion) {
-            $answer = $quizQuestion->getAnswer();
-            if ($answer instanceof Answer) {
-                $score += $answer->isCorrect() ? 1 : 0;
-            } else {
-                ++$notAnswered;
-            }
-        }
+        $this->label = $label;
 
-        return $score.'/'.(count($qestions) - $notAnswered).' ('.count($qestions).')';
+        return $this;
     }
 
-    /**
-     * Reset all anwers.
-     */
-    public function reset(): self
+    public function getDescription(): string
     {
-        foreach ($this->getQuestions() as $quizQuestion) {
-            $quizQuestion->setAnswer(null);
-        }
+        return $this->description;
+    }
+
+    public function setDescription(string $description): Quiz
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDifficulty(): int
+    {
+        return $this->difficulty;
+    }
+
+    public function setDifficulty(int $difficulty): Quiz
+    {
+        $this->difficulty = $difficulty;
 
         return $this;
     }

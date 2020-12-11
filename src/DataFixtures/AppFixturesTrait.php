@@ -15,7 +15,7 @@ trait AppFixturesTrait
 {
     private function getQuestion(int $id): Question
     {
-        $question = $this->getReference(QuestionFixtures::class.$id);
+        $question = $this->getReference(QuestionFixtures::class.':'.$id);
         if (!$question instanceof Question) {
             throw new InvalidTypeException(sprintf('Question "%d" not found.', $id));
         }
@@ -23,24 +23,14 @@ trait AppFixturesTrait
         return $question;
     }
 
-    private function getPerson(int $id): Person
+    private function getPerson(string $pseudo): Person
     {
-        $person = $this->getReference(PersonFixtures::class.$id);
+        $person = $this->getReference($pseudo);
         if (!$person instanceof Person) {
-            throw new InvalidTypeException(sprintf('Person "%d" not found.', $id));
+            throw new InvalidTypeException(sprintf('Person "%d" not found.', $pseudo));
         }
 
         return $person;
-    }
-
-    private function getDifficulty(int $id): Difficulty
-    {
-        $difficulty = $this->getReference(DifficultyFixtures::class.$id);
-        if (!$difficulty instanceof Difficulty) {
-            throw new InvalidTypeException(sprintf('Difficulty "%d" not found.', $id));
-        }
-
-        return $difficulty;
     }
 
     private function getQuiz(int $id): Quiz

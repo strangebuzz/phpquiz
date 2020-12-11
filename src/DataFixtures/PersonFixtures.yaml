@@ -2,9 +2,9 @@ persons:
     1:
         id: 1
         twitter: FredBouchery
-        pseudo: null
+        pseudo: Fred
 
     2:
         id: 2
         twitter: C0il
-        pseudo: null
+        pseudo: C0il
