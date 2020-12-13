@@ -1,0 +1,55 @@
+App\Entity\Question:
+    question_2:
+        suggested_by: '@person_fred'
+        difficulty: 3
+        label: Generator
+        description: >
+            ### What will be displayed? (PHP version >= 7.4)? 🤔
+
+            ```php
+            <?php
+
+            function generator() {
+                yield '1' => 4;
+                yield '0' => 2;
+            }
+
+            $array = [... generator()];
+
+            echo implode('', $array);
+
+        answer_explanations: >
+            PHP 7.4 unpack a Traversable by keeping the iteration order, but it fails when the keys are strings, even if those strings are numeric.
+            The right answer was "Fatal error: Uncaught Error: Cannot unpack Traversable with string keys".
+
+
+            Try it on \[3v4l.org](https://3v4l.org/qKGPt).
+
+
+            Read the generators documentation on php.net: \[Generator syntax](https://www.php.net/manual/en/language.generators.syntax.php)
+
+        sourceUrl: https://twitter.com/FredBouchery/status/1285134865176956929
+        created_at: <date_create('2020-07-20')>
+        updated_at: <date_create('2020-07-20')>
+
+App\Entity\Answer:
+    answer_question_2 (template):
+        question: '@question_2'
+
+    answer_2_a (extends answer_question_2):
+        order: 1
+        label: '42'
+        score: 0.0
+    answer_2_b (extends answer_question_2):
+        order: 2
+        label: '24'
+        score: 0.0
+    answer_2_c (extends answer_question_2):
+        order: 3
+        label: "Parse error: syntax error, unexpected '...' (T_ELLIPSIS)"
+        score: 0.0
+    answer_2_d (extends answer_question_2):
+        order: 4
+        label: >
+            Fatal error: Uncaught Error: Cannot unpack Traversable with string keys
+        score: 1.0

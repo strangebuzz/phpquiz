@@ -3,7 +3,7 @@ App\Entity\Question:
         suggested_by: '@person_fred'
         difficulty: 3
         label: Namespaces and extended classes
-        description: |
+        description: >
             ### What will be displayed? 🤔
 
             ```php
@@ -21,19 +21,20 @@ App\Entity\Question:
 
             B::show();
             ?>
-            ```
 
         answer_explanations: >
             PHP namespaces can contain space characters, but they can't begin with a backslash.
-            Try [here](https://3v4l.org/pQOMe).
+            Try it on \[3v4l.org](https://3v4l.org/pQOMe).
 
-            > Notice: As I am writing this quiz (2020-07-31), there is a slight difference between all versions and PHP 8.0.0alpha3:
-            > With this last version, the exception message "Foo\Bar" is wrapped by double quotes instead of single quotes for other versions (\'Foo\Bar\'). 🤔
+
+            > **Notice**: As I am writing this quiz (2020-07-31), there is a slight difference between all versions and PHP 8.0.0alpha3: With this last version, the exception message "Foo\Bar" is wrapped by double quotes instead of single quotes for other versions (\'Foo\Bar\'). 🤔
+
 
             Read the namespaces documentation on php.net: [Defining namespaces](https://www.php.net/manual/en/language.namespaces.definition.php)
 
         sourceUrl: https://twitter.com/FredBouchery/status/1286207302018699264
         created_at: <date_create('2020-07-23')>
+        updated_at: <date_create('2020-07-23')>
 
 App\Entity\Answer:
     answer_question_1 (template):
@@ -47,7 +48,7 @@ App\Entity\Answer:
     answer_1_b (extends answer_question_1):
         order: 2
         label: >
-            Parse error: syntax error, unexpected '\' (T_NS_SEPARATOR)'
+            Parse error: syntax error, unexpected '\' (T_NS_SEPARATOR)
         score: 0.0
     answer_1_c (extends answer_question_1):
         order: 3

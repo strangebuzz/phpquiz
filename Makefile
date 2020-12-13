@@ -56,7 +56,8 @@ load-fixtures: ## Build the db, control the schema validity, load fixtures and c
 	$(SYMFONY) doctrine:schema:drop --force
 	$(SYMFONY) doctrine:schema:create
 	$(SYMFONY) doctrine:schema:validate
-	$(SYMFONY) doctrine:fixtures:load -n
+	#$(SYMFONY) doctrine:fixtures:load -n
+	$(SYMFONY) hautelook:fixtures:load --no-interaction
 
 load-alice-fixtures: ## Load fixtures from YAML files
 	$(SYMFONY) hautelook:fixtures:load --no-interaction
