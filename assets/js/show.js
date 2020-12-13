@@ -17,12 +17,12 @@ require('../css/app.css')
 
 new Vue({
   el: '#layout', // main id of global div (layout.html)
-  delimiters: ['{', '}'], // because of Twig we don't take standard {{ }}
+  delimiters: ['[[', ']]'], // because of Twig we don't take standard {{ }}
   data: {
     questionId: questionId, // Id of the current question (comes from the Sf javascript block)
     question: null, // question json object (see mounted).
     questionUrl: questionUrl, // URL to get the question object
-    code: code, // raw PHP code of the question
+    //code: code, // raw PHP code of the question
     ready: false, // can the user answer the question? (question object must be available)
     hasValidated: false, // user has validated its answer?
     answer: null, // user answer (vue form model)
@@ -32,7 +32,7 @@ new Vue({
      * Is the user answer correct? Must be used only if hasValidated is true.
      */
     isCorrect: function () {
-      return this.question.correctAnswerCode === this.answer
+      return this.question.correctAnswerOrder === this.answer
     }
   },
   methods: {
@@ -86,7 +86,7 @@ new Vue({
     }
   },
   mounted() {
-    this.initClipboard()
+    //this.initClipboard()
     this.loadQuestion()
   }
 })

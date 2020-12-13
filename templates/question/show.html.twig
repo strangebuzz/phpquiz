@@ -13,6 +13,7 @@
     <script>
       const questionId = {{ question.id }}
       const questionUrl = '{{ path('api_questions_get_item', {id: question.id }) }}'
+      //const code = ''
     </script>
     {{ parent() }}
 {% endblock %}
@@ -36,8 +37,6 @@
             <li>Difficulty: <b>{{ question.difficulty }}</b></li>
         </ul>
 
-        <h3>{{ question.label }} 🤔</h3>
-
         <div>
             {{ question.description|markdown_to_html }}
         </div>
@@ -48,8 +47,8 @@
                     <legend>Select your answer: 🧐</legend>
 
                     {% for answer in question.answers %}
-                        <label class="pure-radio" for="answer_{{ loop.index0 }}">
-                            <input required="required" v-model="answer" name="answer" id="answer_{{ loop.index0 }}" type="radio" value="{{ answer.order }}" />&nbsp;
+                        <label class="pure-radio" for="answer_{{ answer.order }}">
+                            <input required="required" v-model="answer" name="answer" id="answer_{{ answer.order }}" type="radio" value="{{ answer.order }}" />&nbsp;
                             <b>{{ answer.label }}
                         </label>
                     {% endfor %}
@@ -64,8 +63,8 @@
         <div v-if="hasValidated">
             <hr/>
 
-            <h1 v-if="isCorrect">✅ { answer }: correct!</h1>
-            <h1 v-else>❌ { answer }: Wrong answer!</h1>
+            <h1 v-if="isCorrect">✅ correct!</h1>
+            <h1 v-else>❌ Wrong answer!</h1>
 
             <blockquote class="content-quote">{{ question.answerExplanations|markdown_to_html }}</blockquote>
 

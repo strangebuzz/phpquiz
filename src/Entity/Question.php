@@ -242,7 +242,7 @@ class Question extends BaseEntity
      *
      * @throws \LogicException
      */
-    public function getCorrectAnswerCode(): string
+    public function getCorrectAnswerOrder(): string
     {
         $correctAnswer = null;
         foreach ($this->getAnswers() as $answer) {
@@ -259,6 +259,6 @@ class Question extends BaseEntity
             throw new \LogicException("Question doesn't have a correct answer.");
         }
 
-        return (string) $correctAnswer->getCode();
+        return (string) $correctAnswer->getOrder();
     }
 }

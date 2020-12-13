@@ -4,7 +4,7 @@ questions:
         difficulty: 3
         label: Namespaces and extended classes
         description: |
-            What will be displayed?
+            ### What will be displayed? 🤔
 
             ```php
             <?php
@@ -37,7 +37,7 @@ questions:
 
         answer_explanations: >
             PHP namespaces can contain space characters, but they can\'t begin with a backslash.
-            Try here: [https://3v4l.org/pQOMe]
+            Try [here](https://3v4l.org/pQOMe).
 
             > Notice: As I am writing this quiz (2020-07-31), there is a slight difference between all versions and PHP 8.0.0alpha3:
             > With this last version, the exception message "Foo\Bar" is wrapped by double quotes instead of single quotes for other versions (\'Foo\Bar\'). 🤔
@@ -52,7 +52,7 @@ questions:
         difficulty: 3
         label: Generator
         description: |
-            What will be displayed (PHP version >= 7.4)?
+            ### What will be displayed? (PHP version >= 7.4)? 🤔
 
             ```php
             <?php
@@ -82,7 +82,7 @@ questions:
 
             The right answer was "Fatal error: Uncaught Error: Cannot unpack Traversable with string keys".
 
-            Try here: [https://3v4l.org/qKGPt]
+            Try [here](https://3v4l.org/qKGPt).
 
             Read the generators documentation on php.net: [Generator syntax](https://www.php.net/manual/en/language.generators.syntax.php)
 
@@ -94,7 +94,7 @@ questions:
         difficulty: 3
         label: property_exists ?
         description: |
-            What will be displayed (PHP version >= 7.4)?
+            ### What will be displayed? (PHP version >= 7.4)? 🤔
 
             ```php
             <?php
@@ -133,7 +133,7 @@ questions:
 
             The right answer was "`Fatal error: Uncaught Error: Cannot access private property B::\$foo`"
 
-            Try here: [ https://3v4l.org/1Qe3c ]
+            Try [here](https://3v4l.org/1Qe3c).
 
             Read the property_exists documentation on php.net: [ property_exists ](https://www.php.net/manual/en/function.property-exists.php)
 
@@ -145,7 +145,7 @@ questions:
         difficulty: 3
         label: label
         description: |
-            What will be displayed ?
+            ### What will be displayed? 🤔
 
             ```php
             <?php
@@ -174,7 +174,7 @@ questions:
         answer_explanations: |
             All PHP functions prefixed by "array_" expect an array, and not a traversable/iterator.
 
-            The result is "[nothing]". Try here: [ https://3v4l.org/kKt77 ]
+            The result is "[nothing]". Try [here]([https://3v4l.org/kKt77]).
 
             > Note: If the values had been in an array it would have been "int(42)" because internal array functions do not follow strict typing.
 
@@ -188,7 +188,7 @@ questions:
         difficulty: 3
         label: label
         description: |
-            What will be displayed ?
+            ### What will be displayed? 🤔
 
             ```php
             <?php
@@ -215,9 +215,9 @@ questions:
         answer_explanations: |
             When you use the PHP function <code>array_merge</code>, all values in the input arrays with numeric keys will be renumbered with incrementing keys starting from zero.
 
-            The right answer was "42" (C).
+            The right answer was "42".
 
-            Try here: [ https://3v4l.org/lb1YD ]
+            Try [here](https://3v4l.org/lb1YD).
 
             Read the array_merge function documentation on php.net: [array_merge](https://www.php.net/manual/en/function.array-merge.php)
 
@@ -281,7 +281,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1298887883244396544
 #        differences_output_notes: null
 #        created_at: '2020-08-27'
-#        
+#
 #    7:
 #        id: 7
 #        person_id: 1
@@ -294,7 +294,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1300355047440683010
 #        differences_output_notes: null
 #        created_at: '2020-08-31'
-#        
+#
 #    8:
 #        id: 8
 #        person_id: 1
@@ -308,7 +308,7 @@ questions:
 #        differences_output_notes: >
 #            An abstract method can be private with PHP 8, the correct answer in this case is "A" (int 42).
 #        created_at: '2020-09-07'
-#        
+#
 #    9:
 #        id: 9
 #        person_id: 1
@@ -321,7 +321,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1304314751628070912
 #        differences_output_notes: With PHP 8 the right answer is "D".
 #        created_at: '2020-09-11'
-#        
+#
 #    10:
 #        id: 10
 #        person_id: 1
@@ -335,7 +335,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1305768968398024704
 #        differences_output_notes: null
 #        created_at: '2020-09-15'
-#        
+#
 #    11:
 #        id: 11
 #        person_id: 1
@@ -347,7 +347,7 @@ questions:
 #        differences_output_notes: >
 #            For PHP 7, the right answer is "C" (there was an error the original Twitter poll).
 #        created_at: '2020-09-18'
-#        
+#
 #    12:
 #        id: 12
 #        person_id: 1
@@ -360,7 +360,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1308313561744265217
 #        differences_output_notes: null
 #        created_at: '2020-09-22'
-#        
+#
 #    13:
 #        id: 13
 #        person_id: 1
@@ -374,7 +374,7 @@ questions:
 #        differences_output_notes: >
 #            Prior to this version you get the following error: 'PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) on line 5'
 #        created_at: '2020-09-28'
-#        
+#
 #    14:
 #        id: 14
 #        person_id: 1
@@ -388,7 +388,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1313017003842637824
 #        differences_output_notes: null
 #        created_at: '2020-10-05'
-#        
+#
 #    15:
 #        id: 15
 #        person_id: 1
@@ -402,7 +402,7 @@ questions:
 #            For PHP 7.3 and below we have the following error: Parse error: syntax error, unexpected 'string' (T_STRING),
 #            expecting function (T_FUNCTION) or const (T_CONST).",
 #        created_at: '2020-10-08'
-#        
+#
 #    16:
 #        id: 16
 #        person_id: 1
@@ -416,7 +416,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1315579400377839616
 #        differences_output_notes: It also works with previous PHP versions!
 #        created_at: '2020-10-12'
-#        
+#
 #    17:
 #        id: 17
 #        person_id: 1
@@ -430,7 +430,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1316639108471627776
 #        differences_output_notes: null
 #        created_at: '2020-10-15'
-#        
+#
 #    18:
 #        id: 18
 #        person_id: 1
@@ -445,7 +445,7 @@ questions:
 #        differences_output_notes: >
 #            Since PHP 8 (> alpha) non well formed numeric value raise a warning which become TypeError.
 #        created_at: '2020-10-19'
-#        
+#
 #    19:
 #        id: 19
 #        person_id: 1
@@ -459,7 +459,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1319555743675273216
 #        differences_output_notes: null
 #        created_at: '2020-10-23'
-#        
+#
 #    20:
 #        id: 20
 #        person_id: 1
@@ -473,7 +473,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1320671506985353216
 #        differences_output_notes: null
 #        created_at: '2020-10-26'
-#        
+#
 #    21:
 #        id: 21
 #        person_id: 1
@@ -487,7 +487,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1321764081364324352
 #        differences_output_notes: null
 #        created_at: '2020-10-29'
-#        
+#
 #    22:
 #        id: 22
 #        person_id: 1
@@ -501,7 +501,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1323180921793712130
 #        differences_output_notes: null
 #        created_at: '2020-11-02'
-#        
+#
 #    23:
 #        id: 23
 #        person_id: 1
@@ -516,7 +516,7 @@ questions:
 #        differences_output_notes: >
 #            For PHP 7.3 and below the error is "Parse error: syntax error, unexpected 'int' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)"
 #        created_at: '2020-11-06'
-#        
+#
 #    24:
 #        id: 24
 #        person_id: 1
@@ -530,7 +530,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1325735317912121348
 #        differences_output_notes: null
 #        created_at: '2020-11-09'
-#        
+#
 #    25:
 #        id: 25
 #        person_id: 1
@@ -546,7 +546,7 @@ questions:
 #            Prior to PHP 8, "3 . 7 + 5" gives the resultat "int(42)" and PHP 7.4
 #            displays a deprecated even with error_reporting(0).
 #        created_at: '2020-11-12'
-#        
+#
 #    26:
 #        id: 26
 #        person_id: 1
@@ -560,7 +560,7 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1328267933982871552
 #        differences_output_notes: null
 #        created_at: '2020-11-16'
-#        
+#
 #    27:
 #        id: 27
 #        person_id: 1
@@ -574,4 +574,3 @@ questions:
 #        sourceUrl: https://twitter.com/FredBouchery/status/1329333201597313025
 #        differences_output_notes: null
 #        created_at: '2020-11-19'
-        

@@ -66,6 +66,19 @@ final class Answer extends BaseEntity
         return $this;
     }
 
+    public function getCorrect(): ?bool
+    {
+        return (int) $this->score === 1;
+    }
+
+    /**
+     * Alias.
+     */
+    public function isCorrect(): ?bool
+    {
+        return $this->getCorrect();
+    }
+
     public function getScore(): float
     {
         return $this->score;
