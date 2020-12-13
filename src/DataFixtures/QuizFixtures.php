@@ -17,14 +17,14 @@ class QuizFixtures extends Fixture implements DependentFixtureInterface
     {
         foreach ($this->loadYaml(self::class)['quiz'] as $id => $data) {
             $quiz = (new Quiz())
-                ->setId($id)
+                //->setId($id)
                 ->setLabel($data['label'])
                 ->setDescription($data['description'])
                 ->setDifficulty($data['difficulty'])
             ;
 
-            foreach ($data['questions'] as $id) {
-                $quiz->addQuestion($this->getQuestion($id));
+            foreach ($data['questions'] as $questionId) {
+                $quiz->addQuestion($this->getQuestion($questionId));
             }
 
             $manager->persist($quiz);

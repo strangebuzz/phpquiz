@@ -58,6 +58,9 @@ load-fixtures: ## Build the db, control the schema validity, load fixtures and c
 	$(SYMFONY) doctrine:schema:validate
 	$(SYMFONY) doctrine:fixtures:load -n
 
+load-alice-fixtures: ## Load fixtures from YAML files
+	$(SYMFONY) hautelook:fixtures:load --no-interaction
+
 install: composer-install assets dev ## Install all the project dependencies
 
 start: up wait-postgres load-fixtures serve ## Start docker, load fixtures and start the web server

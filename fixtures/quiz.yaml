@@ -1,0 +1,7 @@
+App\Entity\Quiz:
+    all:
+        label: All questions
+        description: This is a very large quiz, with all the questions
+        difficulty: 3
+        questions: ['@question_1']
+        #questions: ['@question_1', 2, 3, 4, 5]

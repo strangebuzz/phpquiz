@@ -1,0 +1,8 @@
+App\Entity\Person:
+    person_fred: # id 1
+        twitter: FredBouchery
+        pseudo: Fred
+
+    person_coil: # id 2
+        twitter: C0il
+        pseudo: C0il

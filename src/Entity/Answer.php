@@ -42,6 +42,11 @@ final class Answer extends BaseEntity
      */
     private ?Question $question;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
     public function getOrder(): int
     {
         return $this->order;

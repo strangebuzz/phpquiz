@@ -57,13 +57,14 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
         "easycorp/easy-deploy-bundle": "^1.0",
         "ekino/phpstan-banned-code": "^0.3.1",
         "friendsofphp/php-cs-fixer": "^2.16",
+        "hautelook/alice-bundle": "^2.8",
         "justinrainbow/json-schema": "^5.2",
         "phpstan/phpstan-deprecation-rules": "^0.12.5",
         "phpstan/phpstan-symfony": "^0.12",
+        "roave/security-advisories": "dev-master",
         "symfony/browser-kit": "^5.2",
         "symfony/css-selector": "^5.2",
         "symfony/debug-bundle": "^5.2",

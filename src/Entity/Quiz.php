@@ -17,12 +17,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Quiz extends BaseEntity
 {
     /**
-     * Uniq identifier for a quiz.
-     *
      * @ORM\Id
-     * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    protected string $id;
+    protected ?int $id = null;
+
     /**
      * @ORM\Column(type="string", length=BaseEntity::STRING_DEFAULT_LENGTH)
      *
@@ -78,12 +78,21 @@ class Quiz extends BaseEntity
         return $this;
     }
 
-    public function getId(): string
+    public function removeQuestion(Question $question): self
+    {
+        if ($this->questions->contains($question)) {
+            $this->questions->remove($question);
+        }
+
+        return $this;
+    }
+
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setId(string $id): Quiz
+    public function setId(?string $id): Quiz
     {
         $this->id = $id;
 
