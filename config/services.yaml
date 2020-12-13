@@ -35,3 +35,11 @@ services:
     # Simple alias for injection
     Symfony\Bridge\Twig\Extension\HttpFoundationExtension: '@twig.extension.httpfoundation'
     Symfony\Bridge\Twig\Extension\AssetExtension: '@twig.extension.assets'
+
+    # Fixtures
+    App\DataFixtures\CustomOrderFilesLocator:
+        arguments:
+            - '@hautelook_alice.locator.environmentless' # Decorates the currently used file locator
+
+    # Replaces the default file locator used
+    hautelook_alice.locator: '@App\DataFixtures\CustomOrderFilesLocator'

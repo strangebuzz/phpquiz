@@ -22,7 +22,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $this->connection = $connection;
     }
 
-
     public function load(ObjectManager $manager): void
     {
         $questions = $this->loadYaml(self::class)['questions'];

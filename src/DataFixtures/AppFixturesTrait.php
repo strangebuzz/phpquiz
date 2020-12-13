@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\DataFixtures;
 
-use App\Entity\Difficulty;
 use App\Entity\Person;
 use App\Entity\Question;
 use App\Entity\Quiz;

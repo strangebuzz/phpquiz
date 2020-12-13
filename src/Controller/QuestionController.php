@@ -38,6 +38,7 @@ class QuestionController extends AbstractController
     public function random(): Response
     {
         [$position, $question] = $this->questionData->getRandomQuestion();
+
         return $this->renderQuestion($question, $position);
     }
 

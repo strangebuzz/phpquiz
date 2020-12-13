@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Repository;
 
-use App\DataFixtures\QuestionFixtures;
 use App\Entity\Question;
 use App\Repository\QuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

@@ -13,16 +13,12 @@ class PersonFixtures extends Fixture
 {
     use AppFixturesTrait;
 
-    /**
-     * @var Connection
-     */
     private Connection $connection;
 
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
     }
-
 
     public function load(ObjectManager $manager): void
     {

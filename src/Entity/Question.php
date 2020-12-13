@@ -112,7 +112,6 @@ class Question extends BaseEntity
     public ?Question $previousQuestion = null;
     public ?Question $nextQuestion = null;
 
-
     public function __construct()
     {
         $this->answers = new ArrayCollection();
