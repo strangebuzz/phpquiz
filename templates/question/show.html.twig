@@ -49,7 +49,7 @@
                     {% for answer in question.answers %}
                         <label class="pure-radio" for="answer_{{ answer.order }}">
                             <input required="required" v-model="answer" name="answer" id="answer_{{ answer.order }}" type="radio" value="{{ answer.order }}" />&nbsp;
-                            <b>{{ answer.label }}
+                                <b>{{ answer.label }}</b>
                         </label>
                     {% endfor %}
 
@@ -66,7 +66,7 @@
             <h1 v-if="isCorrect">✅ correct!</h1>
             <h1 v-else>❌ Wrong answer!</h1>
 
-            <blockquote class="content-quote">{{ question.answerExplanations|markdown_to_html }}</blockquote>
+            <div>{{ question.answerExplanations|markdown_to_html }}</div>
 
             <hr/>
 

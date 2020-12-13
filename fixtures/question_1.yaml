@@ -24,7 +24,7 @@ App\Entity\Question:
             ```
 
         answer_explanations: >
-            PHP namespaces can contain space characters, but they can\'t begin with a backslash.
+            PHP namespaces can contain space characters, but they can't begin with a backslash.
             Try [here](https://3v4l.org/pQOMe).
 
             > Notice: As I am writing this quiz (2020-07-31), there is a slight difference between all versions and PHP 8.0.0alpha3:
@@ -39,21 +39,21 @@ App\Entity\Answer:
     answer_question_1 (template):
         question: '@question_1'
 
-    answer_a (extends answer_question_1):
+    answer_1_a (extends answer_question_1):
         order: 1
         label: >
             Fatal error: Uncaught Error: Undefined constant 'Foo\Bar'
         score: 1.0
-    answer_b (extends answer_question_1):
+    answer_1_b (extends answer_question_1):
         order: 2
         label: >
             Parse error: syntax error, unexpected '\' (T_NS_SEPARATOR)'
         score: 0.0
-    answer_c (extends answer_question_1):
+    answer_1_c (extends answer_question_1):
         order: 3
         label: Foo\Bar\A
         score: 0.0
-    answer_d (extends answer_question_1):
+    answer_1_d (extends answer_question_1):
         order: 4
         label: Foo\Bar\B
         score: 0.0
