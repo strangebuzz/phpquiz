@@ -5,4 +5,4 @@ App\Entity\Person:
 
     person_coil: # id 2
         twitter: C0il
-        pseudo: C0il
+        pseudo: COil

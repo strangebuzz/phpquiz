@@ -1,0 +1,53 @@
+App\Entity\Question:
+    question_4:
+        suggested_by: '@person_fred'
+        difficulty: 3
+        label: 'todo@fred'
+        description: |
+            ### What will be displayed? 🤔
+
+            ```php
+            <?php
+            declare(strict_types=1);
+
+            $generator = (function() {
+                yield 42;
+            });
+
+            array_walk($generator, function (int $value) {
+                var_dump($value);
+            });
+
+        answer_explanations: |
+            All PHP functions prefixed by "array_" expect an array, and not a traversable/iterator.
+
+
+            The result is "\[nothing]". Try it on \[3v4l.org](https://3v4l.org/kKt77).
+
+
+            > Note: If the values had been in an array it would have been "int(42)" because internal array functions do not follow strict typing.
+
+
+            Read the array functions documentation on php.net: [ Array Functions ](https://www.php.net/manual/en/ref.array.php)
+
+App\Entity\Answer:
+    answer_question_4 (template):
+        question: '@question_4'
+
+    answer_4_a (extends answer_question_4):
+        order: 1
+        label: >
+            \[nothing]
+        score: 1.0
+    answer_4_b (extends answer_question_4):
+        order: 2
+        label: 'int(42)'
+        score: 0.0
+    answer_4_c (extends answer_question_4):
+        order: 3
+        label: 'string(2) "42"'
+        score: 0.0
+    answer_4_d (extends answer_question_4):
+        order: 4
+        label: 'Fatal Error (type error)'
+        score: 0.0

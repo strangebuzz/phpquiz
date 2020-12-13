@@ -1,0 +1,61 @@
+App\Entity\Question:
+    question_3:
+        suggested_by: '@person_fred'
+        difficulty: 3
+        label: property_exists ?
+        description: |
+            ### What will be displayed? (PHP version >= 7.4)? 🤔
+
+            ```php
+            <?php
+            declare(strict_types=0);
+            class A {
+                public function get(string $name, $default) {
+                    if (property_exists($this, $name)) {
+                        return $this->{$name};
+                    }
+
+                    return $default;
+                }
+            }
+
+            class B extends A {
+                private $foo = 42;
+            }
+
+            var_dump((new B)->get('foo', null));
+
+        answer_explanations: |
+            PHP function `property_exists` will find the private property, but you cannot access to it.
+            The right answer was "`Fatal error: Uncaught Error: Cannot access private property B::\$foo`"
+
+
+            Try it on \[3v4l.org](https://3v4l.org/1Qe3c).
+
+
+            Read the property_exists documentation on php.net: \[ property_exists ](https://www.php.net/manual/en/function.property-exists.php)
+
+        sourceUrl: https://twitter.com/FredBouchery/status/1283314819228225537
+        created_at: <date_create('2020-07-15')>
+        updated_at: <date_create('2020-07-15')>
+
+App\Entity\Answer:
+    answer_question_3 (template):
+        question: '@question_3'
+
+    answer_3_a (extends answer_question_3):
+        order: 1
+        label: 'int(42)'
+        score: 0.0
+    answer_3_b (extends answer_question_3):
+        order: 2
+        label: 'NULL'
+        score: 0.0
+    answer_3_c (extends answer_question_3):
+        order: 3
+        label: 'Fatal error: Uncaught Error: Cannot access private property B::\$foo'
+        score: 1.0
+    answer_3_d (extends answer_question_3):
+        order: 4
+        label: "Parse error: syntax error, unexpected '{'"
+        score: 0.0
