@@ -1,9 +1,10 @@
 App\Entity\Quiz:
-    quiz_all:
+    quiz_all: # id: 1
         label: All questions
         description: This is a very large quiz, with all the questions
         difficulty: 3
         questions:
+            - '@question_5'
             - '@question_4'
             - '@question_3'
             - '@question_2'

@@ -27,7 +27,7 @@
             {% if question.updatedAt != question.createdAt %}
                 <li>Modified on <b>{{ question.updatedAt|date('Y-m-d') }}</b></li>
             {% endif %}
-            <li>Difficulty: <b>{{ question.difficulty.label }}</b></li>
+            <li>Difficulty: <b>{{ ('difficulty_'~question.difficulty)|trans }}</b></li>
         </ul>
 
         <h3>{{ question.label }} 🤔</h3>

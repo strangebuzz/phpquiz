@@ -1,0 +1,56 @@
+App\Entity\Question:
+    question_5:
+        suggested_by: '@person_fred'
+        difficulty: 3
+        label: 'todo@fred'
+
+        description: |
+            ### What will be displayed? 🤔
+
+            ```php
+            <?php
+
+            $array = [];
+            foreach (['a', '42'] as $key) {
+                $array[$key] = $key;
+            }
+
+            $merge = array_merge($array, []);
+            echo $merge[0] ?? 'null';
+
+        answer_explanations: |
+            When you use the PHP function `array_merge`, all values in the input arrays with numeric keys will be renumbered with incrementing keys starting from zero.
+
+
+            The right answer was "42".
+
+
+            Try it on \[3v4l.org](https://3v4l.org/lb1YD).
+
+
+            Read the `array_merge` function documentation on php.net: \[array_merge](https://www.php.net/manual/en/function.array-merge.php)
+
+        sourceUrl: https://twitter.com/FredBouchery/status/1297796014338973697
+        created_at: <date_create('2020-08-24')>
+        updated_at: <date_create('2020-08-24')>
+
+App\Entity\Answer:
+    answer_question_5 (template):
+        question: '@question_5'
+
+    answer_5_a (extends answer_question_5):
+        order: 1
+        label: 'null'
+        score: 0.0
+    answer_5_b (extends answer_question_5):
+        order: 2
+        label: 'a'
+        score: 0.0
+    answer_5_c (extends answer_question_5):
+        order: 3
+        label: '42'
+        score: 1.0
+    answer_5_d (extends answer_question_5):
+        order: 4
+        label: '\[nothing]'
+        score: 0.0

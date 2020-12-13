@@ -30,6 +30,10 @@ App\Entity\Question:
 
             Read the array functions documentation on php.net: [ Array Functions ](https://www.php.net/manual/en/ref.array.php)
 
+        sourceUrl: https://twitter.com/FredBouchery/status/1295648502370926593
+        created_at: <date_create('2020-08-18')>
+        updated_at: <date_create('2020-08-18')>
+
 App\Entity\Answer:
     answer_question_4 (template):
         question: '@question_4'

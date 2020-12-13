@@ -1,3 +1,7 @@
+difficulty_1: basic
+difficulty_2: medium
+difficulty_3: expert
+
 results_minutes: >-
   {minutes, plural,
       =0    {}
