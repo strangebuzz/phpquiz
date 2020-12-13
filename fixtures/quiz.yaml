@@ -1,5 +1,5 @@
 App\Entity\Quiz:
-    all:
+    quiz_all:
         label: All questions
         description: This is a very large quiz, with all the questions
         difficulty: 3
