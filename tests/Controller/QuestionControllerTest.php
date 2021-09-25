@@ -36,7 +36,7 @@ class QuestionControllerTest extends WebTestCase
         self::assertCount(4, $crawler->filter('input[type=radio]'));
 
         // Test that is is at least one "Read more" link associated to the question
-        self::assertTrue(count($crawler->filter('a.read-more')) > 0);
+        self::assertNotEmpty($crawler->filter('a.read-more'));
     }
 
     /**

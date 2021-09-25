@@ -19,7 +19,7 @@ class PersonTest extends KernelTestCase
     protected function setUp(): void
     {
         self::bootKernel();
-        $this->validator = self::$container->get('validator');
+        $this->validator = static::getContainer()->get('validator');
     }
 
     /**

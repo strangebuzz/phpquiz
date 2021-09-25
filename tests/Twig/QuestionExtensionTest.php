@@ -16,8 +16,8 @@ class QuestionExtensionTest extends KernelTestCase
     protected function setUp(): void
     {
         self::bootKernel();
-        $this->questionExtension = self::$container->get(QuestionExtension::class);
-        $this->questionData = self::$container->get(QuestionData::class);
+        $this->questionExtension = static::getContainer()->get(QuestionExtension::class);
+        $this->questionData = static::getContainer()->get(QuestionData::class);
     }
 
     /**

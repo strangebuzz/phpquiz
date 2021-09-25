@@ -19,7 +19,7 @@ class QuestionRepositoryTest extends KernelTestCase
     protected function setUp(): void
     {
         self::bootKernel();
-        $this->repo = self::$container->get(QuestionRepository::class);
+        $this->repo = static::getContainer()->get(QuestionRepository::class);
     }
 
     /**

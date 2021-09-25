@@ -88,8 +88,9 @@ stan: ## Run PHPStan
 cs: lint-cs stan ## Run all coding standards checks
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
-test: ## Launch functional and unit tests
-	$(PHPUNIT) --stop-on-failure
+test: phpunit.xml.dist ## Run main functional and unit tests
+	$(eval filter ?= '.')
+	$(PHPUNIT) --filter=$(filter) --stop-on-failure
 
 ## —— Deploy & Prod 🚀 —————————————————————————————————————————————————————————
 deploy: ## Full no-downtime deployment with EasyDeploy

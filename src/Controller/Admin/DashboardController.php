@@ -12,7 +12,7 @@ use App\Entity\Quiz;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -26,7 +26,7 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        $routeBuilder = $this->get(CrudUrlGenerator::class)->build();
+        $routeBuilder = $this->get(AdminUrlGenerator::class);
 
         return $this->redirect($routeBuilder->setController(QuizCrudController::class)->generateUrl());
     }
@@ -38,7 +38,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoRoute('APi Platform', 'fas fa-spider', 'api_doc');
+        yield MenuItem::linkToUrl('APi Platform', 'fas fa-spider', '/api');
         yield MenuItem::subMenu('Docker', 'fas fa-server')->setSubItems([
             MenuItem::linkToUrl('Adminer', 'fas fa-database', 'http://127.0.0.1:8986')->setLinkRel('noreferrer'),
         ]);
@@ -50,6 +50,6 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Question', 'fas fa-question', Question::class),
         ]);
         yield MenuItem::linktoRoute('Answers stats', 'fas fa-chart-bar', 'admin_stats');
-        yield MenuItem::linktoRoute('Front website', 'fas fa-external-link-alt', 'home');
+        yield MenuItem::linkToUrl('Front website', 'fas fa-external-link-alt', '/');
     }
 }
