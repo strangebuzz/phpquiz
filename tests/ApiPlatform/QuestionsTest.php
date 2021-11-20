@@ -7,7 +7,7 @@ namespace App\Tests\ApiPlatform;
 use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\ApiTestCase;
 use App\Entity\Question;
 
-class QuestionsTest extends ApiTestCase
+final class QuestionsTest extends ApiTestCase
 {
     /**
      * Route: api_questions_get_item.
@@ -40,15 +40,5 @@ class QuestionsTest extends ApiTestCase
         self::assertResponseIsSuccessful();
         self::assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
         self::assertMatchesResourceItemJsonSchema(Question::class);
-        /*
-        .PHP Fatal error:  Declaration of ApiPlatform\Core\Bridge\Symfony\Bundle\Test\Constraint\ArraySubsetV9::evaluate($other, string $description = '', bool $returnResult = false): ?bool
-        must be compatible with PHPUnit\Framework\Constraint\Constraint::evaluate($other, $description = '', $returnResult = false) in
-        vendor/api-platform/core/src/Bridge/Symfony/Bundle/Test/Constraint/ArraySubsetV9.php on line 30
-        self::assertJsonContains([
-            '@context' => '/api/contexts/Question',
-            '@id' => '/api/questions',
-            '@type' => 'hydra:Collection',
-        ]);
-        */
     }
 }

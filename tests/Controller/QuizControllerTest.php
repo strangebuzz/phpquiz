@@ -12,14 +12,14 @@ use Symfony\Component\DomCrawler\Field\ChoiceFormField;
 /**
  * @covers QuizController
  */
-class QuizControllerTest extends WebTestCase
+final class QuizControllerTest extends WebTestCase
 {
     /**
      * @covers QuizController::new
      */
     public function testNew(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/quiz/new');
         self::assertResponseRedirects();
     }
@@ -29,7 +29,7 @@ class QuizControllerTest extends WebTestCase
      */
     public function testQuestion(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/quiz/'.QuizFixtures::UUID);
         self::assertResponseIsSuccessful();
     }
@@ -39,7 +39,7 @@ class QuizControllerTest extends WebTestCase
      */
     public function testResult(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
 
         // Can't get score of non finished quiz, redirected to the question
         $client->request('GET', '/quiz/'.QuizFixtures::UUID.'/result');
@@ -51,7 +51,7 @@ class QuizControllerTest extends WebTestCase
      */
     public function testRetry(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/quiz/'.QuizFixtures::UUID.'/retry');
         self::assertResponseRedirects('/quiz/'.QuizFixtures::UUID);
     }
@@ -68,7 +68,7 @@ class QuizControllerTest extends WebTestCase
      */
     public function testQuestionSubmit(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $questionCount = $this->getQuestionCount($client);
 
         $client->request('GET', '/quiz/new');

@@ -8,7 +8,7 @@ use App\Data\QuestionData;
 use App\Twig\QuestionExtension;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class QuestionExtensionTest extends KernelTestCase
+final class QuestionExtensionTest extends KernelTestCase
 {
     private QuestionExtension $questionExtension;
     private QuestionData $questionData;
@@ -16,8 +16,8 @@ class QuestionExtensionTest extends KernelTestCase
     protected function setUp(): void
     {
         self::bootKernel();
-        $this->questionExtension = static::getContainer()->get(QuestionExtension::class);
-        $this->questionData = static::getContainer()->get(QuestionData::class);
+        $this->questionExtension = self::getContainer()->get(QuestionExtension::class);
+        $this->questionData = self::getContainer()->get(QuestionData::class);
     }
 
     /**

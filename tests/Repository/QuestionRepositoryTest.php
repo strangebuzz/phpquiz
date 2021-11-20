@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 /**
  * @covers QuestionRepository
  */
-class QuestionRepositoryTest extends KernelTestCase
+final class QuestionRepositoryTest extends KernelTestCase
 {
     private QuestionRepository $repo;
 

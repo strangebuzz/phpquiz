@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 /**
  * @covers Person
  */
-class PersonTest extends KernelTestCase
+final class PersonTest extends KernelTestCase
 {
     private ValidatorInterface $validator;
 

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @covers QuestionController
  */
-class QuestionControllerTest extends WebTestCase
+final class QuestionControllerTest extends WebTestCase
 {
     /**
      * @return \Generator<int, array>

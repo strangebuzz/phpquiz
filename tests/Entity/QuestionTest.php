@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 /**
  * @covers Question
  */
-class QuestionTest extends KernelTestCase
+final class QuestionTest extends KernelTestCase
 {
     /**
      * @covers Question::getCorrectAnswerCode

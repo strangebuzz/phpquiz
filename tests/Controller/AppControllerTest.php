@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 /**
  * @covers AppController
  */
-class AppControllerTest extends WebTestCase
+final class AppControllerTest extends WebTestCase
 {
     /**
      * @covers AppController::home
