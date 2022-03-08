@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Data\QuizData;
 use App\Form\QuizType;
 use App\Repository\QuizQuestionRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,13 +18,11 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class QuizController extends AbstractController
 {
-    private QuizData $quizData;
-    private QuizQuestionRepository $quizQuestionRepository;
-
-    public function __construct(QuizData $quizData, QuizQuestionRepository $quizQuestionRepository)
-    {
-        $this->quizData = $quizData;
-        $this->quizQuestionRepository = $quizQuestionRepository;
+    public function __construct(
+        private EntityManagerInterface $entityManager,
+        private QuizData $quizData,
+        private QuizQuestionRepository $quizQuestionRepository
+        ) {
     }
 
     /**
@@ -47,7 +46,7 @@ class QuizController extends AbstractController
 
         try {
             $quizQuestion = $this->quizData->getQuizQuestion($quiz);
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return $this->redirectToRoute('quiz_result', ['uuid' => $uuid]);
         }
 
@@ -58,7 +57,7 @@ class QuizController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $quizQuestion->setAnswer($form->getData()['answer']);
-            $this->get('doctrine')->getManager()->flush();
+            $this->entityManager->flush();
 
             return $this->redirectToRoute($_route, ['uuid' => $uuid]);
         }
@@ -75,7 +74,7 @@ class QuizController extends AbstractController
         // Can't get the score if not all questons were answered.
         try {
             $parameters['score'] = $quiz->getScore();
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
         }
 
@@ -92,7 +91,7 @@ class QuizController extends AbstractController
     public function retry(string $uuid): Response
     {
         $this->quizData->getQuiz($uuid)->reset();
-        $this->getDoctrine()->getManager()->flush();
+        $this->entityManager->flush();
 
         return $this->redirectToRoute('quiz_question', ['uuid' => $uuid]);
     }

@@ -17,11 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class QuestionController extends AbstractController
 {
-    private QuestionData $questionData;
-
-    public function __construct(QuestionData $questionData)
+    public function __construct(private QuestionData $questionData)
     {
-        $this->questionData = $questionData;
     }
 
     /**

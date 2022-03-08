@@ -21,14 +21,16 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class DashboardController extends AbstractDashboardController
 {
+    public function __construct(private AdminUrlGenerator $routeBuilder)
+    {
+    }
+
     /**
      * @Route("/")
      */
     public function index(): Response
     {
-        $routeBuilder = $this->get(AdminUrlGenerator::class);
-
-        return $this->redirect($routeBuilder->setController(QuizCrudController::class)->generateUrl());
+        return $this->redirect($this->routeBuilder->setController(QuizCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
