@@ -27,7 +27,8 @@ class QuizQuestionRepository extends ServiceEntityRepository
      */
     public function getQuestionsByRank(Quiz $quiz): array
     {
-        return $this->createQueryBuilder('quiz_question')
+        /** @var array<int,QuizQuestion> $quizQuestion */
+        $quizQuestion = $this->createQueryBuilder('quiz_question')
             ->join('quiz_question.quiz', 'quiz')
             ->join('quiz_question.question', 'question')
             ->andWhere('quiz_question.quiz = :id')
@@ -35,5 +36,7 @@ class QuizQuestionRepository extends ServiceEntityRepository
             ->addOrderBy('quiz_question.rank', 'ASC')
             ->getQuery()
             ->execute();
+
+        return $quizQuestion;
     }
 }

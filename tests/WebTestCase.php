@@ -15,6 +15,7 @@ class WebTestCase extends BaseWebTestCase
     public function getQuestionCount(KernelBrowser $client): int
     {
         $client->request('GET', '/api/questions.jsonld');
+        /** @var array<string, int> $data */
         $data = json_decode((string) $client->getResponse()->getContent(), true, 512, JSON_THROW_ON_ERROR);
 
         if (!\array_key_exists('hydra:totalItems', $data)) {

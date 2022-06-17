@@ -56,7 +56,7 @@ trait AppFixturesTrait
     /**
      * @return array<string,array>
      */
-    private function loadYaml(string $class): array
+    private function loadYaml(string $class): array // @phpstan-ignore-line
     {
         $classInfo = explode('\\', $class);
         $yaml = Yaml::parseFile(__DIR__.'/'.($classInfo[2] ?? '').'.yaml');

@@ -25,7 +25,8 @@ class QuestionRepository extends ServiceEntityRepository
     public function findOneWithNav(int $id): ?Question
     {
         try {
-            return $this->createQueryBuilder('q')
+            /** @var ?Question $question */
+            $question = $this->createQueryBuilder('q')
                 ->andWhere('q.id = :id')
                 ->setParameter('id', $id)
                 ->join('q.answers', 'answers')
@@ -35,19 +36,24 @@ class QuestionRepository extends ServiceEntityRepository
                 ->leftJoin('q.previousQuestion', 'previousQuestion')
                 ->leftJoin('q.nextQuestion', 'nextQuestion')
                 ->getQuery()->getSingleResult();
-        } catch (NoResultException $exception) {
+
+            return $question;
+        } catch (NoResultException) {
             return null;
         }
     }
 
     /**
-     * @return Question[]|array<int,Question>
+     * @return array<int,Question>
      */
     public function findAllByDate(): array
     {
-        return $this->createQueryBuilder('q')
+        /** @var array<int,Question> $questions */
+        $questions = $this->createQueryBuilder('q')
             ->addOrderBy('q.createdAt', 'ASC')
             ->getQuery()
             ->execute();
+
+        return $questions;
     }
 }

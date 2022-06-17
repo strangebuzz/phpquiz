@@ -22,11 +22,12 @@ class AnswerRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return array<int, array>
+     * @return array<int, array{code: string, count: int}>
      */
     public function calculateCorrectAnswerStatistics(): array
     {
-        return $this->createQueryBuilder('q')
+        /** @var array<int, array{code: string, count: int}> $answers */
+        $answers = $this->createQueryBuilder('q')
             ->select('q.code, count(q.id) as count')
             ->where('q.correct=true')
             ->groupBy('q.code')
@@ -34,5 +35,7 @@ class AnswerRepository extends ServiceEntityRepository
             ->getQuery()
             ->execute()
         ;
+
+        return $answers;
     }
 }

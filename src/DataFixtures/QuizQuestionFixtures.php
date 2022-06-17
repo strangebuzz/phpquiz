@@ -26,7 +26,8 @@ class QuizQuestionFixtures extends Fixture implements DependentFixtureInterface
      */
     public function load(ObjectManager $manager): void
     {
-        foreach ($this->loadYaml(self::class)['quiz_questions'] as $quizQuestionArr) {
+        $quizQuestions = $this->loadYaml(self::class)['quiz_questions'];
+        foreach ($quizQuestions as $quizQuestionArr) {
             $quiz = $this->getQuiz($quizQuestionArr['quiz_id']);
             foreach ($this->questionRepository->findAllByDate() as $idx => $question) {
                 $quizQuestion = (new QuizQuestion())

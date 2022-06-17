@@ -13,9 +13,9 @@ use Symfony\Component\HttpFoundation\Response;
 final class QuestionControllerTest extends WebTestCase
 {
     /**
-     * @return \Generator<int, array>
+     * @return iterable<int, array{0: int}>
      */
-    public function getAnswers(): \Generator
+    public function getAnswers(): iterable
     {
         foreach (range(1, 27) as $id) {
             yield [$id];
@@ -29,7 +29,7 @@ final class QuestionControllerTest extends WebTestCase
      */
     public function testShow(int $questionId): void
     {
-        $crawler = static::createClient()->request('GET', '/question/'.$questionId);
+        $crawler = self::createClient()->request('GET', '/question/'.$questionId);
         self::assertResponseIsSuccessful();
 
         // There is four answers for every question (for now)
@@ -44,7 +44,7 @@ final class QuestionControllerTest extends WebTestCase
      */
     public function testShowNotFOund(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/question/notfound');
         self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
 
@@ -57,7 +57,7 @@ final class QuestionControllerTest extends WebTestCase
      */
     public function testRandom(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/question/random');
         self::assertResponseIsSuccessful();
     }
@@ -67,7 +67,7 @@ final class QuestionControllerTest extends WebTestCase
      */
     public function testLast(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/question/last');
         self::assertResponseIsSuccessful();
     }

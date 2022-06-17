@@ -12,18 +12,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class QuestionData
 {
-    private QuestionRepository $questionRepository;
-    private AnswerRepository $answerRepository;
-    private string $sourceCodeDirectory;
-
     public function __construct(
-        QuestionRepository $questionRepository,
-        AnswerRepository $answerRepository,
-        string $sourceCodeDirectory
+        private QuestionRepository $questionRepository,
+        private AnswerRepository $answerRepository,
+        private string $sourceCodeDirectory
     ) {
-        $this->questionRepository = $questionRepository;
-        $this->answerRepository = $answerRepository;
-        $this->sourceCodeDirectory = $sourceCodeDirectory;
     }
 
     public function getQuestion(int $id): Question
@@ -63,8 +56,8 @@ final class QuestionData
     public function getAnswersStatistics(): AnswerStatistics
     {
         $answerStatistics = new AnswerStatistics();
-
-        foreach ($this->answerRepository->calculateCorrectAnswerStatistics() as ['code' => $code, 'count' => $count]) {
+        $stats = $this->answerRepository->calculateCorrectAnswerStatistics();
+        foreach ($stats as ['code' => $code, 'count' => $count]) {
             $answerStatistics->answerCodes[$code] = $count;
             $answerStatistics->sum += $count;
         }

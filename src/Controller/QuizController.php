@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Data\QuizData;
+use App\Entity\Answer;
 use App\Form\QuizType;
 use App\Repository\QuizQuestionRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -56,7 +57,11 @@ class QuizController extends AbstractController
         ])->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $quizQuestion->setAnswer($form->getData()['answer']);
+            /** @var array{answer: Answer} $formData */
+            $formData = $form->getData();
+            /** @var Answer $answer */
+            $answer = $formData['answer'];
+            $quizQuestion->setAnswer($answer);
             $this->entityManager->flush();
 
             return $this->redirectToRoute($_route, ['uuid' => $uuid]);

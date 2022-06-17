@@ -267,7 +267,7 @@ class Question extends BaseEntity
     }
 
     /**
-     * @return Collection<int,Answer>|Answer[]
+     * @return Collection<int,Answer>
      */
     public function getAnswers(): Collection
     {

@@ -11,3 +11,5 @@ parameters:
     bootstrapFiles:
         - %rootDir%/../../../vendor/bin/.phpunit/phpunit/vendor/autoload.php
     checkGenericClassInNonGenericObjectType: false
+    ignoreErrors:
+      - '#loadYaml\(\) return type has no value type specified in iterable type array#'

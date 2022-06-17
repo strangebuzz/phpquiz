@@ -15,9 +15,11 @@ class QuizType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        /** @var QuizQuestion $quizQuestion */
+        $quizQuestion = $options['quiz_question'];
         $builder
             ->add('answer', ChoiceType::class, [
-                'choices' => $this->getQuestion($options['quiz_question'])->getAnswers(),
+                'choices' => $this->getQuestion($quizQuestion)->getAnswers(),
                 'choice_value' => 'id',
                 'choice_label' => 'labelWithCode',
                 'expanded' => true, // radio

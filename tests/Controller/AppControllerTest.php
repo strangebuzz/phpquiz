@@ -40,9 +40,9 @@ final class AppControllerTest extends WebTestCase
     }
 
     /**
-     * @return \Generator<int, array>
+     * @return iterable<int, array{0: string, 1: string}>
      */
-    public function homeFormErrorsProvider(): \Generator
+    public function homeFormErrorsProvider(): iterable
     {
         yield ['', 'This value should not be blank'];
         yield ['foo', 'This is not a valid UUID'];
@@ -65,7 +65,7 @@ final class AppControllerTest extends WebTestCase
             'quiz_restore[uuid]' => $value,
         ]);
         self::assertResponseIsSuccessful();
-        self::assertStringContainsString($error, $client->getResponse()->getContent());
+        self::assertStringContainsString($error, (string) $client->getResponse()->getContent());
     }
 
     /**

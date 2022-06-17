@@ -16,8 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AppController extends AbstractController
 {
-    public function __construct(private QuestionData $questionData)
-    {
+    public function __construct(
+        private QuestionData $questionData
+    ) {
     }
 
     /**
@@ -27,7 +28,10 @@ class AppController extends AbstractController
     {
         $form = $this->createForm(QuizRestoreType::class)->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            return $this->redirectToRoute('quiz_question', ['uuid' => $form->getData()['uuid']]);
+            /** @var array{uuid: string} $formData */
+            $formData = $form->getData();
+
+            return $this->redirectToRoute('quiz_question', ['uuid' => $formData['uuid']]);
         }
 
         return $this->render('app/home.html.twig', [

@@ -34,7 +34,7 @@ final class PersonTest extends KernelTestCase
         self::assertCount(1, $violations);
         foreach ($violations as $violation) {
             if ($violation instanceof ConstraintViolation) {
-                self::assertStringContainsString('Twitter or the pseudo', $violation->getMessage());
+                self::assertStringContainsString('Twitter or the pseudo', (string) $violation->getMessage());
             }
         }
     }
