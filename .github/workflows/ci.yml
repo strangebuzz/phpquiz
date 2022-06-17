@@ -46,7 +46,7 @@ jobs:
         run: bin/console cache:warmup --env=dev
 
       - name: Install PHPUnit
-        run: vendor/bin/simple-phpunit --version
+        run: vendor/bin/phpunit --version
 
       ## —— Coding standards ✨ ————————————————————————————————————————————————
       - name: Coding standards checks (php_codesniffer + PHPStan)
