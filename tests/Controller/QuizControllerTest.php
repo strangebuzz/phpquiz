@@ -73,7 +73,7 @@ final class QuizControllerTest extends WebTestCase
 
         $client->request('GET', '/quiz/new');
         $client->followRedirect();
-        self::assertContains(sprintf('Question 1/%d', $questionCount), $client->getResponse()->getContent());
+        self::assertStringContainsString(sprintf('Question 1/%d', $questionCount), $client->getResponse()->getContent());
 
         foreach (range(1, $questionCount) as $questionRank) {
             $form = $client->getCrawler()->selectButton('Submit')->form();
@@ -90,9 +90,9 @@ final class QuizControllerTest extends WebTestCase
             // Results or next question page
             if ($questionRank === $questionCount) {
                 $client->followRedirect();
-                self::assertContains('Your score:', $client->getResponse()->getContent());
+                self::assertStringContainsString('Your score:', $client->getResponse()->getContent());
             } else {
-                self::assertContains(sprintf('Question %d/%d', $questionRank + 1, $questionCount), $client->getResponse()->getContent());
+                self::assertStringContainsString(sprintf('Question %d/%d', $questionRank + 1, $questionCount), $client->getResponse()->getContent());
             }
         }
     }

@@ -17,7 +17,7 @@ final class AppControllerTest extends WebTestCase
      */
     public function testHome(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/');
         self::assertResponseIsSuccessful();
     }
@@ -29,7 +29,7 @@ final class AppControllerTest extends WebTestCase
      */
     public function testHomeFormNominal(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/');
         $client->submitForm('Resume', [
             'quiz_restore[uuid]' => QuizFixtures::UUID,
@@ -59,13 +59,13 @@ final class AppControllerTest extends WebTestCase
      */
     public function testHomeFormErrors(string $value, string $error): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/');
         $client->submitForm('Resume', [
             'quiz_restore[uuid]' => $value,
         ]);
         self::assertResponseIsSuccessful();
-        self::assertContains($error, $client->getResponse()->getContent());
+        self::assertStringContainsString($error, $client->getResponse()->getContent());
     }
 
     /**
@@ -73,7 +73,7 @@ final class AppControllerTest extends WebTestCase
      */
     public function testAbout(): void
     {
-        $client = static::createClient();
+        $client = self::createClient();
         $client->request('GET', '/about');
         self::assertResponseIsSuccessful();
     }

@@ -8,7 +8,7 @@ DOCKER_COMP  = docker-compose
 YARN         = yarn
 STAN         = ./vendor/bin/phpstan
 PHP_CS_FIXER = ./vendor/bin/php-cs-fixer
-PHPUNIT      = ./vendor/bin/simple-phpunit
+PHPUNIT      = ./vendor/bin/phpunit
 LE_EXEC      = certbot
 .DEFAULT_GOAL := help
 .PHONY: assets

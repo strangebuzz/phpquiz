@@ -38,3 +38,8 @@ public/check.php
 /.php_cs.cache
 /.phpcs-cache
 ###< friendsofphp/php-cs-fixer ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
