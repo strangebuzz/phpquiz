@@ -58,7 +58,7 @@
     "require-dev": {
         "roave/security-advisories": "dev-latest",
         "easycorp/easy-deploy-bundle": "^1.0",
-        "friendsofphp/php-cs-fixer": "^2.16",
+        "friendsofphp/php-cs-fixer": "@stable",
         "justinrainbow/json-schema": "^5.2",
         "phpstan/phpstan-deprecation-rules": "^0.12.5",
         "phpstan/phpstan-symfony": "^0.12",

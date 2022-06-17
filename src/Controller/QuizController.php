@@ -80,7 +80,7 @@ class QuizController extends AbstractController
 
         $parameters['quiz'] = $quiz;
         $parameters['questions'] = $this->quizQuestionRepository->getQuestionsByRank($quiz);
-        $parameters['count'] = count($parameters['questions']);
+        $parameters['count'] = \count($parameters['questions']);
 
         return $this->render('quiz/result.html.twig', $parameters);
     }

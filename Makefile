@@ -76,16 +76,13 @@ build: ## Build assets for production
 	$(YARN) run encore production
 
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
-lint-php: ## Lint files with php-cs-fixer
-	$(PHP_CS_FIXER) fix --dry-run
-
 fix-php: ## Fix files with php-cs-fixer
-	$(PHP_CS_FIXER) fix
+	@$(PHP_CS_FIXER) fix --allow-risky=yes --config=php-cs-fixer.php
 
 stan: ## Run PHPStan
 	$(STAN) analyse -c phpstan.neon --memory-limit 1G
 
-cs: lint-php stan ## Run all coding standards checks
+cs: stan ## Run all coding standards checks
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
 test: phpunit.xml.dist ## Run main functional and unit tests

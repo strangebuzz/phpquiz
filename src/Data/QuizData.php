@@ -52,7 +52,7 @@ class QuizData
         return [
             'quiz_question' => $quizQuestion,
             'question' => $quizQuestion->getQuestion(),
-            'count' => count($questions),
+            'count' => \count($questions),
             'form' => $form->createView(),
         ];
     }

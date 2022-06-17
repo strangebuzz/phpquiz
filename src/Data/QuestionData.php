@@ -43,7 +43,7 @@ final class QuestionData
 
     public function getRandomQuestion(): Question
     {
-        $offset = \mt_rand(0, $this->count() - 1);
+        $offset = mt_rand(0, $this->count() - 1);
         $questions = $this->questionRepository->findBy([], null, 1, $offset);
         if (\count($questions) > 0) {
             return $questions[0];

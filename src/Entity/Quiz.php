@@ -132,7 +132,7 @@ class Quiz extends BaseEntity
             }
         }
 
-        return $score.'/'.(count($qestions) - $notAnswered).' ('.count($qestions).')';
+        return $score.'/'.(\count($qestions) - $notAnswered).' ('.\count($qestions).')';
     }
 
     /**

@@ -60,7 +60,7 @@ trait AppFixturesTrait
     {
         $classInfo = explode('\\', $class);
         $yaml = Yaml::parseFile(__DIR__.'/'.($classInfo[2] ?? '').'.yaml');
-        if (!is_array($yaml)) {
+        if (!\is_array($yaml)) {
             throw new \RuntimeException('Invalid YAML data.');
         }
 

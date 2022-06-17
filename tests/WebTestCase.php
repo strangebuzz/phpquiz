@@ -17,7 +17,7 @@ class WebTestCase extends BaseWebTestCase
         $client->request('GET', '/api/questions.jsonld');
         $data = json_decode((string) $client->getResponse()->getContent(), true, 512, JSON_THROW_ON_ERROR);
 
-        if (!array_key_exists('hydra:totalItems', $data)) {
+        if (!\array_key_exists('hydra:totalItems', $data)) {
             throw new \RuntimeException("Can't find the totalItems hydra field.");
         }
 

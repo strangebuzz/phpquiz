@@ -17,7 +17,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     {
         $questions = $this->loadYaml(self::class)['questions'];
         foreach ($questions as $question) {
-            [/*previous_question*/ , $id, /*next_question*/ , $personId, $difficultyId, $label, $codeImage, $codeImageFile, $answerExplanations,
+            [/* previous_question */ , $id, /* next_question */ , $personId, $difficultyId, $label, $codeImage, $codeImageFile, $answerExplanations,
                 $liveSnippetUrl, $twitterPollUrl, $differencesOutputNotes, $createdAt, $updatedAt] = array_values($question);
             $createdAtDateTime = date_create($createdAt);
             $updatedAtDateTime = date_create($updatedAt);
@@ -45,8 +45,8 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         // prev and next questions
         foreach ($questions as $question) {
             [$previousQuestionId, $id, $nextQuestionId] = array_values($question);
-            $previousQuestion = is_int($previousQuestionId) ? $this->getQuestion($previousQuestionId) : null;
-            $nextQuestion = is_int($nextQuestionId) ? $this->getQuestion($nextQuestionId) : null;
+            $previousQuestion = \is_int($previousQuestionId) ? $this->getQuestion($previousQuestionId) : null;
+            $nextQuestion = \is_int($nextQuestionId) ? $this->getQuestion($nextQuestionId) : null;
             $this->getQuestion($id)
                 ->setPreviousQuestion($previousQuestion)
                 ->setNextQuestion($nextQuestion);
